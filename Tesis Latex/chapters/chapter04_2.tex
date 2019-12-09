@@ -1,0 +1,323 @@
+% !TEX encoding = UTF-8 Unicode
+
+
+\section{El concepto de cointegración: Caso 2+ series (VEC)}
+
+En secciones previas, se ha tratado el concepto de cointegración entre dos series  con orden de integración uno, es decir, variables $I(1)$ tales que existe una combinación lineal entre ellas cuyos residuos son estacionarios. Esto nos permite hacer referencia de la relación a largo plazo  existente entre las series, así como proponer un modelo de corrección del error para obtener beneficios de la dinámica de ambas variables. Sin embargo, es tentador  extender el análisis a un caso más general que permita rescatar la información de varias series en un mismo instante. \bigskip 
+
+Es lógico pensar que la definición de cointegración resulta invariante respecto a la suma de de variables en el sistema, es decir, si se tienen $k$ series de tiempo cointegradas donde cada una de ellas es integrada de orden $d$ ($I(d)$), entonces existe al menos una combinación lineal que resulta ser estacionaria. En términos matriciales y de acuerdo a la definición de Engle y Granger (1987) se tiene que los componentes del vector $\bar{Z}_t$ se dice que están cointegradas de orden d,b, denotado $\bar{Z}_t \sim CI(d,b)$, si todos los componentes de $\bar{Z}_t$ son $I(d)$ y existe un vector $\alpha$ diferente de cero tal que $\bar{Z}_t = \alpha'\bar{Z}_t \sim I(d-b)$ con $b>0$. El vector $\alpha$ es llamado vector de cointegración. \bigskip 
+
+
+La metodología de dos pasos de Granger, presentada anteriormente, ayuda a identificar si dos series están cointegradas ajustando cada una de las regresiones lineales del sistema y posteriormente observando si los residuos son estacionarios, dicha estrategia se puede extender fácilmente a un caso más general. Sin embargo, la prueba comienza a mostrar debilidades al aumentar el número de variables en el sistema, ya que en primer lugar, ajustar las regresiones lineales del sistema otorgará únicamente uno de los posibles vectores de coientegración; en segundo lugar, las conclusiones pueden ser ambiguas dependiendo de la variable usada para la normalización y finalmente, al tratarse de una estimación en dos pasos, es posible acarrear errores que provoquen graves consecuencias para el análisis.\bigskip 
+
+Existe otra técnica que ayuda a corregir estas deficiencias de la metodología de Granger, como es el caso del \textbf{Procedimiento de Johansen} que encuentra su motivación a partir de una generalización multivariada de la prueba de Dickey-Fuller, la cual emprende a partir de un proceso autorregresivo de orden uno de la siguiente forma:
+
+\begin{eqnarray}
+Z_{t} &=& a_1Z_{t-1} + e_t \nonumber \\
+Z_{t}- Z_{t-1} &=& (a_1 - 1) Z_{t-1} +e_t \nonumber \\
+\nabla Z_t &=& \rho Z_{t-1} + e_t \nonumber
+\end{eqnarray}
+
+donde $\rho=(a_1 - 1)$ y las pruebas de hipótesis correspondientes son $H_0: \rho=0$ y $H_a: \rho \neq 0$. Por lo tanto, de manera análoga es posible derivar su versión multivariada 
+
+\begin{eqnarray}
+\bar{Z}_t = A \bar{Z}_{t-1} + e_t \nonumber \\
+\bar{Z}_t - \bar{Z}_{t-1}= (A- I_k) \bar{Z}_{t-1} + e_t \\
+\nabla \bar{Z}_t = \Pi\bar{Z}_{t-1} + e_t \nonumber 
+\end{eqnarray}
+
+donde $\Pi= (A-I_k)$, $\bar{Z}_t= \left ( {Z_1}_t, {Z_2}_t, \cdots, {Z_k}_t \right )'$,  $e_t$ es un  vector de ruido blanco Gaussiano de dimensión $(k \times 1)$ y las matrices $I$ y $A$ son de dimensión $(k \times k)$, de manera que la prueba de hipótesis a realizar es respecto al rango de la matriz $\Pi$, dicho de otra forma, determinar cuántas relaciones de cointegración se hallan en el sistema.\bigskip 
+
+ En consecuencia, si la matriz $\Pi$ es de rango completo indicaría que que todos los vectores son linealmente independientes y por lo tanto vectores de cointegración, por lo que se concluye que todas las variables son estacionarias  ya que cualquier combinación lineal de variables estacionarias, es estacionaria. En cambio, si el rango es cero quiere decir que las variables no guardan ningún tipo de asociación a largo plazo y por ende no están cointegradas, finalmente, si $rank(\Pi)=r$ con $r<k$ implica que únicamente existen $r$ combinaciones lineales de los procesos en $\bar{Z}_t$  que son estacionarias.\bigskip 
+ 
+ Al igual que en la prueba de \textbf{Dickey-Fuller Aumentada} es factible aumentar el orden del vector autorregresivo
+ 
+ \begin{equation}
+ \bar{Z}_t= A_1\bar{Z}_{t-1} + A_2\bar{Z}_{t-2}+ \cdots + A_p\bar{Z}_{t-p} +e_t
+ \end{equation} 
+ 
+ el cual se puede expresar de manera más compacta y útil al realizar la siguiente recursión:\bigskip 
+ 
+ Restar $\bar{Z}_{t-1}$,
+
+ \begin{equation}
+ \nabla \bar{Z}_t= (A_1- I_k)\bar{Z}_{t-1} + A_2\bar{Z}_{t-2}+ \cdots + A_p\bar{Z}_{t-p} +e_t \nonumber
+ \end{equation}
+
+sumar y restar del lado derecho de la ecuación $(A_1-I_k)\bar{Z}_{t-2}$
+
+ \begin{equation}
+\nabla \bar{Z}_t= (A_1- I_k)\bar{Z}_{t-1} + (A_2+ A_1-I_k)\bar{Z}_{t-2}+ \cdots + A_p\bar{Z}_{t-p}+e_t \nonumber
+ \end{equation}
+ 
+ sumar y restar del lado derecho de la ecuación $(A_2+A_1-I_k)\bar{Z}_{t-3}$
+ 
+  \begin{equation}
+\nabla \bar{Z}_t= (A_1- I_k)\bar{Z}_{t-1} + (A_2+ A_1-I_k)\bar{Z}_{t-2}+  (A_3+A_2+ A_1-I_k)\bar{Z}_{t-3}\cdots + A_p\bar{Z}_{t-p}+e_t \nonumber
+ \end{equation}
+ 
+ y así sucesivamente para obtener 
+ 
+   \begin{equation}  \label{eq:cap5_VEC} %%%%1
+\nabla \bar{Z}_t=\sum_{i=1}^{p-1}\Gamma_i\nabla\bar{Z}_{t-i} + \Pi\bar{Z}_{t-p}+  e_t
+ \end{equation}
+ 
+con 
+
+\begin{eqnarray}
+\Gamma_i&=&-\left (I-\sum_{j=1}^{i} A_j  \right )\\
+\Pi&=&-\left (I-\sum_{i=1}^{p} A_i  \right )
+\end{eqnarray}
+
+A la expresión \textit{\ref{eq:cap5_VEC}}, la cual es la versión generalizada multivariada de Dickey-Fuller Aumentado se le conoce como el \textbf{Modelo de Vectores de Corrección del error} denotado como $VEC$ por sus siglas en inglés. \bigskip 
+
+Si cada uno de los elementos del vector $\bar{Z}_t$ contiene una raíz unitaria, es conveniente analizar más a fondo la ecuación \textit{\ref{eq:cap5_VEC}}, dado que aquí se encuentra la razón del origen del modelo. Al considerar que $\bar{Z}_t\sim I(1)$ implica que cada una de las series del vector requieren de una diferencia para ser estacionarias en cuanto a su nivel, por lo tanto, $\nabla \bar{Z}_t = \left (  \nabla {Z_1}_t, \nabla {Z_2}_t, \cdots, \nabla {Z_k}_t\right )'$  es un vector de $(k \times 1)$ que contiene en cada elemento a una serie estacionaria.  Esto significa que la parte izquierda de la expresión del modelo $VEC$ es estacionaria y al tratarse de una igualdad, nos obliga a suponer que la parte derecha de la misma también debe de serlo.  Es posible observar que el término $\sum_{i=1}^{p-1}\Gamma_i\nabla\bar{Z}_{t-i} $ es estacionario puesto que tiene a cada una de las series con su primera diferencia, además, $e_t$ bajo el supuesto de ruido blanco en los errores, es estacionario. Sin embargo,  el único término del que no se tiene la certeza de que se trata de un proceso estacionario es $\Pi\bar{Z}_{t-p}$. Este es el argumento que llevo a S. Johansen (1991) a considerar que la matriz $\Pi$ debe ser de tal forma que al ser premultiplicada por $\bar{Z}_{t-p}$ debe ser estacionaria. Esto quiere decir que se debe analizar el rango de la matriz $\Pi$ debido a que pueden existir $r$ relaciones de cointegración $0\leq r \leq k$.\bigskip 
+
+ Evidentemente los casos de menor importancia son cuando el rango de la matriz es nulo o es de rango completo, ya que el primero de ellos indicaría que la matriz $\Pi$ es la matriz nula y no hay ningún tipo de relación de largo plazo entre las variables, haciendo del modelo $VEC$ un $VAR(p-1)$ en primeras diferencias, la cual sería la especificación estable adecuada para $\nabla \bar{Z}_t$ en este caso; en el segundo caso, implicaría que el vector $\bar{Z}_t\sim I(0)$ en cuanto a su nivel y por ende  se trata únicamente de un $VAR(p+1)$. En consecuencia, el caso para el cual se tiene que el rango de la matriz $\Pi$ es igual a $r$ despierta nuestro interés por el hecho de que se desea encontrar una especificiación apropiada por el modelo, es decir, proponer un   $VAR(p-1)$  en primeras diferencias no es la mejor selección pues impondría la restricción falsa de $\Pi=0$ perdiendo así información valiosa de las relaciones de cointegración presentes en el sistema, de manera que la expresión $\Pi\bar{Z}_{t-p}$ representa el factor de correción del error, que ha de ajustar en el corto plazo las desviaciones en las relaciones de largo plazo.\bigskip 
+ 
+ \subsection{Inferencia Sobre los Coeficientes}
+ 
+\externaldocument{chapter04_1}
+
+ La inferencia sobre los parámetros del modelo $VEC$ es, en esencia, la misma que se ha proporcionado para los coeficientes en el modelo de corrección del error. Al observar nuevamente la ecuación \textit{\ref{eq:rcoint}}  es posible notar que el vector de cointegración para la relación $Y_{t-1} - \beta_1 -\beta_2 Z_{t-1}$ es $(1, -1,-1)$ y $\alpha$ representa la velocidad de ajuste ante desviaciones en las relaciones de largo plazo. Esta información también se encuentra expresada dentro de la matriz $\Pi$ del modelo vectorial de corrección del error y para obtenerla de forma explícita es necesario considerar que al emplear una matriz de dimensiones finitas, en particular de $(k \times k)$, y con rango $0\leq r \leq k$, admite una factorización de rango. Dicha factorización hace posible expresar a la matriz $\Pi$ como producto de dos matrices $\Pi=\alpha\beta'$ donde ambas matrices son de dimensión $(k \times r)$ con rango $rank(\alpha)=rank(\beta')=r$.\bigskip 
+ 
+ Para obtener la factorización solo basta con recapitular que la matriz $\Pi$ es de rango $r$ y por lo tanto, tiene $r$ columnas que son linealmente independientes, equivalentemente, la dimensión del espacio columna es de dimensión r, así que la matriz $\beta'$ se construye a partir de colocar la base del espacio columna de $\Pi$ como vectores columna. En consecuencia, cada vector columna de la matriz $\Pi$ es una combinación lineal  de las columnas de $\beta'$, de manera que los coeficientes que se requieren en las combinaciones lineales para generar cada elemento de $\Pi$ constituyen a la matriz $\alpha$. A causa de esta factorización se gana intepretación en el modelo, ya que ahora debe resultar claro que la matriz $\beta'$ contiene los $r$ vectores de cointegración existentes en el modelo, mientras que los elementos de $\alpha$ son los coeficientes del modelo $VEC$ en los cuales se podrá observar el ajuste en corto plazo.\bigskip 
+ 
+ Por lo tanto, la ecuación  \textit{\ref{eq:cap5_VEC}} también puede ser expresada como:\bigskip 
+ 
+    \begin{equation}  \label{eq:cap5_VECcon_alpha_y_beta}
+\nabla \bar{Z}_t=\sum_{i=1}^{p-1}\Gamma_i\nabla\bar{Z}_{t-i} + \alpha\beta'\bar{Z}_{t-p}+  e_t
+ \end{equation}
+ 
+ donde por definición se tiene que $\beta'\bar{Z}_{t-p}\sim I(0)$.\bigskip 
+ 
+Finalmente, es necesario enfatizar que las matrices $\alpha$ y $\beta$ no son únicas ya que para cualquier matriz no singular $D$ de dimensión $(r \times r)$ se tiene que
+
+\begin{equation}
+\alpha\beta'=\alpha DD^{-1}\beta'= \left ( \alpha D\right )\left ( D^{-1}\beta'\right )=\left ( \alpha D\right ){\left ( \beta {D^{-1}}'\right )}'=\alpha^{\star}{\beta^{\star}}'
+\end{equation}
+ 
+de manera que las matrices $\alpha$ y $\beta$ no están perfectamente definidas a menos que se impongan restricciones sobre los coeficientes.\bigskip 
+
+
+ 
+ 
+ \subsection{Estimación}
+  
+  La siguiente pregunta que debe surgir respecto al análisis de un modelo de correción del error es cómo determinar el rango de la matriz $\Pi$. Para ello Johansen (1991) ha desarrollado dos estadísticos de prueba que, basados en Máxima Verosimilitud, permiten hacer una estimación de cuántas posibles relaciones de cointegración se encuentran en el modelo  , a través de la técnica de cociente de verosimilitudes.   \bigskip 
+  
+Sea el modelo $VEC$ 
+
+   \begin{equation} 
+\nabla \bar{Z}_t=\sum_{i=1}^{p-1}\Gamma_i\nabla\bar{Z}_{t-i} + \Pi\bar{Z}_{t-p}+  e_t
+ \end{equation}
+ 
+
+ 
+ donde $\Gamma_i=(-I_k +A_1+A_2+\cdots+A_i)$ para $i=1,\cdots, p-1$ y $\Pi=(-I_k + A_1 + A_2 +\cdots + A_p)$, suponiendo que $e_t \sim N(0,\Sigma_e)$ y $rank(\Pi)=r$, dado que no se tienen restricciones sobre $r$, el resultado se puede generalizar para cuando $r=k$. \bigskip 
+ 
+ Por lo tanto, dado que los errores provienen de una distribución normal multivariada, el logaritmo de la función de verosimilitud de $T$ observaciones condicionada a los valores inciales $(\bar{Z}_{1-p}, \bar{Z}_{2-p}, \cdots, \bar{Z}_0)$ correspondiente es:
+ 
+ \begin{equation}\label{eq:Cap5_fnverosimilitud}
+ ln(L(\Pi,\Gamma, \Sigma_e))= -\frac{Tk}{2}ln(2\pi)-\frac{T}{2}ln\left | \Sigma_e \right |-\frac{1}{2}\sum_{t=1}^{T}e_t'\Sigma_e^{-1}e_t
+ \end{equation}
+ 
+con $e_t=\nabla \bar{Z}_t-\sum_{i=1}^{p-1}\Gamma_i\nabla\bar{Z}_{t-i} - \Pi\bar{Z}_{t-p}$ y $\Gamma=(\Gamma_1,\cdots, \Gamma_{p-1})$.\bigskip 
+
+El esquema a seguir para poder encontrar el estimador de máxima verosimilitud de $\Pi$ consiste en componer una función de verosimilitud a partir de \textit{\ref{eq:Cap5_fnverosimilitud}} que únicamente dependa de la matriz $\Pi$, lo cual será posible si se maximiza respecto a un parámetro considerando el resto como fijos, por ende, si maximizamos la función de verosimilitud respecto a $\Sigma_e$ sujeta a que $\Pi$ y $\Gamma$ están dados, obtendremos que
+
+\begin{equation}
+\widehat{\Sigma}_e=\frac{1}{T}\sum_{t=1}^{T}e_te_t'
+\end{equation} 
+ 
+ Igualmente, para obtener $\widehat{\Gamma}$ es necesario maximizar \textit{\ref{eq:Cap5_fnverosimilitud}} respecto a $\Gamma$ sujeto a que $\Pi$ y $\Sigma_e$ son dados, sin embargo, la ecuación  \textit{\ref{eq:cap5_VEC}} se puede reparametrizar si definimos a ${W_0}_t= \nabla \bar{Z}_t$, ${W_p}_t=\bar{Z}_{t-p}$ y 
+ 
+ \begin{equation}
+ {W_1}_t=\begin{pmatrix}
+\nabla \bar{Z}_{t-1}\\ 
+\nabla \bar{Z}_{t-2}\\ 
+\vdots\\ 
+\nabla \bar{Z}_{t-p+1}
+\end{pmatrix}
+ \end{equation}
+ 
+ por lo que dado un valor de $\Pi$ se obtiene la nueva expresión $( {W_0}_t - \Pi {W_p}_t)=\Gamma {W_1}_t + e_t$ o de manera análoga $ ({W_0}_t - \Pi {W_p}_t)'= {W_1}_t'\Gamma' + e_t'$ para la cual el estimador de máxima verosimilitud de $\Gamma'$ dados $\Pi$ y $\Sigma_e$ coincide con el estimador de mínimos cadrados ordinarios ecuación por ecuación, ya que es un sistema de ecuaciones con idénticos regresores en cada ecuación. \bigskip 
+ 
+ Sea,
+ 
+ \begin{equation}
+ S_{ij}=\frac{1}{T} \sum_{t=1}^{T}{R_i}_t{R_j}_t' \qquad  i,j=0,p
+ \end{equation}
+ 
+ donde ${R_0}_t$ es el residuo en $t$ de la regresión de cada uno de los elementos de $ {W_0}_t =\nabla \bar{Z}_{t}$ sobre ${W_1}_t =(\nabla \bar{Z}_{t-1}', \nabla \bar{Z}_{t-2}',\cdots, \nabla \bar{Z}_{t-p+1}' )$ con $t=1, \cdots, T$ y ${R_1}_t$ es el residuo en $t$ de la regresión de cada uno de los elementos de ${W_p}_t=\bar{Z}_{t-p}$ sobre $ {W_1}_t =(\nabla \bar{Z}_{t-1}', \nabla \bar{Z}_{t-2}',\cdots, \nabla \bar{Z}_{t-p+1}' )$ con $t=1, \cdots, T$. Por lo que es posible escribir la función de verosimilitud concentrada solamente en función de $\alpha$ y $\beta$, pues $\Pi=\alpha\beta'$.
+ 
+ \begin{equation} \label{eq:Cap5_fnveralphabeta}
+ ln(L_c(\alpha,\beta))= -\frac{kT}{2}(ln(2\pi)+1)-\frac{T}{2}ln\left | S_{00}-\alpha \beta' S_{p0} -S_{0p}\beta \alpha' + \alpha\beta'S_{pp}\beta\alpha' \right |
+ \end{equation}
+  
+ a partir de la cual, al maximizar,  podemos obtener una estimación de $\alpha$ considerando a $\beta$ como valor fijo, de manera que 
+ 
+ \begin{equation}
+ \widehat{\alpha}= S_{op}\beta(\beta'S_{pp}\beta)^{-1}
+ \end{equation} 
+ 
+ sustituyendo $\widehat{\alpha}$ en \textit{\ref{eq:Cap5_fnveralphabeta}} es factible concentrar la función de verosimilitud que dependerá exclusivamente de $\beta$ obteniendo lo siguiente:
+ 
+ \begin{equation}
+ ln(L_{cc}(\beta))= -\frac{kT}{2}(ln(2\pi)+1)-\frac{T}{2}ln\left ( \left | \beta'S_{pp}\beta \right |^{-1} \left | S_{00} \right |\left | \beta'\left ( S_{pp}-S_{p0}S_{00}^{-1}S_{0p} \right )\beta \right | \right )
+ \end{equation}
+ 
+ Maximizar esta última ecuación corresponde a minimizar el siguiente cociente imponiendo la normalización $ \beta'S_{pp}\beta=I$
+  
+\begin{equation}\label{eq:Cap5_maximover}
+\frac{\left | \beta'\left ( S_{pp}-S_{p0}S_{00}^{-1}S_{0p} \right )\beta \right |}{\left | \beta'S_{pp}\beta \right |}
+\end{equation}
+
+el cual equivale a resolver el problema de obtención de los $r$ mayores valores propios de los  $k$ existentes, supongamos que $\lambda_1>\lambda_2>\cdots>\lambda_r>\cdots>\lambda_k$ para los cuales tenemos que sus correspondientes vectores propios son: $(v_1,v_2,\cdots, v_r, \cdots, v_k)$, de tal suerte que las $r$ columnas de $\widehat{\beta}_{MV}$ pertenecen a los $r$ primeros vectores.\bigskip 
+
+Por lo tanto, una vez obtenido $\widehat{\beta}_{MV}$, el logaritmo de la  función de verosimilitud \textit{\ref{eq:Cap5_fnverosimilitud}} evaluada en el máximo considerando $r$ como el rango de cointegración  es:
+
+\begin{equation} \label{eq:Cap5_maximofnver}
+ln(L_r)=-\frac{Tk}{2}\left ( ln(2\pi)+1 \right )-\frac{T}{2}\left ( ln\left | S_{00} \right |+ \sum_{i=1}^rln(1-\lambda_i) \right )
+\end{equation}
+
+con 
+
+\begin{eqnarray}
+\widehat{\alpha}_{MV} & = & S_{op}\widehat{\beta}(\widehat{\beta}'S_{pp}\widehat{\beta})^{-1} \nonumber \\
+\widehat{\Pi}_{MV} &=& \widehat{\alpha}_{MV}\widehat{\beta}_{MV}' \nonumber\\
+\widehat{\Gamma}_{MV}' &=& \left ( \sum_{t=1}^T {Z_1}_t{Z_1}_t' \right )^{-1}\left ( \sum_{t=1}^{T}{Z_1}_t\left ( {Z_0}_t-\widehat{\Pi}_{MV}{Z_p}_t \right )' \right ) \nonumber\\
+\widehat{\Sigma}_{e} &=& \frac{1}{T}\sum_{t=1}^{T}e_te_t' \nonumber
+\end{eqnarray}
+
+
+El resultado \textit{\ref{eq:Cap5_maximofnver}} es utilizado para conseguir el estadístico de prueba denominado \textbf{Estadístico Traza}, el cual se obtiene a través de un cociente de verosimilitudes y ayuda a identificar cuántas relaciones de cointegración hay en el modelo de corrección del error.\bigskip 
+
+Para obtener el siguiente estadístico de prueba, es necesario hacer pequeñas modificaciones a la metodología mostrada anteriormente. Evidentemente, deberán otorgar el mismo resultado, ya que parten de la misma función de verosimilitud pero se ataca el problema desde enfoques diferentes.\bigskip 
+
+La primera de las modificaciones consiste en el procedimiento a seguir para obtener una estimación de $\widehat{\alpha}$. Para ello, se retoma la reparametrización  $\left ( {W_0}_t - \Pi {W_p}_t \right ) = \Gamma {W_1}_t +e_t$ con ${W_0}_t= \nabla \bar{Z}_t$, ${W_p}_t=\bar{Z}_{t-p}$ y $ {W_1}_t= ( \nabla \bar{Z}_{t-1}, \nabla \bar{Z}_{t-2},\cdots,\nabla \bar{Z}_{t-p+1})'$. De esta relación se obtienen los residuos ${R_0}_t$ y ${R_1}_t$ de tal suerte que al sustituir en \textit{\ref{eq:Cap5_fnverosimilitud}}  se deriva la siguiente función de verosimilitud:
+
+\begin{equation}\label{fnverosimilitudenfoque2}
+ln\left ( L(\alpha,\beta,\Sigma_e) \right )= -\frac{Tk}{2}ln(2\pi)-\frac{t}{2}ln\left | \Sigma_e \right |-\frac{1}{2}\sum_{t=1}^{T}\left ( {R_0}_t- \alpha\beta'{R_p}_t \right )'\Sigma_e^{-1}\left ( {R_0}_t- \alpha\beta'{R_p}_t   \right )
+\end{equation}
+
+otra forma de expresar esta última ecuación es 
+
+\begin{equation}
+{R_0}_t=\alpha\beta'{R_1}_t + \widehat{e}_t
+\end{equation}
+
+dicha regresión tiene la misma función de verosimilitud que en \textit{\ref{fnverosimilitudenfoque2}}, sin embargo, su estimación no es como en regresión usual, ya que $\alpha\beta'$ no es de rango completo. Por lo tanto, la estimación de esta regresión debe ser a través de mínimos cuadrados generalizados, otorgando los siguientes estimadores de $\alpha$ y $\Sigma_e$ en función de $\beta$.
+
+\begin{eqnarray}
+\widehat{\alpha}(\beta) &=& S_{po}\beta(\beta'S_{pp}\beta)^{-1} \\
+\widehat{\Sigma_e}(\beta) &=& S_{00}-\widehat{\alpha}(\beta)(\beta'S_{pp}\beta)\widehat{\alpha}(\beta)'
+\end{eqnarray} 
+
+sustituyendo estos valores en \textit{\ref{fnverosimilitudenfoque2}} encontramos que la función de verosimilitud concentrada únicamente en $\beta$ es
+
+\begin{equation}
+L_{cc}^{-\frac{2}{T}}(\beta)=\left |S_{00} \right | \frac{\left | \beta'\left ( S_{pp}-S_{p0}S_{00}^{-1}S_{0p} \right )\beta \right |}{\left | \beta'S_{pp}\beta \right |}
+\end{equation}
+
+Por lo tanto, nos enfrentamos al mismo problema que en la ecuación \textit{\ref{eq:Cap5_maximover}} y el valor que maximiza a la función de verosimilitud en este caso está dado por 
+
+\begin{equation}
+L_{cc}^{-\frac{2}{T}}= \left |S_{00} \right |\prod_{i=0}^{r}\left ( 1-\widehat{\lambda}_i \right )
+\end{equation}
+
+
+a partir del cual se obtendrá el \textbf{ estadístico del mayor valor propio} mediante un cociente de verosimilitudes tal y como se muestra en la siguiente sección.\bigskip 
+
+Ambos resultados pueden ser fácilmente  reproducidos incluyendo términos determinísticos en el modelo, es importante tener en consideración esta notación, ya que en la práctica la presencia de estos términos resulta ser de uso frecuente.  
+ 
+
+
+ \subsection{Contrastes sobre el rango de cointegración}
+
+El método que brinda resultados razonables para contrastar el rango de $\Pi$ es el denominado cociente de verosimilitudes, el cual parte de un valor inicial $r^{\star}$ que se supone, es el número de relaciones de cointegración inherentes al modelo. \bigskip 
+
+
+Por un lado, para el estadístico traza se define a  $H(r^{\star})$ como la hipótesis nula de que el rango de $\Pi$ es menor o igual a $r^{\star}$,  posteriormente se realiza  el siguiente proceso iterativo de pruebas de hipótesis:
+
+\begin{eqnarray}
+{H_0}^1: rank(\Pi)\leq r^{\star} & vs & {H_a}^1: rank(\Pi)=1,2,\cdots,k \nonumber \\
+ {H_0}^2: rank(\Pi)\leq r^{\star}+1 &vs& {H_a}^2: rank(\Pi)=1,2,\cdots,k \mid rank(\Pi)\nleqslant r^{\star} \nonumber\\
+ &\vdots& \nonumber\\
+{H_0}^i: rank(\Pi)\leq r^{\star}+i &vs& {H_a}^i: rank(\Pi)=1,2,\cdots,k\mid rank(\Pi)\nleqslant r^{\star}+i-1 \nonumber
+\end{eqnarray}
+
+La prueba de razón de verosimilitud de la $i-$ésima hipótesis nula se basa en el estadístico de prueba llamado por Johansen \textbf{estadístico de la traza}, el cual se obtiene al realizar el cociente del logaritmo de la función de verosimilitud bajo la hipótesis nula sobre el logaritmo de la función de verosimilitud bajo la hipótesis alternativa $( rank(\Pi)=k)$, de manera que se obtiene 
+
+\begin{eqnarray}
+\lambda_{traza} &=& T\left ( \sum_{i=1}^r ln(1-\widehat{\lambda}_i) - \sum_{i=1}^k ln(1-\widehat{\lambda}_i) \right ) \nonumber \\
+ &=& -T \sum_{i=r+1}^k ln(1-\widehat{\lambda}_i) 
+\end{eqnarray}
+
+En consecuencia, dado que se buscan los valores propios que sean significativamente distintos de cero, se tendrá que mientras más alejado este el valor propio del cero, el valor $ln(1-\widehat{\lambda}_i)$ será más pequeño y por lo tanto el valor del estadístico traza será más grande.\bigskip 
+
+Por otro lado, para realizar el contraste del mayor valor propio se realiza de manera análoga un proceso iterativo de pruebas de hipótesis y también un cociente de verosimilitudes para obtener el \textbf{estadístico  del mayor valor propio}. En este caso, la hipótesis nula propone que el rango de cointegración de la matriz $\Pi$ es exactamente $r^{\star}$, de manera que las iteraciones para contrastar su rango se dan de la siguiente manera:
+
+\begin{eqnarray}
+{H_0}^1: rank(\Pi) = r^{\star} & vs & {H_a}^1: rank(\Pi)=r^{\star} +1 \nonumber \\
+ {H_0}^2: rank(\Pi)= r^{\star}+1 &vs& {H_a}^2: rank(\Pi)=r^{\star}+2 \mid rank(\Pi)\neq r^{\star} \nonumber\\
+ &\vdots& \nonumber\\
+{H_0}^i: rank(\Pi)\leq r^{\star}+i &vs& {H_a}^i: rank(\Pi)=1,2,\cdots,k\mid rank(\Pi)\neq r^{\star}+i-1 \nonumber
+\end{eqnarray}
+
+
+Por consiguiente, el contraste de razón de verosimilitudes es
+
+\begin{eqnarray}
+\lambda_{max} &=& T\left ( \sum_{i=1}^r ln(1-\widehat{\lambda}_i) - \sum_{i=1}^{r+1} ln(1-\widehat{\lambda}_i) \right ) \nonumber \\
+ &=& -T  ln(1-\widehat{\lambda}_{r+1}) 
+\end{eqnarray}
+
+de igual manera, valores propios cercanos a cero implican valores pequeños del estadístico $\lambda_{max}$. Los valores críticos para ambos estadísticos fueron desarrollados a través de un estudio de simulación por Johansen y Juselius (1990), la tabla se presenta al final de este documento. La distribución asintótica de estos estadísticos depende de la forma de los términos determinísticos presentes en el modelo y  del número de componentes no estacionarios bajo la hipótesis nula, es decir, si la hipótesis nula supone $r$ relaciones de cointegración, entonces habrá $(n-r)$  componentes no estacionarias.   
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%                                                   %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%% ETIQUETAS DE ECUACIONES %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%                                                   %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                                                                                                                                                                                            %
+%                                                                                                                                                                                                            %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%                          %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% INSTRUCCIÓN %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%                           %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%  En la ecuación:                                                       \label{eq:cap4_VARgeneralmatricialest}
+%  en el párrafo donde irá la referencia:                \textit{\ref{eq:cap4_VARgeneralmatricialest}}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%                                                                     %%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%% INDICE DE ETIQUETAS DE ECUACIONES %%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%                                                                      %%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%  \label{eq:cap5_VEC}
+%  \label{eq:Cap5_fnverosimilitud}
+%  \label{eq:Cap5_fnveralphabeta}
+%  \label{eq:Cap5_maximofnver}
+%  \label{fnverosimilitudenfoque2}
+%  \label{eq:Cap5_maximover}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%                                                                     %%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%                       BIBLIOGRAFIA                      %%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%                                                                      %%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%  JOHANSEN Y JUSELIUS (1990)
+

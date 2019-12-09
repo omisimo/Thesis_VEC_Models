@@ -1,0 +1,4 @@
+"0","tmp_beta <- vecm@V[,1:2]"
+"0","pre_s <- diag(2)"
+"0","st <- cbind(pre_s, c(0,0)) "
+"0","beta_c <- tmp_beta%*%solve(st%*%tmp_beta)"

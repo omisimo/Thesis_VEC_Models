@@ -1,0 +1,190 @@
+--- 
+title: "Código Tesis"
+author: "Omar Díaz Landa"
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+output: bookdown::gitbook
+documentclass: book
+bibliography: [book.bib, packages.bib]
+biblio-style: apalike
+link-citations: yes
+github-repo: rstudio/bookdown-demo
+description: "This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook."
+---
+
+# Prerequisitos
+
+En esta sección encontraremos todos los paquetes necesarios para replicar la ejecución:
+
+
+```{r,message=FALSE}
+library(bookdown)
+library(readxl)
+library(ggplot2)
+library(tidyverse)
+library(plotly)
+library(urca)
+library(forecast)
+library(lubridate)
+library(vars)
+library(texreg)
+library(ggpubr)
+```
+
+Función para generar varias graficas en una sola
+
+
+```{r}
+# Multiple plot function
+#
+# ggplot objects can be passed in ..., or to plotlist (as a list of ggplot objects)
+# - cols:   Number of columns in layout
+# - layout: A matrix specifying the layout. If present, 'cols' is ignored.
+#
+# If the layout is something like matrix(c(1,2,3,3), nrow=2, byrow=TRUE),
+# then plot 1 will go in the upper left, 2 will go in the upper right, and
+# 3 will go all the way across the bottom.
+#
+multiplot <- function(..., plotlist=NULL, file, cols=1, layout=NULL) {
+  library(grid)
+
+  # Make a list from the ... arguments and plotlist
+  plots <- c(list(...), plotlist)
+
+  numPlots = length(plots)
+
+  # If layout is NULL, then use 'cols' to determine layout
+  if (is.null(layout)) {
+    # Make the panel
+    # ncol: Number of columns of plots
+    # nrow: Number of rows needed, calculated from # of cols
+    layout <- matrix(seq(1, cols * ceiling(numPlots/cols)),
+                    ncol = cols, nrow = ceiling(numPlots/cols))
+  }
+
+ if (numPlots==1) {
+    print(plots[[1]])
+
+  } else {
+    # Set up the page
+    grid.newpage()
+    pushViewport(viewport(layout = grid.layout(nrow(layout), ncol(layout))))
+
+    # Make each plot, in the correct location
+    for (i in 1:numPlots) {
+      # Get the i,j matrix positions of the regions that contain this subplot
+      matchidx <- as.data.frame(which(layout == i, arr.ind = TRUE))
+
+      print(plots[[i]], vp = viewport(layout.pos.row = matchidx$row,
+                                      layout.pos.col = matchidx$col))
+    }
+  }
+}
+```
+
+Funcion para graficar las series de tiempo
+
+```{r}
+
+grafica_serie <- function(base_in, eje_y, titulo, titulo_y) {
+
+  theme_set( theme_gray())
+
+  tmp_gf <- ggplot(data=base_in, aes_string(x='year', y=eje_y)) +
+                    geom_line(size = 1) +
+                    ggtitle(titulo) +
+                    ylab(titulo_y) +
+                    scale_x_continuous("Año",  breaks = base_in$year) +
+                    theme(plot.title = element_text( size=14, face="bold.italic",hjust=0.5),
+                          axis.text.x = element_text(angle = 90, vjust = 0.5),
+                          axis.title.y = element_text( size=10, face="bold"))
+
+return(tmp_gf)  
+}
+
+graf_latex <- function(grafica1, grafica2, nombre){
+  
+  ruta_dir <- '/Users/omardiaz/Google Drive/Tesis_Lic/V2/Tesis Latex/images'
+  ruta_def <- paste(ruta_dir,nombre,sep="/")
+  
+  ggarrange(grafica1, grafica2, ncol = 2, nrow = 1) +
+    ggsave(ruta_def, width = 15, height = 6)
+  
+  unlink(nombre)
+  
+}
+
+graf_latex1 <- function(grafica1, nombre){
+  
+  ruta_dir <- '/Users/omardiaz/Google Drive/Tesis_Lic/V2/Tesis Latex/images'
+  ruta_def <- paste(ruta_dir,nombre,sep="/")
+  
+  ggarrange(grafica1, ncol = 1, nrow = 1) +
+    ggsave(ruta_def, width = 15, height = 6)
+  
+  unlink(nombre)
+  
+}
+
+```
+
+```{r}
+extract.summary.lm <- function (model, include.rsquared = TRUE, include.adjrs = TRUE, 
+                                include.nobs = TRUE, include.fstatistic = FALSE, include.rmse = TRUE, 
+                                ...) 
+{
+  s <- model;
+  names <- rownames(s$coef)
+  co <- s$coef[, 1]
+  se <- s$coef[, 2]
+  pval <- s$coef[, 4]
+  rs <- s$r.squared
+  adj <- s$adj.r.squared
+  n <- length(s$residuals)
+  gof <- numeric()
+  gof.names <- character()
+  gof.decimal <- logical()
+  if (include.rsquared == TRUE) {
+    gof <- c(gof, rs)
+    gof.names <- c(gof.names, "R$^2$")
+    gof.decimal <- c(gof.decimal, TRUE)
+  }
+  if (include.adjrs == TRUE) {
+    gof <- c(gof, adj)
+    gof.names <- c(gof.names, "Adj. R$^2$")
+    gof.decimal <- c(gof.decimal, TRUE)
+  }
+  if (include.nobs == TRUE) {
+    gof <- c(gof, n)
+    gof.names <- c(gof.names, "Num. obs.")
+    gof.decimal <- c(gof.decimal, FALSE)
+  }
+  if (include.fstatistic == TRUE) {
+    fstat <- s$fstatistic[[1]]
+    gof <- c(gof, fstat)
+    gof.names <- c(gof.names, "F statistic")
+    gof.decimal <- c(gof.decimal, TRUE)
+  }
+  if (include.rmse == TRUE && !is.null(s$sigma[[1]])) {
+    rmse <- s$sigma[[1]]
+    gof <- c(gof, rmse)
+    gof.names <- c(gof.names, "RMSE")
+    gof.decimal <- c(gof.decimal, TRUE)
+  }
+  tr <- createTexreg(coef.names = names, coef = co, se = se, 
+                     pvalues = pval, gof.names = gof.names, gof = gof, gof.decimal = gof.decimal)
+  return(tr)
+}
+
+setMethod("extract",  signature = 'summary.lm', definition = extract.summary.lm)
+```
+
+
+```{r include=FALSE}
+# automatically create a bib database for R packages
+knitr::write_bib(
+  c(.packages(), 
+  'bookdown', 'readxl', 'knitr', 'lubridate','texreg', 'rmarkdown','WDI','ggplot2','tidyverse','plotly','urca','forecast','vars'),
+  'packages.bib')
+```
+

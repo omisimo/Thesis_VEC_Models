@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Código Tesis</title>
+  <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook.">
+  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Código Tesis" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Código Tesis" />
+  
+  <meta name="twitter:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  
+
+<meta name="author" content="Omar Díaz Landa">
+
+
+<meta name="date" content="2019-02-05">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="orden-de-integracion-lnpib-a-precios-corrientes.html">
+<link rel="next" href="references.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Minimal Book Example</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Prerequisitos</a></li>
+<li class="chapter" data-level="2" data-path="datos.html"><a href="datos.html"><i class="fa fa-check"></i><b>2</b> Lectura de datos</a><ul>
+<li class="chapter" data-level="2.1" data-path="datos.html"><a href="datos.html#graficamos-las-series-de-datos"><i class="fa fa-check"></i><b>2.1</b> Graficamos las series de datos</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="datos.html"><a href="datos.html#producto-interno-bruto"><i class="fa fa-check"></i><b>2.1.1</b> Producto Interno Bruto</a></li>
+<li class="chapter" data-level="2.1.2" data-path="datos.html"><a href="datos.html#recaudacion-fiscal"><i class="fa fa-check"></i><b>2.1.2</b> Recaudación Fiscal</a></li>
+<li class="chapter" data-level="2.1.3" data-path="datos.html"><a href="datos.html#gasto-en-salud-publica"><i class="fa fa-check"></i><b>2.1.3</b> Gasto en Salud Pública</a></li>
+<li class="chapter" data-level="2.1.4" data-path="datos.html"><a href="datos.html#gasto-en-educacion-publica"><i class="fa fa-check"></i><b>2.1.4</b> Gasto en Educación Pública</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="orden-de-integracion-teoria.html"><a href="orden-de-integracion-teoria.html"><i class="fa fa-check"></i><b>3</b> Orden de Integración (Teoría)</a></li>
+<li class="chapter" data-level="4" data-path="orden-integracion-pib-a-precios-corrientes.html"><a href="orden-integracion-pib-a-precios-corrientes.html"><i class="fa fa-check"></i><b>4</b> Orden Integración PIB a precios corrientes</a></li>
+<li class="chapter" data-level="5" data-path="orden-de-integracion-lnpib-a-precios-corrientes.html"><a href="orden-de-integracion-lnpib-a-precios-corrientes.html"><i class="fa fa-check"></i><b>5</b> Orden de Integración ln(PIB) a precios corrientes</a></li>
+<li class="chapter" data-level="6" data-path="orden-integracion-de-lnpoblacion-total.html"><a href="orden-integracion-de-lnpoblacion-total.html"><i class="fa fa-check"></i><b>6</b> Orden Integración de ln(Población Total)</a></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="chapter" data-level="7" data-path="interpolacion-serie-educacion.html"><a href="interpolacion-serie-educacion.html"><i class="fa fa-check"></i><b>7</b> Interpolación Serie Educación</a><ul>
+<li class="chapter" data-level="7.1" data-path="interpolacion-serie-educacion.html"><a href="interpolacion-serie-educacion.html#version-2-del-pronositico"><i class="fa fa-check"></i><b>7.1</b> version 2 del pronositico</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="Anexos.html"><a href="Anexos.html"><i class="fa fa-check"></i><b>8</b> Anexos</a><ul>
+<li class="chapter" data-level="8.1" data-path="Anexos.html"><a href="Anexos.html#descripcion-de-las-series"><i class="fa fa-check"></i><b>8.1</b> Descripción de las series</a></li>
+<li class="chapter" data-level="8.2" data-path="Anexos.html"><a href="Anexos.html#bibliografia"><i class="fa fa-check"></i><b>8.2</b> Bibliografia</a></li>
+<li class="chapter" data-level="8.3" data-path="Anexos.html"><a href="Anexos.html#dudas"><i class="fa fa-check"></i><b>8.3</b> Dudas</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Código Tesis</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="orden-integracion-de-lnpoblacion-total" class="section level1">
+<h1><span class="header-section-number">Chapter 6</span> Orden Integración de ln(Población Total)</h1>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">gf1 &lt;-<span class="st"> </span><span class="kw">grafica_serie</span>(<span class="dt">base_in =</span> series_db, 
+                      <span class="dt">eje_y =</span> <span class="st">&#39;log_Poblacion_Total&#39;</span>, 
+                      <span class="dt">titulo =</span> <span class="st">&#39;ln(Población Total)&#39;</span>, 
+                      <span class="dt">titulo_y =</span> <span class="st">&#39;ln(Población Total)&#39;</span>)
+gf1</code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-47-1.png" width="672" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">log_pob_tot &lt;-<span class="st"> </span><span class="kw">ts</span>(series_db<span class="op">$</span>log_Poblacion_Total,<span class="dt">start =</span> <span class="dv">1991</span>, <span class="dt">end =</span> <span class="dv">2016</span>, <span class="dt">frequency =</span> <span class="dv">1</span>)
+log_pob_tot.ct &lt;-<span class="st"> </span><span class="kw">ur.df</span>(log_pob_tot,<span class="dt">lags=</span><span class="dv">3</span>,<span class="dt">type=</span><span class="st">&#39;trend&#39;</span>)
+<span class="kw">summary</span>(log_pob_tot.ct)</code></pre></div>
+<pre><code>## 
+## ############################################### 
+## # Augmented Dickey-Fuller Test Unit Root Test # 
+## ############################################### 
+## 
+## Test regression trend 
+## 
+## 
+## Call:
+## lm(formula = z.diff ~ z.lag.1 + 1 + tt + z.diff.lag)
+## 
+## Residuals:
+##        Min         1Q     Median         3Q        Max 
+## -2.121e-04 -5.782e-05  1.087e-05  7.578e-05  1.667e-04 
+## 
+## Coefficients:
+##               Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)  0.7874332  0.2512225   3.134  0.00640 ** 
+## z.lag.1     -0.0429920  0.0137302  -3.131  0.00644 ** 
+## tt           0.0006206  0.0001999   3.105  0.00681 ** 
+## z.diff.lag1  2.1138707  0.1683322  12.558 1.06e-09 ***
+## z.diff.lag2 -1.7212589  0.2775809  -6.201 1.27e-05 ***
+## z.diff.lag3  0.5273700  0.1376983   3.830  0.00148 ** 
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 0.0001158 on 16 degrees of freedom
+## Multiple R-squared:  0.9961, Adjusted R-squared:  0.9948 
+## F-statistic: 810.7 on 5 and 16 DF,  p-value: &lt; 2.2e-16
+## 
+## 
+## Value of test-statistic is: -3.1312 4.5922 5.3134 
+## 
+## Critical values for test statistics: 
+##       1pct  5pct 10pct
+## tau3 -4.15 -3.50 -3.18
+## phi2  7.02  5.13  4.31
+## phi3  9.31  6.73  5.61</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(log_pob_tot.ct)</code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-49-1.png" width="672" /></p>
+<p>El valor del estadístico-t para la hipótesis nula de <span class="math inline">\(\gamma=0\)</span> y el valor crítico de <span class="math inline">\(\tau\)</span> a univel de significancia del 5% reportado en las tablas de Dickey-Fuller demuestran que no es posible rechazar la hipótesis nula de la existencia de una raíz unitaria dada la presencia del término constante (drift) y la tendencia temporal (trend).</p>
+<p>Recordemos que el poder de la prueba puede verse reducido debido a la presencia de términos drift/trend innecesarios, por lo que probaremos si la presencia del término temporal es necesaria dada una raíz unitaria. Para ello utilizaremos el estadístico <span class="math inline">\(\phi_3\)</span> que prueba la hipótesis conjunta <span class="math inline">\(a_2=\gamma=0\)</span>. Derivado de los resultados mostrados en las tablas anteriores, se puede aceptar la hipótesis nula, por lo que se tiene una raíz unitaria sin la presencia de un término temporal.</p>
+<p>Probaremos si la serie requiere del término constante:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">log_pob_tot.co &lt;-<span class="st"> </span><span class="kw">ur.df</span>(log_pob_tot,<span class="dt">type=</span><span class="st">&#39;drift&#39;</span>,<span class="dt">lags=</span><span class="dv">5</span>)
+<span class="kw">summary</span>(log_pob_tot.co)</code></pre></div>
+<pre><code>## 
+## ############################################### 
+## # Augmented Dickey-Fuller Test Unit Root Test # 
+## ############################################### 
+## 
+## Test regression drift 
+## 
+## 
+## Call:
+## lm(formula = z.diff ~ z.lag.1 + 1 + z.diff.lag)
+## 
+## Residuals:
+##        Min         1Q     Median         3Q        Max 
+## -2.631e-04 -5.393e-05  1.409e-05  7.066e-05  1.089e-04 
+## 
+## Coefficients:
+##               Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)  0.0156867  0.0086380   1.816  0.09249 .  
+## z.lag.1     -0.0007639  0.0004488  -1.702  0.11247    
+## z.diff.lag1  2.6744473  0.2460056  10.871 6.77e-08 ***
+## z.diff.lag2 -3.0155445  0.7168143  -4.207  0.00103 ** 
+## z.diff.lag3  1.5412764  0.9655852   1.596  0.13445    
+## z.diff.lag4 -0.1733268  0.6992184  -0.248  0.80809    
+## z.diff.lag5 -0.1323897  0.2298466  -0.576  0.57446    
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 0.000109 on 13 degrees of freedom
+## Multiple R-squared:  0.9954, Adjusted R-squared:  0.9932 
+## F-statistic: 464.7 on 6 and 13 DF,  p-value: 2.152e-14
+## 
+## 
+## Value of test-statistic is: -1.7023 5.3447 
+## 
+## Critical values for test statistics: 
+##       1pct  5pct 10pct
+## tau2 -3.58 -2.93 -2.60
+## phi1  7.06  4.86  3.94</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(log_pob_tot.co)</code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-51-1.png" width="672" /></p>
+<p>Probaremos si la serie al ser diferenciada una vez más, alcanza la estacionaredad:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">log_pob_tot2 &lt;-<span class="st"> </span><span class="kw">diff</span>(log_pob_tot)
+log_pob_tot2.co &lt;-<span class="st"> </span><span class="kw">ur.df</span>(log_pob_tot2,<span class="dt">type=</span><span class="st">&quot;drift&quot;</span>,<span class="dt">lags=</span><span class="dv">4</span>)
+<span class="kw">summary</span>(log_pob_tot2.co)</code></pre></div>
+<pre><code>## 
+## ############################################### 
+## # Augmented Dickey-Fuller Test Unit Root Test # 
+## ############################################### 
+## 
+## Test regression drift 
+## 
+## 
+## Call:
+## lm(formula = z.diff ~ z.lag.1 + 1 + z.diff.lag)
+## 
+## Residuals:
+##        Min         1Q     Median         3Q        Max 
+## -2.333e-04 -5.940e-05  2.252e-05  7.731e-05  1.392e-04 
+## 
+## Coefficients:
+##               Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)  0.0009948  0.0003798   2.619   0.0202 *  
+## z.lag.1     -0.0694797  0.0256277  -2.711   0.0169 *  
+## z.diff.lag1  1.9020447  0.2305382   8.250 9.55e-07 ***
+## z.diff.lag2 -1.5422782  0.4961346  -3.109   0.0077 ** 
+## z.diff.lag3  0.6048403  0.4762668   1.270   0.2248    
+## z.diff.lag4 -0.0650221  0.2114698  -0.307   0.7630    
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 0.0001161 on 14 degrees of freedom
+## Multiple R-squared:  0.9763, Adjusted R-squared:  0.9679 
+## F-statistic: 115.5 on 5 and 14 DF,  p-value: 7.168e-11
+## 
+## 
+## Value of test-statistic is: -2.7111 4.2563 
+## 
+## Critical values for test statistics: 
+##       1pct  5pct 10pct
+## tau2 -3.75 -3.00 -2.63
+## phi1  7.88  5.18  4.12</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(log_pob_tot2.co)</code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-53-1.png" width="672" /></p>
+<p>Por lo que la serie al ser diferenciada una vez, aún no alcanza estacionariedad. Cabe mencionar que el término constante parece no ser estadísticamente diferente de cero por lo que estimaremos la ecuación sin dicho término:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">log_pob_tot2.none &lt;-<span class="st"> </span><span class="kw">ur.df</span>(log_pob_tot2,<span class="dt">type=</span><span class="st">&quot;none&quot;</span>,<span class="dt">lags=</span><span class="dv">5</span>)
+<span class="kw">summary</span>(log_pob_tot2.none)</code></pre></div>
+<pre><code>## 
+## ############################################### 
+## # Augmented Dickey-Fuller Test Unit Root Test # 
+## ############################################### 
+## 
+## Test regression none 
+## 
+## 
+## Call:
+## lm(formula = z.diff ~ z.lag.1 - 1 + z.diff.lag)
+## 
+## Residuals:
+##        Min         1Q     Median         3Q        Max 
+## -2.240e-04 -8.361e-05  1.116e-05  1.045e-04  2.065e-04 
+## 
+## Coefficients:
+##              Estimate Std. Error t value Pr(&gt;|t|)    
+## z.lag.1     -0.002113   0.002585  -0.818  0.42829    
+## z.diff.lag1  2.189032   0.273408   8.006 2.22e-06 ***
+## z.diff.lag2 -2.090616   0.644285  -3.245  0.00639 ** 
+## z.diff.lag3  1.035129   0.795672   1.301  0.21586    
+## z.diff.lag4 -0.289741   0.625883  -0.463  0.65107    
+## z.diff.lag5  0.018446   0.257302   0.072  0.94394    
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 0.0001446 on 13 degrees of freedom
+## Multiple R-squared:  0.9672, Adjusted R-squared:  0.952 
+## F-statistic: 63.85 on 6 and 13 DF,  p-value: 6.814e-09
+## 
+## 
+## Value of test-statistic is: -0.8177 
+## 
+## Critical values for test statistics: 
+##       1pct  5pct 10pct
+## tau1 -2.66 -1.95  -1.6</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(log_pob_tot2.none)</code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-55-1.png" width="672" /></p>
+<p>Se puede observar que la serie aún continúa teniendo la presencia de una raíz unitaria.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">log_pob_tot3 &lt;-<span class="st"> </span><span class="kw">diff</span>(log_pob_tot2)
+log_pob_tot3.none &lt;-<span class="st"> </span><span class="kw">ur.df</span>(log_pob_tot3,<span class="dt">type=</span><span class="st">&quot;none&quot;</span>,<span class="dt">lags=</span><span class="dv">5</span>)
+<span class="kw">summary</span>(log_pob_tot3.none)</code></pre></div>
+<pre><code>## 
+## ############################################### 
+## # Augmented Dickey-Fuller Test Unit Root Test # 
+## ############################################### 
+## 
+## Test regression none 
+## 
+## 
+## Call:
+## lm(formula = z.diff ~ z.lag.1 - 1 + z.diff.lag)
+## 
+## Residuals:
+##        Min         1Q     Median         3Q        Max 
+## -2.336e-04 -6.520e-05 -2.128e-05  7.544e-05  1.460e-04 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## z.lag.1     -0.16705    0.07747  -2.156  0.05205 .  
+## z.diff.lag1  1.31940    0.23422   5.633  0.00011 ***
+## z.diff.lag2 -0.69391    0.40770  -1.702  0.11450    
+## z.diff.lag3  0.42810    0.44715   0.957  0.35725    
+## z.diff.lag4 -0.38552    0.38799  -0.994  0.34002    
+## z.diff.lag5  0.28315    0.24619   1.150  0.27250    
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 0.0001339 on 12 degrees of freedom
+## Multiple R-squared:  0.8804, Adjusted R-squared:  0.8207 
+## F-statistic: 14.73 on 6 and 12 DF,  p-value: 6.592e-05
+## 
+## 
+## Value of test-statistic is: -2.1563 
+## 
+## Critical values for test statistics: 
+##       1pct  5pct 10pct
+## tau1 -2.66 -1.95  -1.6</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(log_pob_tot3.none)</code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-57-1.png" width="672" /></p>
+<p>Por lo tanto. La serie de población total es <span class="math inline">\(I(2)\)</span> y de la forma <span class="math inline">\(\nabla y_t = \gamma y_{t-1}+ \epsilon_t\)</span>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(log_pob_tot)</code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-58-1.png" width="672" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(<span class="kw">diff</span>(log_pob_tot, <span class="dt">differences =</span> <span class="dv">1</span>))</code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-58-2.png" width="672" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(<span class="kw">diff</span>(log_pob_tot, <span class="dt">differences =</span> <span class="dv">2</span>))</code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-58-3.png" width="672" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(<span class="kw">diff</span>(log_pob_tot, <span class="dt">differences =</span> <span class="dv">3</span>))</code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-58-4.png" width="672" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">var</span>(log_pob_tot)</code></pre></div>
+<pre><code>## [1] 0.01296875</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">var</span>(<span class="kw">diff</span>(log_pob_tot, <span class="dt">differences =</span> <span class="dv">1</span>))</code></pre></div>
+<pre><code>## [1] 4.973665e-06</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">var</span>(<span class="kw">diff</span>(log_pob_tot, <span class="dt">differences =</span> <span class="dv">2</span>))</code></pre></div>
+<pre><code>## [1] 3.901474e-07</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">var</span>(<span class="kw">diff</span>(log_pob_tot, <span class="dt">differences =</span> <span class="dv">3</span>))</code></pre></div>
+<pre><code>## [1] 9.378896e-08</code></pre>
+
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="orden-de-integracion-lnpib-a-precios-corrientes.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/05-ADF-lnPobTotal.Rmd",
+"text": "Edit"
+},
+"download": ["bookdown-demo.pdf", "bookdown-demo.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "";
+    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

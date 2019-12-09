@@ -1,0 +1,1 @@
+"0","plot(irf(vec2var(M1,r=rel_coint_aux),n.ahead=3,response='rec_imp',boot=TRUE))"

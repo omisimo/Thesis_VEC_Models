@@ -1,0 +1,2 @@
+"0","fcast <- forecast(fit2, h=2,level=95)"
+"0","plot(fcast)"

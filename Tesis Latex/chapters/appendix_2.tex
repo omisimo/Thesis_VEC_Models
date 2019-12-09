@@ -1,0 +1,36 @@
+% !TEX encoding = UTF-8 Unicode
+
+
+Las series se han extraído de la siguiente manera:
+
+\begin{enumerate}
+		\item PIB a precios constantes y corrientes
+		\begin{itemize}
+		\item Los datos referentes al PIB a precios corrientes en moneda local,  se encuentran disponibles en el catálogo del Banco Mundial con el código \textbf{NY.GDP.MKTP.CN}. En el cual se pueden encontrar los detalles de la construcción de la serie, así como sus supuestos y limitaciones
+		\item Los datos referentes al PIB a precios constantes en moneda local,  se encuentran disponibles en el catálogo del Banco Mundial con el código \textbf{NY.GDP.MKTP.KN}. En el cual se pueden encontrar los detalles de la construcción de la serie, así como sus supuestos y limitaciones
+		\end{itemize}
+		\item Desempleo
+		\begin{itemize}
+		\item La serie se puede consultar en el banco de datos del Banco Mundial con el código \textbf{|SL.UEM.TOTL.NE.ZS}. En el cual se pueden encontrar los detalles de la construcción de la serie, así como sus supuestos y limitaciones
+		\end{itemize}
+	\item Gasto en Salud (\%PIB)
+			\begin{itemize}
+				\item La serie en un inicio se podía consultar en el banco de datos del Banco Mundial con el código \textbf{SH.XPD.PUBL.ZS}. En el cual se podían encontrar los detalles de la construcción de la serie, así como 						sus supuestos y limitaciones
+				\item Esta serie dejó de estar disponible en el Banco Mundial y por esta razón, la serie se obtuvo a partir de una descarga que el periódico Expansión realizó de la misma 
+			\end{itemize}
+	\item Gasto en Educación (\%PIB)
+	\begin{itemize}
+				\item La serie se puede consultar en el banco de datos del Banco Mundial con el código \textbf{SE.XPD.TOTL.GD.ZS}. En el cual se pueden encontrar los detalles de la construcción de la serie, así como sus 						supuestos y limitaciones
+				\item La serie descargada directamente del Banco Mundial presentaba valores faltantes para los años 1993, 1996, 1997, 2015 y 2016. 
+				\item Para los años 1993, 1996 y 1997, se ha hecho uso de la función na.interp de la librería de R forecast de Rob Hyndman, el cual usa una interpolación lineal de series no estacionarias
+				\item Para los años 2015 y 2016 se ha utilizado la función auto.arima para ajustar un modelo ARIMA a la serie y posteriormente se ha hecho uso de la función forecast para pronosticar los dos periodos 							correspondientes a 2015 y 106
+				\item Los resultados del punto anterior, fueron un modelo ARIMA(0,1,0) con $drift=0.1224$ a partir del cual se realizó el pronóstico
+			\end{itemize}
+	\item Recaudación Gubernamental (\%PIB)
+	\begin{itemize}
+				\item  La serie mostrada en este desarrollo se construyó a partir de los importes mostrados en la Ley de Ingresos de la Federación, en el apartado de recaudación impositiva total. Dicho importe se dividió entre el PIB a precios corrientes para cada año
+			\end{itemize}			
+\end{enumerate}
+
+
+Debido a que las series descargadas del Banco Mundial, en ocaciones, al momento de actualizarse sufren modificaciones históricas, para este desarrollo se ha realizado una efecto foto de la descarga. Por esta razón, los datos mostrados en este trabajo podrían diferir a los descargados directamente del Banco Mundial y en fechas posteriores.

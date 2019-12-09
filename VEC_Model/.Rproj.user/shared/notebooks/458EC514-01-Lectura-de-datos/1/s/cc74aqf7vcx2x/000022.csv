@@ -1,0 +1,6 @@
+"0","gf1 <- grafica_serie(base_in = series_db, "
+"0","                      eje_y = 'Desempleo_Total', "
+"0","                      titulo = 'Tasa de Desempleo', "
+"0","                      titulo_y = 'Tasa de Desempleo')"
+"0","graf_latex1(grafica1 = gf1,"
+"0","          nombre = 'Tasa_Desempleo.pdf')"

@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Código Tesis</title>
+  <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook.">
+  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Código Tesis" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Código Tesis" />
+  
+  <meta name="twitter:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  
+
+<meta name="author" content="Omar Díaz Landa">
+
+
+<meta name="date" content="2019-03-12">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="orden-integracion-de-la-serie-lnpib-a-precios-ctes.html">
+<link rel="next" href="cointegracion-analisis.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Tesis Omar Díaz Landa</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Prerequisitos</a></li>
+<li class="chapter" data-level="2" data-path="datos.html"><a href="datos.html"><i class="fa fa-check"></i><b>2</b> Lectura de datos</a><ul>
+<li class="chapter" data-level="2.1" data-path="datos.html"><a href="datos.html#graficamos-las-series-de-datos"><i class="fa fa-check"></i><b>2.1</b> Graficamos las series de datos</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="datos.html"><a href="datos.html#producto-interno-bruto"><i class="fa fa-check"></i><b>2.1.1</b> Producto Interno Bruto</a></li>
+<li class="chapter" data-level="2.1.2" data-path="datos.html"><a href="datos.html#recaudacion-fiscal"><i class="fa fa-check"></i><b>2.1.2</b> Recaudación Fiscal</a></li>
+<li class="chapter" data-level="2.1.3" data-path="datos.html"><a href="datos.html#gasto-en-salud-publica"><i class="fa fa-check"></i><b>2.1.3</b> Gasto en Salud Pública</a></li>
+<li class="chapter" data-level="2.1.4" data-path="datos.html"><a href="datos.html#gasto-en-educacion-publica"><i class="fa fa-check"></i><b>2.1.4</b> Gasto en Educación Pública</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="orden-de-integracion-teoria.html"><a href="orden-de-integracion-teoria.html"><i class="fa fa-check"></i><b>3</b> Orden de Integración (Teoría)</a></li>
+<li class="chapter" data-level="4" data-path="orden-integracion-pib-a-precios-corrientes.html"><a href="orden-integracion-pib-a-precios-corrientes.html"><i class="fa fa-check"></i><b>4</b> Orden Integración PIB a precios corrientes</a></li>
+<li class="chapter" data-level="5" data-path="orden-de-integracion-lnpib-a-precios-corrientes.html"><a href="orden-de-integracion-lnpib-a-precios-corrientes.html"><i class="fa fa-check"></i><b>5</b> Orden de Integración ln(PIB) a precios corrientes</a></li>
+<li class="chapter" data-level="6" data-path="orden-integracion-de-la-serie-recaudacion-impositiva.html"><a href="orden-integracion-de-la-serie-recaudacion-impositiva.html"><i class="fa fa-check"></i><b>6</b> Orden Integración de la serie Recaudación Impositiva</a></li>
+<li class="chapter" data-level="7" data-path="orden-integracion-de-la-serie-gasto-en-salud.html"><a href="orden-integracion-de-la-serie-gasto-en-salud.html"><i class="fa fa-check"></i><b>7</b> Orden Integración de la serie Gasto en Salud</a></li>
+<li class="chapter" data-level="8" data-path="orden-integracion-de-la-serie-gasto-en-educacion.html"><a href="orden-integracion-de-la-serie-gasto-en-educacion.html"><i class="fa fa-check"></i><b>8</b> Orden Integración de la serie Gasto en Educación</a></li>
+<li class="chapter" data-level="9" data-path="orden-integracion-de-la-serie-lnpib-a-precios-ctes.html"><a href="orden-integracion-de-la-serie-lnpib-a-precios-ctes.html"><i class="fa fa-check"></i><b>9</b> Orden Integración de la serie ln(PIB) a precios ctes</a></li>
+<li class="chapter" data-level="10" data-path="cointegracion-teoria.html"><a href="cointegracion-teoria.html"><i class="fa fa-check"></i><b>10</b> Cointegración (Teoría)</a></li>
+<li class="chapter" data-level="11" data-path="cointegracion-analisis.html"><a href="cointegracion-analisis.html"><i class="fa fa-check"></i><b>11</b> Cointegración (Análisis)</a><ul>
+<li class="chapter" data-level="11.1" data-path="cointegracion-analisis.html"><a href="cointegracion-analisis.html#determinacion-del-rango-de-cointegracion"><i class="fa fa-check"></i><b>11.1</b> Determinación del Rango de Cointegración</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="estimacion-del-modelo.html"><a href="estimacion-del-modelo.html"><i class="fa fa-check"></i><b>12</b> Estimación del modelo</a><ul>
+<li class="chapter" data-level="12.1" data-path="estimacion-del-modelo.html"><a href="estimacion-del-modelo.html#modelo-1-vecm-con-k2-lags-y-r1-relaciones-de-cointegracion"><i class="fa fa-check"></i><b>12.1</b> Modelo 1: VECM con K=2 (lags), y r=1 (relaciones de cointegración)</a></li>
+<li class="chapter" data-level="12.2" data-path="estimacion-del-modelo.html"><a href="estimacion-del-modelo.html#modelo-2-vecm-con-k2-lags-y-r2-relaciones-de-cointegracion"><i class="fa fa-check"></i><b>12.2</b> Modelo 2: VECM con K=2 (lags), y r=2 (relaciones de cointegración)</a></li>
+<li class="chapter" data-level="12.3" data-path="estimacion-del-modelo.html"><a href="estimacion-del-modelo.html#modelo-3-vecm-con-k3-lags-y-r1-relaciones-de-cointegracion"><i class="fa fa-check"></i><b>12.3</b> Modelo 3: VECM con K=3 (lags), y r=1 (relaciones de cointegración)</a></li>
+<li class="chapter" data-level="12.4" data-path="estimacion-del-modelo.html"><a href="estimacion-del-modelo.html#modelo-4-vecm-con-k3-lags-y-r2-relaciones-de-cointegracion"><i class="fa fa-check"></i><b>12.4</b> Modelo 4: VECM con K=3 (lags), y r=2 (relaciones de cointegración)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="chapter" data-level="13" data-path="interpolacion-serie-educacion.html"><a href="interpolacion-serie-educacion.html"><i class="fa fa-check"></i><b>13</b> Interpolación Serie Educación</a><ul>
+<li class="chapter" data-level="13.1" data-path="interpolacion-serie-educacion.html"><a href="interpolacion-serie-educacion.html#version-2-del-pronositico"><i class="fa fa-check"></i><b>13.1</b> version 2 del pronositico</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="Anexos.html"><a href="Anexos.html"><i class="fa fa-check"></i><b>14</b> Anexos</a><ul>
+<li class="chapter" data-level="14.1" data-path="Anexos.html"><a href="Anexos.html#descripcion-de-las-series"><i class="fa fa-check"></i><b>14.1</b> Descripción de las series</a></li>
+<li class="chapter" data-level="14.2" data-path="Anexos.html"><a href="Anexos.html#bibliografia"><i class="fa fa-check"></i><b>14.2</b> Bibliografia</a></li>
+<li class="chapter" data-level="14.3" data-path="Anexos.html"><a href="Anexos.html#dudas"><i class="fa fa-check"></i><b>14.3</b> Dudas</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Código Tesis</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="cointegracion-teoria" class="section level1">
+<h1><span class="header-section-number">Chapter 10</span> Cointegración (Teoría)</h1>
+<p>Se probará la hipótesis <span class="math inline">\(H_1(r) : \Pi =\alpha\beta&#39;\)</span> es decir, si <span class="math inline">\(\Pi\)</span> es de rango reducido. para ello utilizaremos la prueba del estadístico de la traza y del máximo eigenvalor.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(urca)
+<span class="kw">data</span>(UKpppuip)
+<span class="kw">names</span>(UKpppuip)</code></pre></div>
+<pre><code>## [1] &quot;p1&quot;     &quot;p2&quot;     &quot;e12&quot;    &quot;i1&quot;     &quot;i2&quot;     &quot;doilp0&quot; &quot;doilp1&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">attach</span>(UKpppuip)
+dat1 &lt;-<span class="st"> </span><span class="kw">cbind</span>(p1,p2,e12,i1,i2)
+dat2 &lt;-<span class="st"> </span><span class="kw">cbind</span>(doilp0,doilp1)
+<span class="kw">args</span>(<span class="st">&#39;ca.jo&#39;</span>)</code></pre></div>
+<pre><code>## function (x, type = c(&quot;eigen&quot;, &quot;trace&quot;), ecdet = c(&quot;none&quot;, &quot;const&quot;, 
+##     &quot;trend&quot;), K = 2, spec = c(&quot;longrun&quot;, &quot;transitory&quot;), season = NULL, 
+##     dumvar = NULL) 
+## NULL</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">H1 &lt;-<span class="st"> </span><span class="kw">ca.jo</span>(dat1, <span class="dt">type=</span><span class="st">&#39;trace&#39;</span>,<span class="dt">K=</span><span class="dv">2</span>,<span class="dt">season=</span><span class="dv">4</span>,<span class="dt">dumvar=</span>dat2)
+
+H1.trace &lt;-<span class="st"> </span><span class="kw">summary</span>(<span class="kw">ca.jo</span>(dat1,<span class="dt">type=</span><span class="st">&#39;trace&#39;</span>,<span class="dt">K=</span><span class="dv">2</span>,<span class="dt">season=</span><span class="dv">4</span>,<span class="dt">dumvar=</span>dat2))
+H1.eigen &lt;-<span class="st"> </span><span class="kw">summary</span>(<span class="kw">ca.jo</span>(dat1,<span class="dt">type=</span><span class="st">&#39;eigen&#39;</span>,<span class="dt">K=</span><span class="dv">2</span>,<span class="dt">season=</span><span class="dv">4</span>,<span class="dt">dumvar=</span>dat2))</code></pre></div>
+<p>Considerando el estadístico del máximo eigenvalor, la hipótesis de no cointegración no puede ser rechazada, tal y como se observa en la siguiente tabla:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">H1.eigen</code></pre></div>
+<pre><code>## 
+## ###################### 
+## # Johansen-Procedure # 
+## ###################### 
+## 
+## Test type: maximal eigenvalue statistic (lambda max) , with linear trend 
+## 
+## Eigenvalues (lambda):
+## [1] 0.40672818 0.28538240 0.25415335 0.10230406 0.08287097
+## 
+## Values of teststatistic and critical values of test:
+## 
+##           test 10pct  5pct  1pct
+## r &lt;= 4 |  5.19  6.50  8.18 11.65
+## r &lt;= 3 |  6.48 12.91 14.90 19.19
+## r &lt;= 2 | 17.59 18.90 21.07 25.75
+## r &lt;= 1 | 20.16 24.78 27.14 32.14
+## r = 0  | 31.33 30.84 33.32 38.78
+## 
+## Eigenvectors, normalised to first column:
+## (These are the cointegration relations)
+## 
+##             p1.l2      p2.l2    e12.l2      i1.l2      i2.l2
+## p1.l2   1.0000000   1.000000  1.000000  1.0000000  1.0000000
+## p2.l2  -0.9086265  -1.143047 -1.272628 -2.4001444 -1.4528820
+## e12.l2 -0.9321133  -3.363042  1.113631  1.1221619 -0.4805235
+## i1.l2  -3.3746393  35.243576  2.746828 -0.4088865  2.2775510
+## i2.l2  -1.8906210 -32.917370 -2.835714  2.9863624  0.7628011
+## 
+## Weights W:
+## (This is the loading matrix)
+## 
+##             p1.l2         p2.l2       e12.l2        i1.l2       i2.l2
+## p1.d  -0.06816507  0.0011795779 -0.002790218  0.001373599 -0.01333013
+## p2.d  -0.01773477  0.0001220008 -0.014159241  0.013178503  0.00755575
+## e12.d  0.10065321 -0.0001432122 -0.055628059 -0.035400025 -0.04707585
+## i1.d   0.03434737 -0.0041631581 -0.010363374  0.012309982 -0.02394672
+## i2.d   0.05766426  0.0082830953  0.004821036  0.026984801 -0.01006765</code></pre>
+<p>Sin embargo, el estadístico de la traza indica que existen 2 relaciones de cointegración.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">H1.trace</code></pre></div>
+<pre><code>## 
+## ###################### 
+## # Johansen-Procedure # 
+## ###################### 
+## 
+## Test type: trace statistic , with linear trend 
+## 
+## Eigenvalues (lambda):
+## [1] 0.40672818 0.28538240 0.25415335 0.10230406 0.08287097
+## 
+## Values of teststatistic and critical values of test:
+## 
+##           test 10pct  5pct  1pct
+## r &lt;= 4 |  5.19  6.50  8.18 11.65
+## r &lt;= 3 | 11.67 15.66 17.95 23.52
+## r &lt;= 2 | 29.26 28.71 31.52 37.22
+## r &lt;= 1 | 49.42 45.23 48.28 55.43
+## r = 0  | 80.75 66.49 70.60 78.87
+## 
+## Eigenvectors, normalised to first column:
+## (These are the cointegration relations)
+## 
+##             p1.l2      p2.l2    e12.l2      i1.l2      i2.l2
+## p1.l2   1.0000000   1.000000  1.000000  1.0000000  1.0000000
+## p2.l2  -0.9086265  -1.143047 -1.272628 -2.4001444 -1.4528820
+## e12.l2 -0.9321133  -3.363042  1.113631  1.1221619 -0.4805235
+## i1.l2  -3.3746393  35.243576  2.746828 -0.4088865  2.2775510
+## i2.l2  -1.8906210 -32.917370 -2.835714  2.9863624  0.7628011
+## 
+## Weights W:
+## (This is the loading matrix)
+## 
+##             p1.l2         p2.l2       e12.l2        i1.l2       i2.l2
+## p1.d  -0.06816507  0.0011795779 -0.002790218  0.001373599 -0.01333013
+## p2.d  -0.01773477  0.0001220008 -0.014159241  0.013178503  0.00755575
+## e12.d  0.10065321 -0.0001432122 -0.055628059 -0.035400025 -0.04707585
+## i1.d   0.03434737 -0.0041631581 -0.010363374  0.012309982 -0.02394672
+## i2.d   0.05766426  0.0082830953  0.004821036  0.026984801 -0.01006765</code></pre>
+<p>Peor aún, existe la posiblidad de una tercera combinación lineal estacionaria debido a la cercanía entre los igenvectores 2 y 3.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">H1<span class="op">@</span>lambda</code></pre></div>
+<pre><code>## [1] 0.40672818 0.28538240 0.25415335 0.10230406 0.08287097</code></pre>
+<p>Para generar una decisión final acerca del orden de integración, debemos observar varios aspectos como las matrices <span class="math inline">\(\hat{\alpha}\)</span> y <span class="math inline">\(\hat{\beta}\)</span> así como las relaciones de cointegración <span class="math inline">\(\hat{\beta}&#39;y_t\)</span> y aquellas que son corregidas por las influecnias de corto plazo <span class="math inline">\(\hat{\beta}&#39;R_{1t}\)</span>. Para obtener las tablas similares a las reportadas en el paper de Johansen y Joselius, las matrices fueron normalizadas respectivamente:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">beta &lt;-<span class="st"> </span>H1<span class="op">@</span>V
+beta[,<span class="dv">2</span>] &lt;-<span class="st"> </span>beta[,<span class="dv">2</span>]<span class="op">/</span>beta[<span class="dv">4</span>,<span class="dv">2</span>]
+beta[,<span class="dv">3</span>] &lt;-<span class="st"> </span>beta[,<span class="dv">3</span>]<span class="op">/</span>beta[<span class="dv">4</span>,<span class="dv">3</span>]
+beta</code></pre></div>
+<pre><code>##             p1.l2       p2.l2     e12.l2      i1.l2      i2.l2
+## p1.l2   1.0000000  0.02837397  0.3640563  1.0000000  1.0000000
+## p2.l2  -0.9086265 -0.03243276 -0.4633082 -2.4001444 -1.4528820
+## e12.l2 -0.9321133 -0.09542285  0.4054245  1.1221619 -0.4805235
+## i1.l2  -3.3746393  1.00000000  1.0000000 -0.4088865  2.2775510
+## i2.l2  -1.8906210 -0.93399632 -1.0323596  2.9863624  0.7628011</code></pre>
+<p>Y la matriz alpha es la siguiente</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">alpha &lt;-<span class="st"> </span>H1<span class="op">@</span>PI<span class="op">%*%</span><span class="kw">solve</span>(<span class="kw">t</span>(beta))
+alpha</code></pre></div>
+<pre><code>##             p1.l2        p2.l2       e12.l2        i1.l2       i2.l2
+## p1.d  -0.06816507  0.041572544 -0.007664249  0.001373599 -0.01333013
+## p2.d  -0.01773477  0.004299743 -0.038893000  0.013178503  0.00755575
+## e12.d  0.10065321 -0.005047310 -0.152800708 -0.035400025 -0.04707585
+## i1.d   0.03434737 -0.146724578 -0.028466405  0.012309982 -0.02394672
+## i2.d   0.05766426  0.291925899  0.013242558  0.026984801 -0.01006765</code></pre>
+<p>Se puede observar que los valores de <span class="math inline">\(\hat{\alpha}_{i.2}\)</span> para <span class="math inline">\(i=1,2,3\)</span> son cercanos a cero para el segundo vector de cointegración, por lo que la pequeña estimación del eigenvalor <span class="math inline">\(\lambda_2\)</span> se puede atribuir a que estos valores se encuentran justo en la frontera de la no estacionariedad impactando la prueba de hipótesis.</p>
+<p>Además Johanses y Joselius investigaron de manera gráfica las relaciones de cointegración, ya que si en efecto existen dos relaciones de cointegración <span class="math inline">\((r=2)\)</span> entonces estas deberían observarse como un proceso estacionario. Sin embargo, debido las influencias de corto plazo que influyen en el proceso de estimación, los autores decidieron también analizarlas.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">beta1 &lt;-<span class="st"> </span><span class="kw">cbind</span>(beta[,<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>], H1<span class="op">@</span>V[,<span class="dv">3</span><span class="op">:</span><span class="dv">5</span>])
+ci.<span class="dv">1</span> &lt;-<span class="st"> </span><span class="kw">ts</span>((H1<span class="op">@</span>x<span class="op">%*%</span>beta1)[<span class="op">-</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>),],<span class="dt">start=</span><span class="kw">c</span>(<span class="dv">1972</span>,<span class="dv">3</span>),<span class="dt">end=</span><span class="kw">c</span>(<span class="dv">1987</span>,<span class="dv">2</span>),<span class="dt">frequency =</span> <span class="dv">4</span>)
+ci.<span class="dv">2</span> &lt;-<span class="st"> </span><span class="kw">ts</span>((H1<span class="op">@</span>RK<span class="op">%*%</span>beta1),<span class="dt">start=</span><span class="kw">c</span>(<span class="dv">1972</span>,<span class="dv">3</span>),<span class="dt">end=</span><span class="kw">c</span>(<span class="dv">1987</span>,<span class="dv">2</span>),<span class="dt">frequency =</span> <span class="dv">4</span>)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(ci.<span class="dv">1</span>)</code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-97-1.png" width="672" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(ci.<span class="dv">2</span>)</code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-98-1.png" width="672" /></p>
+<p>Basado en las pruebas estadísticas, los elementos de la matriz <span class="math inline">\(\hat{\alpha}\)</span> y la tendencia de las relaciones de cointegración, Johansen y Joselius decidieron mantener la hipótesis de que el grado de cointegración es <span class="math inline">\(r=2\)</span></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set.seed</span>(<span class="dv">12345</span>)
+e1 &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">250</span>, <span class="dv">0</span>, <span class="fl">0.5</span>)
+e2 &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">250</span>, <span class="dv">0</span>, <span class="fl">0.5</span>)
+e3 &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">250</span>, <span class="dv">0</span>, <span class="fl">0.5</span>)
+
+u1.ar1 &lt;-<span class="st"> </span><span class="kw">arima.sim</span>(<span class="dt">model =</span> <span class="kw">list</span>(<span class="dt">ar=</span><span class="fl">0.75</span>),
+                    <span class="dt">innov =</span> e1, <span class="dt">n=</span><span class="dv">250</span>)
+u2.ar1 &lt;-<span class="st"> </span><span class="kw">arima.sim</span>(<span class="dt">model =</span> <span class="kw">list</span>(<span class="dt">ar=</span><span class="fl">0.3</span>),
+                    <span class="dt">innov =</span> e2, <span class="dt">n=</span><span class="dv">250</span>)
+y3 &lt;-<span class="st"> </span><span class="kw">cumsum</span>(e3)
+y1 &lt;-<span class="st"> </span><span class="fl">0.8</span> <span class="op">*</span><span class="st"> </span>y3 <span class="op">+</span><span class="st"> </span>u1.ar1
+y2 &lt;-<span class="st"> </span><span class="op">-</span><span class="fl">0.3</span> <span class="op">*</span><span class="st"> </span>y3 <span class="op">+</span><span class="st"> </span>u2.ar1
+
+y.mat &lt;-<span class="st"> </span><span class="kw">data.frame</span>(y1,y2,y3)
+
+vecm &lt;-<span class="st"> </span><span class="kw">ca.jo</span>(y.mat)
+
+jo.results &lt;-<span class="st"> </span><span class="kw">summary</span>(vecm)
+
+vecm.r2 &lt;-<span class="st"> </span><span class="kw">cajorls</span>(vecm, <span class="dt">r=</span><span class="dv">2</span>)
+<span class="kw">class</span>(jo.results)</code></pre></div>
+<pre><code>## [1] &quot;sumurca&quot;
+## attr(,&quot;package&quot;)
+## [1] &quot;urca&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">slotNames</span>(jo.results)</code></pre></div>
+<pre><code>##  [1] &quot;classname&quot; &quot;test.name&quot; &quot;testreg&quot;   &quot;teststat&quot;  &quot;cval&quot;     
+##  [6] &quot;bpoint&quot;    &quot;signif&quot;    &quot;model&quot;     &quot;type&quot;      &quot;auxstat&quot;  
+## [11] &quot;lag&quot;       &quot;H&quot;         &quot;A&quot;         &quot;lambda&quot;    &quot;pval&quot;     
+## [16] &quot;V&quot;         &quot;W&quot;         &quot;P&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">vecm.r2<span class="op">$</span>beta</code></pre></div>
+<pre><code>##             ect1      ect2
+## y1.l2  1.0000000 0.0000000
+## y2.l2  0.0000000 1.0000000
+## y3.l2 -0.7328534 0.2951962</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">vecm.r2<span class="op">$</span>rlm</code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = substitute(form1), data = data.mat)
+## 
+## Coefficients:
+##           y1.d       y2.d       y3.d     
+## ect1      -0.331293   0.064612   0.012682
+## ect2       0.094473  -0.709385  -0.009165
+## constant   0.168371  -0.027019   0.025255
+## y1.dl1    -0.227677   0.027012   0.068158
+## y2.dl1     0.144452  -0.715607   0.040487
+## y3.dl1     0.123467  -0.290828  -0.075251</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(vecm.r2<span class="op">$</span>rlm)</code></pre></div>
+<pre><code>## Response y1.d :
+## 
+## Call:
+## lm(formula = y1.d ~ ect1 + ect2 + constant + y1.dl1 + y2.dl1 + 
+##     y3.dl1 - 1, data = data.mat)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -1.4471 -0.4862 -0.0256  0.4474  2.4896 
+## 
+## Coefficients:
+##          Estimate Std. Error t value Pr(&gt;|t|)    
+## ect1     -0.33129    0.06319  -5.243 3.44e-07 ***
+## ect2      0.09447    0.10950   0.863 0.389101    
+## constant  0.16837    0.05047   3.336 0.000982 ***
+## y1.dl1   -0.22768    0.08080  -2.818 0.005234 ** 
+## y2.dl1    0.14445    0.09129   1.582 0.114870    
+## y3.dl1    0.12347    0.10530   1.173 0.242135    
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 0.6587 on 242 degrees of freedom
+## Multiple R-squared:  0.1165, Adjusted R-squared:  0.0946 
+## F-statistic: 5.318 on 6 and 242 DF,  p-value: 3.57e-05
+## 
+## 
+## Response y2.d :
+## 
+## Call:
+## lm(formula = y2.d ~ ect1 + ect2 + constant + y1.dl1 + y2.dl1 + 
+##     y3.dl1 - 1, data = data.mat)
+## 
+## Residuals:
+##      Min       1Q   Median       3Q      Max 
+## -1.47003 -0.29237 -0.01239  0.33676  1.53785 
+## 
+## Coefficients:
+##          Estimate Std. Error t value Pr(&gt;|t|)    
+## ect1      0.06461    0.04723   1.368 0.172543    
+## ect2     -0.70938    0.08184  -8.668 6.41e-16 ***
+## constant -0.02702    0.03772  -0.716 0.474462    
+## y1.dl1    0.02701    0.06039   0.447 0.655043    
+## y2.dl1   -0.71561    0.06823 -10.489  &lt; 2e-16 ***
+## y3.dl1   -0.29083    0.07870  -3.695 0.000271 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 0.4923 on 242 degrees of freedom
+## Multiple R-squared:  0.3326, Adjusted R-squared:  0.3161 
+## F-statistic:  20.1 on 6 and 242 DF,  p-value: &lt; 2.2e-16
+## 
+## 
+## Response y3.d :
+## 
+## Call:
+## lm(formula = y3.d ~ ect1 + ect2 + constant + y1.dl1 + y2.dl1 + 
+##     y3.dl1 - 1, data = data.mat)
+## 
+## Residuals:
+##      Min       1Q   Median       3Q      Max 
+## -1.40655 -0.30401 -0.01374  0.32107  1.69270 
+## 
+## Coefficients:
+##           Estimate Std. Error t value Pr(&gt;|t|)
+## ect1      0.012682   0.050764   0.250    0.803
+## ect2     -0.009165   0.087966  -0.104    0.917
+## constant  0.025255   0.040542   0.623    0.534
+## y1.dl1    0.068158   0.064910   1.050    0.295
+## y2.dl1    0.040487   0.073338   0.552    0.581
+## y3.dl1   -0.075251   0.084594  -0.890    0.375
+## 
+## Residual standard error: 0.5292 on 242 degrees of freedom
+## Multiple R-squared:  0.01173,    Adjusted R-squared:  -0.01277 
+## F-statistic: 0.4788 on 6 and 242 DF,  p-value: 0.8239</code></pre>
+<p>Donde la beta del objeto vecm.r2 se obtiene de la siguiente manera:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">tmp_beta &lt;-<span class="st"> </span>vecm<span class="op">@</span>V[,<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>]
+
+pre_s &lt;-<span class="st"> </span><span class="kw">diag</span>(<span class="dv">2</span>)
+st &lt;-<span class="st"> </span><span class="kw">cbind</span>(pre_s, <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">0</span>)) 
+
+
+beta_c &lt;-<span class="st"> </span>tmp_beta<span class="op">%*%</span><span class="kw">solve</span>(st<span class="op">%*%</span>tmp_beta)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># y1.d_hat</span>
+
+
+hat &lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(vecm.r2<span class="op">$</span>rlm<span class="op">$</span>fitted.values[,<span class="dv">1</span>])
+<span class="kw">colnames</span>(hat) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;y1.d_hat&#39;</span>)
+
+obs &lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(vecm.r2<span class="op">$</span>rlm<span class="op">$</span>model<span class="op">$</span><span class="st">`</span><span class="dt">z@Z0</span><span class="st">`</span>[,<span class="dv">1</span>])
+<span class="kw">colnames</span>(obs) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;y1.d&#39;</span>)
+
+ajuste &lt;-<span class="st"> </span><span class="kw">cbind</span>(obs,hat)
+
+
+ajuste &lt;-<span class="st"> </span>ajuste <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">time=</span><span class="kw">row_number</span>())
+
+
+<span class="kw">ggplot</span>(ajuste)<span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_line</span>(<span class="kw">aes</span>(time,y1.d))<span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_line</span>(<span class="kw">aes</span>(time,y1.d_hat), <span class="dt">color=</span><span class="st">&#39;red&#39;</span>)<span class="op">+</span>
+<span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&#39;y1.d_hat&#39;</span>)</code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-101-1.png" width="672" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># y2.d_hat</span>
+
+
+hat &lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(vecm.r2<span class="op">$</span>rlm<span class="op">$</span>fitted.values[,<span class="dv">2</span>])
+<span class="kw">colnames</span>(hat) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;y2.d_hat&#39;</span>)
+
+obs &lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(vecm.r2<span class="op">$</span>rlm<span class="op">$</span>model<span class="op">$</span><span class="st">`</span><span class="dt">z@Z0</span><span class="st">`</span>[,<span class="dv">2</span>])
+<span class="kw">colnames</span>(obs) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;y2.d&#39;</span>)
+
+ajuste &lt;-<span class="st"> </span><span class="kw">cbind</span>(obs,hat)
+
+
+ajuste &lt;-<span class="st"> </span>ajuste <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">time=</span><span class="kw">row_number</span>())
+
+
+<span class="kw">ggplot</span>(ajuste)<span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_line</span>(<span class="kw">aes</span>(time,y2.d))<span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_line</span>(<span class="kw">aes</span>(time,y2.d_hat), <span class="dt">color=</span><span class="st">&#39;red&#39;</span>)<span class="op">+</span>
+<span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&#39;y2.d_hat&#39;</span>)</code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-102-1.png" width="672" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># y3.d_hat</span>
+
+hat &lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(vecm.r2<span class="op">$</span>rlm<span class="op">$</span>fitted.values[,<span class="dv">3</span>])
+<span class="kw">colnames</span>(hat) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;y3.d_hat&#39;</span>)
+
+obs &lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(vecm.r2<span class="op">$</span>rlm<span class="op">$</span>model<span class="op">$</span><span class="st">`</span><span class="dt">z@Z0</span><span class="st">`</span>[,<span class="dv">3</span>])
+<span class="kw">colnames</span>(obs) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;y3.d&#39;</span>)
+
+ajuste &lt;-<span class="st"> </span><span class="kw">cbind</span>(obs,hat)
+
+
+ajuste &lt;-<span class="st"> </span>ajuste <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">time=</span><span class="kw">row_number</span>())
+
+
+<span class="kw">ggplot</span>(ajuste)<span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_line</span>(<span class="kw">aes</span>(time,y3.d))<span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_line</span>(<span class="kw">aes</span>(time,y3.d_hat), <span class="dt">color=</span><span class="st">&#39;red&#39;</span>)<span class="op">+</span>
+<span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&#39;y3.d_hat&#39;</span>)</code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-103-1.png" width="672" /></p>
+<p>Analicemos los objetos output de un ca.jo</p>
+<p>Z0: Object of class “matrix”: The matrix of the differenced series.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#vecm</span>
+<span class="kw">head</span>(vecm<span class="op">@</span>Z0)</code></pre></div>
+<pre><code>##            y1.d       y2.d        y3.d
+## [1,] -0.4794131 -0.1922064  0.24235792
+## [2,] -1.0522604 -0.8403053 -0.46898616
+## [3,]  1.3541820 -0.2094376  1.66536665
+## [4,] -1.2606834  0.5650305 -0.08147273
+## [5,]  0.4155807 -0.3992869  0.11022789
+## [6,]  0.1428918 -0.2635745  0.43810541</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(<span class="kw">diff</span>(vecm<span class="op">@</span>x[,<span class="dv">1</span>]))[<span class="op">-</span><span class="dv">1</span>]</code></pre></div>
+<pre><code>## [1] -0.4794131 -1.0522604  1.3541820 -1.2606834  0.4155807</code></pre>
+<p>Z1: Object of class “matrix”: The regressor matrix, except for the lagged variables in levels.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(vecm<span class="op">@</span>Z1)</code></pre></div>
+<pre><code>##      constant     y1.dl1     y2.dl1      y3.dl1
+## [1,]        1 -1.3386618  0.8801562 -1.23346932
+## [2,]        1 -0.4794131 -0.1922064  0.24235792
+## [3,]        1 -1.0522604 -0.8403053 -0.46898616
+## [4,]        1  1.3541820 -0.2094376  1.66536665
+## [5,]        1 -1.2606834  0.5650305 -0.08147273
+## [6,]        1  0.4155807 -0.3992869  0.11022789</code></pre>
+<p>ZK: Object of class “matrix”: The matrix of the lagged variables in levels.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(vecm<span class="op">@</span>ZK)</code></pre></div>
+<pre><code>##           y1.l2       y2.l2      y3.l2
+## [1,]  2.2583477  0.19939792 -0.7101619
+## [2,]  0.9196859  1.07955410 -1.9436313
+## [3,]  0.4402729  0.88734767 -1.7012733
+## [4,] -0.6119875  0.04704239 -2.1702595
+## [5,]  0.7421945 -0.16239519 -0.5048928
+## [6,] -0.5184889  0.40263534 -0.5863656</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(vecm<span class="op">@</span>x[,<span class="dv">1</span>])</code></pre></div>
+<pre><code>## [1]  2.2583477  0.9196859  0.4402729 -0.6119875  0.7421945 -0.5184889</code></pre>
+<p>GAMMA: Object of class “matrix”: The coeffecient matrix of Z1.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">vecm<span class="op">@</span>GAMMA</code></pre></div>
+<pre><code>##         constant      y1.dl1      y2.dl1     y3.dl1
+## y1.d  0.23923393 -0.22926059  0.14319319  0.1114252
+## y2.d -0.05551169  0.02764891 -0.71510124 -0.2859867
+## y3.d  0.11515655  0.06614925  0.03889071 -0.0905275</code></pre>
+<p>R0: Object of class “matrix”: The matrix of residuals from the regressions in differences.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(vecm<span class="op">@</span>R0)</code></pre></div>
+<pre><code>##         R0.y1.d     R0.y2.d     R0.y3.d
+## [1,] -0.6904635 -0.08037954  0.16940277
+## [2,] -1.0705514 -0.87294513 -0.44518760
+## [3,]  1.3567145 -0.59827432  1.70442968
+## [4,] -1.1485490  0.78386750 -0.07149617
+## [5,]  0.2704663 -0.22409425  0.12573125
+## [6,]  0.1881747 -0.37170924  0.40727514</code></pre>
+<p>Estos se obtienen de la siguiente manera para y1.d</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">obs &lt;-<span class="st"> </span>vecm<span class="op">@</span>Z0[,<span class="dv">1</span>]
+tmp &lt;-<span class="st"> </span><span class="kw">lm</span>(obs <span class="op">~</span><span class="st"> </span>vecm<span class="op">@</span>Z1)
+<span class="kw">head</span>(tmp<span class="op">$</span>residuals)</code></pre></div>
+<pre><code>##          1          2          3          4          5          6 
+## -0.6904635 -1.0705514  1.3567145 -1.1485490  0.2704663  0.1881747</code></pre>
+<p>RK: Object of class “matrix”: The matrix of residuals from the regression in lagged levels.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(vecm<span class="op">@</span>RK)</code></pre></div>
+<pre><code>##        RK.y1.l2  RK.y2.l2  RK.y3.l2
+## [1,] -0.7880642 1.4228006 -3.990389
+## [2,] -1.7167073 1.7503912 -4.438872
+## [3,] -2.5056460 1.2466576 -4.578191
+## [4,] -2.3680375 0.6996849 -4.002224
+## [5,] -2.2307412 0.8807273 -3.096962
+## [6,] -2.7678351 0.9845930 -3.265588</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">obs &lt;-<span class="st"> </span>vecm<span class="op">@</span>ZK[,<span class="dv">1</span>]
+tmp &lt;-<span class="st"> </span><span class="kw">lm</span>(obs <span class="op">~</span><span class="st"> </span>vecm<span class="op">@</span>Z1)
+<span class="kw">head</span>(tmp<span class="op">$</span>residuals)</code></pre></div>
+<pre><code>##          1          2          3          4          5          6 
+## -0.7880642 -1.7167073 -2.5056460 -2.3680375 -2.2307412 -2.7678351</code></pre>
+<p>Codigo para obtener los p-values de la relacion de cointegración:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(<span class="st">&quot;vars&quot;</span>)
+<span class="kw">data</span>(<span class="st">&quot;Canada&quot;</span>)
+<span class="kw">summary</span>(Canada)</code></pre></div>
+<pre><code>##        e              prod             rw              U         
+##  Min.   :928.6   Min.   :401.3   Min.   :386.1   Min.   : 6.700  
+##  1st Qu.:935.4   1st Qu.:404.8   1st Qu.:423.9   1st Qu.: 7.782  
+##  Median :946.0   Median :406.5   Median :444.4   Median : 9.450  
+##  Mean   :944.3   Mean   :407.8   Mean   :440.8   Mean   : 9.321  
+##  3rd Qu.:950.0   3rd Qu.:410.7   3rd Qu.:461.1   3rd Qu.:10.607  
+##  Max.   :961.8   Max.   :418.0   Max.   :470.0   Max.   :12.770</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">###################################################
+### VECM
+###################################################
+vecm.p3 &lt;-<span class="st"> </span><span class="kw">summary</span>(<span class="kw">ca.jo</span>(Canada, <span class="dt">type =</span> <span class="st">&quot;trace&quot;</span>, <span class="dt">ecdet =</span> <span class="st">&quot;trend&quot;</span>, <span class="dt">K =</span> <span class="dv">3</span>, <span class="dt">spec =</span> <span class="st">&quot;transitory&quot;</span>))
+vecm.p2 &lt;-<span class="st"> </span><span class="kw">summary</span>(<span class="kw">ca.jo</span>(Canada, <span class="dt">type =</span> <span class="st">&quot;trace&quot;</span>, <span class="dt">ecdet =</span> <span class="st">&quot;trend&quot;</span>, <span class="dt">K =</span> <span class="dv">2</span>, <span class="dt">spec =</span> <span class="st">&quot;transitory&quot;</span>))
+
+
+###################################################
+### VECM r = 1
+###################################################
+vecm &lt;-<span class="st"> </span><span class="kw">ca.jo</span>(Canada[, <span class="kw">c</span>(<span class="st">&quot;rw&quot;</span>, <span class="st">&quot;prod&quot;</span>, <span class="st">&quot;e&quot;</span>, <span class="st">&quot;U&quot;</span>)], <span class="dt">type =</span> <span class="st">&quot;trace&quot;</span>, <span class="dt">ecdet =</span> <span class="st">&quot;trend&quot;</span>, <span class="dt">K =</span> <span class="dv">3</span>, <span class="dt">spec =</span> <span class="st">&quot;transitory&quot;</span>) 
+vecm.r1 &lt;-<span class="st"> </span><span class="kw">cajorls</span>(vecm, <span class="dt">r =</span> <span class="dv">1</span>)
+##
+## Calculation of t-values for alpha and beta
+##
+alpha &lt;-<span class="st"> </span><span class="kw">coef</span>(vecm.r1<span class="op">$</span>rlm)[<span class="dv">1</span>, ]
+<span class="kw">names</span>(alpha) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;rw&quot;</span>, <span class="st">&quot;prod&quot;</span>, <span class="st">&quot;e&quot;</span>, <span class="st">&quot;U&quot;</span>)
+alpha</code></pre></div>
+<pre><code>##           rw         prod            e            U 
+## -0.084814510 -0.011994081 -0.015606039 -0.008659911</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">beta &lt;-<span class="st"> </span>vecm.r1<span class="op">$</span>beta
+beta</code></pre></div>
+<pre><code>##                 ect1
+## rw.l1     1.00000000
+## prod.l1   0.54487553
+## e.l1     -0.01299605
+## U.l1      1.72657188
+## trend.l1 -0.70918872</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">resids &lt;-<span class="st"> </span><span class="kw">resid</span>(vecm.r1<span class="op">$</span>rlm)
+N &lt;-<span class="st"> </span><span class="kw">nrow</span>(resids)
+sigma &lt;-<span class="st"> </span><span class="kw">crossprod</span>(resids) <span class="op">/</span><span class="st"> </span>N
+## t-stats for alpha (calculated by hand)
+alpha.se &lt;-<span class="st"> </span><span class="kw">sqrt</span>(<span class="kw">solve</span>(<span class="kw">crossprod</span>(<span class="kw">cbind</span>(vecm<span class="op">@</span>ZK <span class="op">%*%</span><span class="st"> </span>beta, vecm<span class="op">@</span>Z1)))[<span class="dv">1</span>, <span class="dv">1</span>] <span class="op">*</span><span class="st"> </span><span class="kw">diag</span>(sigma))
+<span class="kw">names</span>(alpha.se) &lt;-<span class="st">  </span><span class="kw">c</span>(<span class="st">&quot;rw&quot;</span>, <span class="st">&quot;prod&quot;</span>, <span class="st">&quot;e&quot;</span>, <span class="st">&quot;U&quot;</span>)
+alpha.t &lt;-<span class="st"> </span>alpha <span class="op">/</span><span class="st"> </span>alpha.se
+alpha.t</code></pre></div>
+<pre><code>##         rw       prod          e          U 
+## -5.7117416 -0.9186147 -2.1579440 -1.4868989</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## Differ slightly from coef(summary(vecm.r1$rlm))
+## due to degrees of freedom adjustment 
+<span class="kw">coef</span>(<span class="kw">summary</span>(vecm.r1<span class="op">$</span>rlm))</code></pre></div>
+<pre><code>## Response rw.d :
+##             Estimate  Std. Error    t value     Pr(&gt;|t|)
+## ect1     -0.08481451  0.01586043 -5.3475545 1.032919e-06
+## constant 55.46912512 10.27534117  5.3982758 8.457630e-07
+## rw.dl1   -0.01208216  0.10704961 -0.1128651 9.104560e-01
+## prod.dl1 -0.07449278  0.12959959 -0.5747917 5.672491e-01
+## e.dl1    -0.63408419  0.32375145 -1.9585524 5.409412e-02
+## U.dl1     0.06313697  0.39823872  0.1585405 8.744810e-01
+## rw.dl2   -0.15738805  0.10657625 -1.4767647 1.441606e-01
+## prod.dl2 -0.25194030  0.13324238 -1.8908420 6.272600e-02
+## e.dl2     0.08119694  0.34085520  0.2382153 8.124002e-01
+## U.dl2    -0.23000852  0.40783183 -0.5639788 5.745457e-01
+## 
+## Response prod.d :
+##              Estimate Std. Error     t value    Pr(&gt;|t|)
+## ect1     -0.011994081 0.01394591 -0.86004279 0.392660259
+## constant  8.274808112 9.03500121  0.91586132 0.362839920
+## rw.dl1    0.004706801 0.09412762  0.05000446 0.960259241
+## prod.dl1  0.234441189 0.11395558  2.05730322 0.043331256
+## e.dl1    -0.246543876 0.28467130 -0.86606509 0.389371704
+## U.dl1    -0.979868038 0.35016719 -2.79828628 0.006608993
+## rw.dl2   -0.190264297 0.09371139 -2.03032194 0.046071053
+## prod.dl2 -0.029520300 0.11715865 -0.25196859 0.801793287
+## e.dl2    -0.580472750 0.29971045 -1.93677850 0.056752354
+## U.dl2    -0.128100838 0.35860231 -0.35722257 0.721984808
+## 
+## Response e.d :
+##              Estimate  Std. Error     t value     Pr(&gt;|t|)
+## ect1     -0.015606039 0.007724419 -2.02035108 4.712059e-02
+## constant 10.331308141 5.004343822  2.06446809 4.262776e-02
+## rw.dl1   -0.078491214 0.052135793 -1.50551490 1.366279e-01
+## prod.dl1  0.200953060 0.063118190  3.18375830 2.158925e-03
+## e.dl1     0.821557783 0.157674917  5.21045326 1.766876e-06
+## U.dl1     0.003379404 0.193952049  0.01742391 9.861473e-01
+## rw.dl2   -0.095834953 0.051905254 -1.84634398 6.901044e-02
+## prod.dl2  0.048272523 0.064892318  0.74388655 4.593999e-01
+## e.dl2    -0.459693071 0.166004862 -2.76915427 7.165319e-03
+## U.dl2    -0.103414812 0.198624129 -0.52065584 6.042265e-01
+## 
+## Response U.d :
+##              Estimate  Std. Error     t value     Pr(&gt;|t|)
+## ect1     -0.008659911 0.006220787 -1.39209252 1.682397e-01
+## constant  5.687831831 4.030200359  1.41130250 1.625226e-01
+## rw.dl1    0.017262536 0.041987062  0.41113942 6.822087e-01
+## prod.dl1 -0.138916466 0.050831629 -2.73287454 7.918064e-03
+## e.dl1    -0.646846115 0.126981984 -5.09399914 2.775841e-06
+## U.dl1    -0.191125426 0.156197425 -1.22361445 2.251431e-01
+## rw.dl2    0.080354366 0.041801399  1.92228891 5.858215e-02
+## prod.dl2 -0.002908953 0.052260406 -0.05566266 9.557669e-01
+## e.dl2    -0.019741041 0.133690425 -0.14766234 8.830278e-01
+## U.dl2    -0.262685288 0.159960039 -1.64219319 1.049722e-01</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## t-stats for beta
+beta.se &lt;-<span class="st"> </span><span class="kw">sqrt</span>(<span class="kw">diag</span>(<span class="kw">kronecker</span>(<span class="kw">solve</span>(<span class="kw">crossprod</span>(vecm<span class="op">@</span>RK[, <span class="op">-</span><span class="dv">1</span>])),
+                               <span class="kw">solve</span>(<span class="kw">t</span>(alpha) <span class="op">%*%</span><span class="st"> </span><span class="kw">solve</span>(sigma) <span class="op">%*%</span><span class="st"> </span>alpha))))
+beta.t &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="ot">NA</span>, beta[<span class="op">-</span><span class="dv">1</span>] <span class="op">/</span><span class="st"> </span>beta.se)
+<span class="kw">names</span>(beta.t) &lt;-<span class="st"> </span><span class="kw">rownames</span>(vecm.r1<span class="op">$</span>beta)
+beta.t</code></pre></div>
+<pre><code>##       rw.l1     prod.l1        e.l1        U.l1    trend.l1 
+##          NA  0.90044324 -0.01917236  1.19328037 -2.56940604</code></pre>
+
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="orden-integracion-de-la-serie-lnpib-a-precios-ctes.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="cointegracion-analisis.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/09-Cointegracion-Teoria.Rmd",
+"text": "Edit"
+},
+"download": ["bookdown-demo.pdf", "bookdown-demo.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "";
+    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

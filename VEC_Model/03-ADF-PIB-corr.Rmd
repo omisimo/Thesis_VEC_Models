@@ -1,0 +1,143 @@
+# Orden Integración PIB a precios corrientes
+
+La serie de PIB a precios corrientes parece ser una serie con un orden de integración, esto será corroborado con las pruebas de hipótesis presentadas por Dickey & Fuller, tal y como ya se ha presentado en la sección previa.
+
+```{r}
+gf1 <- grafica_serie(base_in = series_db, 
+                      eje_y = 'GDP_corriente', 
+                      titulo = 'PIB a precios corrientes', 
+                      titulo_y = 'PIB Corriente')
+gf1
+```
+
+
+En primer lugar necesitamos realizar la lectura de los datos como un objeto _ts_ y posteriormente una regresión con una constante y tendencia temporal será estimada, en este caso en particular, no será necesario agregar lags a la estimación ya que no hay evidencia de presencia de autocorrelaciones y autocorrelaciones parciales diferentes de cero, por lo que podemos asegurar un proceso esférico del error. Incluir desde uno hasta el cuarto lag resultaban ser no significativos.
+
+
+
+```{r}
+pib_corr <- ts(series_db$GDP_corriente,start = 1991, end = 2016, frequency = 1)
+pib_corr.ct <- ur.df(pib_corr,lags=3,type='trend')
+summary(pib_corr.ct)
+```
+
+```{r}
+plot(pib_corr.ct)
+```
+
+
+
+
+Ahora bien la hipótesis $\phi_3$ es probada bajo una usual prueba F, es decir, $\phi_3=(a_0,\gamma,a_2) = (a_0,0,0)$. Esto es, se han colocado restricciones igual a cero a la tendencia temporal y el lag del la variable.
+
+El valor del estadístico es
+
+```{r}
+pib_corr.ct@teststat
+```
+
+
+Debemos recordar que se deben consular los valores críticos propuestas por Dickey and Fuller. Los valores críticos para una muestra de tamaño 100 y niveles de significancia del 10%,5% y 1% se muestran a continuación
+
+```{r}
+pib_corr.ct@cval
+```
+
+Por lo tanto, la hipótesis nula no puede ser rechazada, lo cual implica que la serie contiene una raíz unitaria. Esto puede ser reiterado con el estadístico $\tau_3$ y para la variable _z.lag.1_. Los valores críticos relevantes que debemos utilizar ahora son los de Fuller[1976], los cuales se muestran para una muestra de tamaño 100.
+
+Luego entonces, la presencia de una raíz unitaria no puede rechazada. El siguiente paso, es probar si la serie es una caminata aleatoria con o sin drift (constante).
+
+El estadístico relevante es $\phi_2$ $(\gamma=a_0=a_2=0)$ el cual tiene un valor de 3.738072, con valores críticos de 7.02  5.13  4.31 para niveles de significancia de 1%, 5% y 10% respectivamente. La conclusión es entonces que la serie no se comporta como una caminata aleatoria pura, ya que tiene una constante incluida en el proceso, así como un orden de integración.
+
+
+Uno procede entonces a estimar la ecuación $\nabla y_t = a_0 +  \gamma y_{t-1} + \epsilon_t$ basado en los resultados obtenidos por la prueba $\phi_3$. Los resultados se muestran a continuación:
+
+
+```{r}
+pib_corr.co <- ur.df(pib_corr,lags=3,type='drift')
+summary(pib_corr.co)
+```
+
+```{r}
+plot(pib_corr.co)
+```
+
+
+Con el fin de completar la prueba, ahora se valida si en este modelo un término constante hace falta. Las pruebas se muestran a continuación:
+
+```{r}
+pib_corr.co@teststat
+```
+
+```{r}
+pib_corr.co@cval
+```
+
+
+El valor del estadístico $\phi_1$ que prueba $\gamma=a_0=0$ resulta ser significativo comparado con los valores críticos mostrados. 
+
+Por lo tanto, se puede concluir que la serie contiene un raíz unitaria y una tendencia constante en el proceso generador de los datos.
+
+Finalmente, se probará si diferenciando la serie una vez es suficiente para alcanzar estacionariedad. La prueba se logra utilizando como insumo para la regresión a la serie diferenciada una vez.
+
+
+
+```{r}
+pib_corr2 <- diff(pib_corr)
+pib_corr2.ct <- ur.df(pib_corr2,type="none",lags=1)
+summary(pib_corr2.ct)
+```
+
+```{r}
+pib_corr2 <- diff(pib_corr,differences = 2)
+pib_corr2.ct <- ur.df(pib_corr2,type="none",lags=0)
+summary(pib_corr2.ct)
+```
+
+```{r}
+pib_corr2.ct@teststat
+```
+
+
+```{r}
+pib_corr2.ct@cval
+```
+
+
+La hipótesis de que el PIB a precios corrientes es $I(2)$ se comprueba rápidamente dado el estadístico $t$ con valor de -2.681622. ya que diferenciando solo una vez la serie no fue suficiente para hacer estacionaria la serie.
+
+Por lo tanto. La serie del PIB a precios corrientes es $I(2)$ y de la forma $\nabla y_t = a_0 + \gamma y_{t-1} + \epsilon_t$.
+
+```{r}
+plot(pib_corr2)
+acf(pib_corr2)
+```
+
+
+
+```{r}
+plot(pib_corr2.ct)
+```
+
+
+```{r}
+plot(pib_corr)
+plot(diff(pib_corr,differences = 1))
+plot(diff(pib_corr,differences = 2))
+```
+
+
+```{r}
+var(pib_corr)
+var(diff(pib_corr, differences = 1))
+var(diff(pib_corr, differences = 2))
+var(diff(pib_corr, differences = 3))
+```
+
+
+
+
+
+
+
+

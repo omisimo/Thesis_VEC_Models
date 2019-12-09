@@ -1,0 +1,213 @@
+% !TEX encoding = UTF-8 Unicode
+\documentclass[12pt,twoside]{extbook}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish, mexico]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[hidelinks,bookmarks=true]{hyperref}
+
+%%%%%%%%%%% Para edicion %%%%%%%%%%%%%%%
+\usepackage{amsmath,latexsym,color,url}
+\usepackage{epsfig,enumitem,appendix,authblk}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{textcomp}
+\usepackage{mathtools}
+\usepackage{amstext}
+\usepackage{units}
+\usepackage{float}
+\usepackage{array}
+\tolerance=1
+\emergencystretch=\maxdimen
+\hyphenpenalty=10000
+\hbadness=10000
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{xr}
+
+%%%%%%%%% Para imagenes %%%%%%%%%%%%
+\usepackage{graphicx}
+\graphicspath{ {images/} }
+\usepackage{caption}
+\usepackage{subcaption}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%% Page layout %%%%%%%%%%%%%%%%%%%%%
+\usepackage[width=140mm,top=25mm,bottom=25mm,bindingoffset=6mm,paperwidth=17cm,paperheight=22.5cm]{geometry}
+%\usepackage[width=150mm,top=25mm,bottom=25mm,bindingoffset=6mm,paperwidth=17cm,paperheight=22.5cm]{geometry}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%% Delimitadores %%%%%%%%%%%%%%%%%%
+\DeclarePairedDelimiter\ceil{\lceil}{\rceil}
+\DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
+\newcommand*{\vertbar}{\rule[1ex]{0.5pt}{2.5ex}}
+\newcommand*{\horzbar}{\rule[.5ex]{2.5ex}{0.5pt}}
+\providecommand{\abs}[1]{\lvert#1\rvert}
+\providecommand{\norm}[1]{\lVert#1\rVert}
+\DeclareMathOperator{\gen}{gen}
+\DeclareMathOperator{\rango}{rango}
+\newcommand{\mcd}[1]{\operatorname{mcd}\left(#1\right)}
+\newcommand{\Mod}[1]{\ (\text{mod}\ #1)}
+\newcommand{\bigslant}[2]{{\left.\raisebox{.2em}{$#1$}\middle/\raisebox{-.2em}{$#2$}\right.}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%% Para bibliografÃ­a %%%%%%%%%%%%%%%
+%Society for Industrial and Applied Mathematics
+\usepackage[square,sort,comma,numbers]{natbib}
+\bibliographystyle{siam}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%% Para tablas %%%%%%%%%%%%%%%%%
+\usepackage{tabularx}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%% Para listados de programas %%%%%%%%%
+\usepackage{listings}
+\usepackage{mdframed}
+% \vspace{5mm}
+% \lstset{frame=none}
+% \begin{mdframed}
+% \begin{centering}
+% \begin{lstlisting}
+% ...
+% \end{lstlisting}
+% \par\end{centering}
+% \end{mdframed}
+% \lstset{frame=b}
+% \vspace{5mm}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Para codigo de Java, C++, R, Matlab, Python, etc %
+% \lstinputlisting[label=et,caption={}]{archivo.R}
+\usepackage{listings}
+\usepackage{courier}
+\usepackage{caption}
+ \lstset{
+         basicstyle=\footnotesize\ttfamily,
+         numberstyle=\tiny,
+         numbersep=5pt,
+         tabsize=2,
+         extendedchars=true,
+         breaklines=true,
+         keywordstyle=\color{red},
+                frame=b,
+         stringstyle=\color{white}\ttfamily,
+         showspaces=false,
+         showtabs=false,
+         xleftmargin=17pt,
+         framexleftmargin=17pt,
+         framexrightmargin=5pt,
+         framexbottommargin=4pt,
+         showstringspaces=false
+ }
+\lstloadlanguages{R}%Java, C++, Python, R, Matlab...
+\DeclareCaptionFont{white}{\color{white}}
+\DeclareCaptionFormat{listing}{\colorbox[cmyk]{0.43, 0.35, 0.35,0.01}{\parbox{\textwidth}{\hspace{15pt}#1#2#3}}}
+\captionsetup[lstlisting]{format=listing,labelfont=white,textfont=white, singlelinecheck=false, margin=0pt, font={bf,footnotesize}}
+\renewcommand\lstlistingname{CÃ³digo}
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+\newcount\mycount
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%% Para algoritmos %%%%%%%%%%%%%%%%%
+\usepackage[lined,boxed,linesnumbered]{algorithm2e}
+\SetKwInput{Input}{Entrada}
+\SetKwInput{Output}{Salida}
+\SetKwIF{If}{ElseIf}{Else}{Si}{entonces}{De otro modo si}{De otro modo}{Fin}
+\SetKwFor{For}{Para}{ }{Fin}
+\SetKwFor{While}{Mientras}{ }{Fin}
+\SetKwRepeat{Do}{Hacer}{Mientras}
+\newenvironment{algoritmo}[1][htb]
+  {\renewcommand{\algorithmcfname}{Algoritmo}
+   \begin{algorithm}[#1]
+  }{\end{algorithm}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%% Etiquetas %%%%%%%%%%%%%%%%%%%%%
+\theoremstyle{plain}
+\newtheorem{theorem}{Teorema}[chapter]
+\newtheorem{lemma}[theorem]{Lema}
+\newtheorem{proposition}[theorem]{Proposición}
+\newtheorem{axiom}[theorem]{Axioma}
+\newtheorem{case}[theorem]{Caso}
+\newtheorem{conclusion}[theorem]{Conclusión}
+\newtheorem{condition}[theorem]{Condición}
+\newtheorem{conjecture}[theorem]{Conjetura}
+\newtheorem{corollary}[theorem]{Corolario}
+\newtheorem{criterion}[theorem]{Criterio}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definición}
+\newtheorem{example}[theorem]{Ejemplo}
+\newtheorem{exercise}[theorem]{Ejercicio}
+\newtheorem{notation}[theorem]{Notación}
+\newtheorem{problem}[theorem]{Problema}
+\newtheorem{remark}[theorem]{Comentario}
+\newtheorem{solution}[theorem]{Solución}
+\newtheorem{summary}[theorem]{Resumen}
+\theoremstyle{remark}
+\newtheorem*{rem}{ObservaciÃ³n}
+\newtheorem*{note}{Nota}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+\title{VECM}
+\author{Omar Díaz}
+\date{2018}
+
+\begin{document}
+
+% titulo de la tesis
+\frontmatter
+\include{titlepage}
+
+% leyenda ITAM
+\include{statement} 
+
+% Agradecimientos
+\include{ack}
+
+% Indice
+\tableofcontents
+
+% Capitulos
+\mainmatter
+\chapter*{Introducción}
+\input{chapters/chapter01}
+
+\chapter{Análisis Exploratorio}
+\input{chapters/chapter02}
+
+\chapter{Pruebas de Raíces Unitarias}
+\input{chapters/chapter03}
+
+\chapter{Cointegración y Modelos VEC}
+\input{chapters/chapter04_1}
+\input{chapters/chapter04_2}
+
+\chapter{Aplicación}
+\input{chapters/chapter05}
+\input{chapters/chapter06}
+
+\chapter*{Conclusiones}
+\input{chapters/Conclusiones}
+
+%\chapter{Referencias}
+%\input{chapters/Referencias}
+
+%%%%%%%%%%%% Bibliography %%%%%%%%%%%%%%% 
+\nocite{*}
+%\bibliographystyle{plain}
+\bibliography{ref}
+
+%%%%%%%%%%%%%% Apendices %%%%%%%%%%%%%%%
+\appendix
+\chapter{Código}
+\input{chapters/appendix_1}
+\chapter{Extracción de las Series}
+\input{chapters/appendix_2}
+
+
+\end{document}

@@ -1,0 +1,1 @@
+"0","plot(irf(vecm.level,n.ahead=3,response='edu',boot=TRUE))"

@@ -1,0 +1,549 @@
+% !TEX encoding = UTF-8 Unicode
+\section{Series de Tiempo} \label{chap:I(d)}
+
+Una serie de tiempo, como su nombre lo indica, consiste en la medición u observación sistemática de un fenómeno de interés a lo largo del tiempo, con la particularidad de que dicha información debe ser de naturaleza numérica y registrada en intervalos de tiempo fijos.  Esto permite observar la evolución histórica de la información y a partir de ello, llevar a cabo la planeación, la toma de decisiones y en la mayoría de los casos, realizar un pronóstico sobre cuál será el siguiente valor a observar. Es por esta razón que en la actualidad el análisis de series de tiempo ha cobrado interés en áreas de investigación como la economía, las finanzas, la biología e incluso en la astronomía.\newline
+
+Debido a que las series de tiempo suponen un ordenamiento temporal de la información de manera implícita, no es posible utilizar las técnicas estadísticas usuales para su modelación pues en primer lugar, éstas suponen que no hay presencia de información temporal y en segundo lugar, no es de nuestro interés encontrar un conjunto de variables que nos ayuden a hacer inferencia sobre la variable de interés, sino que únicamente se pretende observar la evolución histórica de la serie para poder generar información de valor, hacer análisis y posteriormente realizar pronósticos para la toma de decisiones. Por lo tanto, al tener un problema que no se puede resolver con metodologías usuales, se abre una nueva rama de investigación conocida como el análisis de series de tiempo, la cual a lo largo de la historia ha encontrado dos corrientes principales para su desarrollo. El primero de los métodos es conocido como \textbf{descomposición de series}, el cual supone que una serie de tiempo esta compuesta por elementos como tendencia o ciclo, estacionalidad e irregularidad de tal manera que busca identificar y estimar cada uno de estos componentes por separado. Realizar el análisis de series de tiempo bajo este enfoque tiene sus desventajas pues la modelación e interpretación es de mayor dificultad. A causa de esto surge la segunda línea de trabajo, la cual emplea métodos estadísticos bajo el \textbf{enfoque de procesos estocásticos}. Este método es el más común en la actualidad debido a que ha demostrado mayor eficacia en la creación de modelos, pues a partir de una sola familia de ellos se pueden representar un gran número de fenómenos de distinta naturaleza. Además, dicho enfoque presenta flexibilidad para extenderse a modelos para varias series simultáneas.\newline
+
+A lo largo de este capítulo se mostrarán los conceptos básicos que darán apertura al tema principal del presente trabajo.\newline
+
+Para poder analizar a las series de tiempo desde un punto de vista de procesos estocásticos, es necesario definir en primera instancia lo que se entiende por uno. Se dice que es un \textbf{proceso estocástico} cuando se tiene un conjunto índice de números reales $T$ y una familia de variables aleatorias $Z$ definidas en un espacio de probabilidad, de tal manera que cada uno de los elementos del conjunto índice tenga asociada una y solo una variable aleatoria, es decir,  $\{Z_t: t \in T\}$. Por lo tanto, si ahora recordamos la definición anteriormente enunciada de una serie de tiempo es posible equiparar sus elementos con los de un proceso estocástico, pues una serie de tiempo es la medición sistemática en un periodo de tiempo fijo (conjunto índice) de un fenómeno de interés (variable aleatoria) a lo largo del tiempo. Por consiguiente, una serie de tiempo puede ser considerada como un  proceso estocástico cuyo conjunto índice es el tiempo.\newline
+
+
+Es importante aclarar que cuando se tiene una serie de tiempo observada, es producto de varias realizaciones de una variable aleatoria a lo largo de todo el conjunto índice; es por esta razón que una serie observada representa únicamente una ejecución de todas las posibles realizaciones que el proceso estocástico pudo haber generado. Ante la presencia de este efecto probabilístico, es natural pensar que a partir de la función de densidad conjunta de las variables que conforman el proceso estocástico, es posible describir su comportamiento en su totalidad. Sin embargo, en el caso de series de tiempo obtener dicha función es muy complejo y a diferencia de la mayoría de los desarrollos estadísticos, no es posible suponer que se puede obtener a partir del producto de funciones de densidad marginales, ya que las variables en este caso son altamente dependientes, en realidad, se trata de la misma variable pero medida en diferentes momentos de tiempo. Por consiguiente, el análisis de series de tiempo propone conocer los primeros y segundos momentos, es decir, esperanzas, varianzas y covarianzas para poder caracterizar la serie, ya que estos estadísticos descriptivos resumen en buena medida a la función de densidad conjunta.\newline
+
+Se debe tomar en consideración que cuando se desea analizar la evolución de algún fenómeno o realizar un pronóstico sobre los posibles valores futuros a observar, la serie debe cumplir con la característica de no mostrar tendencias, ciclos o cambios en la varianza  pues estos efectos podrían alterar directamente los resultados. Aunque en la practica la mayoría de las series presentan ya sea tendencia o cambios en la varianza, existen técnicas para hacer que la tendencia desaparezca y que la varianza permanezca constante a lo largo del tiempo con la finalidad de hacer posible un pronóstico de mejor calidad. En términos matemáticos, cuando una serie cumple con estas condiciones, se conoce como estacionariedad estricta y estacionariedad débil. Un \textbf{proceso estocástico estrictamente estacionario} es un proceso estocástico cuya distribución de densidad conjunta es invariable ante desplazamientos en el tiempo, de manera que si se calculan medias, varianzas y covarianzas, se obtendrán exactamente los mismos resultados sin importar la longitud y momento de tiempo en que se midan, es decir, las medias y varianzas son constantes en el tiempo y las covarianzas  solo dependen de la distancia entre los dos periodos de tiempos en que se calcula. Sin embargo, como es complicado conocer la función de densidad conjunta, se utilizan los primeros y segundos momentos para determinar estacionariedad, a esto se le conoce como \textbf{estacionariedad de segundo orden } o \textbf{estacionariedad débil}. En resumen, si $Z_t$ es un proceso estacionario tiene las siguientes características:
+
+\begin{eqnarray}
+        Media: & E(Z_t)=\mu  \nonumber \\ 
+        Varianza:  & Var(Z_t)=E[(Z_t- \mu )^2]=\gamma_0   \\ 
+        Covarianza & E(Z_t-\mu)E(Z_{t+k}-\mu)=\gamma_k  \nonumber 
+\end{eqnarray} 
+
+El concepto de estacionariedad es de suma importancia, ya que los modelos econométricos requieren de series estacionarias para poder analizar el comportamiento de la serie en los periodos observados, generalizarlo a otros periodos de tiempo y ajustar modelos para el pronóstico.\newline
+
+Existen diversas pruebas para determinar estacionariedad, pero en la práctica, las más comunes son el \textbf{análisis gráfico}, la \textbf{función de autocorrelación} y la \textbf{varianza muestral}. La primera de ellas es poco confiable, ya que consiste, como su nombre lo indica, en graficar la serie y observar que no muestre tendencias, cambios de nivel o que la variabilidad aumente con el tiempo, por lo tanto, aunque esta prueba depende totalmente de la habilidad de la persona para identificar de manera efectiva estos elementos, sirve para darnos una idea del comportamiento de la serie y se debe considerar como un paso inicial para un análisis más formal como el cálculo de la función de autocorrelación y el cálculo de la varianza muestral.\newline
+
+Como mencionamos anteriormente, se deben calcular las medias, varianzas y covarianzas para caracterizar, aunque no completamente, a una serie de tiempo, sin embargo, al solo tener una realización con observaciones finitas del proceso, se debe trabajar con las definiciones muestrales:\newline
+
+
+\begin{eqnarray}
+        \mbox{\emph{Media muestral:}} & \bar{Z} =\frac{1}{N} \sum_{t=1}^{N}{Z_t} &  \nonumber \\ 
+        \mbox{\emph{Varianza muestral:}}  & \hat{\gamma_0}=\frac{1}{N} \sum_{t=1}^{N}(Z_t- \bar{Z} )^2 & \\ 
+        \mbox{\emph{Covarianza muestral:}} & \hat{\gamma_k}=\frac{1}{N} \sum_{t=1}^{N-k}(Z_t-\bar{Z})(Z_{t+k}-\bar{Z})  & k=0,1,2,...  \nonumber
+\end{eqnarray} 
+
+A partir de estos términos es posible obtener la función de autocorrelación muestral definida como:
+
+\begin{equation}
+\hat{\rho_k}= \frac{\hat{\gamma_k}}{\hat{\gamma_0}}=\frac{\sum_{t=1}^{N-k}(Z_t-\bar{Z})(Z_{t+k}-\bar{Z})}{\sum_{t=1}^{N}(Z_t- \bar{Z} )^2}
+\end{equation}
+
+
+
+
+Si la función de autocorrelación tiende rápidamente a cero, nos enfrentamos ante un proceso estacionario; si por el contrario, el decaimiento de la función es paulatino, quiere decir que las observaciones del proceso muestran una tendencia que las hace depender de  otras observaciones en el tiempo, provocando que el nivel de la serie se vea afectado por dicha tendencia y existan correlaciones distintas a cero en periodos de tiempo distantes. Esto último nos hace pensar que la serie no cumple con alguna de las características de un proceso estacionario de segundo orden. \\
+
+
+Cuando una serie es no estacionaria, no es posible hacer uso de los modelos ARMA y cualquier otro tipo de análisis como por ejemplo una regresión, se debe realizar con particular precaución, ya que se podría estar en presencia de un fenómeno que Yule en 1926\footnote{Yule, G. U., "Why Do We Sometimes Get Nonsense Correlations Between Time Series-' A Study in Sampling and the nature of Time Series", Journal of the Royal Statisticar Society, vol. 89,1926, pp.1-64.} identifica como regresión espuria. Sin embargo, existen herramientas que ayudan a convertir una serie no estacionaria en estacionaria, dichas herramientas son las diferencias estacionarias y diferencias estacionales.\\
+
+Sea el proceso $Z_t$ tal que al aplicar el \textbf{operador diferencia $\nabla$ } se tiene que  $\nabla Z_t=Z_t-Z_{t-1}$. De manera que $\nabla Z_t$ corresponde al cambio en el valor de la variable $Z$ del periodo $t-1$ al periodo $t$, por lo que cuenta con una observación menos que $Z_t$. Al aplicar el operador la serie obtenida es estacionaria en cuanto a su nivel, pues elimina la tendencia polinomial adaptiva que se encontraba en el proceso. \\
+
+Si la tendencia polinomial adaptiva es de orden mayor a uno se debe considerar aplicar el operador tantas veces como sea necesario, es decir, se existe presencia de una tendencia polinomial de orden $2$, la serie requiere de tomar dos diferencias para estacionarizarla. Además, es importante mencionar el riesgo que existe con la sobrediferenciación pues conlleva a problemas relacionados con la identificación de un modelo para el proceso, incremento en la varianza y p\'erdida innecesaria de observaciones, pues se pierde una con cada aplicación del operador.\\
+
+En ocasiones, nos enfrentamos a series que presentan otro tipo de tendencia que se caracteriza por tener un patrón de cambio que se repite con una intensidad similar, en determinados periodos de tiempo a\~no con a\~no. Este fenómeno es llamado \textbf{estacionalidad} y para controlarlo es necesario, en primera instancia, identificar el comportamiento periódico de la serie, ya sea que se trate de meses, trimestres, semestres, años, periodos vacacionales o cualquier otro hecho que provoque que la serie tenga un comportamiento parecido  en periodos definidos cada a\~no, posteriormente, se hace uso del \textbf{ operador diferencia estacional}  $\nabla_{E}^{k}$  donde $E$ es periodo que contiene la tendencia-ciclo y $k$ es el número de veces necesarias que se debe aplicar el operador diferencia para hacer la serie estacionaria.\\
+
+El operador diferencia estacional esta definido de la siguiente manera:
+
+\begin{equation}
+\nabla_{E}=Z_t-Z_{t-E}
+\end {equation}
+
+Al igual que en el operador diferencia estacionaria $\nabla$ se pierden observaciones cada vez que se aplica, en este caso se trata de $E$ observaciones.\\
+
+Cuando a un proceso es necesario aplicarle el operador diferencia $\nabla$  una vez para hacerlo estacionario, se dice que es un proceso integrado de orden $1$ y se denota $Z_t \sim I(1)$. De manera similar, si se requieren $2$ diferencias para estacionarizar la serie se trata de un proceso integrado de orden dos y si necesitamos $d$ diferencias es un proceso integrado de orden d,  $Z_t \sim I(d)$, finalmente, si $z_t$ es estacionario nos podemos referir a este proceso como un proceso estacionario o como un proceso integrado de orden cero. En general, el orden de integración depende del mínimo número de diferencias que se deben aplicar al proceso para convertirlo en estacionario. Este concepto de procesos estocásticos integrados trae consigo las siguientes propiedades:\\
+
+Sean $Z_t$, $Y_t$ y $W_t$ tres procesos estocásticos
+
+\begin{enumerate}%for small alpha-characters within brackets.
+
+\item
+ Si $Z_t \sim I(0)$ y  $Y_t \sim I(1)$ entonces $W_t=(Z_t+Y_t) = I(1)$ es decir, una combinación lineal entre un proceso estacionario y uno no estacionario es no estacionario.
+
+\item
+Si $Z_t \sim I(d)$ entonces $W_t=(a+bZ_t) \sim I(d)$, donde $a$ y $b$ son constantes. Una combinación lineal de un proceso no estacionario, es no estacionario. Por lo tanto, la combianción lineal de un proceso estacionario continúa siendo estacionario.
+
+\item 
+Si $Z_t \sim I(d_1)$ y $Y_t \sim I(d_2)$ entonces $W_t=(aZ_t+bY_t) \sim I(d_2)$ ya que $d_1<d_2$.
+
+\item
+Si $Z_t \sim I(d)$  y $Y_t \sim I(d)$ entonces $W_t=(aZ_t+bY_t) \sim I(d^*)$ donde $d^*$ generalmente es igual a $d$, aunque en ocasiones $d^* < d$. 
+
+\end{enumerate}
+
+Como es posible observar, trabajar con varias series que no tienen el mismo orden de integración puede resultar complicado. Sin embargo, en el siguiente capítulo se presentarán técnicas apropiadas para reducir estos riesgos. 
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Raiz unitaria
+\section{Raíz Unitaria: Pruebas} \label{pruebas_orden_integracion}
+
+Consideremos el siguiente proceso determinista:
+\begin{eqnarray}
+Z_t = a_0+a_1 Z_{t-1} &  t=...,-2,-1,0,1,2,...
+\end{eqnarray}
+
+que también puede ser expresado a partir del uso del operador $L $ que proviene del inglés $Lag$ y se define como $LZ_t=Z_{t-1}$, por lo tanto $ Z_t = a_0+a_1 Z_{t-1}$ ahora es
+\begin{eqnarray}
+(1-a_1L)Z_t = a_0,  & &  t=...,-2,-1,0,1,2,...
+\end{eqnarray}
+
+si se despeja a $Z_t$ del proceso tendríamos la siguiente operación, que al desarrollarla se sigue que 
+
+\begin{eqnarray} \label{eq:sup1} 
+ (1-a_1L)^{-1} a_0 =&  \sum_{i=0}^{\infty} (a_1L)^{i}a_0  &  \nonumber  \\ 
+        = & a_0\sum_{i=0}^{\infty} (a_1L)^{i} & L^i 1=1  \nonumber \\
+         = & a_0\sum_{i=0}^{\infty} (a_1)^{i} &  \\
+         = & \frac{a_0}{1-a_1} & \left | a_1 \right |<1  \nonumber \\
+ & &  \nonumber
+\end{eqnarray}
+
+
+En la expresión anterior, el supuesto $\left | a_1 \right |<1$ permite la convergencia de la serie geométrica real, sin embargo, $a_1$  puede tomar cualquier valor excepto $a_1=1$.   Por lo tanto, la solución general para este proceso sería de la forma 
+
+\begin{equation}
+Z_t=\frac{a_0}{1-a_1} + sa_1^t
+\end{equation} 
+
+donde  el t\'ermino $sa_1^t$ se agrega para poder brindar soluciones particulares a partir de la constante $s$. Ahora bien, si por un lado conservamos el supuesto de la expresión ~\ref{eq:sup1} , es decir, que la raíz de la ecuación $(1-a_1L)=0$ cumpla que $\left | a_1 \right |<1$  podemos observar que
+
+\begin{equation}
+\lim_{t\rightarrow \infty } Z_t=\frac{a_0}{1-a_1}
+\end{equation}   
+
+lo cual  indica que el proceso determinista alcanzará un punto de equilibrio en el largo plazo. Por otro lado, si $a_1=1$ entonces el proceso diverge, ya que el cociente $\frac{a_0}{1-a_1}$ quedaría indeterminado y si  $\left | a_1 \right |>1$ el proceso no converge y por lo tanto jamás tenderá a estabilizarse.\\
+
+Ahora que se entiende la problemática que existe cuando se tienen raíces unitarias en procesos deterministas, es oportuno llevar estos resultados a procesos estocásticos, de manera que si definimos a la constante $a_1=1$, la constante $a_0=(1-L)Z_0$ y agregamos una variable aleatoria que depende del tiempo $e_t$\footnote{ Mejor conocida como ruido blanco} con media cero, varianza constante $\sigma_e^2$ y no correlacionada, tendríamos al siguiente proceso:
+
+\begin{equation}
+Z_t= Z_{t-1} + a_0 + e_t
+\end{equation} 
+
+que a su vez puede ser reexpresada como
+
+\begin{eqnarray}\label{eq:AR1} 
+(1-L)Z_t =& a_0 + e_t & \nonumber \\
+(1-L)Z_t =& (1-L)Z_0 + e_t & \nonumber \\
+(1-L)\tilde{Z}_t =& e_t & \mbox{con $\tilde{Z}_t =Z_t-Z_0$}
+\end{eqnarray}
+ 
+
+Este proceso contiene el valor obtenido en el periodo pasado más un error en cada una de las realizaciones, de manera que cada realización de la variable aleatoria ${e_t}$ en cada momento $t$ proporciona una tendencia estocástica que provoca que el proceso tenga fluctuaciones, por lo tanto, no es correcto decir que el proceso alcance un punto de equilibrio, sino que se tendrá que recurrir al concepto de estacionariedad ya conocido. En este particular caso, las fluctuaciones implicarían que si tomamos medias muestrales en diferentes intervalos de tiempo, obtendríamos diferentes resultados, característica  que nos indica que la serie es no estacionaria. Para comprobar lo anteriormente mencionado, calculamos los dos primeros momentos del proceso después de haber inferido el comportamiento de la serie con el m\'etodo iterativo.
+
+ \begin{eqnarray}
+ E(\tilde{Z}_t) &  =&   E(e_1+ e_2+...+e_t)= 0 \nonumber  \\ 
+         &  &    \\
+         Var(\tilde{Z}_t) & =& Var(e_1+e_2+...+e_t)=t \sigma_e^2  \nonumber \\
+ & &  \nonumber 
+\end{eqnarray} 
+
+
+Por lo que podemos observar que no cumple con los supuestos que requiere la estacionariedad de segundo orden, pues la varianza aumenta conforme se avanza en el tiempo causando que el proceso no regrese a su nivel esperado. Por el contrario, si el valor absoluto de la constante $a_1$ es menor que la unidad, entonces el proceso es estacionario y se demuestra calculando nuevamente los momentos de primer y segundo orden, para facilitar la operación reexpresamos al proceso usando la serie geométrica de la siguiente manera:
+
+\begin{equation}\label{eq:AR_MA}
+\tilde{Z}_t=(1-a_1L)^{-1}e_t=e_t+a_1e_{t-1}+a_1^2e_{t-2}+ a_1^3e_{t-3}+...
+\end{equation} 
+
+Por lo tanto, la media y la varianza del proceso son
+
+ \begin{eqnarray}
+ E(\tilde{Z}_t) &  =&  E(e_t) + a_1E(e_{t-1})+ a_1^2E(e_{t-2})+...= 0 \nonumber  \\ 
+         &  &    \\
+         Var(\tilde{Z}_t) & =& \sigma^2_e (1+a_1^2+ a_1^4+ ...)= \frac{\sigma_e^2}{(1-a_1^2)}  \nonumber \\
+ & &  \nonumber 
+\end{eqnarray}
+
+Que demuestran estacionariedad de segundo orden ya que ninguna depende del tiempo. Por lo anterior, es de nuestro interés hacer pruebas sobre el valor de $a_1$ para determinar si es estadísticamente igual a la unidad, por lo tanto, en la prueba de hipótesis correspondiente, se tendría como hipótesis nula el hecho de que $a_1=1$ que implicaría no estacionariedad en el proceso, mientras que la hipótesis alternativa abarca los posibles valores de $a_1$ que proporcionan un proceso estable:
+
+   \begin{eqnarray}
+    H_0: a_1=1 &  &  H_a: a_1 <1   \\ 
+    \nonumber 
+   \end{eqnarray} 
+
+No obstante es posible reparametrizar al proceso sustrayendo en cada lado de la ecuación el valor $Z_{t-1}$, con la finalidad de que la prueba sea similar a la prueba sobre coeficientes individuales de regresión
+
+
+ \begin{eqnarray}\label{eq:proceso1}
+ Z_t-Z_{t-1} &  =& a_1Z_{t-1}-Z_{t-1}+e_t\nonumber  \\ 
+       \nabla Z_t &= & (a_1-1)Z_{t-1}+e_t   \\
+         \nabla Z_t & =& \rho Z_{t-1}+e_t  \nonumber \\
+ & &  \nonumber 
+\end{eqnarray}
+
+donde $\rho=(a_1-1)$ de manera que la nueva hipótesis nula y alternativa son:
+
+   \begin{eqnarray}
+    H_0: \rho=0 &  &  H_a: \rho  < 0   \\ 
+    \nonumber 
+   \end{eqnarray} 
+
+
+ Así que $\rho=0$ implica que $a_1=1$ tratándose de un proceso no estacionario, mientras que si se rechaza la hipótesis nula tendremos un proceso estable, la parte $\left | \rho \right |>1$ no se considera pues la serie sería explosiva. Esta última prueba es la llamada \textbf{Prueba de Dickey-Fuller} y es complemento formal a los m\'etodos ya mencionados como la gráfica de los valores de la serie respecto al tiempo, el uso del autocorrelograma y la varianza muestral para determinar estacionariedad, así como el número de diferencias necesarias para convertir la serie en estacionaria.\\
+ 
+ Para hacer uso de la prueba, es imprescindible conocer el valor del coeficiente $\rho$ pero como se dijo anteriormente, la prueba es en esencia la misma que para los coeficientes de una regresión, así que se estima este valor por medio de mínimos cuadrados. Si $\rho >0$ implica que $a_1>1$ por lo que se puede concluir rápidamente que la serie es no estacionaria, no obstante, si $\rho \leq 0$ se tiene que observar si es estadísticamente diferente de cero, así que se calcula el estadístico de prueba
+ 
+ \begin{equation}
+ \tau_0=\frac{\hat{\rho}}{se(\hat{\rho})}
+ \end{equation}
+ 
+Si el proceso es estacionario, se puede continuar con el análisis usual de las pruebas sobre coeficientes individuales de una regresión, sin embargo, cuando el proceso no lo es, se tiene la particularidad de que no se distribuye como una $t-Student$, ya que si se aceptara la hipótesis nula, $Z_t$ sería un proceso no estacionario cuya varianza aumenta conforme se incrementa el tamaño de muestra, provocando que la distribución usual $t-Student$ se modifique. La contribución de Dickey y Fuller consistió en la creación de los valores críticos del estadístico $\tau$ para tres diferentes procesos  a partir de simulaciones de Monte Carlo. Dichos procesos corresponden en primer lugar, al mostrado en la ecuación~\ref{eq:proceso1}. \\
+
+En segundo lugar, al proceso
+
+ \begin{equation}
+ \nabla Z_t= \alpha +  \rho Z_{t-1}+e_t
+ \end{equation}
+ 
+donde cada realización de la variable $\nabla Z_t$ depende del valor de una constante, más una proporción del valor anterior $Z_{t-1}$, más el error $e_t$. Estos procesos comúnmente presentan tendencias definidas hacia arriba si el valor de $\alpha$ es positivo y tendencias definidas decrecientes si es negativo, es decir, tienen una tendencia determinística, ya que se le agrega un valor constante $\alpha$ en cada instante de tiempo $t$. En este caso, si rechazamos la hipótesis nula, es posible hablar de un proceso estacionario pero con media distinta de cero.\\
+
+Finalmente, tenemos al proceso que incluye constante y una tendencia en el tiempo
+
+ \begin{equation}
+ \nabla Z_t= \alpha + \beta t + \rho Z_{t-1}+e_t
+ \end{equation}
+ 
+como es posible observar, el nuevo término proporciona impacto a la tendencia en cada instante de tiempo, si la prueba de hipótesis refleja que el coeficiente $\rho \neq 0$ entonces se trata de un proceso estacionario alrededor de una tendencia determinística. Para los tres casos se usa la misma prueba de hipótesis y  el mismo estadístico de prueba pero diferentes valores críticos que dependen del tamaño de la muestra, tal y como se muestra en la siguiente tabla. El estadístico $\tau$ debe ser más negativo que el valor crítico correspondiente para rechazar la hipótesis nula $(\tau \leq \tau^*)$.\\
+
+
+\begin{table}[ht]
+\caption{\textbf{Valores Críticos para la prueba Dickey-Fuller}}
+\centering
+   \begin{tabular}{lccc}
+%\arrayrulecolor{RoyalBlue}\toprule
+    $Modelo$                                               &  $1\%$    &  $5\%$    & $10\%$   \\
+%\arrayrulecolor{Cerulean}
+    \hline
+    $\nabla Z_t =\rho Z_{t-1} + e_t$                     &  $-2.56$ & $-1.94$ & $-1.62$ \\
+    $\nabla Z_t = \alpha + \rho Z_{t-1} + e_t$            &  $-3.43$ & $-2.86$ & $-2.57$ \\
+    $\nabla Z_t = \alpha + \beta_1 t + \rho Z_{t-1} + e_t$ & $-3.96$ & $-3.41$ & $-3.13$ \\
+%\arrayrulecolor{Cerulean}
+    \hline
+    $Standard$  $critical$ $values$                         & $-2.33$ & $-1.65$ & $-1.28$ \\
+%\arrayrulecolor{Cerulean}
+    \hline
+    \end{tabular}
+\label{table:CVDF}
+\end{table}
+
+
+%%%%
+Adicionalmente Dickey and Fuller crearon tres $F$-estadísticos adicionales llamados $\phi_1,\phi_2,\phi_3$ para probar pruebas de hipótesis conjuntas:
+
+\begin{description}
+  \item [$\bullet$ El estadístico $\phi_1$] .- Emplea la ecuación numero 2 para probar la hipótesis nula conjunta $\rho=a_0=0$
+  \item [$\bullet$ El estadístico $\phi_2$] .- Emplea la ecuación numero 3 para probar la hipótesis nula conjunta $\rho=a_0=a_2=0$
+  \item [$\bullet$ El estadístico $\phi_3$] .- Emplea la ecuación numero 3 para probar la hipótesis nula conjunta $\rho=a_2=0$
+\end{description}
+
+
+En donde los tres estadísticos se construyen igual que cualquier prueba $F$:
+
+$$ \phi_i = \frac{[RSS_{restricted}-RSS_{unrestricted}]r}{RSS_{unrestricted}(T-k)}$$
+
+donde $RSS$ son las sumas al cuadrado de los residuales del modelo restringido vs el no restringido, $r$ es el numero de restricciones, $T$ el número de observaciones y $k$ el número de parámetros estimados en el modelo sin restricciones. Por lo tanto, la hipótesis nula es que los datos fueron generados por el modelo con restricciones y la alternativa es que los datos fueron generados por el modelo sin restricciones. Si la restricción no se cumple, la suma de los cuadrados de ambos modelos deberían ser muy similares y por lo tanto $\phi_i$ será pequeña. Así pues, si el valor de $\phi$ es grande querrá decir que se rechaza la hipótesis nula.\\
+
+
+Tiempo después, los supuestos de la prueba de Dickey-Fuller se vieron relajados permitiendo que existiera correlación entre los errores, la cual puede surgir cuando el modelo no captura la dinámica completa del proceso, es decir, le faltan elementos para explicar a la variable. Lo anterior se corrige agregando un mayor número de diferencias de primer orden, tantas como sean necesarias para asegurar que la correlación en los residuos desaparezca, estas  se pueden determinar con el gráfico de las autocorrelaciones considerando todas aquellas que sean grandes y descartando de manera formal las que no son necesarias con la significancia de los coeficientes  $\beta_i$, obteniendo así el siguiente proceso general:
+
+  \begin{equation}
+ \nabla Z_t= \alpha + \beta_1 t + \rho Z_{t-1} + \sum_{i=1}^{m} \beta_i \nabla Z_{t-i} + e_t
+ \end{equation}
+
+
+Análogamente a la prueba no aumentada, se debe procurar no incluir o excluir el término constante y a la tendencia determinística cuando no es necesario, ya que podría traer problemas de sesgo al estadístico $\tau$ y pérdida de significancia de la prueba si se eligen erróneamente los valores críticos, es posible hacer uso de los mismos valores mostrados en el cuadro~\ref{table:CVDF}, ya que la prueba de Dickey-Fuller aumentada sigue la misma distribución asintótica.  \\
+
+
+Resultados de la prueba de orden de integración para las series del logaritmo del PIB a precios constantes, Recaudación Gubernamental (\%PIB), Gasto en Salud (\%PIB) y Gasto en Educación (\%PIB) se muestran a continuación:
+
+%logaritmo natural a precios constantes
+
+
+\begin{table}[ht]
+\caption{\textbf{Orden de Integración PIB a precios constantes}}
+\centering
+	\begin{tabular}{llrc}
+	%\firsthline
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\multicolumn{2}{l}{$\nabla Z_t = \alpha + \rho Z_{t-1} + \beta_1 t + e_t$} \\
+	\cline{1-2}
+		Estadístico    			& $H_0$ 							& Valores Críticos 	& ¿Rechaza $H_0$? \\
+		\hline
+							&								& 1\%   = 9.31		&			\\
+		 $\phi_3$ = 3.89		& $(\alpha, \rho, \beta_1)=(\alpha,0,0)$     & 5\%   = 6.73		&       No		\\
+							&  								& 10\% = 5.61		&       		\\
+	\cline{1-4}				
+							&								& 1\%   = -4.15		&			\\
+		 $\tau_3$ = -2.7442		& $\rho=0$						& 5\%   = -3.50		&       No		\\
+							&  								& 10\% = -3.18		&       		\\
+	%\cline{1-4}				
+	%						&								& 1\%   = 7.02		&			\\
+	%	 $\phi_2$ = 9.50		& $(\alpha, \rho, \beta_1)=(0,0,0)$		& 5\%   = 5.13		&       Sí		\\
+	%						&  								& 10\% = 4.31		&       		\\
+	\firsthline
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+							&								&				&			\\
+	\multicolumn{2}{l}{$\nabla Z_t = \alpha + \rho Z_{t-1} + e_t$} \\
+	\cline{1-2}
+		Estadístico    			& $H_0$ 							& Valores Críticos 	& ¿Rechaza $H_0$? \\
+		\hline
+							&								& 1\%   = 7.06		&			\\
+		 $\phi_1$ = 8.656		& $(\alpha, \rho)=(0,0)$     			& 5\%   = 4.86		&       Sí		\\
+							&  								& 10\% = 3.94		&       		\\
+	\cline{1-4}				
+							&								& 1\%   = -3.58		&			\\
+		 $\tau_2$ = -0.8775		& $\rho=0$						& 5\%   = -2.93		&       No		\\
+							&  								& 10\% = -2.60		&       		\\
+	\firsthline
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+							&								&				&			\\
+	\multicolumn{2}{l}{$\nabla Z_t' = \rho Z_{t-1}' + e_t$ con $(Z_t'=\nabla Z_t)$} \\
+	\cline{1-2}
+		Estadístico    			& $H_0$ 							& Valores Críticos 	& ¿Rechaza $H_0$? \\
+		\hline
+		 %					&								& 1\%   = 13.65		&			\\
+		 %$\phi_1$ = 35.23		& $(\alpha, \rho)=(0,0)$     			& 5\%   = 00.01		&       No		\\
+		 %					&  								& 10\% = 00.01		&       		\\
+	\cline{1-4}				
+							&								& 1\%   = -2.66		&			\\
+		 $\tau_1$ = -3.4739		& $\rho=0$						& 5\%   = -1.95		&       Sí		\\
+							&  								& 10\% = -1.6		&       		\\
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	
+	
+							
+	\lasthline
+	\end{tabular}
+\label{table:IPIBCTE}
+\end{table}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% recaudación
+
+
+\begin{table}[ht]
+\caption{\textbf{Orden de Integración Recaudación Gubernamental (\%PIB)}}
+\centering
+	\begin{tabular}{llrc}
+	%\firsthline
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\multicolumn{2}{l}{$\nabla Z_t = \alpha + \rho Z_{t-1} + \beta_1 t + e_t$ lags=3} \\
+	\cline{1-2}
+		Estadístico    			& $H_0$ 							& Valores Críticos 	& ¿Rechaza $H_0$? \\
+		\hline
+							&								& 1\%   = 9.31		&			\\
+		 $\phi_3$ = 1.1716		& $(\alpha, \rho, \beta_1)=(\alpha,0,0)$     & 5\%   = 6.73		&       No		\\
+							&  								& 10\% = 5.61		&       		\\
+	\cline{1-4}				
+							&								& 1\%   = -4.15		&			\\
+		 $\tau_3$ = -1.0871		& $\rho=0$						& 5\%   = -3.50		&       No		\\
+							&  								& 10\% = -3.18		&       		\\
+	%\cline{1-4}				
+	%						&								& 1\%   = 7.02		&			\\
+	%	 $\phi_2$ = 9.50		& $(\alpha, \rho, \beta_1)=(0,0,0)$		& 5\%   = 5.13		&       Sí		\\
+	%						&  								& 10\% = 4.31		&       		\\
+	\firsthline
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+							&								&				&			\\
+	\multicolumn{2}{l}{$\nabla Z_t = \alpha + \rho Z_{t-1} + e_t$ lags=3} \\
+	\cline{1-2}
+		Estadístico    			& $H_0$ 							& Valores Críticos 	& ¿Rechaza $H_0$? \\
+		\hline
+							&								& 1\%   = 7.06		&			\\
+		 $\phi_1$ = 1.0241		& $(\alpha, \rho)=(0,0)$     			& 5\%   = 4.86		&       No		\\
+							&  								& 10\% = 3.94		&       		\\
+	\cline{1-4}				
+							&								& 1\%   = -3.58		&			\\
+		 $\tau_2$ = -0.7408		& $\rho=0$						& 5\%   = -2.93		&       No		\\
+							&  								& 10\% = -2.60		&       		\\
+	\firsthline
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+							&								&				&			\\
+	\multicolumn{2}{l}{$\nabla Z_t = \rho Z_{t-1} + e_t$ lags=3} \\
+	\cline{1-2}
+		Estadístico    			& $H_0$ 							& Valores Críticos 	& ¿Rechaza $H_0$? \\
+		\hline
+							&								& 1\%   = -2.62		&			\\
+		 $\tau_1$ = 1.2038		& $\rho=0$			     			& 5\%   = -1.95		&       No		\\
+							&  								& 10\% = -1.61		&       		\\
+	%\cline{1-4}				
+	%						&								& 1\%   = -3.58		&			\\
+	%	 $\tau_2$ = -0.977		& $\rho=0$						& 5\%   = -2.93		&       No		\\
+	%						&  								& 10\% = -2.60		&       		\\
+	\firsthline
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+							&								&				&			\\
+	\multicolumn{2}{l}{$\nabla Z_t' = \rho Z_{t-1}' + e_t$ lags=2 con $(Z_t'=\nabla Z_t)$} \\
+	\cline{1-2}
+		Estadístico    			& $H_0$ 							& Valores Críticos 	& ¿Rechaza $H_0$? \\
+		\hline
+		 %					&								& 1\%   = 13.65		&			\\
+		 %$\phi_1$ = 35.23		& $(\alpha, \rho)=(0,0)$     			& 5\%   = 00.01		&       No		\\
+		 %					&  								& 10\% = 00.01		&       		\\
+	\cline{1-4}				
+							&								& 1\%   = -2.66		&			\\
+		 $\tau_1$ = -1.9381		& $\rho=0$						& 5\%   = -1.95		&       Sí		\\
+							&  								& 10\% = -1.6		&       		\\
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	
+	
+							
+	\lasthline
+	\end{tabular}
+\label{table:ISALUD}
+\end{table}
+
+
+
+% salud
+
+
+\begin{table}[ht]
+\caption{\textbf{Orden de Integración Gasto en Salud (\%PIB)}}
+\centering
+	\begin{tabular}{llrc}
+	%\firsthline
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\multicolumn{2}{l}{$\nabla Z_t = \alpha + \rho Z_{t-1} + \beta_1 t + e_t$} \\
+	\cline{1-2}
+		Estadístico    			& $H_0$ 							& Valores Críticos 	& ¿Rechaza $H_0$? \\
+		\hline
+							&								& 1\%   = 9.31		&			\\
+		 $\phi_3$ = 2.1475		& $(\alpha, \rho, \beta_1)=(\alpha,0,0)$     & 5\%   = 6.73		&       No		\\
+							&  								& 10\% = 5.61		&       		\\
+	\cline{1-4}				
+							&								& 1\%   = -4.15		&			\\
+		 $\tau_3$ = -2.0706		& $\rho=0$						& 5\%   = -3.50		&       No		\\
+							&  								& 10\% = -3.18		&       		\\
+	%\cline{1-4}				
+	%						&								& 1\%   = 7.02		&			\\
+	%	 $\phi_2$ = 9.50		& $(\alpha, \rho, \beta_1)=(0,0,0)$		& 5\%   = 5.13		&       Sí		\\
+	%						&  								& 10\% = 4.31		&       		\\
+	\firsthline
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+							&								&				&			\\
+	\multicolumn{2}{l}{$\nabla Z_t = \alpha + \rho Z_{t-1} + e_t$} \\
+	\cline{1-2}
+		Estadístico    			& $H_0$ 							& Valores Críticos 	& ¿Rechaza $H_0$? \\
+		\hline
+							&								& 1\%   = 7.06		&			\\
+		 $\phi_1$ = 1.1422		& $(\alpha, \rho)=(0,0)$     			& 5\%   = 4.86		&       No		\\
+							&  								& 10\% = 3.94		&       		\\
+	\cline{1-4}				
+							&								& 1\%   = -3.58		&			\\
+		 $\tau_2$ = -0.977		& $\rho=0$						& 5\%   = -2.93		&       No		\\
+							&  								& 10\% = -2.60		&       		\\
+	\firsthline
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+							&								&				&			\\
+	\multicolumn{2}{l}{$\nabla Z_t = \rho Z_{t-1} + e_t$} \\
+	\cline{1-2}
+		Estadístico    			& $H_0$ 							& Valores Críticos 	& ¿Rechaza $H_0$? \\
+		\hline
+							&								& 1\%   = -2.62		&			\\
+		 $\tau_1$ = 1.1422		& $\rho=0$			     			& 5\%   = -1.95		&       No		\\
+							&  								& 10\% = -1.61		&       		\\
+	%\cline{1-4}				
+	%						&								& 1\%   = -3.58		&			\\
+	%	 $\tau_2$ = -0.977		& $\rho=0$						& 5\%   = -2.93		&       No		\\
+	%						&  								& 10\% = -2.60		&       		\\
+	\firsthline
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+							&								&				&			\\
+	\multicolumn{2}{l}{$\nabla Z_t' = \rho Z_{t-1}' + e_t$ con $(Z_t'=\nabla Z_t)$} \\
+	\cline{1-2}
+		Estadístico    			& $H_0$ 							& Valores Críticos 	& ¿Rechaza $H_0$? \\
+		\hline
+		 %					&								& 1\%   = 13.65		&			\\
+		 %$\phi_1$ = 35.23		& $(\alpha, \rho)=(0,0)$     			& 5\%   = 00.01		&       No		\\
+		 %					&  								& 10\% = 00.01		&       		\\
+	\cline{1-4}				
+							&								& 1\%   = -2.66		&			\\
+		 $\tau_1$ = -4.3671		& $\rho=0$						& 5\%   = -1.95		&       Sí		\\
+							&  								& 10\% = -1.6		&       		\\
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	
+	
+							
+	\lasthline
+	\end{tabular}
+\label{table:ISALUD}
+\end{table}
+
+
+
+
+% educacion
+
+
+\begin{table}[ht]
+\caption{\textbf{Orden de Integración Gasto en Educación (\%PIB)}}
+\centering
+	\begin{tabular}{llrc}
+	%\firsthline
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\multicolumn{2}{l}{$\nabla Z_t = \alpha + \rho Z_{t-1} + \beta_1 t + e_t$ lags=4} \\
+	\cline{1-2}
+		Estadístico    			& $H_0$ 							& Valores Críticos 	& ¿Rechaza $H_0$? \\
+		\hline
+							&								& 1\%   = 9.31		&			\\
+		 $\phi_3$ = 1.236		& $(\alpha, \rho, \beta_1)=(\alpha,0,0)$     & 5\%   = 6.73		&       No		\\
+							&  								& 10\% = 5.61		&       		\\
+	\cline{1-4}				
+							&								& 1\%   = -4.15		&			\\
+		 $\tau_3$ = -1.1889		& $\rho=0$						& 5\%   = -3.50		&       No		\\
+							&  								& 10\% = -3.18		&       		\\
+	%\cline{1-4}				
+	%						&								& 1\%   = 7.02		&			\\
+	%	 $\phi_2$ = 9.50		& $(\alpha, \rho, \beta_1)=(0,0,0)$		& 5\%   = 5.13		&       Sí		\\
+	%						&  								& 10\% = 4.31		&       		\\
+	\firsthline
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+							&								&				&			\\
+	\multicolumn{2}{l}{$\nabla Z_t = \alpha + \rho Z_{t-1} + e_t$ lags=4} \\
+	\cline{1-2}
+		Estadístico    			& $H_0$ 							& Valores Críticos 	& ¿Rechaza $H_0$? \\
+		\hline
+							&								& 1\%   = 7.06		&			\\
+		 $\phi_1$ = 4.7969		& $(\alpha, \rho)=(0,0)$     			& 5\%   = 4.86		&       Sí		\\
+							&  								& 10\% = 3.94		&       		\\
+	\cline{1-4}				
+							&								& 1\%   = -3.58		&			\\
+		 $\tau_2$ = -1.3159		& $\rho=0$						& 5\%   = -2.93		&       No		\\
+							&  								& 10\% = -2.60		&       		\\
+	\firsthline
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+							&								&				&			\\
+	\multicolumn{2}{l}{$\nabla Z_t' = \rho Z_{t-1}' + e_t$ lags=3 con $(Z_t'=\nabla Z_t)$} \\
+	\cline{1-2}
+		Estadístico    			& $H_0$ 							& Valores Críticos 	& ¿Rechaza $H_0$? \\
+		\hline
+		 %					&								& 1\%   = 13.65		&			\\
+		 %$\phi_1$ = 35.23		& $(\alpha, \rho)=(0,0)$     			& 5\%   = 00.01		&       No		\\
+		 %					&  								& 10\% = 00.01		&       		\\
+	\cline{1-4}				
+							&								& 1\%   = -2.66		&			\\
+		 $\tau_1$ = -3.1472		& $\rho=0$						& 5\%   = -1.95		&       Sí		\\
+							&  								& 10\% = -1.6		&       		\\
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	
+	
+							
+	\lasthline
+	\end{tabular}
+\label{table:IEDU}
+\end{table}
+
+
+
+
+
+
+

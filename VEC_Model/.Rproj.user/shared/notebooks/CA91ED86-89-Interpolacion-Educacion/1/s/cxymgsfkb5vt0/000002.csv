@@ -1,0 +1,2 @@
+"0","matriz.pronosticos <-data.frame(fcast$mean,fcast$lower,fcast$upper)"
+"0","matriz.pronosticos"

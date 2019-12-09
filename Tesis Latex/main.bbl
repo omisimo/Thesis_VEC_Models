@@ -1,0 +1,82 @@
+\begin{thebibliography}{10}
+
+\bibitem{evalsalud}
+{\sc D.~N. Aguilera}, {\em 10 puntos para entender el gasto en salud en
+  m{\'e}xico: En el marco de la cobertura universal}, M{\'e}xico Eval{\'u}a,
+  (2011).
+
+\bibitem{banxico}
+{\sc B.~de~M{\'e}xico}, {\em Resumen informe anual 1998, 1999, 2001}, Banco de
+  M{\'e}xico,  (1998-2001).
+
+\bibitem{enders}
+{\sc W.~Enders}, {\em Applied Econometric Time Series}, John Wiley {\&} Sons,
+  Inc., 2014.
+
+\bibitem{EngelGranger}
+{\sc R.~F. Engle and C.~W.~J. Granger}, {\em Co-integration and error
+  correction: Representation, estimation and testing}, Econometrica,  (1987).
+
+\bibitem{histeresis}
+{\sc J.~C.~T. Garc{\'i}a, E.~C.~R. Hern{\'a}ndez, and H.~R. Bol{\'i}var}, {\em
+  An{\'a}lisis de la hist{\'e}resis del desempleo en m{\'e}xico ante shocks
+  macroecon{\'o}micos}, Instituto Polit{\'e}cnico Nacional,  (2016).
+
+\bibitem{guja}
+{\sc D.~N. Gujarati}, {\em Basic Econometrics}, Mc. Graw Hill, 2008.
+
+\bibitem{principles}
+{\sc R.~C. Hill, W.~E. Griffiths, and G.~C. Lim}, {\em Principles of
+  econometrics}, John Wiley {\&} Sons, Inc., 2011.
+
+\bibitem{packforecast}
+{\sc R.~Hyndman, G.~Athanasopoulos, C.~Bergmeir, G.~Caceres, L.~Chhay,
+  M.~O'Hara-Wild, F.~Petropoulos, S.~Razbash, E.~Wang, and F.~Yasmeen}, {\em
+  {forecast}: Forecasting functions for time series and linear models}, 2018.
+\newblock R package version 8.4.
+
+\bibitem{artforecast}
+{\sc R.~J. Hyndman and Y.~Khandakar}, {\em Automatic time series forecasting:
+  the forecast package for {R}}, Journal of Statistical Software, 26 (2008),
+  pp.~1--22.
+
+\bibitem{johansen2}
+{\sc S.~Johansen}, {\em Estimation and hypothesis testing of cointegration
+  vectors in gaussian vector autoregressive models}, Econometrica,  (1991).
+
+\bibitem{johansen1}
+\leavevmode\vrule height 2pt depth -1.6pt width 23pt, {\em A small sample
+  correction for the test of cointegration rank in the vector autoregressive
+  model}, Econometrica,  (2002).
+
+\bibitem{Loria}
+{\sc E.~Lor{\'i}a and M.~Ramos}, {\em La ley de okun: una relectura para
+  m{\'e}xico, 1970-2004}, Estudios Econ{\'o}micos,  (2007).
+
+\bibitem{lukthepohl2005}
+{\sc H.~L{\"u}kthepohl}, {\em New Introduction to Multiple Time Series
+  Analysis}, Springer, 2005.
+
+\bibitem{mills}
+{\sc T.~C. Mills}, {\em The Econometric Modelling of Financial Time Series},
+  Cambridge, 1999.
+
+\bibitem{Murray}
+{\sc M.~P. Murray}, {\em A drunk and her dog: An illustration of cointegration
+  and error correction}, American Statistical Association,  (1994).
+
+\bibitem{pfaff}
+{\sc B.~Pfaff}, {\em Analysis of Integrated and Cointegrated Time Series with
+  R}, Springer, 2008.
+
+\bibitem{}
+{\sc B.~Pfaff}, {\em Analysis of Integrated and Cointegrated Time Series with R
+  (urca package)}, Springer, New York, second~ed., 2008.
+\newblock ISBN 0-387-27960-1.
+
+\bibitem{evaledu}
+{\sc L.~Santib{\'a}{\~n}ez, M.~Campos, and B.~Jarillo}, {\em 10 puntos para
+  entender el gasto educativo en m{\'e}xico: Consideraciones sobre su
+  eficiencia}, M{\'e}xico Eval{\'u}a,  (2011).
+
+\end{thebibliography}

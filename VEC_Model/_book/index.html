@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Código Tesis</title>
+  <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook.">
+  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Código Tesis" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Código Tesis" />
+  
+  <meta name="twitter:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  
+
+<meta name="author" content="Omar Díaz Landa">
+
+
+<meta name="date" content="2019-03-12">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+
+<link rel="next" href="datos.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Tesis Omar Díaz Landa</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Prerequisitos</a></li>
+<li class="chapter" data-level="2" data-path="datos.html"><a href="datos.html"><i class="fa fa-check"></i><b>2</b> Lectura de datos</a><ul>
+<li class="chapter" data-level="2.1" data-path="datos.html"><a href="datos.html#graficamos-las-series-de-datos"><i class="fa fa-check"></i><b>2.1</b> Graficamos las series de datos</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="datos.html"><a href="datos.html#producto-interno-bruto"><i class="fa fa-check"></i><b>2.1.1</b> Producto Interno Bruto</a></li>
+<li class="chapter" data-level="2.1.2" data-path="datos.html"><a href="datos.html#recaudacion-fiscal"><i class="fa fa-check"></i><b>2.1.2</b> Recaudación Fiscal</a></li>
+<li class="chapter" data-level="2.1.3" data-path="datos.html"><a href="datos.html#gasto-en-salud-publica"><i class="fa fa-check"></i><b>2.1.3</b> Gasto en Salud Pública</a></li>
+<li class="chapter" data-level="2.1.4" data-path="datos.html"><a href="datos.html#gasto-en-educacion-publica"><i class="fa fa-check"></i><b>2.1.4</b> Gasto en Educación Pública</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="orden-de-integracion-teoria.html"><a href="orden-de-integracion-teoria.html"><i class="fa fa-check"></i><b>3</b> Orden de Integración (Teoría)</a></li>
+<li class="chapter" data-level="4" data-path="orden-integracion-pib-a-precios-corrientes.html"><a href="orden-integracion-pib-a-precios-corrientes.html"><i class="fa fa-check"></i><b>4</b> Orden Integración PIB a precios corrientes</a></li>
+<li class="chapter" data-level="5" data-path="orden-de-integracion-lnpib-a-precios-corrientes.html"><a href="orden-de-integracion-lnpib-a-precios-corrientes.html"><i class="fa fa-check"></i><b>5</b> Orden de Integración ln(PIB) a precios corrientes</a></li>
+<li class="chapter" data-level="6" data-path="orden-integracion-de-la-serie-recaudacion-impositiva.html"><a href="orden-integracion-de-la-serie-recaudacion-impositiva.html"><i class="fa fa-check"></i><b>6</b> Orden Integración de la serie Recaudación Impositiva</a></li>
+<li class="chapter" data-level="7" data-path="orden-integracion-de-la-serie-gasto-en-salud.html"><a href="orden-integracion-de-la-serie-gasto-en-salud.html"><i class="fa fa-check"></i><b>7</b> Orden Integración de la serie Gasto en Salud</a></li>
+<li class="chapter" data-level="8" data-path="orden-integracion-de-la-serie-gasto-en-educacion.html"><a href="orden-integracion-de-la-serie-gasto-en-educacion.html"><i class="fa fa-check"></i><b>8</b> Orden Integración de la serie Gasto en Educación</a></li>
+<li class="chapter" data-level="9" data-path="orden-integracion-de-la-serie-lnpib-a-precios-ctes.html"><a href="orden-integracion-de-la-serie-lnpib-a-precios-ctes.html"><i class="fa fa-check"></i><b>9</b> Orden Integración de la serie ln(PIB) a precios ctes</a></li>
+<li class="chapter" data-level="10" data-path="cointegracion-teoria.html"><a href="cointegracion-teoria.html"><i class="fa fa-check"></i><b>10</b> Cointegración (Teoría)</a></li>
+<li class="chapter" data-level="11" data-path="cointegracion-analisis.html"><a href="cointegracion-analisis.html"><i class="fa fa-check"></i><b>11</b> Cointegración (Análisis)</a><ul>
+<li class="chapter" data-level="11.1" data-path="cointegracion-analisis.html"><a href="cointegracion-analisis.html#determinacion-del-rango-de-cointegracion"><i class="fa fa-check"></i><b>11.1</b> Determinación del Rango de Cointegración</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="estimacion-del-modelo.html"><a href="estimacion-del-modelo.html"><i class="fa fa-check"></i><b>12</b> Estimación del modelo</a><ul>
+<li class="chapter" data-level="12.1" data-path="estimacion-del-modelo.html"><a href="estimacion-del-modelo.html#modelo-1-vecm-con-k2-lags-y-r1-relaciones-de-cointegracion"><i class="fa fa-check"></i><b>12.1</b> Modelo 1: VECM con K=2 (lags), y r=1 (relaciones de cointegración)</a></li>
+<li class="chapter" data-level="12.2" data-path="estimacion-del-modelo.html"><a href="estimacion-del-modelo.html#modelo-2-vecm-con-k2-lags-y-r2-relaciones-de-cointegracion"><i class="fa fa-check"></i><b>12.2</b> Modelo 2: VECM con K=2 (lags), y r=2 (relaciones de cointegración)</a></li>
+<li class="chapter" data-level="12.3" data-path="estimacion-del-modelo.html"><a href="estimacion-del-modelo.html#modelo-3-vecm-con-k3-lags-y-r1-relaciones-de-cointegracion"><i class="fa fa-check"></i><b>12.3</b> Modelo 3: VECM con K=3 (lags), y r=1 (relaciones de cointegración)</a></li>
+<li class="chapter" data-level="12.4" data-path="estimacion-del-modelo.html"><a href="estimacion-del-modelo.html#modelo-4-vecm-con-k3-lags-y-r2-relaciones-de-cointegracion"><i class="fa fa-check"></i><b>12.4</b> Modelo 4: VECM con K=3 (lags), y r=2 (relaciones de cointegración)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="chapter" data-level="13" data-path="interpolacion-serie-educacion.html"><a href="interpolacion-serie-educacion.html"><i class="fa fa-check"></i><b>13</b> Interpolación Serie Educación</a><ul>
+<li class="chapter" data-level="13.1" data-path="interpolacion-serie-educacion.html"><a href="interpolacion-serie-educacion.html#version-2-del-pronositico"><i class="fa fa-check"></i><b>13.1</b> version 2 del pronositico</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="Anexos.html"><a href="Anexos.html"><i class="fa fa-check"></i><b>14</b> Anexos</a><ul>
+<li class="chapter" data-level="14.1" data-path="Anexos.html"><a href="Anexos.html#descripcion-de-las-series"><i class="fa fa-check"></i><b>14.1</b> Descripción de las series</a></li>
+<li class="chapter" data-level="14.2" data-path="Anexos.html"><a href="Anexos.html#bibliografia"><i class="fa fa-check"></i><b>14.2</b> Bibliografia</a></li>
+<li class="chapter" data-level="14.3" data-path="Anexos.html"><a href="Anexos.html#dudas"><i class="fa fa-check"></i><b>14.3</b> Dudas</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Código Tesis</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="header">
+<h1 class="title">Código Tesis</h1>
+<h4 class="author"><em>Omar Díaz Landa</em></h4>
+<h4 class="date"><em>2019-03-12</em></h4>
+</div>
+<div id="prerequisitos" class="section level1">
+<h1><span class="header-section-number">Chapter 1</span> Prerequisitos</h1>
+<p>En esta sección encontraremos todos los paquetes necesarios para replicar la ejecución:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(bookdown)
+<span class="kw">library</span>(readxl)
+<span class="kw">library</span>(ggplot2)
+<span class="kw">library</span>(tidyverse)
+<span class="kw">library</span>(plotly)
+<span class="kw">library</span>(urca)
+<span class="kw">library</span>(forecast)
+<span class="kw">library</span>(lubridate)
+<span class="kw">library</span>(vars)
+<span class="kw">library</span>(texreg)
+<span class="kw">library</span>(ggpubr)</code></pre></div>
+<p>Función para generar varias graficas en una sola</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Multiple plot function</span>
+<span class="co">#</span>
+<span class="co"># ggplot objects can be passed in ..., or to plotlist (as a list of ggplot objects)</span>
+<span class="co"># - cols:   Number of columns in layout</span>
+<span class="co"># - layout: A matrix specifying the layout. If present, &#39;cols&#39; is ignored.</span>
+<span class="co">#</span>
+<span class="co"># If the layout is something like matrix(c(1,2,3,3), nrow=2, byrow=TRUE),</span>
+<span class="co"># then plot 1 will go in the upper left, 2 will go in the upper right, and</span>
+<span class="co"># 3 will go all the way across the bottom.</span>
+<span class="co">#</span>
+multiplot &lt;-<span class="st"> </span><span class="cf">function</span>(..., <span class="dt">plotlist=</span><span class="ot">NULL</span>, file, <span class="dt">cols=</span><span class="dv">1</span>, <span class="dt">layout=</span><span class="ot">NULL</span>) {
+  <span class="kw">library</span>(grid)
+
+  <span class="co"># Make a list from the ... arguments and plotlist</span>
+  plots &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="kw">list</span>(...), plotlist)
+
+  numPlots =<span class="st"> </span><span class="kw">length</span>(plots)
+
+  <span class="co"># If layout is NULL, then use &#39;cols&#39; to determine layout</span>
+  <span class="cf">if</span> (<span class="kw">is.null</span>(layout)) {
+    <span class="co"># Make the panel</span>
+    <span class="co"># ncol: Number of columns of plots</span>
+    <span class="co"># nrow: Number of rows needed, calculated from # of cols</span>
+    layout &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">seq</span>(<span class="dv">1</span>, cols <span class="op">*</span><span class="st"> </span><span class="kw">ceiling</span>(numPlots<span class="op">/</span>cols)),
+                    <span class="dt">ncol =</span> cols, <span class="dt">nrow =</span> <span class="kw">ceiling</span>(numPlots<span class="op">/</span>cols))
+  }
+
+ <span class="cf">if</span> (numPlots<span class="op">==</span><span class="dv">1</span>) {
+    <span class="kw">print</span>(plots[[<span class="dv">1</span>]])
+
+  } <span class="cf">else</span> {
+    <span class="co"># Set up the page</span>
+    <span class="kw">grid.newpage</span>()
+    <span class="kw">pushViewport</span>(<span class="kw">viewport</span>(<span class="dt">layout =</span> <span class="kw">grid.layout</span>(<span class="kw">nrow</span>(layout), <span class="kw">ncol</span>(layout))))
+
+    <span class="co"># Make each plot, in the correct location</span>
+    <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span>numPlots) {
+      <span class="co"># Get the i,j matrix positions of the regions that contain this subplot</span>
+      matchidx &lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(<span class="kw">which</span>(layout <span class="op">==</span><span class="st"> </span>i, <span class="dt">arr.ind =</span> <span class="ot">TRUE</span>))
+
+      <span class="kw">print</span>(plots[[i]], <span class="dt">vp =</span> <span class="kw">viewport</span>(<span class="dt">layout.pos.row =</span> matchidx<span class="op">$</span>row,
+                                      <span class="dt">layout.pos.col =</span> matchidx<span class="op">$</span>col))
+    }
+  }
+}</code></pre></div>
+<p>Funcion para graficar las series de tiempo</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">grafica_serie &lt;-<span class="st"> </span><span class="cf">function</span>(base_in, eje_y, titulo, titulo_y) {
+
+  <span class="kw">theme_set</span>( <span class="kw">theme_gray</span>())
+
+  tmp_gf &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data=</span>base_in, <span class="kw">aes_string</span>(<span class="dt">x=</span><span class="st">&#39;year&#39;</span>, <span class="dt">y=</span>eje_y)) <span class="op">+</span>
+<span class="st">                    </span><span class="kw">geom_line</span>(<span class="dt">size =</span> <span class="dv">1</span>) <span class="op">+</span>
+<span class="st">                    </span><span class="kw">ggtitle</span>(titulo) <span class="op">+</span>
+<span class="st">                    </span><span class="kw">ylab</span>(titulo_y) <span class="op">+</span>
+<span class="st">                    </span><span class="kw">scale_x_continuous</span>(<span class="st">&quot;Año&quot;</span>,  <span class="dt">breaks =</span> base_in<span class="op">$</span>year) <span class="op">+</span>
+<span class="st">                    </span><span class="kw">theme</span>(<span class="dt">plot.title =</span> <span class="kw">element_text</span>( <span class="dt">size=</span><span class="dv">14</span>, <span class="dt">face=</span><span class="st">&quot;bold.italic&quot;</span>,<span class="dt">hjust=</span><span class="fl">0.5</span>),
+                          <span class="dt">axis.text.x =</span> <span class="kw">element_text</span>(<span class="dt">angle =</span> <span class="dv">90</span>, <span class="dt">vjust =</span> <span class="fl">0.5</span>),
+                          <span class="dt">axis.title.y =</span> <span class="kw">element_text</span>( <span class="dt">size=</span><span class="dv">10</span>, <span class="dt">face=</span><span class="st">&quot;bold&quot;</span>))
+
+<span class="kw">return</span>(tmp_gf)  
+}
+
+graf_latex &lt;-<span class="st"> </span><span class="cf">function</span>(grafica1, grafica2, nombre){
+  
+  ruta_dir &lt;-<span class="st"> &#39;/Users/omardiaz/Google Drive/Tesis_Lic/V2/Tesis Latex/images&#39;</span>
+  ruta_def &lt;-<span class="st"> </span><span class="kw">paste</span>(ruta_dir,nombre,<span class="dt">sep=</span><span class="st">&quot;/&quot;</span>)
+  
+  <span class="kw">ggarrange</span>(grafica1, grafica2, <span class="dt">ncol =</span> <span class="dv">2</span>, <span class="dt">nrow =</span> <span class="dv">1</span>) <span class="op">+</span>
+<span class="st">    </span><span class="kw">ggsave</span>(ruta_def, <span class="dt">width =</span> <span class="dv">15</span>, <span class="dt">height =</span> <span class="dv">6</span>)
+  
+  <span class="kw">unlink</span>(nombre)
+  
+}
+
+graf_latex1 &lt;-<span class="st"> </span><span class="cf">function</span>(grafica1, nombre){
+  
+  ruta_dir &lt;-<span class="st"> &#39;/Users/omardiaz/Google Drive/Tesis_Lic/V2/Tesis Latex/images&#39;</span>
+  ruta_def &lt;-<span class="st"> </span><span class="kw">paste</span>(ruta_dir,nombre,<span class="dt">sep=</span><span class="st">&quot;/&quot;</span>)
+  
+  <span class="kw">ggarrange</span>(grafica1, <span class="dt">ncol =</span> <span class="dv">1</span>, <span class="dt">nrow =</span> <span class="dv">1</span>) <span class="op">+</span>
+<span class="st">    </span><span class="kw">ggsave</span>(ruta_def, <span class="dt">width =</span> <span class="dv">15</span>, <span class="dt">height =</span> <span class="dv">6</span>)
+  
+  <span class="kw">unlink</span>(nombre)
+  
+}</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">extract.summary.lm &lt;-<span class="st"> </span><span class="cf">function</span> (model, <span class="dt">include.rsquared =</span> <span class="ot">TRUE</span>, <span class="dt">include.adjrs =</span> <span class="ot">TRUE</span>, 
+                                <span class="dt">include.nobs =</span> <span class="ot">TRUE</span>, <span class="dt">include.fstatistic =</span> <span class="ot">FALSE</span>, <span class="dt">include.rmse =</span> <span class="ot">TRUE</span>, 
+                                ...) 
+{
+  s &lt;-<span class="st"> </span>model;
+  names &lt;-<span class="st"> </span><span class="kw">rownames</span>(s<span class="op">$</span>coef)
+  co &lt;-<span class="st"> </span>s<span class="op">$</span>coef[, <span class="dv">1</span>]
+  se &lt;-<span class="st"> </span>s<span class="op">$</span>coef[, <span class="dv">2</span>]
+  pval &lt;-<span class="st"> </span>s<span class="op">$</span>coef[, <span class="dv">4</span>]
+  rs &lt;-<span class="st"> </span>s<span class="op">$</span>r.squared
+  adj &lt;-<span class="st"> </span>s<span class="op">$</span>adj.r.squared
+  n &lt;-<span class="st"> </span><span class="kw">length</span>(s<span class="op">$</span>residuals)
+  gof &lt;-<span class="st"> </span><span class="kw">numeric</span>()
+  gof.names &lt;-<span class="st"> </span><span class="kw">character</span>()
+  gof.decimal &lt;-<span class="st"> </span><span class="kw">logical</span>()
+  <span class="cf">if</span> (include.rsquared <span class="op">==</span><span class="st"> </span><span class="ot">TRUE</span>) {
+    gof &lt;-<span class="st"> </span><span class="kw">c</span>(gof, rs)
+    gof.names &lt;-<span class="st"> </span><span class="kw">c</span>(gof.names, <span class="st">&quot;R$^2$&quot;</span>)
+    gof.decimal &lt;-<span class="st"> </span><span class="kw">c</span>(gof.decimal, <span class="ot">TRUE</span>)
+  }
+  <span class="cf">if</span> (include.adjrs <span class="op">==</span><span class="st"> </span><span class="ot">TRUE</span>) {
+    gof &lt;-<span class="st"> </span><span class="kw">c</span>(gof, adj)
+    gof.names &lt;-<span class="st"> </span><span class="kw">c</span>(gof.names, <span class="st">&quot;Adj. R$^2$&quot;</span>)
+    gof.decimal &lt;-<span class="st"> </span><span class="kw">c</span>(gof.decimal, <span class="ot">TRUE</span>)
+  }
+  <span class="cf">if</span> (include.nobs <span class="op">==</span><span class="st"> </span><span class="ot">TRUE</span>) {
+    gof &lt;-<span class="st"> </span><span class="kw">c</span>(gof, n)
+    gof.names &lt;-<span class="st"> </span><span class="kw">c</span>(gof.names, <span class="st">&quot;Num. obs.&quot;</span>)
+    gof.decimal &lt;-<span class="st"> </span><span class="kw">c</span>(gof.decimal, <span class="ot">FALSE</span>)
+  }
+  <span class="cf">if</span> (include.fstatistic <span class="op">==</span><span class="st"> </span><span class="ot">TRUE</span>) {
+    fstat &lt;-<span class="st"> </span>s<span class="op">$</span>fstatistic[[<span class="dv">1</span>]]
+    gof &lt;-<span class="st"> </span><span class="kw">c</span>(gof, fstat)
+    gof.names &lt;-<span class="st"> </span><span class="kw">c</span>(gof.names, <span class="st">&quot;F statistic&quot;</span>)
+    gof.decimal &lt;-<span class="st"> </span><span class="kw">c</span>(gof.decimal, <span class="ot">TRUE</span>)
+  }
+  <span class="cf">if</span> (include.rmse <span class="op">==</span><span class="st"> </span><span class="ot">TRUE</span> <span class="op">&amp;&amp;</span><span class="st"> </span><span class="op">!</span><span class="kw">is.null</span>(s<span class="op">$</span>sigma[[<span class="dv">1</span>]])) {
+    rmse &lt;-<span class="st"> </span>s<span class="op">$</span>sigma[[<span class="dv">1</span>]]
+    gof &lt;-<span class="st"> </span><span class="kw">c</span>(gof, rmse)
+    gof.names &lt;-<span class="st"> </span><span class="kw">c</span>(gof.names, <span class="st">&quot;RMSE&quot;</span>)
+    gof.decimal &lt;-<span class="st"> </span><span class="kw">c</span>(gof.decimal, <span class="ot">TRUE</span>)
+  }
+  tr &lt;-<span class="st"> </span><span class="kw">createTexreg</span>(<span class="dt">coef.names =</span> names, <span class="dt">coef =</span> co, <span class="dt">se =</span> se, 
+                     <span class="dt">pvalues =</span> pval, <span class="dt">gof.names =</span> gof.names, <span class="dt">gof =</span> gof, <span class="dt">gof.decimal =</span> gof.decimal)
+  <span class="kw">return</span>(tr)
+}
+
+<span class="kw">setMethod</span>(<span class="st">&quot;extract&quot;</span>,  <span class="dt">signature =</span> <span class="st">&#39;summary.lm&#39;</span>, <span class="dt">definition =</span> extract.summary.lm)</code></pre></div>
+<pre><code>## in method for &#39;extract&#39; with signature &#39;&quot;summary.lm&quot;&#39;: no definition for class &quot;summary.lm&quot;</code></pre>
+
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+
+<a href="datos.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/index.Rmd",
+"text": "Edit"
+},
+"download": ["bookdown-demo.pdf", "bookdown-demo.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "";
+    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Código Tesis</title>
+  <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook.">
+  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Código Tesis" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Código Tesis" />
+  
+  <meta name="twitter:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  
+
+<meta name="author" content="Omar Díaz Landa">
+
+
+<meta name="date" content="2019-03-09">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="estimacion-del-modelo.html">
+<link rel="next" href="references.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Tesis Omar Díaz Landa</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Prerequisitos</a></li>
+<li class="chapter" data-level="2" data-path="datos.html"><a href="datos.html"><i class="fa fa-check"></i><b>2</b> Lectura de datos</a><ul>
+<li class="chapter" data-level="2.1" data-path="datos.html"><a href="datos.html#graficamos-las-series-de-datos"><i class="fa fa-check"></i><b>2.1</b> Graficamos las series de datos</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="datos.html"><a href="datos.html#producto-interno-bruto"><i class="fa fa-check"></i><b>2.1.1</b> Producto Interno Bruto</a></li>
+<li class="chapter" data-level="2.1.2" data-path="datos.html"><a href="datos.html#recaudacion-fiscal"><i class="fa fa-check"></i><b>2.1.2</b> Recaudación Fiscal</a></li>
+<li class="chapter" data-level="2.1.3" data-path="datos.html"><a href="datos.html#gasto-en-salud-publica"><i class="fa fa-check"></i><b>2.1.3</b> Gasto en Salud Pública</a></li>
+<li class="chapter" data-level="2.1.4" data-path="datos.html"><a href="datos.html#gasto-en-educacion-publica"><i class="fa fa-check"></i><b>2.1.4</b> Gasto en Educación Pública</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="orden-de-integracion-teoria.html"><a href="orden-de-integracion-teoria.html"><i class="fa fa-check"></i><b>3</b> Orden de Integración (Teoría)</a></li>
+<li class="chapter" data-level="4" data-path="orden-integracion-pib-a-precios-corrientes.html"><a href="orden-integracion-pib-a-precios-corrientes.html"><i class="fa fa-check"></i><b>4</b> Orden Integración PIB a precios corrientes</a></li>
+<li class="chapter" data-level="5" data-path="orden-de-integracion-lnpib-a-precios-corrientes.html"><a href="orden-de-integracion-lnpib-a-precios-corrientes.html"><i class="fa fa-check"></i><b>5</b> Orden de Integración ln(PIB) a precios corrientes</a></li>
+<li class="chapter" data-level="6" data-path="orden-integracion-de-la-serie-recaudacion-impositiva.html"><a href="orden-integracion-de-la-serie-recaudacion-impositiva.html"><i class="fa fa-check"></i><b>6</b> Orden Integración de la serie Recaudación Impositiva</a></li>
+<li class="chapter" data-level="7" data-path="orden-integracion-de-la-serie-gasto-en-salud.html"><a href="orden-integracion-de-la-serie-gasto-en-salud.html"><i class="fa fa-check"></i><b>7</b> Orden Integración de la serie Gasto en Salud</a></li>
+<li class="chapter" data-level="8" data-path="orden-integracion-de-la-serie-gasto-en-educacion.html"><a href="orden-integracion-de-la-serie-gasto-en-educacion.html"><i class="fa fa-check"></i><b>8</b> Orden Integración de la serie Gasto en Educación</a></li>
+<li class="chapter" data-level="9" data-path="orden-integracion-de-la-serie-lnpib-a-precios-ctes.html"><a href="orden-integracion-de-la-serie-lnpib-a-precios-ctes.html"><i class="fa fa-check"></i><b>9</b> Orden Integración de la serie ln(PIB) a precios ctes</a></li>
+<li class="chapter" data-level="10" data-path="cointegracion-teoria.html"><a href="cointegracion-teoria.html"><i class="fa fa-check"></i><b>10</b> Cointegración (Teoría)</a></li>
+<li class="chapter" data-level="11" data-path="cointegracion-analisis.html"><a href="cointegracion-analisis.html"><i class="fa fa-check"></i><b>11</b> Cointegración (Análisis)</a><ul>
+<li class="chapter" data-level="11.1" data-path="cointegracion-analisis.html"><a href="cointegracion-analisis.html#determinacion-del-rango-de-cointegracion"><i class="fa fa-check"></i><b>11.1</b> Determinación del Rango de Cointegración</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="estimacion-del-modelo.html"><a href="estimacion-del-modelo.html"><i class="fa fa-check"></i><b>12</b> Estimación del modelo</a><ul>
+<li class="chapter" data-level="12.1" data-path="estimacion-del-modelo.html"><a href="estimacion-del-modelo.html#modelo-1-vecm-con-k2-lags-y-r1-relaciones-de-cointegracion"><i class="fa fa-check"></i><b>12.1</b> Modelo 1: VECM con K=2 (lags), y r=1 (relaciones de cointegración)</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="estimacion-del-modelo-2.html"><a href="estimacion-del-modelo-2.html"><i class="fa fa-check"></i><b>13</b> Estimación del modelo 2</a><ul>
+<li class="chapter" data-level="13.1" data-path="estimacion-del-modelo-2.html"><a href="estimacion-del-modelo-2.html#modelo-1-vecm-con-k2-lags-y-r1-relaciones-de-cointegracion-1"><i class="fa fa-check"></i><b>13.1</b> Modelo 1: VECM con K=2 (lags), y r=1 (relaciones de cointegración)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="chapter" data-level="14" data-path="interpolacion-serie-educacion.html"><a href="interpolacion-serie-educacion.html"><i class="fa fa-check"></i><b>14</b> Interpolación Serie Educación</a><ul>
+<li class="chapter" data-level="14.1" data-path="interpolacion-serie-educacion.html"><a href="interpolacion-serie-educacion.html#version-2-del-pronositico"><i class="fa fa-check"></i><b>14.1</b> version 2 del pronositico</a></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="Anexos.html"><a href="Anexos.html"><i class="fa fa-check"></i><b>15</b> Anexos</a><ul>
+<li class="chapter" data-level="15.1" data-path="Anexos.html"><a href="Anexos.html#descripcion-de-las-series"><i class="fa fa-check"></i><b>15.1</b> Descripción de las series</a></li>
+<li class="chapter" data-level="15.2" data-path="Anexos.html"><a href="Anexos.html#bibliografia"><i class="fa fa-check"></i><b>15.2</b> Bibliografia</a></li>
+<li class="chapter" data-level="15.3" data-path="Anexos.html"><a href="Anexos.html#dudas"><i class="fa fa-check"></i><b>15.3</b> Dudas</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Código Tesis</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="estimacion-del-modelo-2" class="section level1">
+<h1><span class="header-section-number">Chapter 13</span> Estimación del modelo 2</h1>
+<p>El siguiente paso consiste en observar los valores estimados para cada relación de cointegración y determinar si todas ellas influyen en el comportamiento de corto plazo de cada una de las series en el análisis.</p>
+<p>Johansen [1995] propone restringir <span class="math inline">\(\beta&#39;\)</span> de tal manera que la primera parte de la matriz sea una matriz identidad. Es decir, <span class="math inline">\(\beta&#39;=[I_r : \beta&#39;_1]\)</span> donde <span class="math inline">\(\beta&#39;_1\)</span> tiene dimensión <span class="math inline">\(((k-r) \times r)\)</span>. Esto se obtiene al normalizar el espacio de cointegración de la siguiente manera:</p>
+<p><span class="math display">\[ \beta_c = \beta (S&#39;\beta)^{-1} \]</span></p>
+<p>donde <span class="math inline">\(S&#39;= (I_r,0)\)</span>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#traemos las series</span>
+ln_pib_cte &lt;-<span class="st">  </span>series_db<span class="op">$</span>log_GDP_constante
+edu &lt;-<span class="st"> </span>series_db<span class="op">$</span>Gasto_Educacion_PorcGDP
+salud &lt;-<span class="st"> </span>series_db<span class="op">$</span>Gasto_Salud_PorcGDP
+rec_imp &lt;-<span class="st"> </span>series_db<span class="op">$</span>Recaudacion_Impositiva_PorcGDP
+
+<span class="co"># generamos la matriz X</span>
+model.data &lt;-<span class="st"> </span><span class="kw">cbind</span>(ln_pib_cte,edu,salud,rec_imp)
+
+<span class="co"># estimamos el rango de cointegracion de PI con ca.jo</span>
+M1 &lt;-<span class="st"> </span><span class="kw">ca.jo</span>(model.data,<span class="dt">spec=</span><span class="st">&#39;transitory&#39;</span>, <span class="dt">type=</span><span class="st">&#39;eigen&#39;</span>,<span class="dt">K=</span><span class="dv">2</span>)</code></pre></div>
+<div id="modelo-1-vecm-con-k2-lags-y-r1-relaciones-de-cointegracion-1" class="section level2">
+<h2><span class="header-section-number">13.1</span> Modelo 1: VECM con K=2 (lags), y r=1 (relaciones de cointegración)</h2>
+<p>Desde los objetos obtenidos por el ajuste del modelo, se puede obtener <span class="math inline">\(\beta_c\)</span> de la siguiente manera</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">k_aux &lt;-<span class="st"> </span><span class="dv">4</span>
+rel_coint_aux &lt;-<span class="st"> </span><span class="dv">1</span>
+
+tmp_beta &lt;-<span class="st">  </span>M1<span class="op">@</span>V[,<span class="dv">1</span><span class="op">:</span>rel_coint_aux]
+st &lt;-<span class="st"> </span><span class="kw">cbind</span>(<span class="kw">diag</span>(rel_coint_aux),<span class="kw">matrix</span>(<span class="dv">0</span>,rel_coint_aux,(k_aux<span class="op">-</span>rel_coint_aux)))
+beta_c &lt;-<span class="st"> </span>tmp_beta<span class="op">%*%</span><span class="kw">solve</span>(st<span class="op">%*%</span>tmp_beta)
+beta_c</code></pre></div>
+<pre><code>##            [,1]
+## [1,]  1.0000000
+## [2,] -0.2734779
+## [3,] -0.3187240
+## [4,]  0.2359534</code></pre>
+<p>De tal manera que los vectores de cointegración tienen una interpretación mucho más sencilla.</p>
+<p>Este resultado puede ser validado con lo que se obtiene a partir de la función cajorls</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">M1.jorls &lt;-<span class="st"> </span><span class="kw">cajorls</span>(M1, <span class="dt">r =</span> rel_coint_aux)
+M1.jorls<span class="op">$</span>beta</code></pre></div>
+<pre><code>##                     ect1
+## ln_pib_cte.l1  1.0000000
+## edu.l1        -0.2734779
+## salud.l1      -0.3187240
+## rec_imp.l1     0.2359534</code></pre>
+<p>Ahora bien, Una vez que se han definido las relaciones de cointegración restringida veamos cómo es el ajuste del modelo a partir de estas definiciones:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(M1.jorls<span class="op">$</span>rlm)</code></pre></div>
+<pre><code>## Response ln_pib_cte.d :
+## 
+## Call:
+## lm(formula = ln_pib_cte.d ~ ect1 + constant + ln_pib_cte.dl1 + 
+##     edu.dl1 + salud.dl1 + rec_imp.dl1 - 1, data = data.mat)
+## 
+## Residuals:
+##       Min        1Q    Median        3Q       Max 
+## -0.078343 -0.009848  0.003730  0.015520  0.040400 
+## 
+## Coefficients:
+##                 Estimate Std. Error t value Pr(&gt;|t|)
+## ect1            0.025758   0.033287   0.774    0.449
+## constant       -0.751983   1.017088  -0.739    0.469
+## ln_pib_cte.dl1 -0.248623   0.247119  -1.006    0.328
+## edu.dl1        -0.030300   0.028502  -1.063    0.302
+## salud.dl1      -0.060255   0.050947  -1.183    0.252
+## rec_imp.dl1    -0.004260   0.008287  -0.514    0.613
+## 
+## Residual standard error: 0.03313 on 18 degrees of freedom
+## Multiple R-squared:  0.4807, Adjusted R-squared:  0.3077 
+## F-statistic: 2.777 on 6 and 18 DF,  p-value: 0.04316
+## 
+## 
+## Response edu.d :
+## 
+## Call:
+## lm(formula = edu.d ~ ect1 + constant + ln_pib_cte.dl1 + edu.dl1 + 
+##     salud.dl1 + rec_imp.dl1 - 1, data = data.mat)
+## 
+## Residuals:
+##      Min       1Q   Median       3Q      Max 
+## -0.34754 -0.12005 -0.01668  0.11324  0.35722 
+## 
+## Coefficients:
+##                 Estimate Std. Error t value Pr(&gt;|t|)   
+## ect1             0.81182    0.22350   3.632  0.00191 **
+## constant       -24.67609    6.82904  -3.613  0.00199 **
+## ln_pib_cte.dl1  -2.43462    1.65923  -1.467  0.15954   
+## edu.dl1         -0.29248    0.19137  -1.528  0.14380   
+## salud.dl1        0.08351    0.34207   0.244  0.80990   
+## rec_imp.dl1     -0.15076    0.05564  -2.710  0.01436 * 
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 0.2225 on 18 degrees of freedom
+## Multiple R-squared:  0.5246, Adjusted R-squared:  0.3662 
+## F-statistic: 3.311 on 6 and 18 DF,  p-value: 0.02245
+## 
+## 
+## Response salud.d :
+## 
+## Call:
+## lm(formula = salud.d ~ ect1 + constant + ln_pib_cte.dl1 + edu.dl1 + 
+##     salud.dl1 + rec_imp.dl1 - 1, data = data.mat)
+## 
+## Residuals:
+##      Min       1Q   Median       3Q      Max 
+## -0.32725 -0.08489  0.01468  0.08836  0.19771 
+## 
+## Coefficients:
+##                Estimate Std. Error t value Pr(&gt;|t|)  
+## ect1           -0.10603    0.14013  -0.757   0.4591  
+## constant        3.22199    4.28164   0.753   0.4615  
+## ln_pib_cte.dl1  1.04846    1.04030   1.008   0.3269  
+## edu.dl1         0.20965    0.11998   1.747   0.0976 .
+## salud.dl1       0.14725    0.21447   0.687   0.5011  
+## rec_imp.dl1    -0.03174    0.03489  -0.910   0.3750  
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 0.1395 on 18 degrees of freedom
+## Multiple R-squared:  0.2986, Adjusted R-squared:  0.06485 
+## F-statistic: 1.277 on 6 and 18 DF,  p-value: 0.3163
+## 
+## 
+## Response rec_imp.d :
+## 
+## Call:
+## lm(formula = rec_imp.d ~ ect1 + constant + ln_pib_cte.dl1 + edu.dl1 + 
+##     salud.dl1 + rec_imp.dl1 - 1, data = data.mat)
+## 
+## Residuals:
+##      Min       1Q   Median       3Q      Max 
+## -1.43866 -0.70667 -0.03661  0.56896  1.42373 
+## 
+## Coefficients:
+##                Estimate Std. Error t value Pr(&gt;|t|)  
+## ect1            -2.4251     0.9305  -2.606   0.0179 *
+## constant        73.9915    28.4304   2.603   0.0180 *
+## ln_pib_cte.dl1  14.0049     6.9076   2.027   0.0577 .
+## edu.dl1          0.9886     0.7967   1.241   0.2306  
+## salud.dl1       -2.0040     1.4241  -1.407   0.1764  
+## rec_imp.dl1      0.3522     0.2316   1.520   0.1458  
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 0.9262 on 18 degrees of freedom
+## Multiple R-squared:  0.3743, Adjusted R-squared:  0.1657 
+## F-statistic: 1.794 on 6 and 18 DF,  p-value: 0.1569</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mysum &lt;-<span class="st"> </span><span class="kw">summary</span>(M1.jorls<span class="op">$</span>rlm)
+<span class="kw">screenreg</span>(<span class="kw">list</span>(mysum[[<span class="dv">1</span>]], mysum[[<span class="dv">2</span>]],mysum[[<span class="dv">3</span>]],mysum[[<span class="dv">4</span>]]))</code></pre></div>
+<pre><code>## 
+## =====================================================
+##                 Model 1  Model 2    Model 3  Model 4 
+## -----------------------------------------------------
+## ect1             0.03      0.81 **  -0.11     -2.43 *
+##                 (0.03)    (0.22)    (0.14)    (0.93) 
+## constant        -0.75    -24.68 **   3.22     73.99 *
+##                 (1.02)    (6.83)    (4.28)   (28.43) 
+## ln_pib_cte.dl1  -0.25     -2.43      1.05     14.00  
+##                 (0.25)    (1.66)    (1.04)    (6.91) 
+## edu.dl1         -0.03     -0.29      0.21      0.99  
+##                 (0.03)    (0.19)    (0.12)    (0.80) 
+## salud.dl1       -0.06      0.08      0.15     -2.00  
+##                 (0.05)    (0.34)    (0.21)    (1.42) 
+## rec_imp.dl1     -0.00     -0.15 *   -0.03      0.35  
+##                 (0.01)    (0.06)    (0.03)    (0.23) 
+## -----------------------------------------------------
+## R^2              0.48      0.52      0.30      0.37  
+## Adj. R^2         0.31      0.37      0.06      0.17  
+## Num. obs.       24        24        24        24     
+## RMSE             0.03      0.22      0.14      0.93  
+## =====================================================
+## *** p &lt; 0.001, ** p &lt; 0.01, * p &lt; 0.05</code></pre>
+<p>De lo anterior se pede concluir lo siguiente:</p>
+<ul>
+<li>En la serie de logaritmo natural del GDP a precios corrientes:
+<ul>
+<li>Ninguna relación de cointegración parece ser significativa</li>
+<li>Esto es ligeramente preocupante, ya que estaría indicando que las relaciones de largo plazo de la recaudación fiscal, desempleo, gasto en salud y el incremento de la población total tienen repercusiones en la dinámica de corto plazo del producto interno bruto</li>
+</ul></li>
+<li>En la serie de recaudación Fiscal:
+<ul>
+<li>Las relaciones de cointegración 2 y 3 parecen ser significativas, esto indica que la recaudación fiscal tiene ajustes en el corto plazo derivado de la dinámica de largo plazo de la misma recaudación, del desempleo y del gasto en salud</li>
+<li>Respondiendo más rápidamente cuando la relación de cointegración normalizada por el desempelo se aleja de su tendencia central</li>
+<li>Cuando el desempleo crece respecto al gasto en salud en el largo plazo, la velocidad de ajuste con la cual reacciona la serie de recaudación fiscal en el corto plazo es de manera negativa, lo cual tiene todo el sentido, ya que ante un incremente en desempleo la recaudación fiscal se verá deteriorada</li>
+</ul></li>
+<li>En la serie de desempleo:
+<ul>
+<li>Se pube observar que tanto la relación de cointegración 3, como la relación de cointegración 4 son significativas a un nivel de confianza del 90%<br />
+</li>
+<li>Esto nos dice que ante variaciones del a tendencia central tanto del desempelo como del incremento de la población total y el gasto en salud el desempleo tenderá a ajustarse en el corto plazo</li>
+<li>Estos ajustes sucederan más rápido para desviaciones de la población total y el gasto en salud</li>
+</ul></li>
+<li>En la serie de gasto en salud:
+<ul>
+<li>Se observa que la primera relación de cointegración resulta significativa a un nivel de confianza del 90%</li>
+<li>Esto significa que cuando el producto interno bruto de la nación se aleja de su tendencia central, ya sea como incremento o decremento en el largo plazo, el gasto en salud se verá impactado en el corto plazo</li>
+<li>Lo que parece tomar más relevancia en el caso de análisis es que dicha velocidad de ajuste es muy lenta, es decir, que a pesar de observar granes incrementos en el producto interno bruto, el ajuste en el gasto en salud tardará mucho tiempo en verse reflejado</li>
+</ul></li>
+</ul>
+<p>Finalmente obsevemos nuestro modelo ajustado vs los datos recopilados:</p>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-133-1.png" width="672" /></p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="estimacion-del-modelo.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/11_2-Estimacion-Modelo_2.Rmd",
+"text": "Edit"
+},
+"download": ["bookdown-demo.pdf", "bookdown-demo.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "";
+    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

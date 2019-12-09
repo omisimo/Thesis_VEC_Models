@@ -1,0 +1,330 @@
+# Cointegración (Teoría)
+
+Se probará la hipótesis $H_1(r) : \Pi =\alpha\beta'$ es decir, si $\Pi$ es de rango reducido. para ello utilizaremos la prueba del estadístico de la traza y del máximo eigenvalor.
+
+```{r}
+library(urca)
+data(UKpppuip)
+names(UKpppuip)
+attach(UKpppuip)
+rm(p1)
+rm(p2)
+dat1 <- cbind(p1,p2,e12,i1,i2)
+dat2 <- cbind(doilp0,doilp1)
+args('ca.jo')
+H1 <- ca.jo(dat1, type='trace',K=2,season=4,dumvar=dat2)
+
+H1.trace <- summary(ca.jo(dat1,type='trace',K=2,season=4,dumvar=dat2))
+H1.eigen <- summary(ca.jo(dat1,type='eigen',K=2,season=4,dumvar=dat2))
+
+
+```
+
+
+Considerando el estadístico del máximo eigenvalor, la hipótesis de no cointegración no puede ser rechazada, tal y como se observa en la siguiente tabla:
+
+```{r}
+H1.eigen
+```
+
+Sin embargo, el estadístico de la traza indica que existen 2 relaciones de cointegración. 
+
+
+```{r}
+H1.trace
+
+```
+
+Peor aún, existe la posiblidad de una tercera combinación lineal estacionaria  debido a la cercanía entre los igenvectores 2 y 3. 
+
+```{r}
+H1@lambda
+```
+
+
+
+Para generar una decisión final acerca del orden de integración, debemos observar varios aspectos como las matrices $\hat{\alpha}$ y $\hat{\beta}$ así como las relaciones de cointegración $\hat{\beta}'y_t$  y aquellas que son corregidas por las influecnias de corto plazo $\hat{\beta}'R_{1t}$. Para obtener las tablas similares a las reportadas en el paper de Johansen y Joselius, las matrices fueron normalizadas respectivamente:
+
+```{r}
+beta <- H1@V
+beta[,2] <- beta[,2]/beta[4,2]
+beta[,3] <- beta[,3]/beta[4,3]
+beta
+```
+
+Y la matriz alpha es la siguiente
+
+```{r}
+alpha <- H1@PI%*%solve(t(beta))
+alpha
+```
+
+
+Se puede observar que los valores de $\hat{\alpha}_{i.2}$ para $i=1,2,3$ son cercanos a cero para el segundo vector de cointegración, por lo que la pequeña estimación del eigenvalor $\lambda_2$ se puede atribuir a que estos valores se encuentran justo en la frontera de la no estacionariedad impactando la prueba de hipótesis.
+
+Además Johanses y Joselius investigaron de manera gráfica las relaciones de cointegración, ya que si en efecto existen dos relaciones de cointegración $(r=2)$ entonces estas deberían observarse como un proceso estacionario. Sin embargo, debido las influencias de corto plazo que influyen en el proceso de estimación, los autores decidieron también analizarlas.
+
+
+```{r}
+beta1 <- cbind(beta[,1:2], H1@V[,3:5])
+ci.1 <- ts((H1@x%*%beta1)[-c(1,2),],start=c(1972,3),end=c(1987,2),frequency = 4)
+ci.2 <- ts((H1@RK%*%beta1),start=c(1972,3),end=c(1987,2),frequency = 4)
+```
+
+```{r}
+plot(ci.1)
+```
+
+```{r}
+plot(ci.2)
+```
+
+
+
+Basado en las pruebas estadísticas, los elementos de la matriz $\hat{\alpha}$ y la tendencia de las relaciones de cointegración, Johansen y Joselius decidieron mantener la hipótesis de que el grado de cointegración es $r=2$
+
+
+```{r}
+
+
+set.seed(12345)
+e1 <- rnorm(250, 0, 0.5)
+e2 <- rnorm(250, 0, 0.5)
+e3 <- rnorm(250, 0, 0.5)
+
+u1.ar1 <- arima.sim(model = list(ar=0.75),
+                    innov = e1, n=250)
+u2.ar1 <- arima.sim(model = list(ar=0.3),
+                    innov = e2, n=250)
+y3 <- cumsum(e3)
+y1 <- 0.8 * y3 + u1.ar1
+y2 <- -0.3 * y3 + u2.ar1
+
+y.mat <- data.frame(y1,y2,y3)
+
+vecm <- ca.jo(y.mat)
+
+jo.results <- summary(vecm)
+
+vecm.r2 <- cajorls(vecm, r=2)
+class(jo.results)
+slotNames(jo.results)
+
+
+vecm.r2$beta
+vecm.r2$rlm
+summary(vecm.r2$rlm)
+
+```
+
+Donde la beta del objeto vecm.r2 se obtiene de la siguiente manera:
+
+```{r}
+tmp_beta <- vecm@V[,1:2]
+
+pre_s <- diag(2)
+st <- cbind(pre_s, c(0,0)) 
+
+
+beta_c <- tmp_beta%*%solve(st%*%tmp_beta)
+```
+
+
+```{r}
+
+
+# y1.d_hat
+
+
+hat <- as.data.frame(vecm.r2$rlm$fitted.values[,1])
+colnames(hat) <- c('y1.d_hat')
+
+obs <- as.data.frame(vecm.r2$rlm$model$`z@Z0`[,1])
+colnames(obs) <- c('y1.d')
+
+ajuste <- cbind(obs,hat)
+
+
+ajuste <- ajuste %>%
+  mutate(time=row_number())
+
+
+ggplot(ajuste)+
+  geom_line(aes(time,y1.d))+
+  geom_line(aes(time,y1.d_hat), color='red')+
+  ggtitle('y1.d_hat')
+
+```
+
+```{r}
+
+
+# y2.d_hat
+
+
+hat <- as.data.frame(vecm.r2$rlm$fitted.values[,2])
+colnames(hat) <- c('y2.d_hat')
+
+obs <- as.data.frame(vecm.r2$rlm$model$`z@Z0`[,2])
+colnames(obs) <- c('y2.d')
+
+ajuste <- cbind(obs,hat)
+
+
+ajuste <- ajuste %>%
+  mutate(time=row_number())
+
+
+ggplot(ajuste)+
+  geom_line(aes(time,y2.d))+
+  geom_line(aes(time,y2.d_hat), color='red')+
+  ggtitle('y2.d_hat')
+
+```
+
+```{r}
+
+# y3.d_hat
+
+hat <- as.data.frame(vecm.r2$rlm$fitted.values[,3])
+colnames(hat) <- c('y3.d_hat')
+
+obs <- as.data.frame(vecm.r2$rlm$model$`z@Z0`[,3])
+colnames(obs) <- c('y3.d')
+
+ajuste <- cbind(obs,hat)
+
+
+ajuste <- ajuste %>%
+  mutate(time=row_number())
+
+
+ggplot(ajuste)+
+  geom_line(aes(time,y3.d))+
+  geom_line(aes(time,y3.d_hat), color='red')+
+  ggtitle('y3.d_hat')
+
+```
+
+
+
+Analicemos los objetos output de un ca.jo
+
+
+Z0: Object of class "matrix": The matrix of the differenced series.
+
+```{r}
+
+#vecm
+head(vecm@Z0)
+
+head(diff(vecm@x[,1]))[-1]
+
+```
+
+
+Z1: Object of class "matrix": The regressor matrix, except for the lagged variables in levels.
+
+```{r}
+head(vecm@Z1)
+```
+
+
+ZK: Object of class "matrix": The matrix of the lagged variables in levels.
+
+```{r}
+head(vecm@ZK)
+head(vecm@x[,1])
+```
+
+
+GAMMA: Object of class "matrix": The coeffecient matrix of Z1.
+```{r}
+vecm@GAMMA
+```
+
+
+R0: Object of class "matrix": The matrix of residuals from the regressions in differences.
+
+```{r}
+head(vecm@R0)
+```
+
+Estos se obtienen de la siguiente manera para y1.d
+
+```{r}
+obs <- vecm@Z0[,1]
+tmp <- lm(obs ~ vecm@Z1)
+head(tmp$residuals)
+
+```
+
+
+
+RK: Object of class "matrix": The matrix of residuals from the regression in lagged levels.
+
+```{r}
+head(vecm@RK)
+```
+
+```{r}
+obs <- vecm@ZK[,1]
+tmp <- lm(obs ~ vecm@Z1)
+head(tmp$residuals)
+```
+
+
+
+Codigo para obtener los p-values de la relacion de cointegración:
+
+```{r}
+
+library("vars")
+data("Canada")
+summary(Canada)
+###################################################
+### VECM
+###################################################
+vecm.p3 <- summary(ca.jo(Canada, type = "trace", ecdet = "trend", K = 3, spec = "transitory"))
+vecm.p2 <- summary(ca.jo(Canada, type = "trace", ecdet = "trend", K = 2, spec = "transitory"))
+
+
+###################################################
+### VECM r = 1
+###################################################
+vecm <- ca.jo(Canada[, c("rw", "prod", "e", "U")], type = "trace", ecdet = "trend", K = 3, spec = "transitory") 
+vecm.r1 <- cajorls(vecm, r = 1)
+##
+## Calculation of t-values for alpha and beta
+##
+alpha <- coef(vecm.r1$rlm)[1, ]
+names(alpha) <- c("rw", "prod", "e", "U")
+alpha
+beta <- vecm.r1$beta
+beta
+resids <- resid(vecm.r1$rlm)
+N <- nrow(resids)
+sigma <- crossprod(resids) / N
+## t-stats for alpha (calculated by hand)
+alpha.se <- sqrt(solve(crossprod(cbind(vecm@ZK %*% beta, vecm@Z1)))[1, 1] * diag(sigma))
+names(alpha.se) <-  c("rw", "prod", "e", "U")
+alpha.t <- alpha / alpha.se
+alpha.t
+## Differ slightly from coef(summary(vecm.r1$rlm))
+## due to degrees of freedom adjustment 
+coef(summary(vecm.r1$rlm))
+## t-stats for beta
+beta.se <- sqrt(diag(kronecker(solve(crossprod(vecm@RK[, -1])),
+                               solve(t(alpha) %*% solve(sigma) %*% alpha))))
+beta.t <- c(NA, beta[-1] / beta.se)
+names(beta.t) <- rownames(vecm.r1$beta)
+beta.t
+
+```
+
+
+
+
+
+
+

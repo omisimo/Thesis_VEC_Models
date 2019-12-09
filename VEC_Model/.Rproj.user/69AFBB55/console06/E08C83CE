@@ -1,0 +1,40 @@
+]0;~/Google Drive/Tesis_Lic/V2/VEC_Model[?1034h[36momardiaz[m@[32mOmars-MacBook-Pro-2:[33;1m~/Google Drive/Tesis_LLic/V2/VEC_Model[m$ ls
+[1m[32m01-Lectura-de-datos.Rmd[39;49m[0m* [1m[34m_book[39;49m[0m/
+[1m[32m02-literature.Rmd[39;49m[0m*       [1m[32m_bookdown.yml[39;49m[0m*
+[1m[32m03-method.Rmd[39;49m[0m*           [1m[34m_bookdown_files[39;49m[0m/
+[1m[32m04-application.Rmd[39;49m[0m*      [1m[32m_build.sh[39;49m[0m*
+[1m[32m05-summary.Rmd[39;49m[0m*          [1m[32m_deploy.sh[39;49m[0m*
+[1m[32m06-references.Rmd[39;49m[0m*       [1m[32m_output.yml[39;49m[0m*
+07-Anexos.Rmd            [1m[32mbook.bib[39;49m[0m*
+[1m[32mDESCRIPTION[39;49m[0m*             [1m[32mindex.Rmd[39;49m[0m*
+[1m[34mDatos[39;49m[0m/                   packages.bib
+[1m[32mLICENSE[39;49m[0m*                 [1m[32mpreamble.tex[39;49m[0m*
+[1m[32mREADME.md[39;49m[0m*               [1m[32mstyle.css[39;49m[0m*
+[1m[32mVEC_MODEL.Rproj[39;49m[0m*         [1m[32mtoc.css[39;49m[0m*
+]0;~/Google Drive/Tesis_Lic/V2/VEC_Model[36momardiaz[m@[32mOmars-MacBook-Pro-2:[33;1m~/Google Drive/Tesis_LLic/V2/VEC_Model[m$ cd ..
+]0;~/Google Drive/Tesis_Lic/V2[36momardiaz[m@[32mOmars-MacBook-Pro-2:[33;1m~/Google Drive/Tesis_LLic/V2[m$ ls
+[1m[34mTesis Latex[39;49m[0m/ [1m[34mVEC_Model[39;49m[0m/
+]0;~/Google Drive/Tesis_Lic/V2[36momardiaz[m@[32mOmars-MacBook-Pro-2:[33;1m~/Google Drive/Tesis_LLic/V2[m$ cd Ta[Kesis\ Latex/
+]0;~/Google Drive/Tesis_Lic/V2/Tesis Latex[36momardiaz[m@[32mOmars-MacBook-Pro-2:[33;1m~/Google Drive/Tesis_LLic/V2/Tesis Latex[m$ ls
+ack.aux          main.tex
+ack.tex          main.toc
+[1m[34mchapters[39;49m[0m/        ref.bib
+[1m[34mimages[39;49m[0m/          statement.aux
+main.aux         statement.tex
+main.log         titlepage.aux
+main.out         titlepage.log
+main.pdf         titlepage.tex
+main.synctex.gz
+]0;~/Google Drive/Tesis_Lic/V2/Tesis Latex[36momardiaz[m@[32mOmars-MacBook-Pro-2:[33;1m~/Google Drive/Tesis_LLic/V2/Tesis Latex[m$ cd I[Kimages/
+]0;~/Google Drive/Tesis_Lic/V2/Tesis Latex/images[36momardiaz[m@[32mOmars-MacBook-Pro-2:[33;1m~/Google Drive/Tesis_LLic/V2/Tesis Latex/images[m$ pwd
+/Users/omardiaz/Google Drive/Tesis_Lic/V2/Tesis Latex/images
+]0;~/Google Drive/Tesis_Lic/V2/Tesis Latex/images[36momardiaz[m@[32mOmars-MacBook-Pro-2:[33;1m~/Google Drive/Tesis_LLic/V2/Tesis Latex/images[m$ acf(diff(diff(aux2)))
+]0;~/Google Drive/Tesis_Lic/V2/Tesis Latex/images[?1034h[36momardiaz[m@[32mOmars-MacBook-Pro-2:[33;1m~/Google Drive/Tesis_LLic/V2/Tesis Latex/images[m$ acf(diff(diff(aux2)))
+bash: syntax error near unexpected token `diff'
+]0;~/Google Drive/Tesis_Lic/V2/Tesis Latex/images[36momardiaz[m@[32mOmars-MacBook-Pro-2:[33;1m~/Google Drive/Tesis_LLic/V2/Tesis Latex/images[m$ acf(diff(diff(aux2)))pl ot(diff(diff(aux2)))
+bash: syntax error near unexpected token `diff'
+]0;~/Google Drive/Tesis_Lic/V2/Tesis Latex/images[36momardiaz[m@[32mOmars-MacBook-Pro-2:[33;1m~/Google Drive/Tesis_LLic/V2/Tesis Latex/images[m$ adf.test(count_d1, alte rnative = "stationary")
+bash: syntax error near unexpected token `count_d1,'
+]0;~/Google Drive/Tesis_Lic/V2/Tesis Latex/images[36momardiaz[m@[32mOmars-MacBook-Pro-2:[33;1m~/Google Drive/Tesis_LLic/V2/Tesis Latex/images[m$ Acf(count_d1, main='ACF  for Differenced Series')
+bash: syntax error near unexpected token `count_d1,'
+]0;~/Google Drive/Tesis_Lic/V2/Tesis Latex/images[36momardiaz[m@[32mOmars-MacBook-Pro-2:[33;1m~/Google Drive/Tesis_LLic/V2/Tesis Latex/images[m$ 

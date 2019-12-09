@@ -1,0 +1,143 @@
+# Lectura de datos {#datos}
+
+
+Los datos se han obtenido a través e tres fuentes distintas, la [API del banco mundial](https://blogs.worldbank.org/opendata/accessing-world-bank-data-apis-python-r-ruby-stata), la ley de ingresos de la federación y el presupuesto de egresos de la federación:
+
+
+Las series obtenidas vía le banco mundial son:
+
+<center>
+|Code	|Indicator Name|
+|-----|------------------------------------------------------|
+|SP.POP.TOTL|	Population, total|
+|SL.UEM.TOTL.NE.ZS|	Unemployment, total (% of total labor force) (national estimate)|
+|NY.GDP.MKTP.CN|	GDP (current LCU)|
+</center>
+
+Para más detalle acerca de la descripción y fuentes de estas series, se pueden consultar en el apartado de \@ref(Anexos).
+
+Las serie obtenida de la ley de ingresos de la federación corresponde al importe en pesos de la recaudación impositiva.
+
+La series obtenidas a través del presupuesto de egresos de la federación son el gasto en salud pública y el gasto en educación pública. Tanto la recaudación impositiva, como el gasto en educación y salud pública serán representados como porcentaje del PIB a precios corrientes.
+
+Extraemos de las series anteriormente mencionadas, todos los datos disponibles de manera anual para México a partir de 1991 hasta 2016. Esto es debido a que se trata del horizonte de tiempo con mayor cantidad de datos informados. 
+
+```{r}
+
+series_db <- read_excel("Datos/Series Tesis Recolección.xlsx", sheet = "Datos Finales")
+series_db
+```
+
+
+Utilizaremos el logaritmo como función estabilizadora de varianza para el PIB a precios corrientes, aprecios constantes y para la población total.
+
+```{r}
+series_db$log_GDP_corriente <- log(series_db$GDP_corriente)
+series_db$log_GDP_constante <- log(series_db$GDP_constante)
+series_db$log_Poblacion_Total <- log(series_db$Poblacion_Total)
+series_db
+```
+
+## Graficamos las series de datos
+
+### Producto Interno Bruto
+
+Es muy importante antes de realizar cualquier análisis, primero realizar un análisis exploratorio, que en el caso de series de tiempo se reduce a realizar gráficas de las mismas:
+
+```{r, message=FALSE}
+
+gf1 <- grafica_serie(base_in = series_db, 
+                      eje_y = 'GDP_corriente', 
+                      titulo = 'PIB a precios corrientes', 
+                      titulo_y = 'PIB Corriente')
+
+gf1_1 <- grafica_serie(base_in = series_db, 
+                      eje_y = 'GDP_constante', 
+                      titulo = 'PIB a precios constantes', 
+                      titulo_y = 'PIB Constante')
+
+graf_latex(grafica1 = gf1,
+          grafica2 = gf1_1,
+          nombre = 'PIB_normal.pdf')
+
+gf2 <- grafica_serie(base_in = series_db, 
+                      eje_y = 'log_GDP_corriente', 
+                      titulo = 'Logaritmo del PIB a precios corrientes', 
+                      titulo_y = 'log(PIB Corriente)')
+
+gf2_2 <- grafica_serie(base_in = series_db, 
+                      eje_y = 'log_GDP_constante', 
+                      titulo = 'Logaritmo del PIB a precios constantes', 
+                      titulo_y = 'log(PIB Constante)')
+
+
+graf_latex(grafica1 = gf2,
+          grafica2 = gf2_2,
+          nombre = 'log_PIB.pdf')
+
+```
+
+```{r}
+gf1
+gf1_1
+```
+
+
+### Recaudación Fiscal
+
+A continuación observamos la serie de la recaudación impositiva como porcentaje del producto interno bruto:
+
+```{r}
+gf1 <- grafica_serie(base_in = series_db, 
+                      eje_y = 'Recaudacion_Impositiva_PorcGDP', 
+                      titulo = 'Recaudación Gubernamental (%PIB)', 
+                      titulo_y = 'Recaudación Impositiva')
+
+graf_latex1(grafica1 = gf1,
+          nombre = 'Recaudacion.pdf')
+
+gf1
+```
+
+### Gasto en Salud Pública
+
+```{r}
+gf1 <- grafica_serie(base_in = series_db, 
+                      eje_y = 'Gasto_Salud_PorcGDP', 
+                      titulo = 'Gasto en Salud Pública (%PIB)', 
+                      titulo_y = 'Gasto en Salud Pública')
+
+graf_latex1(grafica1 = gf1,
+          nombre = 'Gasto_Salud.pdf')
+
+gf1
+```
+
+### Gasto en Educación Pública
+
+
+```{r}
+gf1 <- grafica_serie(base_in = series_db, 
+                      eje_y = 'Gasto_Educacion_PorcGDP', 
+                      titulo = 'Gasto en Educación Pública (%PIB)', 
+                      titulo_y = 'Gasto en Educación Pública')
+
+graf_latex1(grafica1 = gf1,
+          nombre = 'Gasto_Educacion.pdf')
+
+gf1
+```
+### Tasa de Desempleo
+
+
+```{r}
+gf1 <- grafica_serie(base_in = series_db, 
+                      eje_y = 'Desempleo_Total', 
+                      titulo = 'Tasa de Desempleo', 
+                      titulo_y = 'Tasa de Desempleo')
+
+graf_latex1(grafica1 = gf1,
+          nombre = 'Tasa_Desempleo.pdf')
+
+gf1
+```

@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Código Tesis</title>
+  <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook.">
+  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Código Tesis" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Código Tesis" />
+  
+  <meta name="twitter:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  
+
+<meta name="author" content="Omar Díaz Landa">
+
+
+<meta name="date" content="2019-03-12">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="cointegracion-teoria.html">
+<link rel="next" href="estimacion-del-modelo.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Tesis Omar Díaz Landa</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Prerequisitos</a></li>
+<li class="chapter" data-level="2" data-path="datos.html"><a href="datos.html"><i class="fa fa-check"></i><b>2</b> Lectura de datos</a><ul>
+<li class="chapter" data-level="2.1" data-path="datos.html"><a href="datos.html#graficamos-las-series-de-datos"><i class="fa fa-check"></i><b>2.1</b> Graficamos las series de datos</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="datos.html"><a href="datos.html#producto-interno-bruto"><i class="fa fa-check"></i><b>2.1.1</b> Producto Interno Bruto</a></li>
+<li class="chapter" data-level="2.1.2" data-path="datos.html"><a href="datos.html#recaudacion-fiscal"><i class="fa fa-check"></i><b>2.1.2</b> Recaudación Fiscal</a></li>
+<li class="chapter" data-level="2.1.3" data-path="datos.html"><a href="datos.html#gasto-en-salud-publica"><i class="fa fa-check"></i><b>2.1.3</b> Gasto en Salud Pública</a></li>
+<li class="chapter" data-level="2.1.4" data-path="datos.html"><a href="datos.html#gasto-en-educacion-publica"><i class="fa fa-check"></i><b>2.1.4</b> Gasto en Educación Pública</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="orden-de-integracion-teoria.html"><a href="orden-de-integracion-teoria.html"><i class="fa fa-check"></i><b>3</b> Orden de Integración (Teoría)</a></li>
+<li class="chapter" data-level="4" data-path="orden-integracion-pib-a-precios-corrientes.html"><a href="orden-integracion-pib-a-precios-corrientes.html"><i class="fa fa-check"></i><b>4</b> Orden Integración PIB a precios corrientes</a></li>
+<li class="chapter" data-level="5" data-path="orden-de-integracion-lnpib-a-precios-corrientes.html"><a href="orden-de-integracion-lnpib-a-precios-corrientes.html"><i class="fa fa-check"></i><b>5</b> Orden de Integración ln(PIB) a precios corrientes</a></li>
+<li class="chapter" data-level="6" data-path="orden-integracion-de-la-serie-recaudacion-impositiva.html"><a href="orden-integracion-de-la-serie-recaudacion-impositiva.html"><i class="fa fa-check"></i><b>6</b> Orden Integración de la serie Recaudación Impositiva</a></li>
+<li class="chapter" data-level="7" data-path="orden-integracion-de-la-serie-gasto-en-salud.html"><a href="orden-integracion-de-la-serie-gasto-en-salud.html"><i class="fa fa-check"></i><b>7</b> Orden Integración de la serie Gasto en Salud</a></li>
+<li class="chapter" data-level="8" data-path="orden-integracion-de-la-serie-gasto-en-educacion.html"><a href="orden-integracion-de-la-serie-gasto-en-educacion.html"><i class="fa fa-check"></i><b>8</b> Orden Integración de la serie Gasto en Educación</a></li>
+<li class="chapter" data-level="9" data-path="orden-integracion-de-la-serie-lnpib-a-precios-ctes.html"><a href="orden-integracion-de-la-serie-lnpib-a-precios-ctes.html"><i class="fa fa-check"></i><b>9</b> Orden Integración de la serie ln(PIB) a precios ctes</a></li>
+<li class="chapter" data-level="10" data-path="cointegracion-teoria.html"><a href="cointegracion-teoria.html"><i class="fa fa-check"></i><b>10</b> Cointegración (Teoría)</a></li>
+<li class="chapter" data-level="11" data-path="cointegracion-analisis.html"><a href="cointegracion-analisis.html"><i class="fa fa-check"></i><b>11</b> Cointegración (Análisis)</a><ul>
+<li class="chapter" data-level="11.1" data-path="cointegracion-analisis.html"><a href="cointegracion-analisis.html#determinacion-del-rango-de-cointegracion"><i class="fa fa-check"></i><b>11.1</b> Determinación del Rango de Cointegración</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="estimacion-del-modelo.html"><a href="estimacion-del-modelo.html"><i class="fa fa-check"></i><b>12</b> Estimación del modelo</a><ul>
+<li class="chapter" data-level="12.1" data-path="estimacion-del-modelo.html"><a href="estimacion-del-modelo.html#modelo-1-vecm-con-k2-lags-y-r1-relaciones-de-cointegracion"><i class="fa fa-check"></i><b>12.1</b> Modelo 1: VECM con K=2 (lags), y r=1 (relaciones de cointegración)</a></li>
+<li class="chapter" data-level="12.2" data-path="estimacion-del-modelo.html"><a href="estimacion-del-modelo.html#modelo-2-vecm-con-k2-lags-y-r2-relaciones-de-cointegracion"><i class="fa fa-check"></i><b>12.2</b> Modelo 2: VECM con K=2 (lags), y r=2 (relaciones de cointegración)</a></li>
+<li class="chapter" data-level="12.3" data-path="estimacion-del-modelo.html"><a href="estimacion-del-modelo.html#modelo-3-vecm-con-k3-lags-y-r1-relaciones-de-cointegracion"><i class="fa fa-check"></i><b>12.3</b> Modelo 3: VECM con K=3 (lags), y r=1 (relaciones de cointegración)</a></li>
+<li class="chapter" data-level="12.4" data-path="estimacion-del-modelo.html"><a href="estimacion-del-modelo.html#modelo-4-vecm-con-k3-lags-y-r2-relaciones-de-cointegracion"><i class="fa fa-check"></i><b>12.4</b> Modelo 4: VECM con K=3 (lags), y r=2 (relaciones de cointegración)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="chapter" data-level="13" data-path="interpolacion-serie-educacion.html"><a href="interpolacion-serie-educacion.html"><i class="fa fa-check"></i><b>13</b> Interpolación Serie Educación</a><ul>
+<li class="chapter" data-level="13.1" data-path="interpolacion-serie-educacion.html"><a href="interpolacion-serie-educacion.html#version-2-del-pronositico"><i class="fa fa-check"></i><b>13.1</b> version 2 del pronositico</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="Anexos.html"><a href="Anexos.html"><i class="fa fa-check"></i><b>14</b> Anexos</a><ul>
+<li class="chapter" data-level="14.1" data-path="Anexos.html"><a href="Anexos.html#descripcion-de-las-series"><i class="fa fa-check"></i><b>14.1</b> Descripción de las series</a></li>
+<li class="chapter" data-level="14.2" data-path="Anexos.html"><a href="Anexos.html#bibliografia"><i class="fa fa-check"></i><b>14.2</b> Bibliografia</a></li>
+<li class="chapter" data-level="14.3" data-path="Anexos.html"><a href="Anexos.html#dudas"><i class="fa fa-check"></i><b>14.3</b> Dudas</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Código Tesis</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="cointegracion-analisis" class="section level1">
+<h1><span class="header-section-number">Chapter 11</span> Cointegración (Análisis)</h1>
+<p>En esta sección haremos la prueba de cointegración multivaraida para las series no estacionarias mostradas en las secciones previas. Es decir, las series que entrarán al modelo VECM son:</p>
+<ul>
+<li>ln(PIB constante), <span class="math inline">\(I(1)\)</span></li>
+<li>Gasto en Educación, <span class="math inline">\(I(1)\)</span></li>
+<li>Gasto en salud, <span class="math inline">\(I(1)\)</span></li>
+<li>Recaudación Impositiva, <span class="math inline">\(I(1)\)</span></li>
+</ul>
+<p>Las series utilizadas tienen una profundidad anual histórica desde 1991-2016.</p>
+<p>Nos interesa conocer desde un punto de vista totalmente estadístico si existe algún tipo de relación de largo plazo entre la recaudación impositiva y el desarrollo de la nación en términos de indicadores básicos tales como el desempleo, gasto en salud y PIB a precios constantes.</p>
+<p>Para ello, necesitamos estructurar la información para ser leída por la función <code>ca.jo</code>.</p>
+<p>Definimos las series a utilizar, dado que todas las series son integradas de orden 1 <span class="math inline">\(I(1)\)</span> no hay necesidad de diferenciar las series, pues buscamos una o más combinaciones lineales de ellas que sean <span class="math inline">\(I(0)\)</span>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ln_pib_cte &lt;-<span class="st">  </span>series_db<span class="op">$</span>log_GDP_constante
+edu &lt;-<span class="st"> </span>series_db<span class="op">$</span>Gasto_Educacion_PorcGDP
+salud &lt;-<span class="st"> </span>series_db<span class="op">$</span>Gasto_Salud_PorcGDP
+rec_imp &lt;-<span class="st"> </span>series_db<span class="op">$</span>Recaudacion_Impositiva_PorcGDP</code></pre></div>
+<p>Posteriormente, tomaremos todas las series que ya son integradas de orden 1 <span class="math inline">\(I(1)\)</span> y eliminaremos el primer registro para que todas las series tengan la misma longitud</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#ln_pib_cte &lt;-  series_db$log_GDP_constante[-1]</span>
+<span class="co">#edu &lt;- series_db$Gasto_Educacion_PorcGDP[-1]</span>
+<span class="co">#salud &lt;- series_db$Gasto_Salud_PorcGDP[-1]</span>
+<span class="co">#rec_imp &lt;- series_db$Recaudacion_Impositiva_PorcGDP[-1]</span>
+
+
+model.data &lt;-<span class="st"> </span><span class="kw">cbind</span>(ln_pib_cte,edu,salud,rec_imp)</code></pre></div>
+<p>Como un modelo preliminar utilizaremos la siguiente especificiación:</p>
+<p><span class="math inline">\(\nabla y_t=\Gamma_1\nabla y_{t-1} + \cdots + \Gamma_{k-1}\nabla y_{t-k+1}+ \Pi y_{t-1} + \mu +\epsilon_t\)</span></p>
+<p>donde el vector <span class="math inline">\(y_t\)</span> contiene a los elementos (ln_pib_cte,edu,salud,rec_imp)’ y el vector <span class="math inline">\(\mu\)</span> es un vector de constantes. El proceso del error de 4 dimensiones <span class="math inline">\(\epsilon_t\)</span> se asume i.i.d <span class="math inline">\(N(0,\Sigma)\)</span> para <span class="math inline">\(t=1,\cdots,T\)</span>. Cabe mencionar que estaremos utilizando la especificación que mide los efectos transitorios para el VECM. Es decir, <span class="math inline">\(\Gamma_i = -(\Pi_{i+1},\cdots,\Pi_k)\)</span> con <span class="math inline">\(i=1,\cdots, k-1\)</span> y <span class="math inline">\(\Pi=-(I-\Pi_1-\cdots-\Pi_k)\)</span>.</p>
+<div id="determinacion-del-rango-de-cointegracion" class="section level2">
+<h2><span class="header-section-number">11.1</span> Determinación del Rango de Cointegración</h2>
+<p>Debido a que las inferencias sobre el espacio de cointegración generado por las series dependen de si existen o no tendencias lineales en los datos, se puede argumentar mediante un análisis visual y razonamiento lógico que la series como el GDP, desempleo y salud, contienen una tendencia lineal y es completamente lógica, por lo que el vector <span class="math inline">\(\mu\)</span> puede ser estimado sin imponer ningun tipo de restricción sobre él.</p>
+<p>La hipótesis <span class="math inline">\(H_1(r) : \Pi=\alpha\beta&#39;\)</span> (i.e. <span class="math inline">\(\Pi\)</span> es de rango reducido) es probada utilizando el estadístico de la traza y del máximo eigenvalor.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">M1 &lt;-<span class="st"> </span><span class="kw">ca.jo</span>(model.data,<span class="dt">spec=</span><span class="st">&#39;transitory&#39;</span>, <span class="dt">type=</span><span class="st">&#39;eigen&#39;</span>,<span class="dt">K=</span><span class="dv">2</span>)
+<span class="co">#summary(M2)</span>
+
+
+
+M1.trace &lt;-<span class="st"> </span><span class="kw">summary</span>(<span class="kw">ca.jo</span>(model.data,<span class="dt">spec=</span><span class="st">&#39;transitory&#39;</span>,<span class="dt">type=</span><span class="st">&#39;trace&#39;</span>,<span class="dt">K=</span><span class="dv">2</span>))
+<span class="kw">cbind</span>(<span class="dt">test=</span>M1.trace<span class="op">@</span>teststat,M1.trace<span class="op">@</span>cval)</code></pre></div>
+<pre><code>##                test 10pct  5pct  1pct
+## r &lt;= 3 |  0.2680195  6.50  8.18 11.65
+## r &lt;= 2 |  8.4860040 15.66 17.95 23.52
+## r &lt;= 1 | 26.7400746 28.71 31.52 37.22
+## r = 0  | 61.7048157 45.23 48.28 55.43</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">M1.eigen &lt;-<span class="st"> </span><span class="kw">summary</span>(<span class="kw">ca.jo</span>(model.data,<span class="dt">spec=</span><span class="st">&#39;transitory&#39;</span>,<span class="dt">type=</span><span class="st">&#39;eigen&#39;</span>,<span class="dt">K=</span><span class="dv">2</span>))
+
+<span class="kw">cbind</span>(<span class="dt">test=</span>M1.eigen<span class="op">@</span>teststat,M1.eigen<span class="op">@</span>cval)</code></pre></div>
+<pre><code>##                test 10pct  5pct  1pct
+## r &lt;= 3 |  0.2680195  6.50  8.18 11.65
+## r &lt;= 2 |  8.2179845 12.91 14.90 19.19
+## r &lt;= 1 | 18.2540706 18.90 21.07 25.75
+## r = 0  | 34.9647411 24.78 27.14 32.14</code></pre>
+<p>En los dos outputs anteriores, los resultados de las dos pruebas son mostrados. Si consideramos por un lado el estadístico del máximo eigenvalor (<span class="math inline">\(H_0:rank(\Pi)=r\)</span> vs <span class="math inline">\(H_a:rank(\Pi)=r+1\)</span>), la hipótesis de no cointegración puede ser rechazada a un nivel de 5% de confianza, mientras que la hipótesis de que existen 1 relaciones de cointegración vs 2 no puede ser rechazada, por lo tanto, existen 1 relaciones de cointegración. Por otro lado, el estadístico de la traza (<span class="math inline">\(H_0: rank(\Pi)\leq r\)</span>) indica un espacio de cointegración de <span class="math inline">\(r=1\)</span> también. Consideremos también si esta conclsión podría ser errónea debido a la posible cercanía de los eigenvalores:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">M1<span class="op">@</span>lambda</code></pre></div>
+<pre><code>## [1] 0.76703434 0.53260767 0.28994725 0.01110535</code></pre>
+<p>Como es posible observar, dos de los cuatro eigen valores están relativamente cerca entre ellos. Para determinar correctamente el orden de integración, Johansen y Juselius investigaron sobe las matrices <span class="math inline">\(\hat{\beta}\)</span> y <span class="math inline">\(\hat{\alpha}\)</span> así como las relaciones de cointegración estimadas <span class="math inline">\(\hat{\beta_i}&#39;y_{t-1}\)</span> y aquellas relaciones corregidas por las influencias de corto plazo <span class="math inline">\(\hat{\beta_i}&#39;R_{1t}\)</span>. Para ello, proponen los siguientes pasos a seguir:</p>
+<ol style="list-style-type: decimal">
+<li>Estimar el modelo de corrección de error</li>
+<li>Determinar el rango de <span class="math inline">\(\Pi\)</span></li>
+<li>utilizar los <span class="math inline">\(r\)</span> vectores de cointegración más significativos para formar <span class="math inline">\(\beta&#39;\)</span></li>
+<li>Seleccionar <span class="math inline">\(\alpha\)</span> tal que <span class="math inline">\(\Pi=\alpha\beta&#39;\)</span></li>
+</ol>
+<p>Observemos la matriz de eigen vectores beta</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">beta.matrix &lt;-<span class="st"> </span>M1<span class="op">@</span>V
+alpha.matrix &lt;-<span class="st"> </span>M1<span class="op">@</span>PI<span class="op">%*%</span><span class="kw">solve</span>(<span class="kw">t</span>(beta.matrix))
+beta.matrix</code></pre></div>
+<pre><code>##               ln_pib_cte.l1      edu.l1   salud.l1 rec_imp.l1
+## ln_pib_cte.l1     1.0000000  1.00000000  1.0000000  1.0000000
+## edu.l1           -0.2734779 -0.12722367 -0.8329062 -0.4709689
+## salud.l1         -0.3187240 -0.14485981  1.3555847 -0.7250595
+## rec_imp.l1        0.2359534 -0.02050015 -0.2056044 -0.4166424</code></pre>
+<p>En la matriz <span class="math inline">\(\beta\)</span> se pueden observar los vectores de cointegración, de tal manera que la primera columna corresponde al vector de cointegración asociado con el eigenvalor más grande. Debe notarse que los vectores de cointegración están todos normalizados a la primera variable, por lo que la matriz de velocidad de ajuste <span class="math inline">\(\hat{\alpha}\)</span> se ajusta de acuerdo a esta matriz normalizada:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">alpha.matrix</code></pre></div>
+<pre><code>##              ln_pib_cte.l1     edu.l1    salud.l1   rec_imp.l1
+## ln_pib_cte.d    0.02575836 -0.1945384 -0.01292212 -0.004630415
+## edu.d           0.81182331  1.8215325  0.14885276  0.008440650
+## salud.d        -0.10602593  0.7318614 -0.18202612 -0.004282401
+## rec_imp.d      -2.42505459  8.1784032  0.50872868 -0.058362273</code></pre>
+<p>Al observar la matriz <span class="math inline">\(\hat{\alpha}\)</span> se puede concluir que las velocidades de ajuste de las relaciones de cointegración parecen ser distintas de cero, esto significa que las relaciones de cointegración juegan un papel importante en la dinámica de corto plazo de cada una de las series, aunque aún falta validar que todas las relaciones de cointegración son estadísticamente significativas en cada serie.</p>
+<p>Además podemos analizar la relación de cointegración de manera visual:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ci.<span class="dv">1</span> &lt;-<span class="st"> </span><span class="kw">ts</span>((M1<span class="op">@</span>x<span class="op">%*%</span>beta.matrix)[<span class="op">-</span><span class="kw">c</span>(<span class="dv">1</span>),],
+           <span class="dt">start =</span> <span class="dv">1992</span>,
+           <span class="dt">end =</span> <span class="dv">2016</span>,
+           <span class="dt">frequency =</span> <span class="dv">1</span>)
+
+ci.rel &lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(ci.<span class="dv">1</span>) <span class="op">%&gt;%</span>
+<span class="st">            </span><span class="kw">mutate</span>(<span class="dt">date=</span><span class="kw">time</span>(ci.<span class="dv">1</span>))
+
+ci.rel &lt;-<span class="st"> </span>ci.rel[,<span class="kw">c</span>(<span class="dv">5</span>,<span class="dv">1</span><span class="op">:</span><span class="dv">4</span>)]
+<span class="kw">colnames</span>(ci.rel) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;Año&#39;</span>,<span class="st">&#39;ci_rel.1&#39;</span>,<span class="st">&#39;ci_rel.2&#39;</span>,<span class="st">&#39;ci_rel.3&#39;</span>,<span class="st">&#39;ci_rel.4&#39;</span>)
+
+ci.rel.df &lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(ci.rel)
+ci.rel.df<span class="op">$</span>Año &lt;-<span class="st"> </span><span class="kw">as.Date</span>(ci.rel.df<span class="op">$</span>Año)
+
+p1 &lt;-<span class="st">  </span><span class="kw">ggplot</span>(ci.rel.df[,<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>)],
+             <span class="kw">aes</span>(<span class="dt">x=</span>Año,<span class="dt">y=</span>ci_rel.<span class="dv">1</span>))<span class="op">+</span>
+<span class="st">             </span><span class="kw">geom_line</span>()<span class="op">+</span>
+<span class="st">             </span><span class="kw">ggtitle</span>(<span class="st">&#39;Relacion Cointegración 1&#39;</span>)
+
+
+p2 &lt;-<span class="st">  </span><span class="kw">ggplot</span>(ci.rel.df[,<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">3</span>)],
+             <span class="kw">aes</span>(<span class="dt">x=</span>Año,<span class="dt">y=</span>ci_rel.<span class="dv">2</span>))<span class="op">+</span>
+<span class="st">             </span><span class="kw">geom_line</span>()<span class="op">+</span>
+<span class="st">             </span><span class="kw">ggtitle</span>(<span class="st">&#39;Relacion Cointegración 2&#39;</span>)
+
+p3 &lt;-<span class="st">  </span><span class="kw">ggplot</span>(ci.rel.df[,<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">4</span>)],
+             <span class="kw">aes</span>(<span class="dt">x=</span>Año,<span class="dt">y=</span>ci_rel.<span class="dv">3</span>))<span class="op">+</span>
+<span class="st">             </span><span class="kw">geom_line</span>()<span class="op">+</span>
+<span class="st">             </span><span class="kw">ggtitle</span>(<span class="st">&#39;Relacion Cointegración 3&#39;</span>)
+
+p4 &lt;-<span class="st">  </span><span class="kw">ggplot</span>(ci.rel.df[,<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">5</span>)],
+             <span class="kw">aes</span>(<span class="dt">x=</span>Año,<span class="dt">y=</span>ci_rel.<span class="dv">4</span>))<span class="op">+</span>
+<span class="st">             </span><span class="kw">geom_line</span>()<span class="op">+</span>
+<span class="st">             </span><span class="kw">ggtitle</span>(<span class="st">&#39;Relacion Cointegración 4&#39;</span>)
+
+
+
+<span class="kw">multiplot</span>(p1,p2,p3,p4,<span class="dt">cols=</span><span class="dv">2</span>)</code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-120-1.png" width="672" /></p>
+<p>Debido a que el rango fue de <span class="math inline">\(r=1\)</span> la primera relación de cointegración debería comportarse como proceso estacionario. Sin embargo, debido a influencias de corto plazo que interactuan en el proceso de ajuste del modelo las gráficas anteriores podrían verse afectadas. Por esta razón, también se analizan las trayectorias del ajuste <span class="math inline">\(\hat{\beta}&#39;R_{1t}\)</span> donde <span class="math inline">\(R_{1t}\)</span> son los residuales obtenidos al hacer la regresión de <span class="math inline">\(y_{t-1}\)</span> explicado por <span class="math inline">\(\nabla y_{t-1}\)</span> que toman en cuenta la dinámica de corto plazo.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ci_sr.<span class="dv">1</span> &lt;-<span class="st"> </span><span class="kw">ts</span>((M1<span class="op">@</span>RK<span class="op">%*%</span>beta.matrix)[<span class="op">-</span><span class="kw">c</span>(<span class="dv">1</span>),],
+           <span class="dt">start =</span> <span class="dv">1992</span>,
+           <span class="dt">end =</span> <span class="dv">2016</span>,
+           <span class="dt">frequency =</span> <span class="dv">1</span>)
+
+ci_sr.rel &lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(ci_sr.<span class="dv">1</span>) <span class="op">%&gt;%</span>
+<span class="st">            </span><span class="kw">mutate</span>(<span class="dt">date=</span><span class="kw">time</span>(ci_sr.<span class="dv">1</span>))
+
+ci_sr.rel &lt;-<span class="st"> </span>ci_sr.rel[,<span class="kw">c</span>(<span class="dv">5</span>,<span class="dv">1</span><span class="op">:</span><span class="dv">4</span>)]
+<span class="kw">colnames</span>(ci_sr.rel) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;date&#39;</span>,<span class="st">&#39;ci_rel.1&#39;</span>,<span class="st">&#39;ci_rel.2&#39;</span>,<span class="st">&#39;ci_rel.3&#39;</span>,<span class="st">&#39;ci_rel.4&#39;</span>)
+
+p1 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="kw">as.data.frame</span>(ci_sr.rel[,<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>)]),
+             <span class="kw">aes</span>(date,ci_rel.<span class="dv">1</span>))<span class="op">+</span>
+<span class="st">             </span><span class="kw">geom_line</span>()
+
+p2 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="kw">as.data.frame</span>(ci_sr.rel[,<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">3</span>)]),
+             <span class="kw">aes</span>(date,ci_rel.<span class="dv">2</span>))<span class="op">+</span>
+<span class="st">             </span><span class="kw">geom_line</span>()
+
+p3 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="kw">as.data.frame</span>(ci_sr.rel[,<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">4</span>)]),
+             <span class="kw">aes</span>(date,ci_rel.<span class="dv">3</span>))<span class="op">+</span>
+<span class="st">             </span><span class="kw">geom_line</span>()
+p4 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="kw">as.data.frame</span>(ci_sr.rel[,<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">5</span>)]),
+             <span class="kw">aes</span>(date,ci_rel.<span class="dv">4</span>))<span class="op">+</span>
+<span class="st">             </span><span class="kw">geom_line</span>()
+
+<span class="kw">multiplot</span>(p1,p2,p3,p4,<span class="dt">cols=</span><span class="dv">2</span>)</code></pre></div>
+<pre><code>## Don&#39;t know how to automatically pick scale for object of type ts. Defaulting to continuous.
+## Don&#39;t know how to automatically pick scale for object of type ts. Defaulting to continuous.
+## Don&#39;t know how to automatically pick scale for object of type ts. Defaulting to continuous.
+## Don&#39;t know how to automatically pick scale for object of type ts. Defaulting to continuous.</code></pre>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-121-1.png" width="672" /></p>
+<p>Basado en los resultados de las pruebas, los elementos de la matriz <span class="math inline">\(\hat{\alpha}\)</span> y la forma de las trayectorias de las relaciones de cointegración se puede conluir que existe únicamente 1 relación de cointegración.</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="cointegracion-teoria.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="estimacion-del-modelo.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/10-Cointegracion-Analisis.Rmd",
+"text": "Edit"
+},
+"download": ["bookdown-demo.pdf", "bookdown-demo.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "";
+    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

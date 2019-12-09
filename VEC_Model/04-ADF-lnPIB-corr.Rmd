@@ -1,0 +1,76 @@
+# Orden de Integración ln(PIB) a precios corrientes
+
+```{r}
+gf1 <- grafica_serie(base_in = series_db, 
+                      eje_y = 'log_GDP_corriente', 
+                      titulo = 'ln(PIB) a precios corrientes', 
+                      titulo_y = 'ln(PIB) Corriente')
+gf1
+```
+
+
+
+```{r}
+log_GDP_corr <- ts(series_db$log_GDP_corriente,start = 1991, end = 2016, frequency = 1)
+log_GDP_corr.ct <- ur.df(log_GDP_corr,lags=0,type='trend')
+summary(log_GDP_corr.ct)
+```
+
+```{r}
+plot(log_GDP_corr.ct)
+```
+
+El valor del estadístico-t para la hipótesis nula de $\gamma=0$ es de -2.3235. El valor crítico de $\tau$ a univel de significancia del 5% reportado en las tablas de Dickey-Fuller es de -3.50, por lo que no es posible rechazar la hipótesis nula de la existencia de una raíz unitaria dada la presencia del término constante (drift) y la tendencia temporal (trend).
+
+Recordemos que el poder de la prueba puede verse reducido debido a la presencia de términos drift/trend innecesarios, por lo que probaremos si la presencia del término temporal es necesaria dada una raíz unitaria. Para ello utilizaremos el estadístico $\phi_3$ que prueba la hipótesis conjunta $a_2=\gamma=0$. Derivado de los resultados mostrados en las tablas anteriores, se puede rechazar la hipótesis nula, por lo que se tiene una raíz unitaria y también un término temporal.
+
+
+Probaremos si la serie al ser diferenciada una vez más, alcanza la estacionaredad:
+```{r}
+d_log_GDP_corr <- diff(log_GDP_corr)
+d_log_GDP_corr.ct <- ur.df(d_log_GDP_corr,type="drift",lags=0)
+summary(d_log_GDP_corr.ct)
+```
+
+```{r}
+
+plot(d_log_GDP_corr.ct)
+
+```
+
+```{r}
+d_log_GDP_corr <- diff(log_GDP_corr,differences = 2)
+d_log_GDP_corr.ct <- ur.df(d_log_GDP_corr,type="none",lags=0)
+summary(d_log_GDP_corr.ct)
+```
+
+
+
+Por lo que la serie al ser diferenciada dos veces alcanza estacionariedad. Por lo tanto, la serie del logaritmo natural del PIB a precios corrientes es $I(2)$ y es de la forma $\nabla y_{t} = a_0 + \gamma  y_{t-1} +  a_2 t + \epsilon_t$.
+
+
+```{r}
+plot(log_GDP_corr)
+plot(diff(log_GDP_corr, differences = 1))
+plot(diff(log_GDP_corr, differences = 2))
+plot(diff(log_GDP_corr, differences = 3))
+
+```
+
+```{r}
+mean(log_GDP_corr)
+mean(diff(log_GDP_corr,differences = 1))
+mean(diff(log_GDP_corr,differences = 2))
+mean(diff(log_GDP_corr,differences = 3))
+```
+
+
+
+```{r}
+var(log_GDP_corr)
+var(diff(log_GDP_corr, differences = 1))
+var(diff(log_GDP_corr, differences = 2))
+var(diff(log_GDP_corr, differences = 3))
+```
+
+

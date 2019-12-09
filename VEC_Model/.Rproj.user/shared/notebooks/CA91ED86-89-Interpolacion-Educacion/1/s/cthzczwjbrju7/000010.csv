@@ -1,0 +1,5 @@
+"0","library(imputeTS)"
+"0","library(forecast)"
+"0","serie_edu_unfill <- read_excel(""Datos/Series Tesis Recolección.xlsx"",sheet =""Gasto en Educación"", na = ""NA"")"
+"0","serie_edu_unfill <- serie_edu_unfill[1:26,]"
+"0","serie_edu_unfill"

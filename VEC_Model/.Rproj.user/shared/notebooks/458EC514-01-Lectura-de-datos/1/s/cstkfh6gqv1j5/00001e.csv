@@ -1,0 +1,4 @@
+"0","series_db$log_GDP_corriente <- log(series_db$GDP_corriente)"
+"0","series_db$log_GDP_constante <- log(series_db$GDP_constante)"
+"0","series_db$log_Poblacion_Total <- log(series_db$Poblacion_Total)"
+"0","series_db"

@@ -1,0 +1,6 @@
+"0","gf1 <- grafica_serie(base_in = series_db, "
+"0","                      eje_y = 'Recaudacion_Impositiva_PorcGDP', "
+"0","                      titulo = 'Recaudación Gubernamental (%PIB)', "
+"0","                      titulo_y = 'Recaudación Impositiva')"
+"0","graf_latex1(grafica1 = gf1,"
+"0","          nombre = 'Recaudacion.pdf')"

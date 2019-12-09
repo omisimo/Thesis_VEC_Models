@@ -1,0 +1,147 @@
+
+# Interpolación Serie Educación
+
+
+Veamos la serie original
+
+```{r}
+library(imputeTS)
+library(forecast)
+serie_edu_unfill <- read_excel("Datos/Series Tesis Recolección.xlsx",sheet ="Gasto en Educación", na = "NA")
+
+serie_edu_unfill <- serie_edu_unfill[1:26,]
+serie_edu_unfill
+```
+
+
+
+```{r}
+aux <- as.ts(serie_edu_unfill$Gasto_Educacion_PorcGDP)
+statsNA(aux)
+
+```
+
+interpolamos los vacios entre las series
+
+```{r}
+aux2 <- na.interp(aux)
+aux2
+```
+
+
+graficamos las series
+
+```{r}
+plot(aux)
+plot(aux2)
+```
+
+
+
+
+Ajustamos un modelo arima para pronosticar los siguietnes dos puntos
+
+```{r}
+modelo<-auto.arima(aux2)
+summary(modelo)
+```
+
+```{r}
+plot(aux2,type="l",col="red")
+lines(as.ts(modelo$fitted),col="green")
+```
+
+
+```{r}
+pronostico<- forecast(modelo,2,level=95)
+
+plot(pronostico,main="Pronóstico con auto.arima")
+```
+
+
+```{r}
+matriz.pronosticos <-data.frame(pronostico$mean,pronostico$lower,pronostico$upper)
+matriz.pronosticos
+```
+
+regresamos el prónostico al dataframe
+
+
+## version 2 del pronositico
+
+
+
+```{r}
+
+mean(aux2)
+mean(diff(aux2))
+mean(diff(diff(aux2)))
+
+
+
+
+```
+
+
+```{r}
+acf(aux2)
+acf(diff(aux2))
+acf(diff(diff(aux2)))
+```
+
+```{r}
+
+var(aux2)
+var(diff(aux2))
+var(diff(diff(aux2)))
+```
+
+
+```{r}
+plot(aux2)
+plot(diff(aux2))
+plot(diff(diff(aux2)))
+```
+
+
+la serie parece ser I(1).
+
+
+
+
+```{r}
+library('tseries')
+count_d1 = diff(aux2, differences = 1)
+plot(count_d1)
+adf.test(count_d1, alternative = "stationary")
+
+summary(ur.df(count_d1,lags=0,type='drift'))
+```
+
+
+```{r}
+Acf(count_d1, main='ACF for Differenced Series')
+Pacf(count_d1, main='PACF for Differenced Series')
+```
+
+```{r}
+fit2 = arima(aux2, order=c(4,1,4))
+
+fit2
+
+tsdisplay(residuals(fit2), lag.max=15, main='Seasonal Model Residuals')
+
+```
+
+
+
+```{r}
+fcast <- forecast(fit2, h=2,level=95)
+plot(fcast)
+```
+
+
+```{r}
+matriz.pronosticos <-data.frame(fcast$mean,fcast$lower,fcast$upper)
+matriz.pronosticos
+```

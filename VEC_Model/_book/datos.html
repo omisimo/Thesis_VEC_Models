@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Código Tesis</title>
+  <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook.">
+  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Código Tesis" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Código Tesis" />
+  
+  <meta name="twitter:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  
+
+<meta name="author" content="Omar Díaz Landa">
+
+
+<meta name="date" content="2019-03-12">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="index.html">
+<link rel="next" href="orden-de-integracion-teoria.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Tesis Omar Díaz Landa</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Prerequisitos</a></li>
+<li class="chapter" data-level="2" data-path="datos.html"><a href="datos.html"><i class="fa fa-check"></i><b>2</b> Lectura de datos</a><ul>
+<li class="chapter" data-level="2.1" data-path="datos.html"><a href="datos.html#graficamos-las-series-de-datos"><i class="fa fa-check"></i><b>2.1</b> Graficamos las series de datos</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="datos.html"><a href="datos.html#producto-interno-bruto"><i class="fa fa-check"></i><b>2.1.1</b> Producto Interno Bruto</a></li>
+<li class="chapter" data-level="2.1.2" data-path="datos.html"><a href="datos.html#recaudacion-fiscal"><i class="fa fa-check"></i><b>2.1.2</b> Recaudación Fiscal</a></li>
+<li class="chapter" data-level="2.1.3" data-path="datos.html"><a href="datos.html#gasto-en-salud-publica"><i class="fa fa-check"></i><b>2.1.3</b> Gasto en Salud Pública</a></li>
+<li class="chapter" data-level="2.1.4" data-path="datos.html"><a href="datos.html#gasto-en-educacion-publica"><i class="fa fa-check"></i><b>2.1.4</b> Gasto en Educación Pública</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="orden-de-integracion-teoria.html"><a href="orden-de-integracion-teoria.html"><i class="fa fa-check"></i><b>3</b> Orden de Integración (Teoría)</a></li>
+<li class="chapter" data-level="4" data-path="orden-integracion-pib-a-precios-corrientes.html"><a href="orden-integracion-pib-a-precios-corrientes.html"><i class="fa fa-check"></i><b>4</b> Orden Integración PIB a precios corrientes</a></li>
+<li class="chapter" data-level="5" data-path="orden-de-integracion-lnpib-a-precios-corrientes.html"><a href="orden-de-integracion-lnpib-a-precios-corrientes.html"><i class="fa fa-check"></i><b>5</b> Orden de Integración ln(PIB) a precios corrientes</a></li>
+<li class="chapter" data-level="6" data-path="orden-integracion-de-la-serie-recaudacion-impositiva.html"><a href="orden-integracion-de-la-serie-recaudacion-impositiva.html"><i class="fa fa-check"></i><b>6</b> Orden Integración de la serie Recaudación Impositiva</a></li>
+<li class="chapter" data-level="7" data-path="orden-integracion-de-la-serie-gasto-en-salud.html"><a href="orden-integracion-de-la-serie-gasto-en-salud.html"><i class="fa fa-check"></i><b>7</b> Orden Integración de la serie Gasto en Salud</a></li>
+<li class="chapter" data-level="8" data-path="orden-integracion-de-la-serie-gasto-en-educacion.html"><a href="orden-integracion-de-la-serie-gasto-en-educacion.html"><i class="fa fa-check"></i><b>8</b> Orden Integración de la serie Gasto en Educación</a></li>
+<li class="chapter" data-level="9" data-path="orden-integracion-de-la-serie-lnpib-a-precios-ctes.html"><a href="orden-integracion-de-la-serie-lnpib-a-precios-ctes.html"><i class="fa fa-check"></i><b>9</b> Orden Integración de la serie ln(PIB) a precios ctes</a></li>
+<li class="chapter" data-level="10" data-path="cointegracion-teoria.html"><a href="cointegracion-teoria.html"><i class="fa fa-check"></i><b>10</b> Cointegración (Teoría)</a></li>
+<li class="chapter" data-level="11" data-path="cointegracion-analisis.html"><a href="cointegracion-analisis.html"><i class="fa fa-check"></i><b>11</b> Cointegración (Análisis)</a><ul>
+<li class="chapter" data-level="11.1" data-path="cointegracion-analisis.html"><a href="cointegracion-analisis.html#determinacion-del-rango-de-cointegracion"><i class="fa fa-check"></i><b>11.1</b> Determinación del Rango de Cointegración</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="estimacion-del-modelo.html"><a href="estimacion-del-modelo.html"><i class="fa fa-check"></i><b>12</b> Estimación del modelo</a><ul>
+<li class="chapter" data-level="12.1" data-path="estimacion-del-modelo.html"><a href="estimacion-del-modelo.html#modelo-1-vecm-con-k2-lags-y-r1-relaciones-de-cointegracion"><i class="fa fa-check"></i><b>12.1</b> Modelo 1: VECM con K=2 (lags), y r=1 (relaciones de cointegración)</a></li>
+<li class="chapter" data-level="12.2" data-path="estimacion-del-modelo.html"><a href="estimacion-del-modelo.html#modelo-2-vecm-con-k2-lags-y-r2-relaciones-de-cointegracion"><i class="fa fa-check"></i><b>12.2</b> Modelo 2: VECM con K=2 (lags), y r=2 (relaciones de cointegración)</a></li>
+<li class="chapter" data-level="12.3" data-path="estimacion-del-modelo.html"><a href="estimacion-del-modelo.html#modelo-3-vecm-con-k3-lags-y-r1-relaciones-de-cointegracion"><i class="fa fa-check"></i><b>12.3</b> Modelo 3: VECM con K=3 (lags), y r=1 (relaciones de cointegración)</a></li>
+<li class="chapter" data-level="12.4" data-path="estimacion-del-modelo.html"><a href="estimacion-del-modelo.html#modelo-4-vecm-con-k3-lags-y-r2-relaciones-de-cointegracion"><i class="fa fa-check"></i><b>12.4</b> Modelo 4: VECM con K=3 (lags), y r=2 (relaciones de cointegración)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="chapter" data-level="13" data-path="interpolacion-serie-educacion.html"><a href="interpolacion-serie-educacion.html"><i class="fa fa-check"></i><b>13</b> Interpolación Serie Educación</a><ul>
+<li class="chapter" data-level="13.1" data-path="interpolacion-serie-educacion.html"><a href="interpolacion-serie-educacion.html#version-2-del-pronositico"><i class="fa fa-check"></i><b>13.1</b> version 2 del pronositico</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="Anexos.html"><a href="Anexos.html"><i class="fa fa-check"></i><b>14</b> Anexos</a><ul>
+<li class="chapter" data-level="14.1" data-path="Anexos.html"><a href="Anexos.html#descripcion-de-las-series"><i class="fa fa-check"></i><b>14.1</b> Descripción de las series</a></li>
+<li class="chapter" data-level="14.2" data-path="Anexos.html"><a href="Anexos.html#bibliografia"><i class="fa fa-check"></i><b>14.2</b> Bibliografia</a></li>
+<li class="chapter" data-level="14.3" data-path="Anexos.html"><a href="Anexos.html#dudas"><i class="fa fa-check"></i><b>14.3</b> Dudas</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Código Tesis</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="datos" class="section level1">
+<h1><span class="header-section-number">Chapter 2</span> Lectura de datos</h1>
+<p>Los datos se han obtenido a través e tres fuentes distintas, la <a href="https://blogs.worldbank.org/opendata/accessing-world-bank-data-apis-python-r-ruby-stata">API del banco mundial</a>, la ley de ingresos de la federación y el presupuesto de egresos de la federación:</p>
+<p>Las series obtenidas vía le banco mundial son:</p>
+<center>
+<table style="width:85%;">
+<colgroup>
+<col width="8%" />
+<col width="76%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Code</th>
+<th>Indicator Name</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>SP.POP.TOTL</td>
+<td>Population, total</td>
+</tr>
+<tr class="even">
+<td>SL.UEM.TOTL.NE.ZS</td>
+<td>Unemployment, total (% of total labor force) (national estimate)</td>
+</tr>
+<tr class="odd">
+<td>NY.GDP.MKTP.CN</td>
+<td>GDP (current LCU)</td>
+</tr>
+</tbody>
+</table>
+</center>
+<p>Para más detalle acerca de la descripción y fuentes de estas series, se pueden consultar en el apartado de <a href="Anexos.html#Anexos">14</a>.</p>
+<p>Las serie obtenida de la ley de ingresos de la federación corresponde al importe en pesos de la recaudación impositiva.</p>
+<p>La series obtenidas a través del presupuesto de egresos de la federación son el gasto en salud pública y el gasto en educación pública. Tanto la recaudación impositiva, como el gasto en educación y salud pública serán representados como porcentaje del PIB a precios corrientes.</p>
+<p>Extraemos de las series anteriormente mencionadas, todos los datos disponibles de manera anual para México a partir de 1991 hasta 2016. Esto es debido a que se trata del horizonte de tiempo con mayor cantidad de datos informados.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">series_db &lt;-<span class="st"> </span><span class="kw">read_excel</span>(<span class="st">&quot;Datos/Series Tesis Recolección.xlsx&quot;</span>, <span class="dt">sheet =</span> <span class="st">&quot;Datos Finales&quot;</span>)
+series_db</code></pre></div>
+<pre><code>## # A tibble: 26 x 9
+##    country  year Poblacion_Total Desempleo_Total GDP_corriente
+##    &lt;chr&gt;   &lt;dbl&gt;           &lt;dbl&gt;           &lt;dbl&gt;         &lt;dbl&gt;
+##  1 Mexico   1991        87071512            3.05  949148000000
+##  2 Mexico   1992        88828310            3.1  1125334000000
+##  3 Mexico   1993        90600453            3.21 1560093286000
+##  4 Mexico   1994        92349147            4.25 1781422460000
+##  5 Mexico   1995        94045579            6.89 2311458453000
+##  6 Mexico   1996        95687452            5.25 3123167939000
+##  7 Mexico   1997        97281739            4.06 3962524166000
+##  8 Mexico   1998        98821456            3.57 4810123454000
+##  9 Mexico   1999       100300579            2.49 5738466369000
+## 10 Mexico   2000       101719673            2.56 6693683014000
+## # ... with 16 more rows, and 4 more variables: GDP_constante &lt;dbl&gt;,
+## #   Recaudacion_Impositiva_PorcGDP &lt;dbl&gt;, Gasto_Educacion_PorcGDP &lt;dbl&gt;,
+## #   Gasto_Salud_PorcGDP &lt;dbl&gt;</code></pre>
+<p>Utilizaremos el logaritmo como función estabilizadora de varianza para el PIB a precios corrientes, aprecios constantes y para la población total.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">series_db<span class="op">$</span>log_GDP_corriente &lt;-<span class="st"> </span><span class="kw">log</span>(series_db<span class="op">$</span>GDP_corriente)
+series_db<span class="op">$</span>log_GDP_constante &lt;-<span class="st"> </span><span class="kw">log</span>(series_db<span class="op">$</span>GDP_constante)
+series_db<span class="op">$</span>log_Poblacion_Total &lt;-<span class="st"> </span><span class="kw">log</span>(series_db<span class="op">$</span>Poblacion_Total)
+series_db</code></pre></div>
+<pre><code>## # A tibble: 26 x 12
+##    country  year Poblacion_Total Desempleo_Total GDP_corriente
+##    &lt;chr&gt;   &lt;dbl&gt;           &lt;dbl&gt;           &lt;dbl&gt;         &lt;dbl&gt;
+##  1 Mexico   1991        87071512            3.05  949148000000
+##  2 Mexico   1992        88828310            3.1  1125334000000
+##  3 Mexico   1993        90600453            3.21 1560093286000
+##  4 Mexico   1994        92349147            4.25 1781422460000
+##  5 Mexico   1995        94045579            6.89 2311458453000
+##  6 Mexico   1996        95687452            5.25 3123167939000
+##  7 Mexico   1997        97281739            4.06 3962524166000
+##  8 Mexico   1998        98821456            3.57 4810123454000
+##  9 Mexico   1999       100300579            2.49 5738466369000
+## 10 Mexico   2000       101719673            2.56 6693683014000
+## # ... with 16 more rows, and 7 more variables: GDP_constante &lt;dbl&gt;,
+## #   Recaudacion_Impositiva_PorcGDP &lt;dbl&gt;, Gasto_Educacion_PorcGDP &lt;dbl&gt;,
+## #   Gasto_Salud_PorcGDP &lt;dbl&gt;, log_GDP_corriente &lt;dbl&gt;,
+## #   log_GDP_constante &lt;dbl&gt;, log_Poblacion_Total &lt;dbl&gt;</code></pre>
+<div id="graficamos-las-series-de-datos" class="section level2">
+<h2><span class="header-section-number">2.1</span> Graficamos las series de datos</h2>
+<div id="producto-interno-bruto" class="section level3">
+<h3><span class="header-section-number">2.1.1</span> Producto Interno Bruto</h3>
+<p>Es muy importante antes de realizar cualquier análisis, primero realizar un análisis exploratorio, que en el caso de series de tiempo se reduce a realizar gráficas de las mismas:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">gf1 &lt;-<span class="st"> </span><span class="kw">grafica_serie</span>(<span class="dt">base_in =</span> series_db, 
+                      <span class="dt">eje_y =</span> <span class="st">&#39;GDP_corriente&#39;</span>, 
+                      <span class="dt">titulo =</span> <span class="st">&#39;PIB a precios corrientes&#39;</span>, 
+                      <span class="dt">titulo_y =</span> <span class="st">&#39;PIB Corriente&#39;</span>)
+
+gf1_<span class="dv">1</span> &lt;-<span class="st"> </span><span class="kw">grafica_serie</span>(<span class="dt">base_in =</span> series_db, 
+                      <span class="dt">eje_y =</span> <span class="st">&#39;GDP_constante&#39;</span>, 
+                      <span class="dt">titulo =</span> <span class="st">&#39;PIB a precios constantes&#39;</span>, 
+                      <span class="dt">titulo_y =</span> <span class="st">&#39;PIB Constante&#39;</span>)
+
+<span class="kw">graf_latex</span>(<span class="dt">grafica1 =</span> gf1,
+          <span class="dt">grafica2 =</span> gf1_<span class="dv">1</span>,
+          <span class="dt">nombre =</span> <span class="st">&#39;PIB_normal.pdf&#39;</span>)
+
+gf2 &lt;-<span class="st"> </span><span class="kw">grafica_serie</span>(<span class="dt">base_in =</span> series_db, 
+                      <span class="dt">eje_y =</span> <span class="st">&#39;log_GDP_corriente&#39;</span>, 
+                      <span class="dt">titulo =</span> <span class="st">&#39;Logaritmo del PIB a precios corrientes&#39;</span>, 
+                      <span class="dt">titulo_y =</span> <span class="st">&#39;log(PIB Corriente)&#39;</span>)
+
+gf2_<span class="dv">2</span> &lt;-<span class="st"> </span><span class="kw">grafica_serie</span>(<span class="dt">base_in =</span> series_db, 
+                      <span class="dt">eje_y =</span> <span class="st">&#39;log_GDP_constante&#39;</span>, 
+                      <span class="dt">titulo =</span> <span class="st">&#39;Logaritmo del PIB a precios constantes&#39;</span>, 
+                      <span class="dt">titulo_y =</span> <span class="st">&#39;log(PIB Constante)&#39;</span>)
+
+
+<span class="kw">graf_latex</span>(<span class="dt">grafica1 =</span> gf2,
+          <span class="dt">grafica2 =</span> gf2_<span class="dv">2</span>,
+          <span class="dt">nombre =</span> <span class="st">&#39;log_PIB.pdf&#39;</span>)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">gf1</code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">gf1_<span class="dv">1</span></code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-9-2.png" width="672" /></p>
+</div>
+<div id="recaudacion-fiscal" class="section level3">
+<h3><span class="header-section-number">2.1.2</span> Recaudación Fiscal</h3>
+<p>A continuación observamos la serie de la recaudación impositiva como porcentaje del producto interno bruto:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">gf1 &lt;-<span class="st"> </span><span class="kw">grafica_serie</span>(<span class="dt">base_in =</span> series_db, 
+                      <span class="dt">eje_y =</span> <span class="st">&#39;Recaudacion_Impositiva_PorcGDP&#39;</span>, 
+                      <span class="dt">titulo =</span> <span class="st">&#39;Recaudación Gubernamental (%PIB)&#39;</span>, 
+                      <span class="dt">titulo_y =</span> <span class="st">&#39;Recaudación Impositiva&#39;</span>)
+
+<span class="kw">graf_latex1</span>(<span class="dt">grafica1 =</span> gf1,
+          <span class="dt">nombre =</span> <span class="st">&#39;Recaudacion.pdf&#39;</span>)
+
+gf1</code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
+</div>
+<div id="gasto-en-salud-publica" class="section level3">
+<h3><span class="header-section-number">2.1.3</span> Gasto en Salud Pública</h3>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">gf1 &lt;-<span class="st"> </span><span class="kw">grafica_serie</span>(<span class="dt">base_in =</span> series_db, 
+                      <span class="dt">eje_y =</span> <span class="st">&#39;Gasto_Salud_PorcGDP&#39;</span>, 
+                      <span class="dt">titulo =</span> <span class="st">&#39;Gasto en Salud Pública (%PIB)&#39;</span>, 
+                      <span class="dt">titulo_y =</span> <span class="st">&#39;Gasto en Salud Pública&#39;)</span>
+
+<span class="st">graf_latex1(grafica1 = gf1,</span>
+<span class="st">          nombre = &#39;</span>Gasto_Salud.pdf<span class="st">&#39;)</span>
+
+<span class="st">gf1</span></code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
+</div>
+<div id="gasto-en-educacion-publica" class="section level3">
+<h3><span class="header-section-number">2.1.4</span> Gasto en Educación Pública</h3>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">gf1 &lt;-<span class="st"> </span><span class="kw">grafica_serie</span>(<span class="dt">base_in =</span> series_db, 
+                      <span class="dt">eje_y =</span> <span class="st">&#39;Gasto_Educacion_PorcGDP&#39;</span>, 
+                      <span class="dt">titulo =</span> <span class="st">&#39;Gasto en Educación Pública (%PIB)&#39;</span>, 
+                      <span class="dt">titulo_y =</span> <span class="st">&#39;Gasto en Educación Pública&#39;)</span>
+
+<span class="st">graf_latex1(grafica1 = gf1,</span>
+<span class="st">          nombre = &#39;</span>Gasto_Educacion.pdf<span class="st">&#39;)</span>
+
+<span class="st">gf1</span></code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-12-1.png" width="672" /> ### Tasa de Desempleo</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">gf1 &lt;-<span class="st"> </span><span class="kw">grafica_serie</span>(<span class="dt">base_in =</span> series_db, 
+                      <span class="dt">eje_y =</span> <span class="st">&#39;Desempleo_Total&#39;</span>, 
+                      <span class="dt">titulo =</span> <span class="st">&#39;Tasa de Desempleo&#39;</span>, 
+                      <span class="dt">titulo_y =</span> <span class="st">&#39;Tasa de Desempleo&#39;</span>)
+
+<span class="kw">graf_latex1</span>(<span class="dt">grafica1 =</span> gf1,
+          <span class="dt">nombre =</span> <span class="st">&#39;Tasa_Desempleo.pdf&#39;</span>)
+
+gf1</code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="orden-de-integracion-teoria.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/01-Lectura-de-datos.Rmd",
+"text": "Edit"
+},
+"download": ["bookdown-demo.pdf", "bookdown-demo.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "";
+    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

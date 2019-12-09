@@ -1,0 +1,5 @@
+"0","# automatically create a bib database for R packages"
+"0","knitr::write_bib("
+"0","  c(.packages(), "
+"0","  'bookdown', 'readxl', 'knitr', 'lubridate', 'rmarkdown','WDI','ggplot2','tidyverse','plotly','urca','forecast','vars'),"
+"0","  'packages.bib')"

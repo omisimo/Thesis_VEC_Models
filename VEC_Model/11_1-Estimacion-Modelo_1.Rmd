@@ -1,0 +1,269 @@
+# Estimación del modelo
+
+El siguiente paso consiste en observar los valores estimados para cada relación de cointegración y determinar si todas ellas influyen en el comportamiento de corto plazo de cada una de las series en el análisis.
+
+Johansen [1995] propone restringir $\beta'$ de tal manera que la primera parte de la matriz sea una matriz identidad. Es decir, $\beta'=[I_r : \beta'_1]$ donde $\beta'_1$ tiene dimensión $((k-r) \times r)$. Esto se obtiene al normalizar el espacio de cointegración de la siguiente manera:
+
+$$\beta_c = \beta (S'\beta)^{-1}$$
+
+donde $S'= (I_r,0)$.
+
+
+
+```{r}
+#traemos las series
+ln_pib_cte <-  series_db$log_GDP_constante
+edu <- series_db$Gasto_Educacion_PorcGDP
+salud <- series_db$Gasto_Salud_PorcGDP
+rec_imp <- series_db$Recaudacion_Impositiva_PorcGDP
+
+# generamos la matriz X
+model.data <- cbind(ln_pib_cte,edu,salud,rec_imp)
+
+# estimamos el rango de cointegracion de PI con ca.jo
+M1 <- ca.jo(model.data,spec='transitory', type='eigen',K=2)
+
+
+```
+
+## Modelo 1: VECM con K=2 (lags), y r=1 (relaciones de cointegración)
+
+Desde los objetos obtenidos por el ajuste del modelo, se puede obtener $\beta_c$ de la siguiente manera
+
+
+
+```{r}
+k_aux <- 4
+rel_coint_aux <- 1
+
+tmp_beta <-  M1@V[,1:rel_coint_aux]
+st <- cbind(diag(rel_coint_aux),matrix(0,rel_coint_aux,(k_aux-rel_coint_aux)))
+beta_c <- tmp_beta%*%solve(st%*%tmp_beta)
+beta_c
+
+```
+
+De tal manera que los vectores de cointegración tienen una interpretación mucho más sencilla.
+
+Este resultado puede ser validado con lo que se obtiene a partir de la función cajorls
+```{r}
+M1.jorls <- cajorls(M1, r = rel_coint_aux)
+M1.jorls$beta
+```
+
+
+Ahora bien, Una vez que se han definido las relaciones de cointegración restringida veamos cómo es el ajuste del modelo a partir de estas definiciones:
+
+```{r}
+summary(M1.jorls$rlm)
+```
+
+
+
+```{r}
+mysum <- summary(M1.jorls$rlm)
+screenreg(list(mysum[[1]], mysum[[2]],mysum[[3]],mysum[[4]]))
+```
+
+
+```{r}
+aux_edu.d <- M1@Z0[,2]
+aux_rec_dl1 <- M1@Z1[,5]
+rel_edu_rec <- as.data.frame(cbind(rec.dl1=aux_rec_dl1,
+                                   edu.d =aux_edu.d,
+                                   zero=rep(0,length(aux_edu.d)),
+                                  time=seq(1,length(aux_edu.d))))
+
+
+
+rel_edu_rec <- rel_edu_rec %>%
+  gather(variables, valor, rec.dl1:zero )
+
+gf1 <- ggplot(data=rel_edu_rec, aes(x = time, y = valor))+
+  geom_line(aes(color = variables), size = .5)+
+  theme_minimal()
+
+graf_latex1(grafica1 = gf1,
+          nombre = 'Rel_edu_rec.pdf')
+
+gf1
+
+```
+
+
+
+
+
+Observaremos la relación de cointegración:
+
+```{r}
+rel_coint_serie <- as.data.frame(M1.jorls$rlm$model$ect1) %>%
+                    rename("ect1"="M1.jorls$rlm$model$ect1") %>%
+                    mutate(upper = mean(ect1)+1*sd(ect1))%>%
+                    mutate(lower = mean(ect1)+-1*sd(ect1)) %>%
+                    mutate(time = 1991+row_number()) 
+
+
+rel_coint_serie <- rel_coint_serie %>%
+  gather(variables, valor, ect1:lower )
+
+
+gf1 <- ggplot(data=rel_coint_serie, aes(x = time, y = valor, colour=variables))+
+  geom_line( size = .5)+
+  scale_x_continuous("Año",  breaks = rel_coint_serie$time)+
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5)) 
+
+graf_latex1(grafica1 = gf1,
+          nombre = 'Hist_rel_coin.pdf')
+
+gf1
+```
+
+
+```{r}
+aux <- as.data.frame(model.data) %>% 
+        mutate_all(lag) %>%
+        rename(ln_pib_cte.l1 = ln_pib_cte) %>%
+        rename(edu.l1 = edu) %>%
+        rename(salud.l1 = salud) %>%
+        rename(rec_imp.l1 = rec_imp) %>%
+        mutate(ect1 = ln_pib_cte.l1 -0.2734779*edu.l1-0.3187240*salud.l1+ 0.2359534*rec_imp.l1)
+  
+
+calc_ect1 <- aux[3:nrow(aux),]
+
+calc_ect1[c(6,7,8,
+            9,10,11,
+            13,14,15,
+            23,24),]
+```
+  
+Finalmente obsevemos nuestro modelo ajustado vs los datos recopilados:
+
+```{r,echo=FALSE}
+
+hat_1 <- as.data.frame(M1.jorls$rlm$fitted.values[,1])
+colnames(hat_1) <- c('ln_pib_cte.d_hat')
+obs_1 <- as.data.frame(M1.jorls$rlm$model$`z@Z0`[,1])
+colnames(obs_1) <- c('ln_pib_cte.d')
+
+ajuste_1 <- cbind(obs_1,hat_1)
+
+ajuste_1 <- ajuste_1 %>%
+              mutate(time=row_number())
+
+gf_ajuste_1 <- ggplot(ajuste_1,aes(x=time))+
+                geom_line(aes(y=ln_pib_cte.d))+
+                geom_line(aes(y=ln_pib_cte.d_hat),color='red')+
+                ggtitle('ln_pib_cte.d_hat')
+
+  
+hat_2 <- as.data.frame(M1.jorls$rlm$fitted.values[,2])
+colnames(hat_2) <- c('edu.d_hat')
+obs_2 <- as.data.frame(M1.jorls$rlm$model$`z@Z0`[,2])
+colnames(obs_2) <- c('edu.d')
+
+ajuste_2 <- cbind(obs_2,hat_2)
+
+ajuste_2 <- ajuste_2 %>%
+              mutate(time=row_number())
+
+gf_ajuste_2 <- ggplot(ajuste_2,aes(time))+
+                geom_line(aes(y=edu.d))+
+                geom_line(aes(y=edu.d_hat),color='red')+
+                ggtitle('edu.d_hat')
+
+
+
+hat_3 <- as.data.frame(M1.jorls$rlm$fitted.values[,3])
+colnames(hat_3) <- c('salud.d_hat')
+obs_3 <- as.data.frame(M1.jorls$rlm$model$`z@Z0`[,3])
+colnames(obs_3) <- c('salud.d')
+
+ajuste_3 <- cbind(obs_3,hat_3)
+
+ajuste_3 <- ajuste_3 %>%
+              mutate(time=row_number())
+
+gf_ajuste_3 <- ggplot(ajuste_3,aes(time))+
+                geom_line(aes(y=salud.d))+
+                geom_line(aes(y=salud.d_hat),color='red')+
+                ggtitle('salud.d_hat')
+
+
+
+hat_4 <- as.data.frame(M1.jorls$rlm$fitted.values[,4])
+colnames(hat_4) <- c('rec_imp.d_hat')
+obs_4 <- as.data.frame(M1.jorls$rlm$model$`z@Z0`[,4])
+colnames(obs_4) <- c('rec_imp.d')
+
+ajuste_4 <- cbind(obs_4,hat_4)
+
+ajuste_4 <- ajuste_4 %>%
+              mutate(time=row_number())
+
+gf_ajuste_4 <- ggplot(ajuste_4,aes(time))+
+                geom_line(aes(y=rec_imp.d))+
+                geom_line(aes(y=rec_imp.d_hat),color='red')+
+                ggtitle('rec_imp.d_hat')
+
+
+
+multiplot(gf_ajuste_1,gf_ajuste_2,gf_ajuste_3,gf_ajuste_4,cols=2)
+```
+
+
+
+```{r}
+plot(irf(vec2var(M1,r=rel_coint_aux),n.ahead=3,response='edu',boot=TRUE))
+```
+
+
+```{r}
+plot(irf(vec2var(M1,r=rel_coint_aux),n.ahead=3,response='rec_imp',boot=TRUE))
+```
+
+
+
+```{r}
+BIC(vec2var(M1,r=rel_coint_aux))
+```
+
+
+Interpretar la relación de cointegración como ceteris paribus de gastos vs ceteris paribus de income (pib y recauación). 
+
+Esta relación de cointegración podemos analizar con dos bandas de desviación estándar y despues ver en què punto la relación queda fuera de las bandas y ver los datos históricos para ver qué hicieron para que la relación de cointegración regresara al equilibrio
+
+Tenemos que explicar que el PIB es un alma libre, porque realmente las series que podemos controlar son la recaudación y los gastos (salud y educaciòn). El producto interno bruto no puede ser impactado por las series de gasto en salud, educación ni recaudación impositiva, pero si al revés.
+
+Explicar que la serie de salud no tiene ningún efecto ante la ruptura del equilibrio. Esto hace sentido porque rara vez se toma una medida política incrementando el gasto en salud para corregir el pib o la recaudación.. Hace sentido que no tenga efectos 
+
+En donde sí que tenemos que meterle a la interpretación es en el caso de la educación, pues el signo de alpha es positivo, esto quiere decir que si suponemos que existe un efecto positivo de la relación de equilibiro ( que el pib y la recaudación aumentan respecto al gasto) entonces veremos una corrección en el corto plazo de la educación de manera positiva, aunque la velocidad de ajuste es relativamente lenta.
+Por otro lado si la relación de cointegración se rompa negativamente, entonces veríamos una contracción de la eduación
+
+La recaudación impositiva también tiene la relación de cointegración significativa en su ecuación. Esta tiene una alpha negativa, lo cual quiere decir que si el Pib crece bastante, veremos reflejado relativamente rápido una reducción en la recaudación impositiva. Por otro lado, si el gasto es el que provoca la salida del equilibrio de la relación de cointegración se verá casi inmediato un incremento en la recaudación impositiva para contrarrestar el efecto. Algo muy utilizado en el gobierno mexicano y en casi todos los gobiernos.
+
+Debemos de ver esto representado en las funciones de impulso respuesta. Aunque debemos investigar si el efecto aleatorio es positivo.
+
+El profesor propone documentar tambien el escenario 4, pues las relaciones de cointegración sobre educación son muy interesantes, en particular deberíamos entrar a detalle con la relación número dos de cointegración, pues es el efecto del gasto en educación en fucnión del gasto en salud y la recaudación. Es decir como se ve la recaudación vs el gasto del gobierno. Esto está muy interesante aunque deberíamos ser muy cuidadosos con la estimación del modelo pues se tienen demasiados paràmetros estiamdos y muy pocos datos. Esto nos podría generar un sobre ajuste.
+
+Finalmente, el profe propone que pongamos una tablita con los AIC por ecuación del primer modelo vs el último modelo porque así podremos darnos cuenta del ajuste real de los datos. También sugiere sacar a mano el BIC pues no sabemos cómo toma los datos útiles la función de BIC sobre un moelo VAR.
+
+
+```{r}
+predict(vec2var(M1,r=rel_coint_aux))
+```
+
+#-----------
+
+agregar justificación del orden de lags en el capitulo del rango de cointegración
+
+
+
+meter el modelo con dos relaicones de cointegración y explicar la fatla de datos, la poca veracidad en la estiamción y explicar la relacion de cointegración segunda
+
+
+
+
+
+

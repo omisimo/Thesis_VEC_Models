@@ -1,0 +1,154 @@
+# Orden de Integración (Teoría)
+
+
+En el modelo 
+
+$$ y_t = a_1y_{t-1}+\epsilon_t$$
+
+Al restar por $y_{t-1}$ en ambos lados de la ecuación, podemos llegar a  la siguiente expresión equivalente:
+
+$$ \nabla y_t =  \gamma y_{t-1}+\epsilon_t$$
+
+donde $\gamma = a_1-1$. Por lo tanto, realizar la prueba de hipótesis $a_1=1$ es equivalente a probar que $\gamma=0$. Dickey y Fuller consideran tres tipos de ecuaciones de regresión que pueden ser utilizadas para probar la presencia de raíces unitarias:
+
+  1) $\nabla y_t = \gamma y_{t-1} + \epsilon_t$
+  2) $\nabla y_t = a_0 +  \gamma y_{t-1} + \epsilon_t$
+  3) $\nabla y_t = a_0 +  \gamma y_{t-1} + a_2t + \epsilon_t$
+
+El primero de ellos es un modelo puro de caminata aleatoria, el segundo agrega un intercepto o drift y el tercero incluye tanto un drift como una tendencia lineal temporal.
+
+El parámetro de interés en todas estas ecuaciones es $\gamma$; Si $\gamma=0$ entonces la serie $y_t$ contiene una raíz unitaria. La prueba se reduce en estimar las ecuaciones anteriormente mencionadas via OLS, de tal manera que se obtenga el valor estimado del parametro $\gamma$ y su error estandar asociado. Dicho estadistico $t$ se debe comparar con sus correspondientes valores de acuerdo con las tablas creadas por Dicckey-Fuller.
+
+Esta metodología se sigue para cualquiera de las tres ecuaciones enunciadas anteriormente, sin embargo, el detalle es que cambian los valores criticos de Dickey-Fuller dependiendo la ecuacion utilizada para estimar el valor del parametro $\gamma$. Dickey-Fuller concluyeron que los valores criticos para $\gamma=0$ dependen del tipo de regresión y el tamaño de la muestra.
+
+
+Los estadísticos $\tau_1$, $\tau_2$, $\tau_3$ son los estadísticos apropiados para usar en las ecuaciones (1), (2) y (3) respectivamente. Los valores reportados en las tablas de Dickey-Fuller permiten al investigador determinar si aceptar o rechazar la hipótesis nula $\gamma=0$ unicamente.
+
+Adicionalmente Dickey and Fuller crearon tres F-estadisticos adicionales llamados $\phi_1,\phi_2,\phi_3$ para probar pruebas de hipotesis conjuntas:
+
+* El estadistico $\phi_1$ .- Emplea la ecuacion numero 2 para probar la hipotesis nula conjunta $\gamma=a_0=0$
+* El estadistico $\phi_2$ .- Emplea la ecuacion numero 3 para probar la hipotesis nula conjunta $\gamma=a_0=a_2=0$
+* El estadistico $\phi_3$ .- Emplea la ecuacion numero 3 para probar la hipotesis nula conjunta $\gamma=a_2=0$
+
+En donde los tres estadisticos se construyen igual que cualquier prueba $F$:
+
+$$ \phi_i = \frac{[RSS_{restricted}-RSS_{unrestricted}]r}{RSS_{unrestricted}(T-k)}$$
+donde $RSS$ son las sumas al cuadrado de los residuales del modelo restringido vs el no restringido, $r$ es el numero de restricciones, $T$ el numero de observaciones usbales y $k$ el numero de parametros estimados en el modelo sin restricciones.
+
+Por lo tanto, la hipotesis nula es que los datos fueron generados por el modelo con restricciones y la alternativa es que los datos fueron generados por el modelo sin restricciones. Si la restriccion no se cumple, la suma de los cuadrados de ambos modelos deberian ser muy similares y por lo tanto $\phi_i$ será pequeña. Asi pues, si el valor de $\phi$ es grande quiere decir que se rechaza la hipotesis nula.
+
+http://stats.stackexchange.com/questions/24072/interpreting-rs-ur-df-dickey-fuller-unit-root-test-results
+
+
+Usaremos la prueba ADF sobre la serie del consumo en UK usando datos trimestrales del perido 1966:Q4-1991:Q2. La serie del consumo esta ajustada estacionalmente a precios de 1985 y expresadas en su logaritmo natural.
+
+Como un primer paso, una regresión con una constante y tendencia temporal será estimada, se agregarán 3 lags a la estimación para evitar la presencia de autocorrelaciones y autocorrelaciones parciales y asegurar un proceso esférico del error. Incluir el cuarto lag resultaba ser no significativo, mientras que incluir solo dos lags no eran suficientes para alcanzar errores serialmente no correlacionados.
+
+```{r}
+
+data("Raotbl3")
+attach(Raotbl3)
+
+lc <- ts(lc, start=c(1966,4), end=c(1991,2),frequency=4)
+lc.ct <- ur.df(lc,lags=3,type='trend')
+summary(lc.ct)
+
+```
+
+```{r}
+plot(lc.ct)
+```
+
+
+Ahora bien la hipótesis $\phi_3$ es probada bajo una usual prueba F, es decir, $\phi_3=(a_0,\gamma,a_2) = (a_0,0,0)$. Esto es, se han colocado restricciones igual a cero a la tendencia temporal y el lag del la variable.
+
+El valor del estadístico es
+
+```{r}
+lc.ct@teststat
+```
+
+Debemos recordar que se deben consular los valores críticos propuestas por Dickey and Fuller. Los valores críticos para una muestra de tamaño 100 y niveles de significancia del 10%,5% y 1% se muestran a continuación 
+
+```{r}
+lc.ct@cval
+```
+
+
+Por lo tanto, la hipótesis nula no puede ser rechazada, lo cual implica que la serie contiene una raíz unitaria. Esto puede ser reiterado con el estadístico $\tau_3$ con valor de -2.24 y para la variable _z.lag.1_. Los valore críticos relevantes que debemos utilizar ahora son los de Fuller[1976], los cuales se muestran para una muestra de tamaño 100.
+
+Luego entonces, la presencia de una raíz unitaria no puede rechazada. El siguiente paso, es probar si la serie es una caminata aleatoria con o sin drift (constante). El estadístico relevante es $\phi_2$ $(\gamma=a_0=a_2=0)$ el cual tiene un valor de 3.74, con valores críticos de 4.16, 4.88 y 6.50 para niveles de significancia de 10%, 5% y 1% respectivamente. La conclusión es entonces que la serie se comporta como una caminata aleatoria pura.
+
+Uno procede entonces a estimar la ecuación $\nabla y_t = a_0 +  \gamma y_{t-1} + \epsilon_t$ basado en los resultados obtenidos por la prueba $\phi_3$. Los resultados se muestran a continuación:
+
+```{r}
+lc.co <- ur.df(lc,lags=3,type='drift')
+summary(lc.co)
+
+```
+
+```{r}
+plot(lc.co)
+```
+
+
+
+Con el fin de completar la prueba, ahora se prueba si en este modelo un término constante hace falta. Las pruebas se muestran a continuación
+
+```{r}
+lc.co@teststat
+```
+
+```{r}
+lc.co@cval
+```
+
+El valor del estadístico $\phi_1$ que prueba $\gamma=a_0=0$ es 2.88, el cual resulta ser no significativo comparado con los valores críticos mostrados. 
+
+Por lo tanto, se puede concluir que la serie contiene un raíz unitaria pero no contiene ni tendencia temporal ni tendencia constante en el proceso generador de los datos.
+
+Finalmente, se probará si diferenciando la serie una vez es suficiente para alcanzar estacionariedad. La prueba se logra utilizando como insumo para la regresión a la serie diferenciada una vez.
+
+```{r}
+lc2 <- diff(lc)
+lc2.ct <- ur.df(lc2,type="trend",lags=3)
+summary(lc2.ct)
+```
+
+
+
+```{r}
+lc2.ct@teststat
+```
+
+
+```{r}
+lc2.ct@cval
+```
+
+
+```{r}
+plot(lc2.ct)
+```
+
+La hipótesis de que el consumo es $I(2)$ puede ser descartado rápidamente dado el estadístico $t$ con valor de -4.39.
+
+Debe notarse que las pruebas de Dickey-Fuller asumen que los errores son independientes y tienen varianza constante. Esto genera 4 importantes problemas relacionados con el hecho de que no conocemos el verdadero proceso generador de los datos:
+
+1) El verdadero proceso generador de los datos puede contener componentes autorregresivas como componentes de promedios móviles
+2) No se puede estimar correctamente $\gamma$ y su error estándar amenos que todos los términos autorregresivos sean incluidos en la ecuación a estimar (seleccionar el lag length apropiado)
+3) El hecho de que la preuba de Dickey-Fuller considera únicamente una raíz unitaria, por lo que llevar una serie de un orden de integración mayor, requeire de diferenciarla tantas veces como sea necesario
+4) No tenemos certeza de si incluir un intercepto o una tendencia temporal a la ecuación
+
+El primero de los puntos se resuelve fácilmente ya que un modelo MA invertible (si sus raíces caen fuera del círculo unitario) puede ser expresado en un modelo autorregresivo con lags infinitos. Afortunadamente, Said y Dickey (1984) demuestran que un proceso ARIMA(p,1,q) puede ser correctamente aproximado por un modelo ARIMA(n,1,0) autorregresivo de orden $T^{1/3}$.
+
+El segundo punto es muy importante ya que incluir demasidos lags reduce el poder de las pruebas estadísticas para rechazar la hipótesis nula de que existe raíz unitara, ya que un mayor número de lags necesita un mayor número de parámetros a estimar y una pérdida en grados de libertad. Los grados de libertad se reducen ya que el número de parámetros a estimar aumenta y por que el número de observaciones utilizables se reduce (perdemos una por cada lag). Por otro lado, definir pocos lags provoca que no capturemos apropiadamente el error process, por lo que $\gamma$ y su error estandar no estarán bien estimados. Para solucionar este tema se sugeire empezar por un número suficientemente grande de lags e ir reduciendo hasta que el i-ésimo lag sea estadísticamente significativo de acuerdo a las preubas _t_. Una vez que el lag ha sido determinado, se procede a realizar un diagnóstico, graficar los residuales es el diagnóstico más importante. No debe haber evidencia de cambios estructurales ni correlación serial.
+
+El tercer punto se puede atacar de manera secuencial tomando como input la serie diferenciada, y el proceso se repite hasta que se alcance la estacionariedad.
+
+El cuarto punto
+
+https://bookdown.org/ccolonescu/RPoE4/vec-and-var-models.html
+
+
+

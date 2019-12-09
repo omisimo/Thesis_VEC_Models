@@ -1,0 +1,5 @@
+"0","gf1 <- grafica_serie(base_in = series_db, "
+"0","                      eje_y = 'GDP_corriente', "
+"0","                      titulo = 'PIB a precios corrientes', "
+"0","                      titulo_y = 'PIB Corriente')"
+"0","gf1"

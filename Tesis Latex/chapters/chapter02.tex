@@ -1,0 +1,154 @@
+% !TEX encoding = UTF-8 Unicode
+
+\section{Introducci\'on a las series}
+
+Las series con las cuales se tiene intención de trabajar, se obtienen de tres fuentes distintas. La primera de ellas es a través del banco de datos del Banco Mundial, la segunda de ellas es a partir de las publicaciones anuales de la Ley de Ingresos de la Federación y por último del Presupuesto de Egresos de la Federación.  Las series tienen una periodicidad anual desde 1991 hasta 2016, ya que se trata el horizonte temporal con mayor cantidad de datos continuos informados para cada una de las series. \bigskip
+
+El proceso de construcción de cada una de las series se encuentra documentado en el apéndice \textbf{Extracción de las series}.
+
+
+
+\subsection{Producto Interno Bruto}
+
+
+El producto interno bruto es una medida macroeconómica que expresa el valor monetario total de la producción de bienes y servicios de demanda final de un país durante un periodo determinado de tiempo, el cual generalmente es medido de manera trimestral o anual. Cuando se habla de bienes y servicios de demanda final significa que no se han considerado aquellos bienes que se han elaborado en el periodo en cuestión y que servirán como materia prima para la fabricación de otros bienes y servicios, es decir, únicamente se incluyen aquellos producidos en el periodo que, por su propia naturaleza, no se van a integrar a ningún otro proceso de producción, así como aquellos otros bienes que no han logrado integrarse en el proceso productivo al final del ejercicio aunque estaban destinados a ello; a estos últimos productos se les conoce como existencias finales. Esto es con la finalidad de evitar una doble contabilidad. Además es importante recalcar el hecho de que el producto interno bruto no contabiliza los bienes y servicios producidos por el trabajo informal, el cual representa un factor importante en nuestra economía. \bigskip 
+
+Debido a que el PIB es un agregado de numerosos componentes, las unidades de medida son heterogéneas, por lo que para obtener un valor total, es preciso transformarlos a términos homogéneos, lo cual se consigue dando valores monetarios a los distintos bienes y servicios. Sin embargo, esto podría generar distorsiones en las comparaciones intertemporales, ya que si un país decide aumentar en un 10\% el nivel general de los precios, el PIB se vería aumentado en la misma cantidad. Para evitar estos inconvenientes, se recurre al PIB en términos reales al que no afectan las modificaciones en los precios pues los productos y servicios se encuentran valorados bajo los precios de un año base usado como referencia. Para obtener el PIB real únicamente se debe dividir el PIB nominal por un índice de precios conocido como el deflactor del PIB. En particular, en este trabajo se empleará el año 2010 como el año base.\bigskip
+
+Los tres sectores económicos principales que componen al PIB de México son:
+
+\begin{itemize}
+\item \textbf{Sector Primario}: actividad proveniente de la agricultura, ganadería, explotación forestal, caza, pesca y minería.
+\item \textbf{Sector Secundario}: actividad industrial de transformación, también incluye al rubro de la construcción.
+\item \textbf{Sector Terciario}: servicios, incluyendo la producción de energía, comunicaciones y agua.
+\end{itemize}
+
+
+En México el sector servicios es el mayor componente del PIB, seguido por el sector industrial y después el agrícola.\bigskip
+
+El producto interno bruto es una medida que resume características importantes de una nación, pues es posible interpretarlo desde diferentes ángulos. Por ejemplo, la competitividad de las empresas, ya que si por un lado el PIB no crece, significa que las empresas mexicanas no están creciendo y que no se está invirtiendo en la creación de nuevas empresas, y por lo tanto, la generación de empleos tampoco crece al ritmo deseado. Por otro lado, un crecimiento del PIB representa una mayor recaudación del gobierno vía impuestos y si el gobierno desea conservar dicha tendencia, deberá fortalecer la inversión directa en empresas, fortalecer las condiciones para que las empresas existentes continúen creciendo y asegurarse de alguna manera del bienestar social.\bigskip
+
+
+A continuación se muestran las series de tiempo para el Producto Interno Bruto tanto en su formato nominal (a precios corrientes) como en su formato real (a precios constantes):
+
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=14cm,height=17cm,keepaspectratio]{PIB_normal.pdf}
+\caption{PIB a precios corrientes y constantes}
+\label{PIB_normal}
+\end{figure}
+
+
+Debido a las magnitudes de las series es preferible trabajar con el logaritmo de las mismas, que tal y como se muestra a continuación, se trata de una transformación monótona por lo que no afecta la tendencia de las series sino únicamente las escalas:
+
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=14cm,height=17cm,keepaspectratio]{log_PIB.pdf}
+\caption{Logaritmo Natural del PIB a precios corrientes y constantes}
+\label{log_PIB}
+\end{figure}
+
+En las gráficas anteriormente mostradas se pueden apreciar una tendencia creciente a lo largo del tiempo excepto para los años 1995, 2001 y 2009 en donde se advierte una desaceleración del Producto Interno Bruto justificado por grandes recesiones económicas. En el caso de 1995 la crisis económica conocida como el error de Diciembre de 1994, cuyo costo de la crisis fue trasladado como en la mayoría de los casos a la siguiente administración. En cuanto a los otros decrementos observados, ninguno de los presidentes en turno fue responsable directo de ellos sino que se trató de crisis heredadas. En el 2001 se presenció el ataque terrorista del 11 de Septiembre en Nueva York  provocando una caída en la bolsa de valores con un impacto global. Finalmente en el  2009 con el colapso de la burbuja inmobiliaria en los Estados Unidos, se generó una profunda crisis de liquidez, derrumbes bursátiles y en consecuencia una crisis económica a escala internacional. Como es posible observar, el producto interno bruto es sensible a un entorno macroeconómico internacional y es por esta razón que resulta de interés cuantificar el impacto de estos crecimientos o decrementos en aspectos básicos como el bienestar social, así como la productividad del gobierno en términos de recaudación fiscal.
+
+
+
+
+
+%\newpage
+\subsection{Recaudación Gubernamental}
+
+
+La recaudación Gubernamental como su nombre lo indica, es el capital que una nación recibe de acuerdo al sistema tributario que rige en un determinado momento del tiempo. En la actualidad, la debilidad estructural del sistema tributario ha generado que la insuficiencia de los recursos sea uno de los problemas más importantes de la hacienda pública federal, más aún, si se considera que los requerimientos presupuestales de los ejercicios fiscales van en aumento año con año. Esto nos obliga a replantear y generar nuevas políticas de tributación y recaudación que permitan garantizar el bienestar social y una infraestructura sustentable para el desarrollo de la nación.\bigskip
+
+En nuestro país los grandes rubros de fuentes de ingresos provienen principalmente del petróleo, impuestos, no tributarios y organismos y empresas, tal y como se muestra a continuación:
+
+\begin{figure}[ht]
+\includegraphics[width=14cm]{Rubros_rec.PNG}
+\end{figure}
+
+En materia de recaudación, los ingresos tributarios durante 1995 - 2000 crecieron un punto porcentual del PIB como consecuencia de las acciones enfocadas a la reactivación económica; tres años más tarde parecieron mantenerse constantes debido a las modificaciones fiscales a la Ley del Impuesto Sobre la Renta (ISR) enfocada a disminuir los privilegios fiscales, sin embargo, durante el 2004 - 2006, disminuyeron su participación al registrar 9.3\% del PIB en promedio, derivado de la tendencia a disminuir la tasa impositiva del ISR. El nivel de recaudación fiscal respecto al PIB de México comparado con otros países de la OCDE es muy bajo, incluso comparado con naciones latinoamericanas con economías más pequeñas. De hecho, con relación al producto interno bruto, se ha mantenido históricamente por debajo del 12\%. Lo anteriormente mencionado, es un síntoma de que la labor en la política fiscal no ha logrado encontrar un equilibrio entre lo que se recauda y lo que se gasta; es decir, no se ha tenido una programación eficaz de los ingresos y gastos públicos.\bigskip 
+
+
+Hemos de recordar que la política tributaria es una de las principales herramientas con las que cuenta el estado para cubrir sus funciones relativas al gasto público, tales como son la educación, salud, seguridad, infraestructura, etc. De tal manera que para lograr un sistema tributario eficiente, es de vital importancia establecer estímulos fiscales temporales y efectivos al ahorro, ampliar la base de contribuyentes, fortalecimiento de la misma recaudación, combate a la ilegalidad fiscal, seguridad y certeza jurídica para la autoridad y los contribuyentes. Sin embargo, la historia nos ha demostrado que no se ha logrado llevar a cabo de la manera adecuada ya que en los últimos años el gobierno federal ha iniciado muchos proyectos sociales, que requieren recursos adicionales y ha buscado formas de obtenerlos lo antes posible. Es por esta razón que han sido muy cambiantes las políticas tributarias tal y como sucedió con la reforma tributaria del 2014, introduciendo algunos aspectos como:
+
+\begin{itemize}
+\item Incremento de tasas impositivas
+\item Establecimiento de nuevos gravámenes
+\item Eliminación de deducciones y regímenes especiales
+\item Aumento de las facultades de fiscalización
+\item Restricciones para la aplicación de tratados para evitar la doble imposición
+\end{itemize}
+
+A continuación se muestra la serie histórica de la recaudación impositiva desde 1991 hasta el 2016. Como es posible observar, los efectos de la reforma tributaria se hacen presentes en los años posteriores al 2014. Es relevante destacar que este dato no se encuentran disponible con esta profundidad histórica en ningún sitio oficial y es por esta razón que se ha obtenido la serie histórica del producto interno bruto en el banco de datos del banco mundial y la serie histórica de la recaudación impositiva se ha obtenido a través de las distintas publicaciones anuales de la Ley Federal de Ingresos de la Nación. De esta manera es posible representar a la recaudación impositiva como porcentaje del PIB y con tal profundidad histórica.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=14cm,height=17cm,keepaspectratio]{Recaudacion.pdf}
+\caption{Recaudación Impositiva}
+\label{Rec}
+\end{figure}
+
+Por lo tanto, sería de esperarse que cuando el gobierno incrementa las tasas impositivas y aplica una serie de reformas que incrementen la recaudación nacional, esto se vea reflejado en servicios de calidad en términos de salud, seguridad, infraestructura e inversión para la creación de nuevas empresas que incentiven el crecimiento económico de la nación.
+
+%\newpage
+\subsection{Gasto en Salud}
+
+
+El Gasto en salud, así como el gasto en educación, infraestructura, gasto federalizado y gasto social son los resultados más tangibles de la administración del gasto público, por lo que sería de esperarse que un gasto público de calidad promueva el crecimiento económico, la equidad de oportunidades y por lo tanto, el desarrollo del país. Durante las últimas décadas, la política gubernamental ha procurado que el financiamiento público para la atención del sector salud del país mantenga una tendencia creciente tal y como puede observarse en la siguiente gráfica:
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=14cm,height=17cm,keepaspectratio]{Gasto_Salud.pdf}
+\caption{Gasto en Salud Pública (\%PIB)}
+\label{Sal}
+\end{figure}
+
+Dicho incremento significativo se debe principalmente por el origen del Sistema de Protección Social en Salud, mejor conocido como Seguro Popular, el cual pretende representar una ayuda para que las personas en situación de pobreza no incurran en un gasto mayor, en términos de salud, que ponga en riesgo a familias completas. Esta iniciativa busca cerrar la brecha que existe entre la población que cuenta con seguridad social y la que carece de la misma. Sin embargo,  lo que el paso de los años nos ha demostrado es que el constante incremento en el gasto en salud no se está viendo reflejado en proporciones similares en resultados que mejoren las condiciones de salud de la población mexicana. De hecho,  México ofrece servicios de salud por debajo de los estándares de la OCDE y tiene un coeficiente de efectividad por debajo de la media de los países del continente americano e incluso, por debajo de países similares como Brasil, Chile o Colombia \cite{evaledu}. \bigskip
+
+Debido a que el Seguro Popular no ha cambiado significativamente el panorama general del sistema de salud y que la manera en que estos servicios se financian es a través de la recaudación de los ingresos presupuestarios del Gobierno, resulta de interés analizar el uso ineficiente del financiamiento público, el cual provoca la pérdida de recursos que no llegan a la atención médica, a partir de la relación que guarda con otro tipo de variables como la misma recaudación, el producto interno bruto, entre otras. Una de las principales razones por la que no se observan mejoras en estos servicios es porque no se cuantifica el impacto de las decisiones de un gobierno.\bigskip
+
+
+
+
+%\newpage
+\subsection{Educación Pública}
+
+
+Al igual que el gasto en salud, el gasto en educación pública representa uno de los factores centrales para la promoción del desarrollo de un país y en México, como se puede apreciar en la siguiente gráfica, se ha manifestado con un gasto creciente durante los últimos 20 años.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=14cm,height=17cm,keepaspectratio]{Gasto_Educacion.pdf}
+\caption{Gasto en Educación Pública (\%PIB)}
+\label{Edu}
+\end{figure}
+
+
+Si bien la educación representa el mayor gasto del gobierno federal, dicho gasto no necesariamente implica una mejora en la calidad educativa ni en el aprovechamiento escolar en la misma proporción que la inversión. Esto ha quedado manifestado en múltiples estudios como el publicado por México Evalúa en el 2011 y el publicado por el Centro de Investigación Económica y Presupuestaria en el 2016 titulado "Gasto Público para una Educación de Calidad", en los cuales se exhibe que México es el país de la OCDE que destina mayores recursos a la educación y que en proporción del PIB, el gasto representa un porcentaje apenas por encima del promedio de la OCDE, además de ser uno de los países que menos recursos destina a cada alumno. Esto significa, que en términos absolutos el esfuerzo en el gasto público educativo podría ser considerado como elevado, sin embargo, en términos relativos se requiere de una mayor inversión y una mejor planificación, ya que aproximadamente el 98\% del financiamiento educativo actual se dirige a gasto corriente, es decir, sueldos y salarios.\bigskip
+
+Actualmente, ni el aparato burocrático ni las escuelas están sujetas a un proceso de evaluación, medición ni rendición de cuentas sobre las funciones que ejercen, por lo que es menester desarrollar un sistema de información que permita una correcta medición de la eficiencia de los servicios en donde se destina la mayor parte de los recursos, ya que esto permitiría en primer lugar, un esquema transparente en el cual es posible identificar cada uno de los recursos; en segundo lugar, que dado el esquema y los indicadores de eficiencia se justifiquen los recursos destinados y en último, que permita una mejor planificación y toma de decisiones en el sector educativo incentivando  la competencia por los recursos limitados existentes. No obstante, mientras se desarrolla un sistema de información que haga esto posible, continuaremos con un 7\% de la población de 15 años y más que son analfabetas de acuerdo con el último censo de Población (2010), con un México que se ubica en el último lugar de los países de la OCDE en el número de personas que terminaron sus estudios universitarios durante el 2016 y que en el mismo año 2016, la tasa de empleo fue del 65\% para los jovenes de 25 a 64 años con una educación secundaria, mientras que la tasa de empleo aumenta hasta el 80\% para aquellos que cuentan con licenciatura o equivalente y sube hasta el 85\% para maestría, doctorado o títulos equivalentes.\bigskip
+
+Por lo tanto, el panorama actual alrededor de la educación en México se sitúa en una inversión elevada en la educación, con pocos rendimientos en términos de eficiencia, ya que la mayor parte del presupuesto queda destinada al gasto corriente, mismo que no se evalúa con calidad y que, en consecuencia,  los que reciben el impacto total de esta serie de desarticulaciones son los alumnos mismos, los cuales carecen de oportunidades para recibir una mejor educación y que al mismo tiempo viven en un México en donde los estudios son aún un factor determinante para la obtención de un empleo y para la distribución de los salarios. Por esta razón, es relevante estudiar cómo es que se relaciona el crecimiento del país en términos de Producto Interno Bruto, con el gasto público en educación con la tasa de desempleo. En efecto, sería de esperarse que estos factores se encuentren relacionados entre sí, sin embargo, dado el contexto del país que hemos visto podría no necesariamente ser explicita la relación, ya que a pesar de presentar un crecimiento a nivel nación que a su vez se refleje en un aumento de inversión a la educación, si las condiciones de evaluación de eficiencia no mejoran, los resultados seguirían siendo pobres. \bigskip
+
+
+
+\newpage
+\subsection{Desempleo}
+
+Analizar la tasa de desempleo en México en conjunto con las series descritas anteriormente resulta ser interesante, ya que se buscará determinar una perspectiva del impacto que el comportamiento de la economía mexicana en términos de recaudación, crecimiento del PIB, educación y salud tienen sobre ella. A continuación se muestra la serie histórica de la tasa de desempleo:
+
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=14cm,height=17cm,keepaspectratio]{Tasa_Desempleo.pdf}
+\caption{Tasa de Desempleo}
+\label{Desempleo}
+\end{figure}
+
+Para analizar dicha gráfica es pertinente definir cómo está construida la tasa de desempleo. Para que una persona sea considerada desempleada se deben cumplir dos características, en primer lugar, que la persona, en la semana de referencia, no trabajó y en segunda lugar, que la persona en la semana de referencia intentó conseguir un empleo; de tal forma que la tasa de desempleo se calcula dividiendo el número de desempleados ente la Población Económicamente Activa (PEA), la cual está constituida por la suma de las personas ocupadas y las personas desempleadas. Esta manera de calcular el desempleo ha sido muy controversial, ya que tiende a subestimar el valor real, pues existen una infinidad de problemas laborales además del desempleo como el subempleo (personas que sí trabajan y tiene la necesidad de trabajar más horas)  y el desempleo encubierto (personas que no trabajan ni buscan empleo) que no forman parte de la PEA, pero que son personas que están disponibles para trabajar. Si bien hay varias propuestas para definir la tasa de desempleo, como la propuesta por Loría, E. y Ramos, M. (2007) $Desempleo = ((PEA-PO)/PEA)$ en el presente documento se utilizará la tasa de desempleo oficial obtenida a través del Banco Mundial.\bigskip
+
+En la figura  \ref{Desempleo} se muestra la evolución histórica de la tasa de desempleo, en donde se puede observar la presencia de las crisis de 1994 y la crisis de liquidez mundial del 2008 que hemos tratado en secciones anteriores, de hecho la serie muestra una tendencia a la alza desde 1999 hasta el punto de quiebre alcanzado en el 2009, seguido de un ligero decremento en la tasa de los últimos años aunque con dificultad para alcanzar los niveles observados durante el periodo 2000-2008. Dicha situación ha llevado a cuestionar las políticas y los planteamientos de política laboral en el país,  ya que de acuerdo con Arthur Okun (Okun, 1962, p.2) la desocupación tiene enormes costos sociales y económicos intertemporales, en virtud de que provoca significativos efectos depresivos de largo alcance que se auto reproducen, constituyendo así un círculo vicioso dinámico. Por esta razón y por una escasa literatura económica que aborde la relación temporal del desempleo con otros factores macreconómicos, se pretende comprender el fenómeno del desempleo en México a través de la magnitud en que un shock de comportamiento de la misma variable junto con los otros factores macreconómicos descritos anteriormente, afectan la dinámica del desempleo en el futuro.\bigskip
+
+Debido al cambio estructural que presenta la serie de tiempo de la tasa de desempleo en el horizonte temporal compartido con el resto de las series y con la finalidad de evitar que dicho cambio estructural impacte en el proceso de estimación del modelo VECM, se ha decidido descartar dicha serie del análisis y continuar con el resto de ellas.

@@ -1,0 +1,221 @@
+% !TEX encoding = UTF-8 Unicode
+
+
+\section{El concepto de cointegración: Caso $2$ Series.}
+
+Como extensión de los modelos $ARIMA$ se genera la familia de modelos multivariados, que nos permiten representar el comportamiento de  varias series de tiempo de manera simultánea, así como capturar la estructura de asociación, tendencia común, que existe entre las variables. El concepto de cointegración hizo acreedor del premio Nobel de economía al británico Clive W. J. Granger  en el a\~no 2003; para ilustrar el tema es oportuno recurrir a la metáfora presentada por Michael P. Murray, la cual nos obliga a recordar al proceso no estacionario conocido como caminata aleatoria asociándola con el andar de un cliente ebrio al salir de un bar.\bigskip
+
+La trayectoría que sigue un borracho está marcada por pasos independientes de un tiempo al siguiente, por lo que la mejor manera de pronosticar donde será el siguiente paso se reduce a conocer en qué punto se encontraba en el momento inmediato anterior, asimismo conforme avance el tiempo, la varianza creciente del caminar de un borracho provoca que sea casi imposible conocer en qué lugar se encontrará en $k$ momentos futuros. Estas características que tiene su transitar nos hace recapitular conceptos ya antes vistos como caminata aleatoria, raíz unitaria y un proceso estocástico integrado.\bigskip
+
+Es importante mencionar que nuestro cliente es muy precavido, ya que acostumbra viajar a todas partes con su fiel compañero canino; mismo que al ver  la condición de su due\~no piensa: ``No puedo dejarlo ir muy lejos, después de todo, mi deber es protegerlo''  así que el perro comienza a seguirlo de manera que también adopta una estructura no estacionaria aunque siempre va evaluando hacia qué posición se está moviendo su due\~no corrigiendo su camino si se aleja mucho, por lo que se genera una peque\~na brecha entre ambos dentro de la cual se van a mantener en el transcurso del tiempo. A la situación anterior, se le conoce formalmente como \textbf{modelo de corrección del error}. Ahora bien, si los observamos desde otra perspectiva, por ejemplo, otros dos clientes dentro del bar viendo al borracho y a su perro verán que ambos muestran un comportamiento no estacionario. Después de observarlos detenidamente uno de los usuarios comenta que a pesar de la no estacionariedad del caminar del perro y su due\~no, basta con conocer donde se encuentra el borracho, pues el perro no debería estar muy lejos. Él está en lo correcto, ya que la brecha que se ha formado entre el borracho y su fiel acompa\~nante, permite que ocasionalmente se alejen el uno del otro o se acerquen demasiado pero nunca estarán fuera de control. Esto quiere decir que la distancia entre ambos es estacionaria y a esto se le conoce como \textbf{cointegración de orden cero}. \bigskip
+
+Dejando de lado el aspecto metafórico del concepto debemos recordar que algunas series  están mejor representadas por sus primeras  $d$ diferencias, lo que nos dice que son integradas de orden $d$, $I(d)$, y por lo tanto dichas variables pueden ir tomando valores grandes y peque\~nos sobre alguna tendencia estocástica sin mostrar evidencia de que en el largo plazo  regresarán a su nivel medio. Supongamos dos variables con esta característica, es decir,  $Y_t$, $Z_t$ $\sim I(d)$ y cualquier combinación lineal de dichas variables
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% ecuación con referencia %%%%%%%%%%%%%%%%%%%%%%
+\begin{equation}\label{eq:cap3_1}
+Z_t=\beta_0+\beta_1Y_t+ e_t 
+\end{equation}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+que también puede ser expresada como 
+
+\begin{equation}
+e_t=Z_t-\beta_0-\beta_1Y_t \label{eq:cap3_2}
+\end{equation}
+
+
+
+Es también $I(d)$ y conocemos los riesgos que se pueden presentar al intentar hacer regresión con variables no estacionarias. Sin embargo, existe  un caso en el que $e_t \sim I(d-b)$ con $d>0$, de manera que se tiene una ahora una restricción $\beta_1$ operando sobre las componentes de largo plazo de la serie para cancelarlas. Si en particular proponemos a $d=1$ y $b=1$, entonces $Z_t \sim I(1)$ y $Y_t \sim I(1)$, por lo que la regresión de una variable no estacionaria sobre otra, no necesariamente será espuria, es decir, que la constante $\beta_1$ sugiere algún escalamiento entre las variables para que $e_t$ sea un proceso estacionario $e_t \sim I(0)$. En tal caso se dice que $Y_t$ y $Z_t$ están cointegradas lo cual implica que comparten la misma tendencia estocástica de manera que no divergirán muy lejos la una de la otra en el largo plazo. Por lo tanto, dos series cointegradas son estacionarias a pesar de que individualmente no lo sean.\bigskip
+
+La fuerte contribución que tienen conceptos como raíz unitaria, cointegración, entre otros, nos obliga a averiguar si los residuos de una regresión son estacionarios. Por lo que una prueba de cointegración puede ser pensada también como una pre-prueba para evitar situaciones de regresiones espurias.\bigskip
+
+
+%%%%%%%%%%%%%%%%%%%%%%%% en este párrafo hay referencia a una ecuación%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Una regresión como la que se muestra en la ecuación \textit{\ref{eq:cap3_1}} es conocida como \textbf{regresión de cointegración}  mientras que el parámetro $\beta_1$ se le conoce como \textbf{parámetro de cointegración}, además el concepto de cointegración se puede extender a una regresión con $n$ regresores, lo que nos llevaría a tener $n$ parámetros de cointegración. En este caso, la cointegración que existe entre $n$ variables integradas, existe si hay al menos una pero no más de $n-1$ combinaciones lineales que son estacionarias. Si se tuviera el caso en que las $n$ combinaciones lineales son estacionarias, entonces se puede concluir que las n variables son integradas de orden cero desde el momento de hacer la regresión, ya que cualquier combinación lineal de variables estacionarias es estacionaria.
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   
+\subsection{Prueba de Cointegración}
+
+Como dijimos anteriormente, la prueba de cointegración se basa en demostrar que la ecuación \textit{\ref{eq:cap3_2}} es estacionaria, sin embargo no conocemos el valor de los residuales teóricos, así que se demuestra para los residuales estimados por mínimos cuadrados. Por lo tanto, como primera instancia debemos realizar la regresión lineal entre las variables que creemos que pueden estar cointegradas.
+
+\begin{equation}
+\hat{Z}_t= \hat{\beta}_0 + \hat{\beta}_1Y_t
+\end{equation}
+
+De manera que observamos si los parámetros son significativos estadísticamente hablando con el uso del estadístico usual $t$, si lo son entonces obtenemos los residuales estimados de dicha regresión
+
+\begin{equation}
+\hat{e}_t= Z_t- \hat{\beta}_0 - \hat{\beta}_1Y_t
+\end{equation}
+
+El siguiente paso es determinar si efectivamente los residuales estimados son estacionarios usando la prueba de Dickey-Fuller. Por lo tanto, si resultan ser estacionarios entonces hay cointegración entre las variables $Z_t$ y $Y_t$; si no se rechaza la hipótesis nula entonces los residuales no son estacionarios y cualquier posible relación entre las variables podrá tratarse de  una regresión espuria.\bigskip
+
+La prueba de estacionariedad está basada en la siguiente ecuación característica de la prueba Dickey-Fuller
+
+\begin{equation}
+\nabla e_t= \rho \hat{e}_{t-1} + \nu_t
+\end{equation}
+
+Como es posible observar, la ecuación no tiene término constante ya que los residuales tienen media cero, además se puede extender la prueba agregando términos $\nabla \hat{e}_{t-1}$, $\nabla \hat{e}_{t-2}$, etcétera, para eliminar la posible existencia de autocorrelación en $\nu_t$ al igual que en la prueba de Dickey-Fuller Aumentada. Sin embargo, puesto que $\hat{e}_t$ depende de la estimación de $\beta_1$ los valores críticos de $DF$ y $ADF$ no son apropiados para el análisis de estacionariedad. \bigskip
+
+La prueba de Dickey-Fuller Aumentada para los residuales es de la forma:
+
+\begin{equation}
+\nabla e_t= \rho \hat{e}_{t-1} + \sum_{i=1}^{m} a_i \nabla e_{t-i}
+\end{equation}
+
+Los valores críticos apropiados para determinar cointegración son generados para responder la siguiente prueba de hipótesis:
+
+   \begin{eqnarray}
+    H_0: \beta_1= 0 & o  &  \rho \neq 0   \\ 
+    H_a: \beta_1 \neq 0 & y & \rho=0 \nonumber
+   \end{eqnarray} 
+   
+La cual considera en un mismo instante la significancia de la estimación del parámetro $\beta_1$ de la regresión de cointegración y la prueba de raíz unitaria para la estacionariedad en los residuales. La hipótesis nula nos dice que los residuales no son estacionarios o que la estimación de $\beta_1$ no es significativa, por lo que podemos concluir que las series no están cointegradas, mientras que la hipótesis alternativa nos hace referencia de un parámetro $\beta_1$ significativo y estacionariedad en los residuales y por lo tanto, estamos en presencia de series cointegradas. Existen tres tipos de valores críticos y cada tipo depende de la regresión a partir de la cual provienen los residuales, es decir, si los residuales provienen de una regresión sin término constante $(I)$, con término constante $(II)$ o con tendencia en el tiempo y término constante $(III)$. 
+
+%%%%%%%%%%%%%%%%%%%%  tabla con referencia
+\begin{table}[ht]
+\caption{\textbf{Valores Críticos para la prueba de Cointegración}}
+\label{table:CVC}
+\centering
+   \begin{tabular}{lccc}
+%\arrayrulecolor{RoyalBlue}
+    \firsthline
+    $\mbox{Modelo de Regresión}$                                               &  $1\%$    &  $5\%$    & $10\%$   \\
+%\arrayrulecolor{Cerulean}
+   \hline
+    $(I) \hspace{4mm}Z_t =\beta_1 Y_{t} + e_t$                     		&  $-3.39$ 	&	 $-2.76$ 	& 	$-2.45$ \\
+    $(II) \hspace{3mm}Z_t = \beta_0 + \beta_1Z_{t} + e_t$            	&  $-3.96$ 	& 	$-3.37$ 	& 	$-3.07$ \\
+    $(III)\hspace{2mm} Z_t = \beta_0 + \delta_t + \beta_1Z_{t}  + e_t$ 	& $-3.98$ 	& 	$-3.42$ 	&	 $-3.13$ \\
+%\arrayrulecolor{Cerulean}
+    \hline
+    \end{tabular}
+\end{table}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ 
+ \bigskip
+
+
+%%%%%%%%%%%%%%%%%%%%%% EN ESTE PÁRRAFO HAY UNA REFERENCIA A UNA TABLA %%%%%%%%%%%%%%%%%%%%%%%%%%
+De manera similar a la prueba de raíces unitarias, se rechaza la hipótesis nula de no cointegración si nuestro estadístico $\tau$ es menor 
+o igual a alguno de los valores críticos mencionados en el cuadro ~\ref{table:CVC}, es decir, $\tau \leq \tau_c$ lo cual que implicaría que el valor del estadístico sea más negativo que el valor crítico deseado. Esto conlleva a concluir que las series $Z_t$ y $Y_t$ están cointegradas, ya que la regresión de cointegración estimada es válida (no espuria) y por lo tanto existe una relación entre ambas que será notable en el largo plazo.  Consecuentemente no rechazaríamos la hipótesis nula si $\tau > \tau_c$. Las pruebas de cointegración buscan únicamente relaciones estables lineales, por lo que debemos tener especial atención cuando se acepta la hipótesis relacionada con no cointegración, ya que ésta solo sugiere que no hay una relación lineal en el largo plazo entre las variables y no ausencia de una relación a largo plazo \textbf{estable} entre ellas.\bigskip
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\subsection{Modelo de Corrección de Errores}
+
+
+
+Al igual que en la sección anterior se continuará trabajando con series cuyo orden de integración sea mayor o igual a uno, es decir, que se requiera aplicar una vez o más el operador diferencia ($\nabla$) para convertir las series en estacionarias, ya que en la serie original hay presencia de alguna tendencia polinomial adaptiva; además, es de nuestro interés  observar cómo es la tendencia estocástica de los procesos y en caso de que la compartan poder establecer relaciones de equilibrio en el largo plazo. En particular, en este apartado las variables consideradas son integradas de orden uno y cointegradas.  \bigskip
+
+
+De acuerdo a la metáfora del perro con su due\~no ebrio, ambos adoptaron una dinámica no estacionaria, sin embargo, el perro intentaba no alejarse mucho de su amo por lo que corregía su andar cada vez que se alejaba una distancia considerable, mantieniéndolos dentro de una brecha a lo largo del tiempo.  Esto quiere decir que nuestro principal problema es que dada una variable la cual depende de sus valores pasados y también en los valores actuales y pasados de otra variable exógena poder determinar la relación de equilibrio en el largo plazo entre las variables endógenas y exógenas.  Si  consideramos únicamente a una variable $Y_t$ en función de los valores de un conjunto de variables exógenas $Z_t$ en el mismo momento de tiempo, es decir, sin retrasos, tendríamos un efecto inmediato y completo de $Z_t$ sobre $Y_t$. Sin embargo, si consideramos retrasos en cada una de las variables tendremos que analizar también el efecto en el largo plazo, que estará en función de todos los retrasos.\bigskip
+
+
+De manera que estamos enfocados en analizar los efectos de corto y largo plazo de los procesos, los cuales pueden ser encontradas en diferentes formas equivalentes de ecuaciones dinámicas; al referirnos al término ``equivalente'' lo hacemos en el sentido de que cualquiera de las formas de la ecuación explica exactamente lo mismo del proceso pero cada una de ellas revelarán diferentes tipos de información. Esto se puede observar claramente cuando se tiene un proceso $ARMA(p,q)$ estacionario e invertible, ya que acepta tanto una representación del tipo modelo lineal general como una representación autorregresiva con una infinidad de retrasos, ambas explican lo mismo del proceso, sin embargo, observamos distintos tipos de información en cada una de ellas pues en la primera podemos identificar cuales son los retrasos más importantes con la finalidad de tener una mejor interpretación de la serie; en la segunda se encuentra toda la información correspondiente a la inferencia estadística, es decir, la media de la serie, las varianzas y covarianzas, entre otras. Por lo tanto, se pretende usar la representación que sea más conveniente para el análisis, en particular consideraremos un modelo lineal conocido como \textbf{Retrasos Distribuidos Autorregresivos} con notación $ARDL$ por sus siglas en inglés, a partir del cual deduciremos el modelo de corrección del error. \bigskip
+
+Un modelo $ARDL$ contiene retrasos tanto la variable exógena como en la variable endógena, para su representación general consideremos $p$ retrasos en la variable $Y_t$ y $q$ retrasos de $Z_t$ denotado como $ARDL(p,q)$ que es de la siguiente forma:
+
+\begin{equation}
+Y_t=\delta + \theta_1 Y_{t-1} + \cdots + \theta_p Y_{t-p} + \delta_0 Z_t + \delta_1 Z_{t-1} + \cdots + \delta_q Z_{t-q} + e_t  \label{eq:ADL}
+\end{equation}
+ 
+ Donde $e_t\sim IID(0,\sigma^2_e)$, la parte autorregresiva del modelo se puede encontrar en la regresión de la variable $Y_t$ sobre sus propios valores pasados, mientras que el componente de retrasos distribuidos se observa en el efecto de la variable $Z_t$ junto con sus retrasos. Este tipo de modelos trae consigo una serie de ventajas que son deseables en el análisis, ya que captura la dinámica de las $Z's$ y de las $Y's$ e incluyendo suficientes retrasos podemos asegurar que se va a eliminar la correlación serial entre los errores. \bigskip
+ 
+ Para poder derivar de un modelo $ARDL$ el modelo de corrección del error, es oportuno considerar un $ARDL(1,1)$, el cual considera sólo un retraso en cada variable:
+ 
+ \begin{equation}
+Y_t=\delta + \theta_1 Y_{t-1} + \delta_0 Z_t + \delta_1 Z_{t-1}  + e_t  \label{eq:ADL_1}
+\end{equation}
+ 
+ Si por un momento suponemos que las variables son estacionarias, es decir, $Y_t \sim I(0)$ y $Z_t \sim I(0)$, podemos decir que cualquier combinación lineal de estas dos variables es estacionaria y además, sus dos primeros momentos son invariantes en el tiempo, por lo que sus valores en el largo plazo estarán dados por sus valores esperados $E(Y_t)=y*$, $E(Z_t)=z*$ y $E(e_t)=0$ de manera que si calculamos el valor esperado de la ecuación   \textit{\ref{eq:ADL_1}}  y haciendo uso de sus propiedades como operador lineal, se tiene que
+ 
+ \begin{eqnarray}
+y*&=&\delta + \theta_1 y*  + \delta_0 z* + \delta_1 z* \nonumber  \\
+ y*- \theta_1 y* &=& \delta + \delta_0 z* + \delta_1 z*  \\
+ (1-\theta_1) y* &=& \delta + (\delta_0 + \delta_1)z* \nonumber 
+\end{eqnarray}
+
+que también se puede escribir como
+
+\begin{equation}
+y*= \beta_1 + \beta_2 z* \label{eq:mcoin}
+\end{equation}
+
+con $\beta_1=\frac{\delta}{1-\theta_1}$ y $\beta_2=\frac{\delta_0 + \delta_1}{1-\theta_1}$ con lo que hemos derivado la relación que mantienen estas dos variables conocido como el \textbf{término de error de equilibrio}. Regresando al supuesto de que ambas variables son $I(1)$ y cointegradas, entonces la ecuación  \textit{\ref{eq:mcoin}} será la relación de cointegración entre $Y_t$ y $Z_t$, por lo que se puede asegurar que existe relación en el largo plazo entre ellas, sin embargo, en el corto plazo puede haber desequilibro que nos gustaría capturar, de manera que usaremos este término para ajustar el comportamiento en el corto plazo de $Y_t$ a su valor en el largo plazo, corrigiendo el desequilibrio. \bigskip
+
+Para apreciar esto de manera mas concreta, se deducirá el modelo de corrección del error manipulando el modelo $ARDL(1,1)$ con una serie de operaciones algebráicas que implicarán la misma relación, ya que una se puede derivar de la otra sin modificar la igualdad. Las primeras modificaciones consisten en restar en ambos lados de la ecuación $Y_{t-1}$ y posteriormente sumar y restar en el lado derecho de la ecuación $\delta_0 Z_{t-1}$:
+
+\begin{equation}
+Y_t - Y_{t-1}=\delta + (\theta_1 -1) Y_{t-1} + \delta_0( Z_t- Z_{t-1}) + (\delta_0 + \delta_1) Z_{t-1}  + e_t 
+\end{equation}
+ 
+ Finalmente, debemos identificar los casos en donde se puede usar el operador diferencia $(\nabla)$ y factorizar $(\theta_1 -1)$ en los términos restanes
+ 
+ \begin{equation}
+\nabla Y_t =\delta + (\theta_1 -1) Y_{t-1} + \delta_0 \nabla Z_t + (\delta_0 + \delta_1) Z_{t-1}  + e_t 
+\end{equation}
+
+factorizando tenemos 
+
+ \begin{equation}
+\nabla Y_t = (\theta_1 -1)\left ( \frac{\delta}{\theta_1 -1} +  Y_{t-1} +  \frac{\delta_0 + \delta_1}{\theta_1 -1} Z_{t-1} \right ) + \delta_0 \nabla Z_t  + e_t 
+\end{equation}
+ 
+Sin embargo, al encontrar la relación de cointegración habíamos establecido los valores  $\beta_1=\frac{\delta}{1-\theta_1}$ y $\beta_2=\frac{\delta_0 + \delta_1}{1-\theta_1}$  que vuelven a aparecer en esta ecuacón:
+
+ \begin{equation}\label{eq:rcoint}
+\nabla Y_t = -\alpha \left (   Y_{t-1} - \beta_1  -\beta_2 Z_{t-1} \right ) + \delta_0 \nabla Z_t  + e_t   
+\end{equation}
+ 
+ con $\alpha=(1-\theta_1)$,\bigskip
+ 
+ Para que esta regresión, en términos estadísticos, sea válida y no genere resultados espurios se requiere que todos sus elementos sean estacionarios, sin embargo, por los supuestos establecidos, las variables son $I(1)$ y es por eso que aparecen con una diferencia, además la relación  $\left (   Y_{t-1} - \beta_1  -\beta_2 Z_{t-1} \right )$ también debe ser estacionaria para que la ecuación este balanceada, lo cual sucede únicamente cuando las variables están cointegradas, así que acabamos de hallar dentro de un modelo $ARDL$ una relación de cointegración. Por lo tanto, la variable $Y_t$ depende de la diferencia de $Z_t$ con su periodo anterior $(\nabla Z_t )$ y del término de error o desequilibrio pasado, el cual deseamos que sea cero, sin embargo cuando es distinto de cero implica que no hay equilibrio y se debe emplear el mecanismo de corrección del error, ya que este es una corrección para el equilibrio.  \bigskip
+ 
+ Si suponemos $ \nabla Z_t =0$  y al observar el término de error de equilibrio en el periodo anterior $u_{t-1}=Y_{t-1} - \beta_1  -\beta_2 Z_{t-1} $, donde $u_{t-1}$ es un proceso de ruido blanco, resulta ser positivo, $  u_{t-1}> 0$, implicaría  que no hay equilibrio en la relación, ya que $Y_{t-1}$ es más grande que su valor de equilibrio en el largo plazo $ \beta_1  + \beta_2 Z_{t-1}$, consecuentemente el valor de  $\alpha$, el cual se espera que sea mayor a cero, recibe todo el impacto por tener   $Y_{t-1} \neq  \beta_1  + \beta_2 Z_{t-1}$, dicha discrepancia puede ser producto de malas decisiones pasadas, por lo que el término $\alpha$ refleja el ajuste en el corto plazo de tales errores para el próximo periodo. En otras palabras, si tenemos que $u_{t-1}>0$ y $\alpha>0$   tendremos que $\nabla Y_t <0$, esto es $Y_t < Y_{t-1}$, por lo que $Y_t$ empezará a caer en el siguiente periodo para corregir el error de equilibrio.    \bigskip
+ 
+De manera similar, podemos conocer cuales son las implicaciones reflejadas en el modelo cuando se tiene  $Y_{t-1}< \beta_0 + \beta_1 Z_{t-1}$, es decir, nuevamente no hay equilibrio en la relación pero en este caso el valor de la variable $Y_{t-1}$ resulta ser menor que su valor de equilibrio en el largo plazo, si además conservamos el supuesto de que $\alpha >0$ entonces es fácil observar que $Y_{t}$ comenzará a aumentar para el siguiente periodo por el hecho de que $\nabla Y_t$ es positivo.\bigskip
+
+El supuesto que se establece sobre $\alpha$ implica que el valor de $\theta_1$ debe ser menor que la unidad, ya que si este fuera igual que 1 no sería posible determinar una   relación de cointegración   y en cuyo caso se tendría que la diferencia de $Y_t$ queda explicada únicamente por la diferencia de una  variable exógena $Z_t$ más el término de ruido blanco, modelo conocido como \textbf{Modelos de Vectores Autorregresivos}, $VAR$ por sus siglas en inglés. \bigskip
+
+
+El trabajo de Granger y Engel ha sido fundamental en el desarrollo de una metodología econométrica, ya que en un inicio se asumía estacionariedad en los datos, sin embargo, el modelo de corrección del error permite la existencia de unión, en una misma ecuación,  entre variables que guardan una relación a largo plazo $(Y_{t-1},Z_{t-1}) \sim I(1)$ con variables relacionadas en el corto plazo $(\nabla Y_t, \nabla Z_t) \sim I(0)$ con la única condición de que $Y_t$ y $Z_t$ estén cointegradas, de manera que el término del error de equilibrio tenga residuales estacionarios. \bigskip
+
+Un factor importante que ha contribuido a la rápida adopción de la teoría de cointegración y el modelo de corrección del error en el uso de la econometría moderna ha sido la sencillez del procedimiento que han propuesto Granger y Engel, que consiste en aplicar un método de estimación que genere estimadores consistentes de los parámetros de la ecuación de equilibrio y posteriormente estimar el $ECM$ incluyendo los errores rezagados de la ecuación de equilibrio, ya que los errores estimados nos permitirán conocer si hay una relación de largo plazo entre las variables, es decir, la formulación del mecanismo de corrección del error también puede servir para probar cointegración. Por lo tanto, el $ECM$ al ser estimado proporciona el ajuste dinámico en el corto plazo, de manera que se obtiene una mejor aproximación del proceso generador de los datos.  
+ 
+ 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%                                                   %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%% ETIQUETAS DE ECUACIONES %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%                                                   %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                                                                                                                                                                                            %
+%                                                                                                                                                                                                            %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%                          %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% INSTRUCCIÓN %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%                           %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%  En la ecuación:                                                       \label{eq:ADL}
+%  en el párrafo donde irá la referencia:                 \textit{\ref{eq:ADL}} 
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%                                                                     %%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%% INDICE DE ETIQUETAS DE ECUACIONES %%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%                                                                      %%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%  \label{eq:cap3_1}
+%  \label{eq:cap3_2}
+%  \label{table:CVC}
+%  \label{eq:ADL}
+%  \label{eq:mcoin}
+%  \label{eq:rcoint}
+%   
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+

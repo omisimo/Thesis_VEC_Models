@@ -1,0 +1,52 @@
+"0","library(urca)"
+"0","data(UKpppuip)"
+"0","names(UKpppuip)"
+"1","[1]"
+"1"," ""p1""    "
+"1"," ""p2""    "
+"1"," ""e12""   "
+"1"," ""i1""    "
+"1"," ""i2""    "
+"1"," ""doilp0"""
+"1"," ""doilp1"""
+"1","
+"
+"0","attach(UKpppuip)"
+"2","The following objects are masked from UKpppuip (pos = 3):
+
+    doilp0, doilp1, e12, i1, i2, p1, p2
+
+"
+"2","The following objects are masked from UKpppuip (pos = 4):
+
+    doilp0, doilp1, e12, i1, i2, p1, p2
+
+"
+"2","The following objects are masked from UKpppuip (pos = 5):
+
+    doilp0, doilp1, e12, i1, i2, p1, p2
+
+"
+"2","The following objects are masked from UKpppuip (pos = 6):
+
+    doilp0, doilp1, e12, i1, i2, p1, p2
+
+"
+"0","rm(p1)"
+"2","object 'p1' not found"
+"0","rm(p2)"
+"2","object 'p2' not found"
+"0","dat1 <- cbind(p1,p2,e12,i1,i2)"
+"0","dat2 <- cbind(doilp0,doilp1)"
+"0","args('ca.jo')"
+"1","function (x, type = c(""eigen"", ""trace""), ecdet = c(""none"", ""const"", 
+"
+"1","    ""trend""), K = 2, spec = c(""longrun"", ""transitory""), season = NULL, 
+"
+"1","    dumvar = NULL) 
+"
+"1","NULL
+"
+"0","H1 <- ca.jo(dat1, type='trace',K=2,season=4,dumvar=dat2)"
+"0","H1.trace <- summary(ca.jo(dat1,type='trace',K=2,season=4,dumvar=dat2))"
+"0","H1.eigen <- summary(ca.jo(dat1,type='eigen',K=2,season=4,dumvar=dat2))"

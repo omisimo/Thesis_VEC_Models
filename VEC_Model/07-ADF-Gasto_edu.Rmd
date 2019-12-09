@@ -1,0 +1,73 @@
+# Orden Integración de la serie Gasto en Educación
+
+
+```{r}
+gf1 <- grafica_serie(base_in = series_db, 
+                      eje_y = 'Gasto_Educacion_PorcGDP', 
+                      titulo = 'Gasto en Educación Pública (%PIB)', 
+                      titulo_y = 'Gasto en Educación Pública')
+gf1
+```
+
+
+```{r}
+edu <- ts(series_db$Gasto_Educacion_PorcGDP,start = 1991, end = 2016, frequency = 1)
+edu.ct <- ur.df(edu,lags=4,type='trend')
+summary(edu.ct)
+```
+
+```{r}
+
+plot(edu.ct)
+
+```
+
+El valor del estadístico-t para la hipótesis nula de $\gamma=0$ y el valor crítico de $\tau$ a univel de significancia del 5% reportado en las tablas de Dickey-Fuller demuestran que no es posible rechazar la hipótesis nula de la existencia de una raíz unitaria dada la presencia del término constante (drift) y la tendencia temporal (trend).
+
+Recordemos que el poder de la prueba puede verse reducido debido a la presencia de términos drift/trend innecesarios, por lo que probaremos si la presencia del término temporal es necesaria dada una raíz unitaria. Para ello utilizaremos el estadístico $\phi_3$ que prueba la hipótesis conjunta $a_2=\gamma=0$. Derivado de los resultados mostrados en las tablas anteriores, se puede aceptar la hipótesis nula, por lo que se tiene una raíz unitaria sin la presencia de un término temporal.
+
+Probaremos si la serie requiere del término constante:
+
+```{r}
+edu.co <- ur.df(edu,type='drift',lags=4)
+summary(edu.co)
+```
+
+```{r}
+plot(edu.co)
+```
+
+
+Derivado de los resultados anteriores se puede observar que la serie requiere la presencia de un término constante, por lo que veremos si alcanzamos estacionariedad diferenciando la serie
+
+
+```{r}
+d.edu <- diff(edu,differences = 1)
+d.edu.n <- ur.df(d.edu,type="none",lags=3)
+summary(d.edu.n)
+```
+
+```{r}
+
+plot(d.edu.n)
+
+```
+
+
+
+
+Por lo tanto. La serie de gasto en educación es $I(1)$ y de la forma $\nabla y_t = \alpha_0 + \gamma y_{t-1}+ \epsilon_t$.
+
+```{r}
+plot(edu)
+plot(diff(edu, differences = 1))
+plot(diff(edu, differences = 2))
+plot(diff(edu, differences = 3))
+```
+
+```{r}
+var(edu)
+var(diff(edu, differences = 1))
+var(diff(edu, differences = 2))
+var(diff(edu, differences = 3))
+```

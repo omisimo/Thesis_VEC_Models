@@ -1,0 +1,5 @@
+"0","gf1 <- grafica_serie(base_in = series_db, "
+"0","                      eje_y = 'log_GDP_constante', "
+"0","                      titulo = 'Logaritmo del PIB a precios constantes', "
+"0","                      titulo_y = 'log(PIB Constante)')"
+"0","gf1"

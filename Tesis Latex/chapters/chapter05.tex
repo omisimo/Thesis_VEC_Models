@@ -1,0 +1,134 @@
+% !TEX encoding = UTF-8 Unicode
+
+
+\section{Rango de Cointegración}\label{chap:rank}
+
+
+En esta sección se llevarán a cabo las pruebas de orden de integración sobre un contexto multivariado para analizar la existencia de una relación estable de largo plazo entre factores que denotan la capacidad productiva de la economía mexicana, tales como el Producto Interno Bruto y la Recaudación Impositiva, con factores que reflejan el impacto de las políticas públicas en la sociedad mexicana tales como el Desempleo, Gasto en Salud Pública y el Gasto en Educación Pública. Recordemos que las series tienen una periodicidad anual desde 1991 hasta 2016 y en el caso particular del Producto Interno Bruto, se encuentra expresado a precios constantes y en logaritmo natural. Con base en los resultados mostrados en la sección \ref{pruebas_orden_integracion} en la cual se exhibe que las series incluidas en este análisis son integradas de orden 1, $I(1)$, nos permite realizar la búsqueda de combinaciones lineales estacionarias (rango de cointegración) a través de las pruebas de hipótesis de la traza y del máximo eigenvalor para determinar el rango de la matriz $\Pi$ del modelo VECM especificado de la siguiente manera:
+
+
+\begin{equation} 
+	\nabla Z_t=  \mu +   \Pi{Z}_{t-1} + \sum_{i=1}^{p-1}\Gamma_i\nabla Z_{t-i} +  e_t
+\end{equation}
+
+donde el vector $Z_t$ contiene a los elementos $(ln(PIB), Edu, Salud, Rec)'$, el vector $\mu$ es un vector de constantes y el proceso del error de 4 dimensiones $e_t$ se asume que es $N(0,\sigma)$ $i.i.d$ para $t = 1, \cdots, T$. De tal manera que la prueba de hipótesis $H_i (r) : \Pi=\alpha\beta'$ evalúa si $\Pi$ es de rango reducido probando los estadísticos del máximo eigenvalor y de la traza. A continuación, se muestran los resultados de las pruebas: \bigskip
+
+
+\begin{table}[H]
+\begin{center}
+    \begin{tabular}{rrrrr}
+    \hline
+    \multicolumn{5}{c}{Máximo Eigenvalor} \\
+        \cline{1-5}
+        Prueba    		& Estadístico 		& 10pct 		& 5pct 		& 1pct \\
+        \hline
+        $r <= 3$		& 0.2680195		& 6.50		& 8.18		& 11.65    \\
+        $r <= 2$		& 8.2179845		& 12.91		& 14.90		& 19.19    \\
+        $r <= 1$		& 18.2540706		& 18.90		& 21.07		& 25.75   \\
+        $r <= 0$		& 34.9647411		& 24.78		& 27.14		& 32.14   \\
+        \hline
+    \end{tabular}
+\end{center}
+\caption {Rango de Cointegración: estadístico del máximo eigenvalor} \label{tab:eigen} 
+\end{table}
+
+
+Por un lado, considerando  el estadístico del máximo eigenvalor, el cual evalúa la prueba de hipótesis $H_0:rank(\Pi)=r$ vs $H_a:rank(\Pi)=r+1$, la hipótesis de no cointegración puede ser rechazada a un nivel del 1\% de significancia. Sin embargo, la prueba de existencia de 1 relación de cointegración vs 2 relaciones de cointegración no puede ser rechazada a un nivel de 5\%. Por lo tanto, de acuerdo con el estadístico del máximo eigenvalor existe únicamente una relación de cointegración entre las series.
+
+\begin{table}[H]
+\begin{center}
+    \begin{tabular}{rrrrr}
+    \hline
+    \multicolumn{5}{c}{Traza} \\
+        \cline{1-5}
+        Prueba    		& Estadístico 		& 10pct 		& 5pct 		& 1pct \\
+        \hline
+        $r <= 3$		& 0.2680195		& 6.50		& 8.18		& 11.65    \\
+        $r <= 2$		& 8.4860040		& 15.66		& 17.95		& 23.52    \\
+        $r <= 1$		& 26.7400746		& 28.71		& 31.52		& 37.22   \\
+        $r <= 0$		& 61.7048157		& 45.23		& 48.28		& 55.43   \\
+        \hline
+    \end{tabular}
+\end{center}
+\caption {Rango de Cointegración: estadístico de la Traza} \label{tab:traza} 
+\end{table}
+
+
+Por otro lado, en la tabla anterior se pueden observar los resultados de la prueba de la traza que evalúa la hipótesis $H_0: rank(\Pi)\leq r$, a partir de la cual se pueden reforzar las conclusiones obtenidas en la prueba del máximo eigenvalor. Es decir, la hipótesis de no cointegración puede ser rechazada a un nivel confianza del 1\% y la prueba $rank(\Pi) \leq 1$ no puede ser rechazada a un nivel del 10\% de confianza por lo cual se acepta la hipótesis nula concluyendo que el espacio de cointegración es de $r=1$ y por lo tanto, únicamente existe una relación de cointegración estacionaria entre las series del respectivo análisis. Se ha considerado también, si esta conclusión podría ser errónea debido a la cercanía de los eigenvalores, por lo que se muestran a continuación:
+
+
+\begin{table}[H]
+\begin{center}
+    \begin{tabular}{rrrr}
+    \hline
+    \multicolumn{4}{c}{Eigenvalores} \\
+        \cline{1-4}
+        $\lambda_1$    		& $\lambda_2$  		& $\lambda_3$  		& $\lambda_4$ \\
+        \hline
+        $0.76703434$		& 0.53260767			& 0.28994725			& 0.01110535	   \\
+        \hline
+    \end{tabular}
+\end{center}
+\caption {Eigenvalores de la matriz $\Pi$} \label{tab:eigenvalues_list} 
+\end{table}
+
+
+En donde se puede observar que $\lambda_2$ no está lo suficientemente cerca de $\lambda_1$ como para sesgar las pruebas de hipótesis. Además, Johansen y Juselius [1992] analizan las matrices $\hat{\alpha}$ y $\hat{\beta}$, así como las relaciones de cointegración $\hat{\beta}'Z_t$. La matriz de cointegración ha sido normalizada al logaritmo natural del PIB y por lo tanto, la matriz $\hat{\alpha}$ ha sido ajustada con dicha normalización.
+   
+\begin{table}[H]
+\begin{center}
+    \begin{tabular}{rrrrr}
+    \hline
+    \multicolumn{5}{c}{Matriz $\hat{\beta}$ } \\
+        \cline{1-5}
+        			  		& ln\_pib\_cte.l1	 		& edu.l1		  		& salud.l1			&	rec\_imp.l1 \\
+        \hline
+        ln\_pib\_cte.l1		& 1.0000000			& 1.00000000			& 1.0000000		& 	1.0000000	   \\
+        edu.l1			& -0.2734779			&  -0.12722367			& -0.8329062		& 	  -0.4709689  \\
+        salud.l1			& -0.3187240			&  -0.14485981			& 1.3555847		& 	 -0.7250595  \\
+        rec\_imp.l1			& 0.2359534			& -0.02050015			& -0.2056044		& 	  -0.4166424  \\
+        \hline
+    \end{tabular}
+\end{center}
+\caption {Eigenvectores} \label{tab:eigenvectors} 
+\end{table}
+
+En la matriz $\hat{\beta}$ se pueden observar los vectores de cointegración, de tal manera que la primera columna corresponde al vector de cointegración asociado con el eigenvalor más grande. 
+
+
+  \begin{table}[H]
+\begin{center}
+    \begin{tabular}{rrrrr}
+    \hline
+    \multicolumn{5}{c}{Matriz $\hat{\alpha}$ } \\
+        \cline{1-5}
+        			  		& ln\_pib\_cte.l1	 		& edu.l1		  		& salud.l1			&	rec\_imp.l1 \\
+        \hline
+        ln\_pib\_cte.l1		& 0.02575836				& -0.1945384			& -0.01292212		& -0.004630415	   \\
+        edu.l1			&0.81182331				&  1.8215325 			& 0.14885276		&  0.008440650  \\
+        salud.l1			& -0.10602593 				& 0.7318614 			&-0.18202612		& -0.004282401  \\
+        rec\_imp.l1		&-2.42505459				&  8.1784032			&  0.50872868 		&-0.058362273  \\
+        \hline
+    \end{tabular}
+\end{center}
+\caption {Velocidades de Ajuste} \label{tab:weights} 
+\end{table}
+     
+Al observar la matriz $\hat{\alpha}$ se puede concluir que las velocidades de ajuste de las relaciones de cointegración parecen ser distintas de cero, esto significa que la relación de cointegración juega un papel importante en la dinámica de corto plazo de las series, aunque aún falta validar que dicha relación de cointegración es estadísticamente significativa en cada serie. Finalmente, podemos analizar la relación de cointegración de manera visual:
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=13cm,height=8cm]{Graf_rel_coint.pdf}
+\caption{Gráfica Relaciones de Cointegración}
+\label{graf_rel_coint}
+\end{figure}
+
+Debido a que el rango de la matriz $\Pi$ fue $r=1$, entonces la primera relación de cointegración debería comportarse como un proceso estacionario, lo cual se ratifica en la gráfica anterior. Por lo tanto, basado en los resultados de las pruebas de hipótesis, los elementos de la matriz  $\hat{\alpha}$ y $\hat{\beta}$ y la forma de las trayectorias de las relaciones de cointegración, se puede concluir que existe únicamente una relación de cointegración entre las series.
+
+
+
+
+
+
+
+

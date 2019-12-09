@@ -1,0 +1,4 @@
+"0","ln_pib_cte <-  series_db$log_GDP_constante"
+"0","edu <- series_db$Gasto_Educacion_PorcGDP"
+"0","salud <- series_db$Gasto_Salud_PorcGDP"
+"0","rec_imp <- series_db$Recaudacion_Impositiva_PorcGDP"

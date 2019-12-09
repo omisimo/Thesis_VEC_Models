@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Código Tesis</title>
+  <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook.">
+  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Código Tesis" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Código Tesis" />
+  
+  <meta name="twitter:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  
+
+<meta name="author" content="Omar Díaz Landa">
+
+
+<meta name="date" content="2019-03-12">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="references.html">
+<link rel="next" href="Anexos.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Tesis Omar Díaz Landa</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Prerequisitos</a></li>
+<li class="chapter" data-level="2" data-path="datos.html"><a href="datos.html"><i class="fa fa-check"></i><b>2</b> Lectura de datos</a><ul>
+<li class="chapter" data-level="2.1" data-path="datos.html"><a href="datos.html#graficamos-las-series-de-datos"><i class="fa fa-check"></i><b>2.1</b> Graficamos las series de datos</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="datos.html"><a href="datos.html#producto-interno-bruto"><i class="fa fa-check"></i><b>2.1.1</b> Producto Interno Bruto</a></li>
+<li class="chapter" data-level="2.1.2" data-path="datos.html"><a href="datos.html#recaudacion-fiscal"><i class="fa fa-check"></i><b>2.1.2</b> Recaudación Fiscal</a></li>
+<li class="chapter" data-level="2.1.3" data-path="datos.html"><a href="datos.html#gasto-en-salud-publica"><i class="fa fa-check"></i><b>2.1.3</b> Gasto en Salud Pública</a></li>
+<li class="chapter" data-level="2.1.4" data-path="datos.html"><a href="datos.html#gasto-en-educacion-publica"><i class="fa fa-check"></i><b>2.1.4</b> Gasto en Educación Pública</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="orden-de-integracion-teoria.html"><a href="orden-de-integracion-teoria.html"><i class="fa fa-check"></i><b>3</b> Orden de Integración (Teoría)</a></li>
+<li class="chapter" data-level="4" data-path="orden-integracion-pib-a-precios-corrientes.html"><a href="orden-integracion-pib-a-precios-corrientes.html"><i class="fa fa-check"></i><b>4</b> Orden Integración PIB a precios corrientes</a></li>
+<li class="chapter" data-level="5" data-path="orden-de-integracion-lnpib-a-precios-corrientes.html"><a href="orden-de-integracion-lnpib-a-precios-corrientes.html"><i class="fa fa-check"></i><b>5</b> Orden de Integración ln(PIB) a precios corrientes</a></li>
+<li class="chapter" data-level="6" data-path="orden-integracion-de-la-serie-recaudacion-impositiva.html"><a href="orden-integracion-de-la-serie-recaudacion-impositiva.html"><i class="fa fa-check"></i><b>6</b> Orden Integración de la serie Recaudación Impositiva</a></li>
+<li class="chapter" data-level="7" data-path="orden-integracion-de-la-serie-gasto-en-salud.html"><a href="orden-integracion-de-la-serie-gasto-en-salud.html"><i class="fa fa-check"></i><b>7</b> Orden Integración de la serie Gasto en Salud</a></li>
+<li class="chapter" data-level="8" data-path="orden-integracion-de-la-serie-gasto-en-educacion.html"><a href="orden-integracion-de-la-serie-gasto-en-educacion.html"><i class="fa fa-check"></i><b>8</b> Orden Integración de la serie Gasto en Educación</a></li>
+<li class="chapter" data-level="9" data-path="orden-integracion-de-la-serie-lnpib-a-precios-ctes.html"><a href="orden-integracion-de-la-serie-lnpib-a-precios-ctes.html"><i class="fa fa-check"></i><b>9</b> Orden Integración de la serie ln(PIB) a precios ctes</a></li>
+<li class="chapter" data-level="10" data-path="cointegracion-teoria.html"><a href="cointegracion-teoria.html"><i class="fa fa-check"></i><b>10</b> Cointegración (Teoría)</a></li>
+<li class="chapter" data-level="11" data-path="cointegracion-analisis.html"><a href="cointegracion-analisis.html"><i class="fa fa-check"></i><b>11</b> Cointegración (Análisis)</a><ul>
+<li class="chapter" data-level="11.1" data-path="cointegracion-analisis.html"><a href="cointegracion-analisis.html#determinacion-del-rango-de-cointegracion"><i class="fa fa-check"></i><b>11.1</b> Determinación del Rango de Cointegración</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="estimacion-del-modelo.html"><a href="estimacion-del-modelo.html"><i class="fa fa-check"></i><b>12</b> Estimación del modelo</a><ul>
+<li class="chapter" data-level="12.1" data-path="estimacion-del-modelo.html"><a href="estimacion-del-modelo.html#modelo-1-vecm-con-k2-lags-y-r1-relaciones-de-cointegracion"><i class="fa fa-check"></i><b>12.1</b> Modelo 1: VECM con K=2 (lags), y r=1 (relaciones de cointegración)</a></li>
+<li class="chapter" data-level="12.2" data-path="estimacion-del-modelo.html"><a href="estimacion-del-modelo.html#modelo-2-vecm-con-k2-lags-y-r2-relaciones-de-cointegracion"><i class="fa fa-check"></i><b>12.2</b> Modelo 2: VECM con K=2 (lags), y r=2 (relaciones de cointegración)</a></li>
+<li class="chapter" data-level="12.3" data-path="estimacion-del-modelo.html"><a href="estimacion-del-modelo.html#modelo-3-vecm-con-k3-lags-y-r1-relaciones-de-cointegracion"><i class="fa fa-check"></i><b>12.3</b> Modelo 3: VECM con K=3 (lags), y r=1 (relaciones de cointegración)</a></li>
+<li class="chapter" data-level="12.4" data-path="estimacion-del-modelo.html"><a href="estimacion-del-modelo.html#modelo-4-vecm-con-k3-lags-y-r2-relaciones-de-cointegracion"><i class="fa fa-check"></i><b>12.4</b> Modelo 4: VECM con K=3 (lags), y r=2 (relaciones de cointegración)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="chapter" data-level="13" data-path="interpolacion-serie-educacion.html"><a href="interpolacion-serie-educacion.html"><i class="fa fa-check"></i><b>13</b> Interpolación Serie Educación</a><ul>
+<li class="chapter" data-level="13.1" data-path="interpolacion-serie-educacion.html"><a href="interpolacion-serie-educacion.html#version-2-del-pronositico"><i class="fa fa-check"></i><b>13.1</b> version 2 del pronositico</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="Anexos.html"><a href="Anexos.html"><i class="fa fa-check"></i><b>14</b> Anexos</a><ul>
+<li class="chapter" data-level="14.1" data-path="Anexos.html"><a href="Anexos.html#descripcion-de-las-series"><i class="fa fa-check"></i><b>14.1</b> Descripción de las series</a></li>
+<li class="chapter" data-level="14.2" data-path="Anexos.html"><a href="Anexos.html#bibliografia"><i class="fa fa-check"></i><b>14.2</b> Bibliografia</a></li>
+<li class="chapter" data-level="14.3" data-path="Anexos.html"><a href="Anexos.html#dudas"><i class="fa fa-check"></i><b>14.3</b> Dudas</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Código Tesis</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="interpolacion-serie-educacion" class="section level1">
+<h1><span class="header-section-number">Chapter 13</span> Interpolación Serie Educación</h1>
+<p>Veamos la serie original</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(imputeTS)</code></pre></div>
+<pre><code>## 
+## Attaching package: &#39;imputeTS&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:zoo&#39;:
+## 
+##     na.locf</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(forecast)
+serie_edu_unfill &lt;-<span class="st"> </span><span class="kw">read_excel</span>(<span class="st">&quot;Datos/Series Tesis Recolección.xlsx&quot;</span>,<span class="dt">sheet =</span><span class="st">&quot;Gasto en Educación&quot;, na = &quot;</span>NA<span class="st">&quot;)</span>
+
+<span class="st">serie_edu_unfill &lt;- serie_edu_unfill[1:26,]</span>
+<span class="st">serie_edu_unfill</span></code></pre></div>
+<pre><code>## # A tibble: 26 x 2
+##    Fecha Gasto_Educacion_PorcGDP
+##    &lt;dbl&gt;                   &lt;dbl&gt;
+##  1  1989                    2.27
+##  2  1990                    2.31
+##  3  1991                    2.54
+##  4  1992                    3   
+##  5  1993                   NA   
+##  6  1994                    3.65
+##  7  1995                    3.87
+##  8  1996                   NA   
+##  9  1997                   NA   
+## 10  1998                    3.53
+## # ... with 16 more rows</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">aux &lt;-<span class="st"> </span><span class="kw">as.ts</span>(serie_edu_unfill<span class="op">$</span>Gasto_Educacion_PorcGDP)
+<span class="kw">statsNA</span>(aux)</code></pre></div>
+<pre><code>## [1] &quot;Length of time series:&quot;
+## [1] 26
+## [1] &quot;-------------------------&quot;
+## [1] &quot;Number of Missing Values:&quot;
+## [1] 3
+## [1] &quot;-------------------------&quot;
+## [1] &quot;Percentage of Missing Values:&quot;
+## [1] &quot;11.5%&quot;
+## [1] &quot;-------------------------&quot;
+## [1] &quot;Stats for Bins&quot;
+## [1] &quot;  Bin 1 (7 values from 1 to 7) :      1 NAs (14.3%)&quot;
+## [1] &quot;  Bin 2 (7 values from 8 to 14) :      2 NAs (28.6%)&quot;
+## [1] &quot;  Bin 3 (7 values from 15 to 21) :      0 NAs (0%)&quot;
+## [1] &quot;  Bin 4 (5 values from 22 to 26) :      0 NAs (0%)&quot;
+## [1] &quot;-------------------------&quot;
+## [1] &quot;Longest NA gap (series of consecutive NAs)&quot;
+## [1] &quot;2 in a row&quot;
+## [1] &quot;-------------------------&quot;
+## [1] &quot;Most frequent gap size (series of consecutive NA series)&quot;
+## [1] &quot;2 NA in a row (occuring 1 times)&quot;
+## [1] &quot;-------------------------&quot;
+## [1] &quot;Gap size accounting for most NAs&quot;
+## [1] &quot;2 NA in a row (occuring 1 times, making up for overall 2 NAs)&quot;
+## [1] &quot;-------------------------&quot;
+## [1] &quot;Overview NA series&quot;
+## [1] &quot;  1 NA in a row: 1 times&quot;
+## [1] &quot;  2 NA in a row: 1 times&quot;</code></pre>
+<p>interpolamos los vacios entre las series</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">aux2 &lt;-<span class="st"> </span><span class="kw">na.interp</span>(aux)
+aux2</code></pre></div>
+<pre><code>## Time Series:
+## Start = 1 
+## End = 26 
+## Frequency = 1 
+##  [1] 2.270000 2.310000 2.540000 3.000000 3.325000 3.650000 3.870000
+##  [8] 3.756667 3.643333 3.530000 3.660000 4.130000 4.430000 4.640000
+## [15] 5.190000 4.800000 4.910000 4.750000 4.730000 4.860000 5.220000
+## [22] 5.190000 5.150000 5.170000 4.740000 5.330000</code></pre>
+<p>graficamos las series</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(aux)</code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-161-1.png" width="672" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(aux2)</code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-161-2.png" width="672" /></p>
+<p>Ajustamos un modelo arima para pronosticar los siguietnes dos puntos</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">modelo&lt;-<span class="kw">auto.arima</span>(aux2)
+<span class="kw">summary</span>(modelo)</code></pre></div>
+<pre><code>## Series: aux2 
+## ARIMA(0,1,0) with drift 
+## 
+## Coefficients:
+##        drift
+##       0.1224
+## s.e.  0.0527
+## 
+## sigma^2 estimated as 0.07236:  log likelihood=-2.14
+## AIC=8.28   AICc=8.82   BIC=10.71
+## 
+## Training set error measures:
+##                        ME      RMSE       MAE       MPE     MAPE      MASE
+## Training set 8.259996e-05 0.2584528 0.2084518 0.1304937 4.945747 0.8862748
+##                      ACF1
+## Training set -0.002651446</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(aux2,<span class="dt">type=</span><span class="st">&quot;l&quot;</span>,<span class="dt">col=</span><span class="st">&quot;red&quot;</span>)
+<span class="kw">lines</span>(<span class="kw">as.ts</span>(modelo<span class="op">$</span>fitted),<span class="dt">col=</span><span class="st">&quot;green&quot;</span>)</code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-163-1.png" width="672" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">pronostico&lt;-<span class="st"> </span><span class="kw">forecast</span>(modelo,<span class="dv">2</span>,<span class="dt">level=</span><span class="dv">95</span>)
+
+<span class="kw">plot</span>(pronostico,<span class="dt">main=</span><span class="st">&quot;Pronóstico con auto.arima&quot;</span>)</code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-164-1.png" width="672" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">matriz.pronosticos &lt;-<span class="kw">data.frame</span>(pronostico<span class="op">$</span>mean,pronostico<span class="op">$</span>lower,pronostico<span class="op">$</span>upper)
+matriz.pronosticos</code></pre></div>
+<pre><code>##   pronostico.mean     X95.   X95..1
+## 1          5.4524 4.925158 5.979642
+## 2          5.5748 4.829167 6.320433</code></pre>
+<p>regresamos el prónostico al dataframe</p>
+<div id="version-2-del-pronositico" class="section level2">
+<h2><span class="header-section-number">13.1</span> version 2 del pronositico</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">mean</span>(aux2)</code></pre></div>
+<pre><code>## [1] 4.184423</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">mean</span>(<span class="kw">diff</span>(aux2))</code></pre></div>
+<pre><code>## [1] 0.1224</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">mean</span>(<span class="kw">diff</span>(<span class="kw">diff</span>(aux2)))</code></pre></div>
+<pre><code>## [1] 0.02291667</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">acf</span>(aux2)</code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-167-1.png" width="672" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">acf</span>(<span class="kw">diff</span>(aux2))</code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-167-2.png" width="672" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">acf</span>(<span class="kw">diff</span>(<span class="kw">diff</span>(aux2)))</code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-167-3.png" width="672" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">var</span>(aux2)</code></pre></div>
+<pre><code>## [1] 0.8982895</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">var</span>(<span class="kw">diff</span>(aux2))</code></pre></div>
+<pre><code>## [1] 0.07236414</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">var</span>(<span class="kw">diff</span>(<span class="kw">diff</span>(aux2)))</code></pre></div>
+<pre><code>## [1] 0.1410595</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(aux2)</code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-169-1.png" width="672" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(<span class="kw">diff</span>(aux2))</code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-169-2.png" width="672" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(<span class="kw">diff</span>(<span class="kw">diff</span>(aux2)))</code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-169-3.png" width="672" /></p>
+<p>la serie parece ser I(1).</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(<span class="st">&#39;tseries&#39;</span>)</code></pre></div>
+<pre><code>## 
+## Attaching package: &#39;tseries&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:imputeTS&#39;:
+## 
+##     na.remove</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">count_d1 =<span class="st"> </span><span class="kw">diff</span>(aux2, <span class="dt">differences =</span> <span class="dv">1</span>)
+<span class="kw">plot</span>(count_d1)</code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-170-1.png" width="672" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">adf.test</span>(count_d1, <span class="dt">alternative =</span> <span class="st">&quot;stationary&quot;</span>)</code></pre></div>
+<pre><code>## 
+##  Augmented Dickey-Fuller Test
+## 
+## data:  count_d1
+## Dickey-Fuller = -2.8183, Lag order = 2, p-value = 0.2606
+## alternative hypothesis: stationary</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(<span class="kw">ur.df</span>(count_d1,<span class="dt">lags=</span><span class="dv">0</span>,<span class="dt">type=</span><span class="st">&#39;drift&#39;</span>))</code></pre></div>
+<pre><code>## 
+## ############################################### 
+## # Augmented Dickey-Fuller Test Unit Root Test # 
+## ############################################### 
+## 
+## Test regression drift 
+## 
+## 
+## Call:
+## lm(formula = z.diff ~ z.lag.1 + 1)
+## 
+## Residuals:
+##      Min       1Q   Median       3Q      Max 
+## -0.55599 -0.18430  0.00385  0.19965  0.46316 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)  0.12603    0.06187   2.037 0.053855 .  
+## z.lag.1     -1.00190    0.22826  -4.389 0.000233 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 0.2804 on 22 degrees of freedom
+## Multiple R-squared:  0.4669, Adjusted R-squared:  0.4426 
+## F-statistic: 19.27 on 1 and 22 DF,  p-value: 0.0002331
+## 
+## 
+## Value of test-statistic is: -4.3893 9.7131 
+## 
+## Critical values for test statistics: 
+##       1pct  5pct 10pct
+## tau2 -3.75 -3.00 -2.63
+## phi1  7.88  5.18  4.12</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">Acf</span>(count_d1, <span class="dt">main=</span><span class="st">&#39;ACF for Differenced Series&#39;</span>)</code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-171-1.png" width="672" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">Pacf</span>(count_d1, <span class="dt">main=</span><span class="st">&#39;PACF for Differenced Series&#39;</span>)</code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-171-2.png" width="672" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">fit2 =<span class="st"> </span><span class="kw">arima</span>(aux2, <span class="dt">order=</span><span class="kw">c</span>(<span class="dv">4</span>,<span class="dv">1</span>,<span class="dv">4</span>))
+
+fit2</code></pre></div>
+<pre><code>## 
+## Call:
+## arima(x = aux2, order = c(4, 1, 4))
+## 
+## Coefficients:
+##           ar1     ar2      ar3      ar4     ma1     ma2     ma3      ma4
+##       -0.3674  0.2608  -0.2477  -0.1629  0.4902  0.5539  0.7730  -0.2907
+## s.e.   0.6030  0.4189   0.2670   0.2572  0.5967  0.6155  0.6205   0.6338
+## 
+## sigma^2 estimated as 0.04236:  log likelihood = 0.84,  aic = 16.32</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">tsdisplay</span>(<span class="kw">residuals</span>(fit2), <span class="dt">lag.max=</span><span class="dv">15</span>, <span class="dt">main=</span><span class="st">&#39;Seasonal Model Residuals&#39;</span>)</code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-172-1.png" width="672" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">fcast &lt;-<span class="st"> </span><span class="kw">forecast</span>(fit2, <span class="dt">h=</span><span class="dv">2</span>,<span class="dt">level=</span><span class="dv">95</span>)
+<span class="kw">plot</span>(fcast)</code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-173-1.png" width="672" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">matriz.pronosticos &lt;-<span class="kw">data.frame</span>(fcast<span class="op">$</span>mean,fcast<span class="op">$</span>lower,fcast<span class="op">$</span>upper)
+matriz.pronosticos</code></pre></div>
+<pre><code>##   fcast.mean     X95.   X95..1
+## 1   5.256603 4.831780 5.681426
+## 2   5.612957 4.982007 6.243908</code></pre>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="references.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="Anexos.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/89-Interpolacion-Educacion.Rmd",
+"text": "Edit"
+},
+"download": ["bookdown-demo.pdf", "bookdown-demo.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "";
+    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

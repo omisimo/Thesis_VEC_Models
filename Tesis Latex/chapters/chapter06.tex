@@ -1,0 +1,167 @@
+% !TEX encoding = UTF-8 Unicode
+
+
+\section{Estimación del Modelo}
+
+
+Con los análisis realizados hasta este momento, se cuenta con dos de los tres factores necesarios para realizar la estimación de un modelo VEC. Es decir, se requiere conocer el orden de integración de las series, el número de retrasos a incluir en el modelo y finalmente conocer la existencia de una o más relaciones de cointegración entre las series. Por lo que en primer lugar y con base en lo exhibido en el capítulo ~\ref{pruebas_orden_integracion}  podemos concluir que a partir del cálculo de los estadísticos básicos, las gráficas de las series de tiempo, así como las pruebas de raíz unitaria vía ADF hemos logrado concluir que las series son integradas de orden uno $I(1)$.  En segundo lugar, para la estimación del modelo VEC se considera que un valor apropiado de rezagos es de $p=1$ debido a que en la medida en que se agregan más rezagos al modelo, el número de grados de libertad se reduce drásticamente. Esto es causado por la pérdida de datos que ocurre al aplicar el operador diferencia sobre las series y por el incremento en el número de parámetros adicionales a estimar.  De manera ilustrativa analizaremos la pérdida de datos cuando se estima un modelo VEC con $p=1$ y un modelo VEC con $p=2$, es decir,  si consideramos que cada una de las series cuenta con $n=26$ datos y que $p=1$ o dicho de otra manera, que uno de los componentes que intervienen en el modelo es $\nabla z_{t-1}$ cuya construcción implica una pérdida de $2$ datos del total, uno por el retraso de la serie y otro por el operador diferencia, adicionalmente en un modelo VEC con $p=1$ se deben estimar $6$ parámetros como veremos a continuación, por lo que los grados de libertad finales son $gl=26-2-6=18$. En el caso del modelo VEC con $p=2$ el componente a construir es $\nabla z_{t-2}$ que representa perder $3$ datos y los parámetros a estimar son $10$ por lo que los grados de libertad son $gl=26-3-10=13$, lo cual implica una reducción del $28\%$ en los grados de libertad y que para la estimación se utilice únicamente el 57\% de la información, lo cual tiene un impacto negativo en el proceso de estimación. Finalmente, con base en lo reportado en el capítulo ~\ref{chap:rank} se determinó que únicamente existe una relación de cointegración entre las series de tiempo. 
+
+Por lo tanto, ya nos encontramos en posición para realizar la estimación del modelo VEC bajo la restricción de la existencia de una única relación de cointegración. De acuerdo con lo mencionado anteriormente, se agregará un solo retraso de las variables al modelo y los resultados se muestran a continuación:
+
+
+\begin{table}[H]
+\begin{center}
+    \begin{tabular}{rrrrr}
+    \hline
+    \multicolumn{5}{c}{VEC Model } \\
+        \cline{1-5}
+        			  				& $\nabla ln\_pib\_cte_t \sim$		 	& $\nabla edu_t \sim$			  	& $\nabla salud_t \sim$	& $\nabla rec\_imp_t \sim$  \\
+        \hline
+        ect1						&	0.03 							&	0.81 **  						&	-0.11     			&	-2.43 *	\\
+        							&	(0.03) 						&	(0.22)   						&	(0.14)  			&	(0.93) 	\\
+        constant					&	-0.75							&	-24.68 **   					&	13.22    			&	73.99 *	\\
+        							&	(1.02) 						&	(6.83)  						&	(4.28)  			&	(28.43) 	\\
+        $\nabla ln\_pib\_cte_{t-1}$		&	-0.25							&	-2.43 						&	1.05				&	14.00 	\\
+        							&	(0.25)						&	(1.66)   						&	(1.04) 			&	(6.91)  	\\
+         $\nabla edu_{t-1}$			&	-0.03							&	-0.29 						&	0.21 				&	0.99   	\\
+        							&	(0.03) 						&	(0.19)						&	(0.12)			&	(0.80)	\\
+        $\nabla salud_{t-1}$			&	-0.06							&	0.08   						&	0.15   			&	-2.00		\\
+        							&	(0.05)						&	(0.34)						&	(0.21)   			&	(1.42) 	\\
+        $\nabla rec\_imp_{t-1}$		&	-0.00							&	-0.15 * 						&	-0.03     			&	0.35		\\
+        							&	(0.01) 						&	(0.06)   						&	(0.03)   			&	(0.23)	\\
+	\cline{1-5}
+	$R^2$					&	0.48   						&	0.52     						&	0.30        			&	0.37  	\\
+	Adj. $R^2$				&	0.31    						&	0.37         						&	0.06            		&	0.17   	\\
+	Num. obs. 				&	24   							&	24      						&	24       			&	24	 	\\
+	RMSE					&	0.03   						&	0.22           					&	0.14           		&	0.93  	\\
+	\cline{1-5}
+	*** p < 0.001				&	 ** p < 0.01					&	* p < 0.05						&					&			\\
+        \hline
+    \end{tabular}
+\end{center}
+\caption {VECM} \label{tab:VECM_est} 
+\end{table}
+
+
+En la tabla anterior se muestra la ecuación estimada en el modelo para cada una de las series. Como se puede observar, los retrasos de cada una de las series seleccionadas parecen no ser significativas en el modelo VECM para las series del PIB, Gasto en Salud y Recaudación Impositiva a diferencia de la serie del Gasto en Educación, en la cual el retraso de la recaudación impositiva parece ser significativa y con coeficiente negativo. Esto quiere decir que ante una reducción de la recaudación impositiva se observará un impacto positivo en el gasto en educación. Si bien esto va en contra de lo que la lógica nos indica, los datos respaldan el signo del coeficiente en el modelo. A continuación se muestra la relación que guardan la serie $\nabla edu_t$ con $\nabla rec\_imp_{t-1}$ en donde se puede observar que en general, cuando ocurre una reducción en la recaudación impositiva, el gasto en educación pública incrementa.
+
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=14cm,height=17cm,keepaspectratio]{Rel_edu_rec.pdf}
+\caption{Relación $\nabla edu_t$ con $\nabla rec\_imp_{t-1}$}
+\label{rel_edu_recl}
+\end{figure}
+
+Interpretar así este coeficiente resulta ser muy arriesgado y podría llevarnos a conclusiones erróneas tal y como a la que llegamos en el párrafo anterior. Se debe tener presente que el efecto de la variable $rec\_imp_{t-1}$ se encuentra tanto en el componente $\nabla rec\_imp_{t-1}$ como en la relación de cointegración $ect1$, por lo que si desagregamos ambos componentes y observamos cómo quedaría el impacto de la recaudación gubernamental sobre el gasto en educación pública en la ecuación tendremos lo siguiente:
+
+\begin{equation}
+\resizebox{.9 \textwidth}{!} 
+{
+$\nabla EDU_t = -24.68 + \mathbf{0.07REC\_IMP_{t-1} + 0.12REC\_IMP_{t-2}} + 0.812PIB_{t-1} - 0.22EDU_{t-1} - 0.26SALUD_{t-1} $
+}
+\end{equation}
+
+De tal manera que una vez desagregados los componentes $\nabla rec\_imp_{t-1}$ y $ect1$ y ajustando el coeficiente de la recaudación impositiva se puede apreciar que el efecto es el esperado. Es decir, que ante in incremento en la recaudación gubernamental, se observará un incremento en el gasto en educación.\bigskip 
+
+
+A continuación, se muestra la matriz de cointegración estimada $\hat{\beta}$ y la matriz de ajuste $\hat{\alpha}$. Debido a que el coeficiente de velocidad de ajuste $\alpha$ resultó ser significativo en el Modelo VEC para la ecuación del gasto en educación y recaudación impositiva, se puede decir que tanto el gasto en educación como la recaudación impositiva responden ante desviaciones en el equilibrio de largo plazo y la proporción de desequilibrio que será corregida dentro de un periodo de tiempo será de 0.81 y de -2.43 respectivamente.
+
+\begin{table}[H]
+\begin{center}
+    \begin{tabular}{rrrrr}
+    \hline
+    \multicolumn{5}{c}{Matriz $\hat{\beta}$, $\hat{\alpha}$} \\
+        \cline{1-5}
+        			  				& $ln\_pib\_cte_{t-1}$		 		& $edu_{t-1}$			  			& $salud_{t-1}$			& $rec\_imp_{t-1}$  \\
+        \hline
+        $\hat{\beta}$						&	1.0000000					&	 -0.2734779  					&	 -0.3187240    		&	0.2359534	\\
+        $\hat{\alpha}$						&	0.03							&	0.81 **		  				&	 -0.11 	    		&	-2.43 * 	 	\\
+        \hline
+    \end{tabular}
+\end{center}
+\caption {VECM: Eigenvector normalizado y velocidades de ajuste} \label{tab:ect1} 
+\end{table}
+
+
+ La matriz de cointegración estimada $\hat{\beta}$ que representa la única relación de cointegración en el modelo también puede expresarse de la siguiente manera:
+
+\begin{equation}
+PIB = 0.27*G\_EDU + 0.32*G\_SALUD - 0.24*REC\_IMP 
+\end{equation}
+
+o bien
+
+\begin{equation} \label{eq:rel_coint2}
+(PIB  + 0.24*REC\_IMP) - (0.27*G\_EDU + 0.32*G\_SALUD) =  0
+\end{equation}
+
+
+Vale la pena detenerse un momento para analizar lo hasta ahora comentado, por un lado, podemos concluir que la dinámica temporal de cada una de las series en general no se ve afectada por los retrasos de las variables en incrementos $\nabla Z_{t-1}$ indicando que no hay una relación directa entre las variables, excepto para el gasto en educación. Por otro lado, tenemos evidencia de la existencia de una combinación lineal entre las series del producto interno bruto, el gasto en salud pública, el gasto en educación pública y la recaudación impositiva (relación de cointegración) que sí afecta la dinámica temporal de las series, sin embargo, esta relación de cointegración solo resultó ser significativa para el gasto en educación pública y la recaudación fiscal. Estas conclusiones resultan interesantes dado que el producto interno bruto al depender de factores externos y no únicamente nacionales tiene prácticamente vida propia en el modelo, es decir, su dinámica no se ve impactada ante la ruptura del equilibrio en la relación de cointegración y que los efectos de las políticas públicas se ven reflejados en términos de recaudación fiscal y gasto en educación. Finalmente, cabe resaltar que el gasto en salud al tratarse de un sector muy delicado, tampoco parece reaccionar ante la ruptura en el equilibrio o expresado de otra manera, es un sector tan importante para la población que la inversión destinada para ello no irá en función del crecimiento o recesión del país.
+
+Si analizamos particularmente el efecto que la relación de equilibrio bajo el enfoque de la ecuación \ref{eq:rel_coint2} tiene sobre las series del gasto en educación y la recaudación impositiva se puede apreciar que el modelo ha capturado correctamente la dinámica de acuerdo con lo que la lógica indica, ya que si la relación de cointegración rompe su equilibrio de manera negativa, es decir, mayor gasto que recaudación entonces la serie del gasto en educación deberá corregir su dinámica y presentar una reducción en el largo plazo, el efecto tenderá a ser con una baja velocidad de reacción comparado con la reacción que tendría la dinámica de la serie de recaudación impositiva, la cual tras una ruptura del equilibrio de manera negativa mostrará una corrección a la alza mucho más veloz, es decir, el gobierno comenzará a recaudar más a través de los impuestos. La respuesta de las variables se puede interpretar de la misma manera cuando la relación de equilibrio se rompe de manera positiva.
+
+Lo anterior puede ser representado con mayor detalle si observamos la serie de tiempo de la relación de cointegración para analizar las medidas correctivas que ha tomado el gobierno que provocan el retorno de la ecuación a su punto de equilibrio, para ello hemos considerado aquellos puntos que se encuentra por encima o por debajo de una banda de $\pm 1$ desviación estándar que hemos establecido. De tal manera que podemos observar en los periodos posteriores qué cambios en las series lograron el retorno al equilibrio.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=14cm,height=17cm,keepaspectratio]{Hist_rel_coin.pdf}
+\caption{Relación de cointegración}
+\label{hist_rel_coint}
+\end{figure}
+
+
+
+	
+\begin{table}[H]
+\begin{center}
+    \begin{tabular}{rrrrrr}
+    \hline
+    \multicolumn{6}{c}{Corrección Equilibrio} \\
+        \cline{1-6}
+        	Año					&ect1              &ln\_pib\_cte.l1		&rec\_imp.l1		&edu.l1          &salud.l1 		\\
+        \hline
+        1997					&30.685		&30.065			&9.699			&3.64          &2.11 			\\
+        1998$(\Uparrow)$		&31.024		&30.115                    &10.929			&3.53          &2.21 			\\
+        1999					&30.810		&30.143                    &9.853			&3.66          &2.06			\\
+        \hline \hline
+        2000					&30.768		&30.191                    &9.950			&4.13          &2.01			\\
+        2001$(\Uparrow)$		&30.994		&30.187                    &11.404			&4.43          &2.11			\\
+        2002					&30.726		&30.186                    &10.597			&4.64          &2.17			\\
+        \hline \hline
+        2004					&30.412		&30.239                    &9.796			&4.80          &2.59			\\
+        2005$(\Downarrow)$		&30.197		&30.262                    &8.751			&4.91          &2.47			\\
+        2006					&30.464		&30.306                    &9.443			&4.75          &2.42			\\
+        \hline \hline
+        2014					&30.736		&30.449			&11.327			&5.33	&2.91			\\
+        2015$(\Uparrow)$		&31.099		&30.481                    &12.989			&5.45	&3 .00			\\
+        \hline
+    \end{tabular}
+\end{center}
+\caption {Análisis Relación de Cointegración Histórico} \label{tab:analisis_ect1} 
+\end{table}							
+
+
+
+En la tabla anterior, se puede observar que la relación de cointegración se encuentra por fuera de la banda de equilibrio durante los periodos de 1997-1999, 2000-2002, 2004-2006 y 2014-2015 en donde la relación en algunos casos se rompe por encima de la banda y en otros casos por debajo de la misma. Esto nos permitirá interpretar con más detalle la relación de equilibrio, ya que contextualizaremos cada uno de estos periodos con los hechos históricos que posiblemente hayan generado la ruptura del equilibrio, así como las decisiones que hayan provocado el retorno al equilibrio. Para esto, es importante recordar que  por lo establecido en la ecuación  \ref{eq:rel_coint2}  tanto la recaudación fiscal como el producto interno bruto impactan de manera positiva a la relación de cointegración y que el gasto en salud y el gasto en educación pública impactan de manera negativa.\bigskip
+
+En el periodo de 1997-1999 la relación de cointegración se encuentra por encima de la banda de equilibrio y en el año posterior éste regresa dentro de la banda, por lo que podríamos decir que la combinación de factores que producen la salida del equilibrio, está dado por un incremento tanto en el PIB como en la recaudación impositiva, en conjunto con una reducción del gasto en educación pública; mientras que el retorno de la ecuación al equilibrio está dada por una reducción en la recaudación impositiva y un incremento en el gasto en educación pública. Recordemos que en este periodo sucedieron hechos relevantes que de alguna manera soportan lo observado en nuestro modelo; ya que en este periodo por un lado, el sistema tributario mexicano sufrió una de las modificaciones más drásticas de la historia, pues el ISR, el cual representa junto con el IVA aproximadamente el 85\% de los ingresos tributarios y siendo los principales objetos de las diversas reformas tributarias, pasó de un 34\% a un 35\% para personas morales y de un 35\% a un 40\% para personas físicas. Por otro lado, la crisis económica de 1994-1995 representó una mayor asunción de los costos financieros derivados del quebranto del sistema financiero nacional. La necesidad de reconocer los pasivos del rescate bancario hacia 1998, junto con los programas de apoyo a los deudores y ahorradores de la banca, incrementó nuevamente el costo financiero reduciendo así el gasto público destinado al resto de sectores.\bigskip
+
+
+En el periodo de 2000-2002 se aprecia también que la relación de cointegración se encuentra por fuera de la banda de equilibrio y que los factores que provocan el retorno al mismo, están dados nuevamente por una reducción de la recaudación impositiva e incrementos en la inversión por parte del gobierno para el sector salud y el sector educativo. En este caso, México resintió los efectos de la desaceleración económica global, particularmente la de los Estados Unidos provocando una reducción en el PIB, no obstante, la inflación disminuyó y prevaleció un entorno financiero estable. En ese mismo año, el Banco de México publicó que se esperaba una recuperación de la economía mundial en el 2002, aunque resultaba poco probable que la actividad económica de los principales socios comerciales de México regresaran a los niveles observados previos a la recesión, de tal manera que para reactivar la economía resultaba imperativo reforzar los elementos internos que le permitieran a México alcanzar tasas de crecimiento elevadas y sostenibles en un entorno internacional menos propicio que el de años anteriores. Entre dichos elementos, se mencionaron la reforma del sector eléctrico, reforma laboral, el estímulo a la inversión en infraestructura, tecnología, educación y salud, entre otras. Las acciones tomadas por el gobierno en torno a este último elemento se ven reflejadas en el incremento en el gasto en educación y salud, incremento que provoca el retorno de la relación de cointegración a la banda de equilibrio.\bigskip
+
+
+
+En el año 2005 a diferencia de los dos casos anteriores la relación de cointegración se encuentra por debajo de la banda de equilibrio por lo que este caso tiene un particular interés. En primer lugar,  es necesario recordar que durante el 2005 el PIB presentó un incremento, aunque dicho incremento no fue el esperado por los analistas económicos. En segundo lugar, el gasto público presupuestario reflejó un incremento de 4.8 por ciento. Este incremento en el gasto público se aprecia en la alza del gasto en educación, que aunado al decremento en al recaudación gubernamental y que se trata de un año previo a las elecciones del 2006, obliga a la relación de cointegración a salir del equilibrio. Posteriormente, el año 2006 fue un año en donde la economía mundial mantuvo un crecimiento favorable y en particular en la economía mexicana tuvo un crecimiento económico producto de un incremento del producto interno bruto, un crecimiento de la actividad industrial y de construcción que implicaron un aumento significativo en la creación de empleos en el sector formal de la economía, mismo crecimiento que se tradujo en una mayor recaudación fiscal provocando así el retorno de la relación de cointegración a la banda de equilibrio.\bigskip
+
+
+Finalmente, en el último punto de la serie observada de la relación de cointegración se observa que se encuentra nuevamente por encima de la banda de equilibrio, sin embargo, con base en la experiencia previa podemos darnos una idea de qué es lo que deberíamos observar para lograr nuevamente el equilibrio, es decir, sería natural pensar que lo próximo a observarse será una reducción de la recaudación gubernamental junto con un incremento en el gasto público. Además, podríamos apoyarnos del parámetro de velocidad de ajuste que resultó significativo para estimar el tiempo en el que dichas políticas podrían verse materializadas. \bigskip
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
