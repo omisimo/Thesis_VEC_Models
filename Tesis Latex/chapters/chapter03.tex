@@ -7,7 +7,7 @@ Debido a que las series de tiempo suponen un ordenamiento temporal de la informa
 
 A lo largo de este capítulo se mostrarán los conceptos básicos que darán apertura al tema principal del presente trabajo.\newline
 
-Para poder analizar a las series de tiempo desde un punto de vista de procesos estocásticos, es necesario definir en primera instancia lo que se entiende por uno. Se dice que es un \textbf{proceso estocástico} cuando se tiene un conjunto índice de números reales $T$ y una familia de variables aleatorias $Z$ definidas en un espacio de probabilidad, de tal manera que cada uno de los elementos del conjunto índice tenga asociada una y solo una variable aleatoria, es decir,  $\{Z_t: t \in T\}$. Por lo tanto, si ahora recordamos la definición anteriormente enunciada de una serie de tiempo es posible equiparar sus elementos con los de un proceso estocástico, pues una serie de tiempo es la medición sistemática en un periodo de tiempo fijo (conjunto índice) de un fenómeno de interés (variable aleatoria) a lo largo del tiempo. Por consiguiente, una serie de tiempo puede ser considerada como un  proceso estocástico cuyo conjunto índice es el tiempo.\newline
+Para poder analizar series de tiempo desde un punto de vista de procesos estocásticos, es necesario definir en primera instancia lo que se entiende por uno. Se dice que es un \textbf{proceso estocástico} cuando se tiene un conjunto índice de números reales $T$ y una familia de variables aleatorias $Z$ definidas en un espacio de probabilidad, de tal manera que cada uno de los elementos del conjunto índice tenga asociada una y solo una variable aleatoria, es decir,  $\{Z_t: t \in T\}$. Por lo tanto, si ahora recordamos la definición anteriormente enunciada de una serie de tiempo es posible equiparar sus elementos con los de un proceso estocástico, pues una serie de tiempo es la medición sistemática en un periodo de tiempo fijo (conjunto índice) de un fenómeno de interés (variable aleatoria) a lo largo del tiempo. Por consiguiente, una serie de tiempo puede ser considerada como un  proceso estocástico cuyo conjunto índice es el tiempo.\newline
 
 
 Es importante aclarar que cuando se tiene una serie de tiempo observada, es producto de varias realizaciones de una variable aleatoria a lo largo de todo el conjunto índice; es por esta razón que una serie observada representa únicamente una ejecución de todas las posibles realizaciones que el proceso estocástico pudo haber generado. Ante la presencia de este efecto probabilístico, es natural pensar que a partir de la función de densidad conjunta de las variables que conforman el proceso estocástico, es posible describir su comportamiento en su totalidad. Sin embargo, en el caso de series de tiempo obtener dicha función es muy complejo y a diferencia de la mayoría de los desarrollos estadísticos, no es posible suponer que se puede obtener a partir del producto de funciones de densidad marginales, ya que las variables en este caso son altamente dependientes, en realidad, se trata de la misma variable pero medida en diferentes momentos de tiempo. Por consiguiente, el análisis de series de tiempo propone conocer los primeros y segundos momentos, es decir, esperanzas, varianzas y covarianzas para poder caracterizar la serie, ya que estos estadísticos descriptivos resumen en buena medida a la función de densidad conjunta.\newline
@@ -17,7 +17,7 @@ Se debe tomar en consideración que cuando se desea analizar la evolución de al
 \begin{eqnarray}
         Media: & E(Z_t)=\mu  \nonumber \\ 
         Varianza:  & Var(Z_t)=E[(Z_t- \mu )^2]=\gamma_0   \\ 
-        Covarianza & E(Z_t-\mu)E(Z_{t+k}-\mu)=\gamma_k  \nonumber 
+        Covarianza & E[(Z_t-\mu)(Z_{t+k}-\mu)]=\gamma_k  \nonumber 
 \end{eqnarray} 
 
 El concepto de estacionariedad es de suma importancia, ya que los modelos econométricos requieren de series estacionarias para poder analizar el comportamiento de la serie en los periodos observados, generalizarlo a otros periodos de tiempo y ajustar modelos para el pronóstico.\newline
@@ -45,25 +45,25 @@ A partir de estos términos es posible obtener la función de autocorrelación m
 Si la función de autocorrelación tiende rápidamente a cero, nos enfrentamos ante un proceso estacionario; si por el contrario, el decaimiento de la función es paulatino, quiere decir que las observaciones del proceso muestran una tendencia que las hace depender de  otras observaciones en el tiempo, provocando que el nivel de la serie se vea afectado por dicha tendencia y existan correlaciones distintas a cero en periodos de tiempo distantes. Esto último nos hace pensar que la serie no cumple con alguna de las características de un proceso estacionario de segundo orden. \\
 
 
-Cuando una serie es no estacionaria, no es posible hacer uso de los modelos ARMA y cualquier otro tipo de análisis como por ejemplo una regresión, se debe realizar con particular precaución, ya que se podría estar en presencia de un fenómeno que Yule en 1926\footnote{Yule, G. U., "Why Do We Sometimes Get Nonsense Correlations Between Time Series-' A Study in Sampling and the nature of Time Series", Journal of the Royal Statisticar Society, vol. 89,1926, pp.1-64.} identifica como regresión espuria. Sin embargo, existen herramientas que ayudan a convertir una serie no estacionaria en estacionaria, dichas herramientas son las diferencias estacionarias y diferencias estacionales.\\
+Cuando una serie es no estacionaria, no es posible hacer uso de los modelos ARMA y cualquier otro tipo de análisis, como por ejemplo una regresión, se debe realizar con particular precaución, ya que se podría estar en presencia de un fenómeno que Yule en 1926\footnote{Yule, G. U., "Why Do We Sometimes Get Nonsense Correlations Between Time Series-' A Study in Sampling and the nature of Time Series", Journal of the Royal Statistical Society, vol. 89,1926, pp.1-64.} identifica como regresión espuria. Sin embargo, existen herramientas que ayudan a convertir una serie no estacionaria en estacionaria, dichas herramientas son las diferencias estacionarias y diferencias estacionales.\\
 
 Sea el proceso $Z_t$ tal que al aplicar el \textbf{operador diferencia $\nabla$ } se tiene que  $\nabla Z_t=Z_t-Z_{t-1}$. De manera que $\nabla Z_t$ corresponde al cambio en el valor de la variable $Z$ del periodo $t-1$ al periodo $t$, por lo que cuenta con una observación menos que $Z_t$. Al aplicar el operador la serie obtenida es estacionaria en cuanto a su nivel, pues elimina la tendencia polinomial adaptiva que se encontraba en el proceso. \\
 
-Si la tendencia polinomial adaptiva es de orden mayor a uno se debe considerar aplicar el operador tantas veces como sea necesario, es decir, se existe presencia de una tendencia polinomial de orden $2$, la serie requiere de tomar dos diferencias para estacionarizarla. Además, es importante mencionar el riesgo que existe con la sobrediferenciación pues conlleva a problemas relacionados con la identificación de un modelo para el proceso, incremento en la varianza y p\'erdida innecesaria de observaciones, pues se pierde una con cada aplicación del operador.\\
+Si la tendencia polinomial adaptiva es de orden mayor a uno se debe considerar aplicar el operador tantas veces como sea necesario, es decir, si existe presencia de una tendencia polinomial de orden $2$, la serie requiere de tomar dos diferencias para estacionarizarla. Además, es importante mencionar el riesgo que existe con la sobrediferenciación pues conlleva a problemas relacionados con la identificación de un modelo para el proceso, incremento en la varianza y p\'erdida innecesaria de observaciones, pues se pierde una con cada aplicación del operador.\\
 
-En ocasiones, nos enfrentamos a series que presentan otro tipo de tendencia que se caracteriza por tener un patrón de cambio que se repite con una intensidad similar, en determinados periodos de tiempo a\~no con a\~no. Este fenómeno es llamado \textbf{estacionalidad} y para controlarlo es necesario, en primera instancia, identificar el comportamiento periódico de la serie, ya sea que se trate de meses, trimestres, semestres, años, periodos vacacionales o cualquier otro hecho que provoque que la serie tenga un comportamiento parecido  en periodos definidos cada a\~no, posteriormente, se hace uso del \textbf{ operador diferencia estacional}  $\nabla_{E}^{k}$  donde $E$ es periodo que contiene la tendencia-ciclo y $k$ es el número de veces necesarias que se debe aplicar el operador diferencia para hacer la serie estacionaria.\\
+En ocasiones, nos enfrentamos a series que presentan otro tipo de tendencia que se caracteriza por tener un patrón de cambio que se repite con una intensidad similar, en determinados periodos de tiempo a\~no con a\~no. Este fenómeno es llamado \textbf{estacionalidad} y para controlarlo es necesario, en primera instancia, identificar el comportamiento periódico de la serie, ya sea que se trate de meses, trimestres, semestres, años, periodos vacacionales o cualquier otro hecho que provoque que la serie tenga un comportamiento parecido  en periodos definidos cada a\~no. Posteriormente, se hace uso del \textbf{ operador diferencia estacional}  $\nabla_{E}^{k}$  donde $E$ es periodo que contiene la tendencia-ciclo y $k$ es el número de veces necesarias que se debe aplicar el operador diferencia para hacer la serie estacionaria.\\
 
-El operador diferencia estacional esta definido de la siguiente manera:
+El operador diferencia estacional está definido de la siguiente manera:
 
 \begin{equation}
-\nabla_{E}=Z_t-Z_{t-E}
+\nabla_{E} Z_t=Z_t-Z_{t-E}
 \end {equation}
 
-Al igual que en el operador diferencia estacionaria $\nabla$ se pierden observaciones cada vez que se aplica, en este caso se trata de $E$ observaciones.\\
+Al igual que en el operador diferencia $\nabla$ se pierden observaciones cada vez que se aplica, en este caso se trata de $E$ observaciones.\\
 
-Cuando a un proceso es necesario aplicarle el operador diferencia $\nabla$  una vez para hacerlo estacionario, se dice que es un proceso integrado de orden $1$ y se denota $Z_t \sim I(1)$. De manera similar, si se requieren $2$ diferencias para estacionarizar la serie se trata de un proceso integrado de orden dos y si necesitamos $d$ diferencias es un proceso integrado de orden d,  $Z_t \sim I(d)$, finalmente, si $z_t$ es estacionario nos podemos referir a este proceso como un proceso estacionario o como un proceso integrado de orden cero. En general, el orden de integración depende del mínimo número de diferencias que se deben aplicar al proceso para convertirlo en estacionario. Este concepto de procesos estocásticos integrados trae consigo las siguientes propiedades:\\
+Cuando a un proceso es necesario aplicarle el operador diferencia $\nabla$  una vez para hacerlo estacionario, se dice que es un proceso integrado de orden $1$ y se denota $Z_t \sim I(1)$. De manera similar, si se requieren $2$ diferencias para estacionarizar la serie se trata de un proceso integrado de orden dos y si necesitamos $d$ diferencias es un proceso integrado de orden d,  $Z_t \sim I(d)$, finalmente, si $z_t$ es estacionario nos podemos referir a este proceso como un proceso estacionario o como un proceso integrado de orden cero. En general, el orden de integración depende del mínimo número de diferencias que se debe aplicar al proceso para convertirlo en estacionario. Este concepto de procesos estocásticos integrados trae consigo las siguientes propiedades:\\
 
-Sean $Z_t$, $Y_t$ y $W_t$ tres procesos estocásticos
+Sean $Z_t$, $Y_t$ y $W_t$ tres procesos estocásticos.
 
 \begin{enumerate}%for small alpha-characters within brackets.
 
@@ -71,7 +71,7 @@ Sean $Z_t$, $Y_t$ y $W_t$ tres procesos estocásticos
  Si $Z_t \sim I(0)$ y  $Y_t \sim I(1)$ entonces $W_t=(Z_t+Y_t) = I(1)$ es decir, una combinación lineal entre un proceso estacionario y uno no estacionario es no estacionario.
 
 \item
-Si $Z_t \sim I(d)$ entonces $W_t=(a+bZ_t) \sim I(d)$, donde $a$ y $b$ son constantes. Una combinación lineal de un proceso no estacionario, es no estacionario. Por lo tanto, la combianción lineal de un proceso estacionario continúa siendo estacionario.
+Si $Z_t \sim I(d)$ entonces $W_t=(a+bZ_t) \sim I(d)$, donde $a$ y $b$ son constantes. Una combinación lineal de un proceso no estacionario, es no estacionario. Por lo tanto, la combinación lineal de un proceso estacionario continúa siendo estacionario.
 
 \item 
 Si $Z_t \sim I(d_1)$ y $Y_t \sim I(d_2)$ entonces $W_t=(aZ_t+bY_t) \sim I(d_2)$ ya que $d_1<d_2$.
@@ -180,7 +180,7 @@ No obstante es posible reparametrizar al proceso sustrayendo en cada lado de la 
  & &  \nonumber 
 \end{eqnarray}
 
-donde $\rho=(a_1-1)$ de manera que la nueva hipótesis nula y alternativa son:
+donde $\rho=(a_1-1)$ de manera que las nuevas hipótesis nula y alternativa son:
 
    \begin{eqnarray}
     H_0: \rho=0 &  &  H_a: \rho  < 0   \\ 
@@ -188,9 +188,9 @@ donde $\rho=(a_1-1)$ de manera que la nueva hipótesis nula y alternativa son:
    \end{eqnarray} 
 
 
- Así que $\rho=0$ implica que $a_1=1$ tratándose de un proceso no estacionario, mientras que si se rechaza la hipótesis nula tendremos un proceso estable, la parte $\left | \rho \right |>1$ no se considera pues la serie sería explosiva. Esta última prueba es la llamada \textbf{Prueba de Dickey-Fuller} y es complemento formal a los m\'etodos ya mencionados como la gráfica de los valores de la serie respecto al tiempo, el uso del autocorrelograma y la varianza muestral para determinar estacionariedad, así como el número de diferencias necesarias para convertir la serie en estacionaria.\\
+ Así que $\rho=0$ implica que $a_1=1$ tratándose de un proceso no estacionario, mientras que si se rechaza la hipótesis nula tendremos un proceso estable, la parte $\left | \rho \right |>1$ no se considera pues la serie sería explosiva. Esta última prueba es la llamada \textbf{Prueba de Dickey-Fuller} y es complemento formal a los m\'etodos ya mencionados, como la gráfica de los valores de la serie respecto al tiempo, el uso del autocorrelograma y la varianza muestral para determinar estacionariedad, así como el número de diferencias necesarias para convertir la serie en estacionaria.\\
  
- Para hacer uso de la prueba, es imprescindible conocer el valor del coeficiente $\rho$ pero como se dijo anteriormente, la prueba es en esencia la misma que para los coeficientes de una regresión, así que se estima este valor por medio de mínimos cuadrados. Si $\rho >0$ implica que $a_1>1$ por lo que se puede concluir rápidamente que la serie es no estacionaria, no obstante, si $\rho \leq 0$ se tiene que observar si es estadísticamente diferente de cero, así que se calcula el estadístico de prueba
+ Para hacer uso de la prueba, es imprescindible conocer el valor del coeficiente $\rho$ pero como se dijo anteriormente, la prueba es en esencia la misma que para los coeficientes de una regresión, así que se estima este valor por medio de mínimos cuadrados ordinarios. Si $\rho >0$ implica que $a_1>1$ por lo que se puede concluir rápidamente que la serie es no estacionaria, no obstante, si $\rho \leq 0$ se tiene que observar si es estadísticamente diferente de cero, así que se calcula el estadístico de prueba
  
  \begin{equation}
  \tau_0=\frac{\hat{\rho}}{se(\hat{\rho})}
@@ -225,10 +225,10 @@ como es posible observar, el nuevo término proporciona impacto a la tendencia e
     \hline
     $\nabla Z_t =\rho Z_{t-1} + e_t$                     &  $-2.56$ & $-1.94$ & $-1.62$ \\
     $\nabla Z_t = \alpha + \rho Z_{t-1} + e_t$            &  $-3.43$ & $-2.86$ & $-2.57$ \\
-    $\nabla Z_t = \alpha + \beta_1 t + \rho Z_{t-1} + e_t$ & $-3.96$ & $-3.41$ & $-3.13$ \\
+    $\nabla Z_t = \alpha + \beta t + \rho Z_{t-1} + e_t$ & $-3.96$ & $-3.41$ & $-3.13$ \\
 %\arrayrulecolor{Cerulean}
     \hline
-    $Standard$  $critical$ $values$                         & $-2.33$ & $-1.65$ & $-1.28$ \\
+    $\text{Valores}$  $\text{críticos}$ $\text{estándar}$                         & $-2.33$ & $-1.65$ & $-1.28$ \\
 %\arrayrulecolor{Cerulean}
     \hline
     \end{tabular}
@@ -237,13 +237,15 @@ como es posible observar, el nuevo término proporciona impacto a la tendencia e
 
 
 %%%%
-Adicionalmente Dickey and Fuller crearon tres $F$-estadísticos adicionales llamados $\phi_1,\phi_2,\phi_3$ para probar pruebas de hipótesis conjuntas:
+Adicionalmente, Dickey and Fuller crearon tres $F$-estadísticos adicionales llamados $\phi_1,\phi_2,\phi_3$ para probar pruebas de hipótesis conjuntas:
 
 \begin{description}
-  \item [$\bullet$ El estadístico $\phi_1$] .- Emplea la ecuación numero 2 para probar la hipótesis nula conjunta $\rho=a_0=0$
-  \item [$\bullet$ El estadístico $\phi_2$] .- Emplea la ecuación numero 3 para probar la hipótesis nula conjunta $\rho=a_0=a_2=0$
-  \item [$\bullet$ El estadístico $\phi_3$] .- Emplea la ecuación numero 3 para probar la hipótesis nula conjunta $\rho=a_2=0$
+  \item [$\bullet$ El estadístico $\phi_1$] .- Emplea la ecuación numero 2 para probar la hipótesis nula conjunta $\rho=\alpha=0$
+  \item [$\bullet$ El estadístico $\phi_2$] .- Emplea la ecuación numero 3 para probar la hipótesis nula conjunta $\rho=\alpha=\beta=0$
+  \item [$\bullet$ El estadístico $\phi_3$] .- Emplea la ecuación numero 3 para probar la hipótesis nula conjunta $\rho=\beta=0$
 \end{description}
+
+En donde el término $\alpha$ corresponde al intercepto y el término $\beta$ corresponde al coeficiente asociado a la tendencia lineal temporal, tal y como se muestra en la tabla \ref{table:CVDF}.\\
 
 
 En donde los tres estadísticos se construyen igual que cualquier prueba $F$:

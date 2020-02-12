@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.5.23)  12 JAN 2020 23:54
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.5.23)  11 FEB 2020 22:32
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1555,15 +1555,15 @@ LaTeX Info: Redefining \% on input line 200.
 LaTeX Info: Redefining \. on input line 243.
 LaTeX Info: Redefining \% on input line 243.
  [28]
-LaTeX Info: Redefining \. on input line 257.
-LaTeX Info: Redefining \% on input line 257.
+LaTeX Info: Redefining \. on input line 256.
+LaTeX Info: Redefining \% on input line 256.
  [29]
-Overfull \hbox (2.28616pt too wide) in paragraph at lines 337--403
+Overfull \hbox (2.28616pt too wide) in paragraph at lines 339--405
  [][] 
  []
 
 
-Overfull \hbox (2.28616pt too wide) in paragraph at lines 490--542
+Overfull \hbox (2.28616pt too wide) in paragraph at lines 492--544
  [][] 
  []
 
@@ -1745,7 +1745,7 @@ LaTeX Info: Redefining \% on input line 58.
 LaTeX Info: Redefining \. on input line 97.
 LaTeX Info: Redefining \% on input line 97.
  [61]
-<images/Graf_rel_coint.pdf, id=601, 614.295pt x 794.97pt>
+<images/Graf_rel_coint.pdf, id=602, 614.295pt x 794.97pt>
 File: images/Graf_rel_coint.pdf Graphic file (type pdf)
 
 <use images/Graf_rel_coint.pdf>
@@ -1771,7 +1771,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 LaTeX Info: Redefining \. on input line 44.
 LaTeX Info: Redefining \% on input line 44.
  [64]
-<images/Rel_edu_rec.pdf, id=623, 1084.05pt x 433.62pt>
+<images/Rel_edu_rec.pdf, id=624, 1084.05pt x 433.62pt>
 File: images/Rel_edu_rec.pdf Graphic file (type pdf)
 
 <use images/Rel_edu_rec.pdf>
@@ -1786,7 +1786,7 @@ LaTeX Info: Redefining \% on input line 69.
 LaTeX Info: Redefining \. on input line 101.
 LaTeX Info: Redefining \% on input line 101.
  [67]
-<images/Hist_rel_coin.pdf, id=651, 1084.05pt x 433.62pt>
+<images/Hist_rel_coin.pdf, id=652, 1084.05pt x 433.62pt>
 File: images/Hist_rel_coin.pdf Graphic file (type pdf)
 
 <use images/Hist_rel_coin.pdf>
@@ -1895,10 +1895,10 @@ e/2017/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></usr/local/texlive/
 17/texmf-dist/fonts/type1/public/cm-super/sfrm2074.pfb></usr/local/texlive/2017
 /texmf-dist/fonts/type1/public/cm-super/sfsl1200.pfb></usr/local/texlive/2017/t
 exmf-dist/fonts/type1/public/cm-super/sfti1200.pfb>
-Output written on main.pdf (87 pages, 575755 bytes).
+Output written on main.pdf (87 pages, 575204 bytes).
 PDF statistics:
- 877 PDF objects out of 1000 (max. 8388607)
- 733 compressed objects within 8 object streams
+ 878 PDF objects out of 1000 (max. 8388607)
+ 734 compressed objects within 8 object streams
  231 named destinations out of 1000 (max. 500000)
  256 words of extra memory for PDF output out of 10000 (max. 10000000)
 
