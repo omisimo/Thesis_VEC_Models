@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.5.23)  11 FEB 2020 22:32
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.5.23)  18 FEB 2020 23:38
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1525,15 +1525,13 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 LaTeX Info: Redefining \. on input line 16.
 LaTeX Info: Redefining \% on input line 16.
  [19]
-Underfull \vbox (badness 4441) has occurred while \output is active []
+LaTeX Info: Redefining \. on input line 30.
+LaTeX Info: Redefining \% on input line 30.
 
-LaTeX Info: Redefining \. on input line 34.
-LaTeX Info: Redefining \% on input line 34.
- [20]
+[20]
 LaTeX Info: Redefining \. on input line 51.
 LaTeX Info: Redefining \% on input line 51.
-
-[21]
+ [21]
 LaTeX Info: Redefining \. on input line 65.
 LaTeX Info: Redefining \% on input line 65.
  [22]
@@ -1895,7 +1893,7 @@ e/2017/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></usr/local/texlive/
 17/texmf-dist/fonts/type1/public/cm-super/sfrm2074.pfb></usr/local/texlive/2017
 /texmf-dist/fonts/type1/public/cm-super/sfsl1200.pfb></usr/local/texlive/2017/t
 exmf-dist/fonts/type1/public/cm-super/sfti1200.pfb>
-Output written on main.pdf (87 pages, 575204 bytes).
+Output written on main.pdf (87 pages, 575428 bytes).
 PDF statistics:
  878 PDF objects out of 1000 (max. 8388607)
  734 compressed objects within 8 object streams
