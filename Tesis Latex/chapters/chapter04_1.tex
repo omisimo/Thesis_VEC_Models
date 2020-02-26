@@ -54,7 +54,7 @@ El siguiente paso es determinar si efectivamente los residuales estimados son es
 La prueba de estacionariedad está basada en la siguiente ecuación característica de la prueba Dickey-Fuller
 
 \begin{equation}
-\nabla e_t= \rho \hat{e}_{t-1} + \nu_t
+\nabla \hat{e_t} = \rho \hat{e}_{t-1} + \nu_t
 \end{equation}
 
 Como es posible observar, la ecuación no tiene término constante ya que los residuales tienen media cero, además se puede extender la prueba agregando términos $\nabla \hat{e}_{t-1}$, $\nabla \hat{e}_{t-2}$, etcétera, para eliminar la posible existencia de autocorrelación en $\nu_t$ al igual que en la prueba de Dickey-Fuller Aumentada. Sin embargo, puesto que $\hat{e}_t$ depende de la estimación de $\beta_1$ los valores críticos de $DF$ y $ADF$ no son apropiados para el análisis de estacionariedad. \bigskip
@@ -62,7 +62,7 @@ Como es posible observar, la ecuación no tiene término constante ya que los re
 La prueba de Dickey-Fuller Aumentada para los residuales es de la forma:
 
 \begin{equation}
-\nabla e_t= \rho \hat{e}_{t-1} + \sum_{i=1}^{m} a_i \nabla e_{t-i}
+\nabla \hat{e_t}= \rho \hat{e}_{t-1} + \sum_{i=1}^{n} a_{i} \nabla \hat{e}_{t-i}+\nu_t
 \end{equation}
 
 Los valores críticos apropiados para determinar cointegración son generados para responder la siguiente prueba de hipótesis:
@@ -99,7 +99,7 @@ La cual considera en un mismo instante la significancia de la estimación del pa
 
 %%%%%%%%%%%%%%%%%%%%%% EN ESTE PÁRRAFO HAY UNA REFERENCIA A UNA TABLA %%%%%%%%%%%%%%%%%%%%%%%%%%
 De manera similar a la prueba de raíces unitarias, se rechaza la hipótesis nula de no cointegración si nuestro estadístico $\tau$ es menor 
-o igual a alguno de los valores críticos mencionados en el cuadro ~\ref{table:CVC}, es decir, $\tau \leq \tau_c$ lo cual implicaría que el valor del estadístico sea más negativo que el valor crítico deseado. Esto conlleva a concluir que las series $Z_t$ y $Y_t$ están cointegradas, ya que la regresión de cointegración estimada es válida (no espuria) y por lo tanto existe una relación entre ambas que será notable en el largo plazo.  Consecuentemente no rechazaríamos la hipótesis nula si $\tau > \tau_c$. Las pruebas de cointegración buscan únicamente relaciones estables lineales, por lo que debemos tener especial atención cuando se acepta la hipótesis relacionada con no cointegración, ya que ésta solo sugiere que no hay una relación lineal en el largo plazo entre las variables y no ausencia de una relación a largo plazo \textbf{estable} entre ellas.\bigskip
+o igual a alguno de los valores críticos mencionados en el cuadro ~\ref{table:CVC}, es decir, $\tau \leq \tau_c$ lo cual implicaría que el valor del estadístico sea más negativo que el valor crítico deseado. Esto conlleva a concluir que las series $Z_t$ y $Y_t$ están cointegradas, ya que la regresión de cointegración estimada es válida (no espuria) y por lo tanto existe una relación entre ambas que será notable en el largo plazo, ya que las series se encontrarán en equilibrio  en el largo plazo.  Consecuentemente no rechazaríamos la hipótesis nula si $\tau > \tau_c$. Las pruebas de cointegración buscan únicamente relaciones estables lineales, por lo que debemos tener especial atención cuando se acepta la hipótesis relacionada con no cointegración, ya que ésta solo sugiere que no hay una relación lineal en el largo plazo entre las variables y no ausencia de una relación a largo plazo \textbf{estable} entre ellas.\bigskip
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
@@ -180,7 +180,7 @@ De manera similar, podemos conocer cuáles son las implicaciones reflejadas en e
 El supuesto que se establece sobre $\alpha$ implica que el valor de $\theta_1$ debe ser menor que la unidad, ya que si este fuera igual que 1 no sería posible determinar una   relación de cointegración   y en cuyo caso se tendría que la diferencia de $Y_t$ queda explicada únicamente por la diferencia de una  variable exógena $Z_t$ más el término de ruido blanco, modelo conocido como \textbf{Modelo de Vectores Autorregresivos}, $VAR$ por sus siglas en inglés. \bigskip
 
 
-El trabajo de Granger y Engel ha sido fundamental en el desarrollo de una metodología econométrica, ya que en un inicio se asumía estacionariedad en los datos, sin embargo, el modelo de corrección del error permite la existencia de unión, en una misma ecuación,  entre variables que guardan una relación a largo plazo $(Y_{t-1},Z_{t-1}) \sim I(1)$ con variables relacionadas en el corto plazo $(\nabla Y_t, \nabla Z_t) \sim I(0)$ con la única condición de que $Y_t$ y $Z_t$ estén cointegradas, de manera que el término del error de equilibrio tenga residuales estacionarios. \bigskip
+El trabajo de Granger y Engel ha sido fundamental en el desarrollo de una metodología econométrica, ya que en un inicio se suponía estacionariedad en los datos, sin embargo, el modelo de corrección del error permite la existencia de unión, en una misma ecuación,  entre variables que guardan una relación a largo plazo $(Y_{t-1},Z_{t-1}) \sim I(1)$ con variables relacionadas en el corto plazo $(\nabla Y_t, \nabla Z_t) \sim I(0)$ con la única condición de que $Y_t$ y $Z_t$ estén cointegradas, de manera que el término del error de equilibrio tenga residuales estacionarios. \bigskip
 
 Un factor importante que ha contribuido a la rápida adopción de la teoría de cointegración y el modelo de corrección del error en el uso de la econometría moderna ha sido la sencillez del procedimiento que han propuesto Granger y Engel, que consiste en aplicar un método de estimación que genere estimadores consistentes de los parámetros de la ecuación de equilibrio y posteriormente estimar el $ECM$ incluyendo los errores rezagados de la ecuación de equilibrio, ya que los errores estimados nos permitirán conocer si hay una relación de largo plazo entre las variables, es decir, la formulación del mecanismo de corrección del error también puede servir para probar cointegración. Por lo tanto, el $ECM$ al ser estimado proporciona el ajuste dinámico en el corto plazo, de manera que se obtiene una mejor aproximación del proceso generador de los datos.  
  

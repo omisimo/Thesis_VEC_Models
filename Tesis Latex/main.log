@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.5.23)  18 FEB 2020 23:38
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.5.23)  25 FEB 2020 23:27
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1432,13 +1432,13 @@ Cap\'{\i }tulo 1.
 LaTeX Info: Redefining \. on input line 30.
 LaTeX Info: Redefining \% on input line 30.
  [4]
-<images/PIB_normal.pdf, id=185, 1084.05pt x 433.62pt>
+<images/PIB_normal.pdf, id=186, 1084.05pt x 433.62pt>
 File: images/PIB_normal.pdf Graphic file (type pdf)
 
 <use images/PIB_normal.pdf>
 Package pdftex.def Info: images/PIB_normal.pdf used on input line 37.
 (pdftex.def)             Requested size: 398.32983pt x 159.33192pt.
- <images/log_PIB.pdf, id=186, 1084.05pt x 433.62pt>
+ <images/log_PIB.pdf, id=187, 1084.05pt x 433.62pt>
 File: images/log_PIB.pdf Graphic file (type pdf)
 
 <use images/log_PIB.pdf>
@@ -1449,7 +1449,7 @@ LaTeX Info: Redefining \% on input line 51.
  [5 <./images/PIB_normal.pdf>]
 LaTeX Info: Redefining \. on input line 64.
 LaTeX Info: Redefining \% on input line 64.
- [6 <./images/log_PIB.pdf>] <images/Rubros_rec.PNG, id=211, 715.92468pt x 414.7
+ [6 <./images/log_PIB.pdf>] <images/Rubros_rec.PNG, id=212, 715.92468pt x 414.7
 9968pt>
 File: images/Rubros_rec.PNG Graphic file (type png)
 
@@ -1462,7 +1462,7 @@ LaTeX Info: Redefining \% on input line 72.
 LaTeX Info: Redefining \. on input line 82.
 LaTeX Info: Redefining \% on input line 82.
  [8]
-<images/Recaudacion.pdf, id=223, 1084.05pt x 433.62pt>
+<images/Recaudacion.pdf, id=224, 1084.05pt x 433.62pt>
 File: images/Recaudacion.pdf Graphic file (type pdf)
 
 <use images/Recaudacion.pdf>
@@ -1471,7 +1471,7 @@ Package pdftex.def Info: images/Recaudacion.pdf used on input line 88.
 LaTeX Info: Redefining \. on input line 100.
 LaTeX Info: Redefining \% on input line 100.
  [9 <./images/Recaudacion.pdf>]
-<images/Gasto_Salud.pdf, id=236, 1084.05pt x 433.62pt>
+<images/Gasto_Salud.pdf, id=237, 1084.05pt x 433.62pt>
 File: images/Gasto_Salud.pdf Graphic file (type pdf)
 
 <use images/Gasto_Salud.pdf>
@@ -1480,7 +1480,7 @@ Package pdftex.def Info: images/Gasto_Salud.pdf used on input line 103.
 LaTeX Info: Redefining \. on input line 109.
 LaTeX Info: Redefining \% on input line 109.
  [10 <./images/Gasto_Salud.pdf>]
-<images/Gasto_Educacion.pdf, id=250, 1084.05pt x 433.62pt>
+<images/Gasto_Educacion.pdf, id=251, 1084.05pt x 433.62pt>
 File: images/Gasto_Educacion.pdf Graphic file (type pdf)
 
 <use images/Gasto_Educacion.pdf>
@@ -1495,7 +1495,7 @@ LaTeX Info: Redefining \% on input line 132.
 LaTeX Info: Redefining \. on input line 137.
 LaTeX Info: Redefining \% on input line 137.
 
-[13] <images/Tasa_Desempleo.pdf, id=273, 1084.05pt x 433.62pt>
+[13] <images/Tasa_Desempleo.pdf, id=274, 1084.05pt x 433.62pt>
 File: images/Tasa_Desempleo.pdf Graphic file (type pdf)
 
 <use images/Tasa_Desempleo.pdf>
@@ -1529,46 +1529,46 @@ LaTeX Info: Redefining \. on input line 30.
 LaTeX Info: Redefining \% on input line 30.
 
 [20]
-LaTeX Info: Redefining \. on input line 51.
-LaTeX Info: Redefining \% on input line 51.
+LaTeX Info: Redefining \. on input line 62.
+LaTeX Info: Redefining \% on input line 62.
  [21]
-LaTeX Info: Redefining \. on input line 65.
-LaTeX Info: Redefining \% on input line 65.
+LaTeX Info: Redefining \. on input line 69.
+LaTeX Info: Redefining \% on input line 69.
  [22]
-LaTeX Info: Redefining \. on input line 97.
-LaTeX Info: Redefining \% on input line 97.
+LaTeX Info: Redefining \. on input line 88.
+LaTeX Info: Redefining \% on input line 88.
  [23]
-LaTeX Info: Redefining \. on input line 127.
-LaTeX Info: Redefining \% on input line 127.
+LaTeX Info: Redefining \. on input line 126.
+LaTeX Info: Redefining \% on input line 126.
  [24]
-LaTeX Info: Redefining \. on input line 152.
-LaTeX Info: Redefining \% on input line 152.
+LaTeX Info: Redefining \. on input line 151.
+LaTeX Info: Redefining \% on input line 151.
  [25]
-LaTeX Info: Redefining \. on input line 181.
-LaTeX Info: Redefining \% on input line 181.
+LaTeX Info: Redefining \. on input line 176.
+LaTeX Info: Redefining \% on input line 176.
  [26]
-LaTeX Info: Redefining \. on input line 200.
-LaTeX Info: Redefining \% on input line 200.
+LaTeX Info: Redefining \. on input line 205.
+LaTeX Info: Redefining \% on input line 205.
  [27]
-LaTeX Info: Redefining \. on input line 243.
-LaTeX Info: Redefining \% on input line 243.
+LaTeX Info: Redefining \. on input line 222.
+LaTeX Info: Redefining \% on input line 222.
  [28]
-LaTeX Info: Redefining \. on input line 256.
-LaTeX Info: Redefining \% on input line 256.
+LaTeX Info: Redefining \. on input line 260.
+LaTeX Info: Redefining \% on input line 260.
  [29]
-Overfull \hbox (2.28616pt too wide) in paragraph at lines 339--405
+LaTeX Info: Redefining \. on input line 276.
+LaTeX Info: Redefining \% on input line 276.
+ [30]
+Overfull \hbox (2.28616pt too wide) in paragraph at lines 356--422
  [][] 
  []
 
 
-Overfull \hbox (2.28616pt too wide) in paragraph at lines 492--544
+Overfull \hbox (2.28616pt too wide) in paragraph at lines 509--561
  [][] 
  []
 
 )
-LaTeX Info: Redefining \. on input line 186.
-LaTeX Info: Redefining \% on input line 186.
- [30]
 LaTeX Info: Redefining \. on input line 186.
 LaTeX Info: Redefining \% on input line 186.
  [31]
@@ -1581,6 +1581,14 @@ LaTeX Info: Redefining \% on input line 186.
 LaTeX Info: Redefining \. on input line 186.
 LaTeX Info: Redefining \% on input line 186.
  [34]
+LaTeX Info: Redefining \. on input line 186.
+LaTeX Info: Redefining \% on input line 186.
+ [35]
+LaTeX Info: Redefining \. on input line 186.
+LaTeX Info: Redefining \% on input line 186.
+ [36
+
+]
 Cap\'{\i }tulo 3.
 (./chapters/chapter04_1.tex
 
@@ -1591,43 +1599,41 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `math shift' on input line 4.
 
-[35
-
-]
+[37]
 LaTeX Info: Redefining \. on input line 30.
 LaTeX Info: Redefining \% on input line 30.
- [36]
+ [38]
 LaTeX Info: Redefining \. on input line 41.
 LaTeX Info: Redefining \% on input line 41.
- [37]
+ [39]
 LaTeX Info: Redefining \. on input line 73.
 LaTeX Info: Redefining \% on input line 73.
- [38]
+ [40]
 LaTeX Info: Redefining \. on input line 104.
 LaTeX Info: Redefining \% on input line 104.
- [39]
+ [41]
 LaTeX Info: Redefining \. on input line 117.
 LaTeX Info: Redefining \% on input line 117.
- [40]
+ [42]
 LaTeX Info: Redefining \. on input line 130.
 LaTeX Info: Redefining \% on input line 130.
- [41]
+ [43]
 LaTeX Info: Redefining \. on input line 152.
 LaTeX Info: Redefining \% on input line 152.
- [42]
+ [44]
 LaTeX Info: Redefining \. on input line 177.
 LaTeX Info: Redefining \% on input line 177.
- [43]
+ [45]
 LaTeX Info: Redefining \. on input line 186.
 LaTeX Info: Redefining \% on input line 186.
- [44]) (./chapters/chapter04_2.tex
+ [46]) (./chapters/chapter04_2.tex
 LaTeX Info: Redefining \. on input line 12.
 LaTeX Info: Redefining \% on input line 12.
 
-[45]
+[47]
 LaTeX Info: Redefining \. on input line 32.
 LaTeX Info: Redefining \% on input line 32.
- [46pdfTeX warning (ext4): destination with the same identifier (name{equation.
+ [48pdfTeX warning (ext4): destination with the same identifier (name{equation.
 3.2.16}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
@@ -1636,7 +1642,7 @@ l.32
      ]
 LaTeX Info: Redefining \. on input line 70.
 LaTeX Info: Redefining \% on input line 70.
- [47pdfTeX warning (ext4): destination with the same identifier (name{equation.
+ [49pdfTeX warning (ext4): destination with the same identifier (name{equation.
 3.2.18}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
@@ -1657,7 +1663,7 @@ l.70 \end{eqnarray}
                    ]
 LaTeX Info: Redefining \. on input line 77.
 LaTeX Info: Redefining \% on input line 77.
- [48]
+ [50]
 
 Package xr Warning: 
 No file chapter04_1.aux
@@ -1666,13 +1672,13 @@ LABELS NOT IMPORTED.
 
 LaTeX Info: Redefining \. on input line 85.
 LaTeX Info: Redefining \% on input line 85.
-[49]
+[51]
 LaTeX Info: Redefining \. on input line 118.
 LaTeX Info: Redefining \% on input line 118.
- [50]
+ [52]
 LaTeX Info: Redefining \. on input line 145.
 LaTeX Info: Redefining \% on input line 145.
- [51]
+ [53]
 Overfull \hbox (2.60378pt too wide) detected at line 168
 \OML/cmm/m/it/12 ln\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 L[]\OT1/cmr/m/n/12 (\OML/c
 mm/m/it/12 ^^L\OT1/cmr/m/n/12 )) = \OMS/cmsy/m/n/12 ^^@[]\OT1/cmr/m/n/12 (\OML/
@@ -1682,10 +1688,10 @@ cmm/m/it/12 ln\OT1/cmr/m/n/12 (2\OML/cmm/m/it/12 ^^Y\OT1/cmr/m/n/12 ) + 1) \OMS
 
 LaTeX Info: Redefining \. on input line 177.
 LaTeX Info: Redefining \% on input line 177.
-[52]
+[54]
 LaTeX Info: Redefining \. on input line 199.
 LaTeX Info: Redefining \% on input line 199.
- [53]pdfTeX warning (ext4): destination with the same identifier (name{equation
+ [55]pdfTeX warning (ext4): destination with the same identifier (name{equation
 .3.2.33}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
@@ -1700,21 +1706,21 @@ Overfull \hbox (25.80188pt too wide) detected at line 202
 
 LaTeX Info: Redefining \. on input line 231.
 LaTeX Info: Redefining \% on input line 231.
-[54]
+[56]
 Overfull \hbox (10.31235pt too wide) in alignment at lines 243--248
  [][][] []
  []
 
 LaTeX Info: Redefining \. on input line 255.
 LaTeX Info: Redefining \% on input line 255.
-[55]
+[57]
 Overfull \hbox (9.92322pt too wide) in alignment at lines 261--266
  [][][] []
  []
 
 LaTeX Info: Redefining \. on input line 277.
 LaTeX Info: Redefining \% on input line 277.
-[56pdfTeX warning (ext4): destination with the same identifier (name{equation.3
+[58pdfTeX warning (ext4): destination with the same identifier (name{equation.3
 .2.39}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
@@ -1729,21 +1735,21 @@ l.277
       ])
 LaTeX Info: Redefining \. on input line 190.
 LaTeX Info: Redefining \% on input line 190.
- [57]
+ [59]
 LaTeX Info: Redefining \. on input line 190.
 LaTeX Info: Redefining \% on input line 190.
- [58
+ [60
 
 ]
 Cap\'{\i }tulo 4.
-(./chapters/chapter05.tex [59]
+(./chapters/chapter05.tex [61]
 LaTeX Info: Redefining \. on input line 58.
 LaTeX Info: Redefining \% on input line 58.
- [60]
+ [62]
 LaTeX Info: Redefining \. on input line 97.
 LaTeX Info: Redefining \% on input line 97.
- [61]
-<images/Graf_rel_coint.pdf, id=602, 614.295pt x 794.97pt>
+ [63]
+<images/Graf_rel_coint.pdf, id=618, 614.295pt x 794.97pt>
 File: images/Graf_rel_coint.pdf Graphic file (type pdf)
 
 <use images/Graf_rel_coint.pdf>
@@ -1754,11 +1760,11 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 LaTeX Info: Redefining \. on input line 125.
 LaTeX Info: Redefining \% on input line 125.
- [62])
+ [64])
 (./chapters/chapter06.tex
 LaTeX Info: Redefining \. on input line 8.
 LaTeX Info: Redefining \% on input line 8.
- [63 <./images/Graf_rel_coint.pdf>]
+ [65 <./images/Graf_rel_coint.pdf>]
 Overfull \hbox (10.06747pt too wide) in paragraph at lines 14--41
  [] 
  []
@@ -1768,8 +1774,8 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 LaTeX Info: Redefining \. on input line 44.
 LaTeX Info: Redefining \% on input line 44.
- [64]
-<images/Rel_edu_rec.pdf, id=624, 1084.05pt x 433.62pt>
+ [66]
+<images/Rel_edu_rec.pdf, id=640, 1084.05pt x 433.62pt>
 File: images/Rel_edu_rec.pdf Graphic file (type pdf)
 
 <use images/Rel_edu_rec.pdf>
@@ -1777,14 +1783,14 @@ Package pdftex.def Info: images/Rel_edu_rec.pdf used on input line 51.
 (pdftex.def)             Requested size: 398.32983pt x 159.33192pt.
 LaTeX Info: Redefining \. on input line 54.
 LaTeX Info: Redefining \% on input line 54.
- [65]
+ [67]
 LaTeX Info: Redefining \. on input line 69.
 LaTeX Info: Redefining \% on input line 69.
- [66 <./images/Rel_edu_rec.pdf>]
+ [68 <./images/Rel_edu_rec.pdf>]
 LaTeX Info: Redefining \. on input line 101.
 LaTeX Info: Redefining \% on input line 101.
- [67]
-<images/Hist_rel_coin.pdf, id=652, 1084.05pt x 433.62pt>
+ [69]
+<images/Hist_rel_coin.pdf, id=668, 1084.05pt x 433.62pt>
 File: images/Hist_rel_coin.pdf Graphic file (type pdf)
 
 <use images/Hist_rel_coin.pdf>
@@ -1795,51 +1801,51 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 LaTeX Info: Redefining \. on input line 112.
 LaTeX Info: Redefining \% on input line 112.
- [68]
+ [70]
 LaTeX Info: Redefining \. on input line 147.
 LaTeX Info: Redefining \% on input line 147.
 
-[69 <./images/Hist_rel_coin.pdf>]
+[71 <./images/Hist_rel_coin.pdf>]
 LaTeX Info: Redefining \. on input line 152.
 LaTeX Info: Redefining \% on input line 152.
- [70]
+ [72]
 LaTeX Info: Redefining \. on input line 156.
 LaTeX Info: Redefining \% on input line 156.
- [71])
+ [73])
 LaTeX Info: Redefining \. on input line 194.
 LaTeX Info: Redefining \% on input line 194.
- [72] (./chapters/Conclusiones.tex
-[73
+ [74] (./chapters/Conclusiones.tex
+[75
 
 ]) (./main.bbl
 LaTeX Info: Redefining \. on input line 1.
 LaTeX Info: Redefining \% on input line 1.
- [74] [75
+ [76] [77
 
 ])
 LaTeX Info: Redefining \. on input line 207.
 LaTeX Info: Redefining \% on input line 207.
- [76]
+ [78]
 Ap\'{e}ndice A.
-(./chapters/appendix_1.tex) [77
+(./chapters/appendix_1.tex) [79
 
 ]
 LaTeX Info: Redefining \. on input line 209.
 LaTeX Info: Redefining \% on input line 209.
- [78
+ [80
 
 ]
 Ap\'{e}ndice B.
-(./chapters/appendix_2.tex [79])
+(./chapters/appendix_2.tex [81])
 LaTeX Info: Redefining \. on input line 211.
 LaTeX Info: Redefining \% on input line 211.
- [80]
+ [82]
 
 Package caption Warning: Unused \captionsetup[lstlisting] on input line 106.
 See the caption package documentation for explanation.
 
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 213.
-[81]
+[83]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 213.
  (./main.aux (./titlepage.aux)
 LaTeX Info: Redefining \. on input line 23.
@@ -1860,43 +1866,45 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 213.
 ### simple group (level 1) entered at line 1061 ({)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 22259 strings out of 492995
- 373255 string characters out of 6132704
+ 22266 strings out of 492995
+ 373308 string characters out of 6132704
  508389 words of memory out of 5000000
  25243 multiletter control sequences out of 15000+600000
  25387 words of font info for 72 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 39i,12n,39p,10393b,2973s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 39i,12n,39p,10393b,2975s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2017/texmf-dist/fonts/enc/dvips/cm-super/cm
 -super-t1.enc}</usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/c
 m/cmbx12.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm
 /cmbx8.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/c
 mex10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cm
-mi12.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmm
-i6.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8
-.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.p
-fb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb
-></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></
-usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr
-/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/
-local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/lo
-cal/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></us
-r/local/texlive/2017/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/
-local/texlive/2017/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/lo
-cal/texlive/2017/texmf-dist/fonts/type1/public/cm-super/sfbx1728.pfb></usr/loca
-l/texlive/2017/texmf-dist/fonts/type1/public/cm-super/sfbx2488.pfb></usr/local/
-texlive/2017/texmf-dist/fonts/type1/public/cm-super/sfcc1200.pfb></usr/local/te
-xlive/2017/texmf-dist/fonts/type1/public/cm-super/sfrm0700.pfb></usr/local/texl
-ive/2017/texmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb></usr/local/texliv
-e/2017/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></usr/local/texlive/
-2017/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/local/texlive/20
-17/texmf-dist/fonts/type1/public/cm-super/sfrm2074.pfb></usr/local/texlive/2017
-/texmf-dist/fonts/type1/public/cm-super/sfsl1200.pfb></usr/local/texlive/2017/t
-exmf-dist/fonts/type1/public/cm-super/sfti1200.pfb>
-Output written on main.pdf (87 pages, 575428 bytes).
+mi10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmm
+i12.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi
+6.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.
+pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pf
+b></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb>
+</usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></u
+sr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/
+local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/loc
+al/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/loca
+l/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/
+texlive/2017/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/lo
+cal/texlive/2017/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/loca
+l/texlive/2017/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/local/
+texlive/2017/texmf-dist/fonts/type1/public/cm-super/sfbx1728.pfb></usr/local/te
+xlive/2017/texmf-dist/fonts/type1/public/cm-super/sfbx2488.pfb></usr/local/texl
+ive/2017/texmf-dist/fonts/type1/public/cm-super/sfcc1200.pfb></usr/local/texliv
+e/2017/texmf-dist/fonts/type1/public/cm-super/sfrm0700.pfb></usr/local/texlive/
+2017/texmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb></usr/local/texlive/20
+17/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></usr/local/texlive/2017
+/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/local/texlive/2017/t
+exmf-dist/fonts/type1/public/cm-super/sfrm2074.pfb></usr/local/texlive/2017/tex
+mf-dist/fonts/type1/public/cm-super/sfsl1200.pfb></usr/local/texlive/2017/texmf
+-dist/fonts/type1/public/cm-super/sfti1200.pfb>
+Output written on main.pdf (89 pages, 625186 bytes).
 PDF statistics:
- 878 PDF objects out of 1000 (max. 8388607)
- 734 compressed objects within 8 object streams
- 231 named destinations out of 1000 (max. 500000)
+ 901 PDF objects out of 1000 (max. 8388607)
+ 753 compressed objects within 8 object streams
+ 238 named destinations out of 1000 (max. 500000)
  256 words of extra memory for PDF output out of 10000 (max. 10000000)
 

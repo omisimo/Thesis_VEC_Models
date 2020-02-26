@@ -5,7 +5,7 @@
 
 En secciones previas, se ha tratado el concepto de cointegración entre dos series  con orden de integración uno, es decir, variables $I(1)$ tales que existe una combinación lineal entre ellas cuyos residuos son estacionarios. Esto nos permite hacer referencia de la relación a largo plazo  existente entre las series, así como proponer un modelo de corrección del error para obtener beneficios de la dinámica de ambas variables. Sin embargo, es tentador  extender el análisis a un caso más general que permita rescatar la información de varias series en un mismo instante. \bigskip 
 
-Es lógico pensar que la definición de cointegración resulta invariante respecto a la suma de variables en el sistema, es decir, si se tienen $k$ series de tiempo cointegradas donde cada una de ellas es integrada de orden $d$ ($I(d)$), entonces existe al menos una combinación lineal que resulta ser estacionaria. En términos matriciales y de acuerdo a la definición de Engle y Granger (1987) se tiene que los componentes del vector $\bar{Z}_t$ se dice que están cointegradas de orden d,b, denotado $\bar{Z}_t \sim CI(d,b)$, si todos los componentes de $\bar{Z}_t$ son $I(d)$ y existe un vector $\alpha$ diferente de cero tal que $\bar{Z}_t = \alpha'\bar{Z}_t \sim I(d-b)$ con $b>0$. El vector $\alpha$ es llamado vector de cointegración. \bigskip 
+Es lógico pensar que la definición de cointegración resulta invariante respecto a la suma de variables en el sistema, es decir, si se tienen $k$ series de tiempo cointegradas donde cada una de ellas es integrada de orden $d$ ($I(d)$), entonces existe al menos una combinación lineal que resulta ser estacionaria. En términos matriciales y de acuerdo a la definición de Engle y Granger (1987) se tiene que los componentes del vector $\bar{Z}_t$ se dice que están cointegradas de orden d,b, denotado $\bar{Z}_t \sim CI(d,b)$, si todos los componentes de $\bar{Z}_t$ son $I(d)$ y existe un vector $\alpha$ diferente de cero tal que $ \alpha'\bar{Z}_t \sim I(d-b)$ con $b>0$. El vector $\alpha$ es llamado vector de cointegración. \bigskip 
 
 
 La metodología de dos pasos de Granger, presentada anteriormente, ayuda a identificar si dos series están cointegradas ajustando cada una de las regresiones lineales del sistema y posteriormente observando si los residuos son estacionarios, dicha estrategia se puede extender fácilmente a un caso más general. Sin embargo, la prueba comienza a mostrar debilidades al aumentar el número de variables en el sistema, ya que en primer lugar, ajustar las regresiones lineales del sistema otorgará únicamente uno de los posibles vectores de cointegración; en segundo lugar, las conclusiones pueden ser ambiguas dependiendo de la variable usada para la normalización y finalmente, al tratarse de una estimación en dos pasos, es posible acarrear errores que provoquen graves consecuencias para el análisis.\bigskip 
@@ -18,7 +18,7 @@ Z_{t}- Z_{t-1} &=& (a_1 - 1) Z_{t-1} +e_t \nonumber \\
 \nabla Z_t &=& \rho Z_{t-1} + e_t \nonumber
 \end{eqnarray}
 
-donde $\rho=(a_1 - 1)$ y las pruebas de hipótesis correspondientes son $H_0: \rho=0$ y $H_a: \rho \neq 0$. Por lo tanto, de manera análoga es posible derivar su versión multivariada 
+donde $\rho=(a_1 - 1)$ y las pruebas de hipótesis correspondientes son $H_0: \rho=0$ y $H_a: \rho \neq 0$. Por lo tanto, de manera análoga es posible derivar su versión multivariada, sea $\bar{Z}_t= \left ( {Z_1}_t, {Z_2}_t, \cdots, {Z_k}_t \right )'$ y $e_t$ es un  vector de ruido blanco Gaussiano de dimensión $(k \times 1)$ entonces se tiene que:
 
 \begin{eqnarray}
 \bar{Z}_t = A \bar{Z}_{t-1} + e_t \nonumber \\
@@ -26,7 +26,7 @@ donde $\rho=(a_1 - 1)$ y las pruebas de hipótesis correspondientes son $H_0: \r
 \nabla \bar{Z}_t = \Pi\bar{Z}_{t-1} + e_t \nonumber 
 \end{eqnarray}
 
-donde $\Pi= (A-I_k)$, $\bar{Z}_t= \left ( {Z_1}_t, {Z_2}_t, \cdots, {Z_k}_t \right )'$,  $e_t$ es un  vector de ruido blanco Gaussiano de dimensión $(k \times 1)$ y las matrices $I$ y $A$ son de dimensión $(k \times k)$, de manera que la prueba de hipótesis a realizar es respecto al rango de la matriz $\Pi$, dicho de otra forma, determinar cuántas relaciones de cointegración se hallan en el sistema.\bigskip 
+donde $\Pi= (A-I_k)$ y las matrices $I$ y $A$ son de dimensión $(k \times k)$, de manera que la prueba de hipótesis a realizar es respecto al rango de la matriz $\Pi$, dicho de otra forma, determinar cuántas relaciones de cointegración se hallan en el sistema.\bigskip 
 
  En consecuencia, si la matriz $\Pi$ es de rango completo indicaría que todos los vectores son linealmente independientes y por lo tanto vectores de cointegración, por lo que se concluye que todas las variables son estacionarias  ya que cualquier combinación lineal de variables estacionarias, es estacionaria. En cambio, si el rango es cero quiere decir que las variables no guardan ningún tipo de asociación a largo plazo y por ende no están cointegradas, finalmente, si $rank(\Pi)=r$ con $r<k$ implica que únicamente existen $r$ combinaciones lineales de los procesos en $\bar{Z}_t$  que son estacionarias.\bigskip 
  

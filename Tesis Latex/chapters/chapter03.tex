@@ -33,19 +33,35 @@ Como mencionamos anteriormente, se deben calcular las medias, varianzas y covari
         \mbox{\emph{Covarianza muestral:}} & \hat{\gamma_k}=\frac{1}{N} \sum_{t=1}^{N-k}(Z_t-\bar{Z})(Z_{t+k}-\bar{Z})  & k=0,1,2,...  \nonumber
 \end{eqnarray} 
 
-A partir de estos términos es posible obtener la función de autocorrelación muestral definida como:
+En donde se puede observar que se está haciendo uso de la varianza y covarianza muestral sesgadas (aplicando el factor $1/N$) y no de los estimadores muestrales insesgados.  Esto se debe a que tanto $\hat{\gamma_0}$ como $\hat{\gamma_k}$ se utilizan para construir matrices de varianzas y covarianzas que resultan ser de interés durante el proceso de estimación, por lo que es crucial que dichas matrices sean no singulares. Si se hiciera uso del estimador muestral insesgado de la varianza y covarianza es posible que la matriz resultante sea singular, a manera de ejemplo, para cualquier $Z_t$ de la forma $Z_t=(a,b,a,b,\cdots)$ en donde $a,b$ son números reales, la matriz de varianzas y covarianzas resulta ser singular. Por lo tanto, la necesidad de obtener matrices no singulares contrapone cualquier deseo por utilizar estimadores muestrales insesgados. De hecho, utilizar la varianza y covarianza muestral sesgada garantiza que se cumplen las siguientes condiciones para cualquier $Z_t$:
+
+\begin{enumerate}%for small alpha-characters within brackets.
+
+\item
+$\hat{\gamma}$ es positiva semi-definida 
+
+\item
+$\hat{\gamma_k}=\hat{\gamma_{-k}}$
+
+\item 
+$\hat{\gamma_0} \geq 0$ 
+
+\item
+$\abs{\hat{\gamma_k}} \leq \hat{\gamma_0}$
+
+\end{enumerate}
+
+
+Finalmente, a partir de estos términos es posible obtener la función de autocorrelación muestral definida como:
 
 \begin{equation}
 \hat{\rho_k}= \frac{\hat{\gamma_k}}{\hat{\gamma_0}}=\frac{\sum_{t=1}^{N-k}(Z_t-\bar{Z})(Z_{t+k}-\bar{Z})}{\sum_{t=1}^{N}(Z_t- \bar{Z} )^2}
 \end{equation}
 
-
-
-
 Si la función de autocorrelación tiende rápidamente a cero, nos enfrentamos ante un proceso estacionario; si por el contrario, el decaimiento de la función es paulatino, quiere decir que las observaciones del proceso muestran una tendencia que las hace depender de  otras observaciones en el tiempo, provocando que el nivel de la serie se vea afectado por dicha tendencia y existan correlaciones distintas a cero en periodos de tiempo distantes. Esto último nos hace pensar que la serie no cumple con alguna de las características de un proceso estacionario de segundo orden. \\
 
 
-Cuando una serie es no estacionaria, no es posible hacer uso de los modelos ARMA y cualquier otro tipo de análisis, como por ejemplo una regresión, se debe realizar con particular precaución, ya que se podría estar en presencia de un fenómeno que Yule en 1926\footnote{Yule, G. U., "Why Do We Sometimes Get Nonsense Correlations Between Time Series-' A Study in Sampling and the nature of Time Series", Journal of the Royal Statistical Society, vol. 89,1926, pp.1-64.} identifica como regresión espuria. Sin embargo, existen herramientas que ayudan a convertir una serie no estacionaria en estacionaria, dichas herramientas son las diferencias estacionarias y diferencias estacionales.\\
+Cuando una serie es no estacionaria, no es posible hacer uso de los modelos más comunes en el análisis de series de tiempo conocidos como autorregresivos y de promedios móviles (ARMA por sus siglas en inglés) y cualquier otro tipo de análisis, como por ejemplo una regresión, se debe realizar con particular precaución, ya que se podría estar en presencia de un fenómeno que Yule en 1926\footnote{Yule, G. U., "Why Do We Sometimes Get Nonsense Correlations Between Time Series-' A Study in Sampling and the nature of Time Series", Journal of the Royal Statistical Society, vol. 89,1926, pp.1-64.} identifica como regresión espuria. Sin embargo, existen herramientas que ayudan a convertir una serie no estacionaria en estacionaria, dichas herramientas son las diferencias estacionarias y diferencias estacionales.\\
 
 Sea el proceso $Z_t$ tal que al aplicar el \textbf{operador diferencia $\nabla$ } se tiene que  $\nabla Z_t=Z_t-Z_{t-1}$. De manera que $\nabla Z_t$ corresponde al cambio en el valor de la variable $Z$ del periodo $t-1$ al periodo $t$, por lo que cuenta con una observación menos que $Z_t$. Al aplicar el operador la serie obtenida es estacionaria en cuanto a su nivel, pues elimina la tendencia polinomial adaptiva que se encontraba en el proceso. \\
 
@@ -71,13 +87,14 @@ Sean $Z_t$, $Y_t$ y $W_t$ tres procesos estocásticos.
  Si $Z_t \sim I(0)$ y  $Y_t \sim I(1)$ entonces $W_t=(Z_t+Y_t) = I(1)$ es decir, una combinación lineal entre un proceso estacionario y uno no estacionario es no estacionario.
 
 \item
-Si $Z_t \sim I(d)$ entonces $W_t=(a+bZ_t) \sim I(d)$, donde $a$ y $b$ son constantes. Una combinación lineal de un proceso no estacionario, es no estacionario. Por lo tanto, la combinación lineal de un proceso estacionario continúa siendo estacionario.
+Si $Z_t \sim I(d)$ entonces $W_t=(a+bZ_t) \sim I(d)$, donde $a$ y $b$ son constantes. Una combinación lineal de un proceso estocástico de orden $d$ también es de orden $d$. Por lo tanto, la combinación lineal de un proceso estacionario también es un proceso estacionario.
 
 \item 
-Si $Z_t \sim I(d_1)$ y $Y_t \sim I(d_2)$ entonces $W_t=(aZ_t+bY_t) \sim I(d_2)$ ya que $d_1<d_2$.
+Sean $d_1,d_2 \geq 0$ tales que  $d_1<d_2$. Si $Z_t \sim I(d_1)$ y $Y_t \sim I(d_2)$ entonces $W_t=(aZ_t+bY_t) \sim I(d_2)$.
+
 
 \item
-Si $Z_t \sim I(d)$  y $Y_t \sim I(d)$ entonces $W_t=(aZ_t+bY_t) \sim I(d^*)$ donde $d^*$ generalmente es igual a $d$, aunque en ocasiones $d^* < d$. 
+Si $Z_t \sim I(d)$  y $Y_t \sim I(d)$ entonces existen escalares $a,b$ tales que $W_t=(aZ_t+bY_t) \sim I(d^*)$ donde $d^* \leq d$; generalmente es igual a $d$, aunque en ocasiones $d^* < d$. Esta propiedad será de interés en los siguientes capítulos pues es en esencia el concepto de cointegración.
 
 \end{enumerate}
 
@@ -123,7 +140,7 @@ donde  el t\'ermino $sa_1^t$ se agrega para poder brindar soluciones particulare
 
 lo cual  indica que el proceso determinista alcanzará un punto de equilibrio en el largo plazo. Por otro lado, si $a_1=1$ entonces el proceso diverge, ya que el cociente $\frac{a_0}{1-a_1}$ quedaría indeterminado y si  $\left | a_1 \right |>1$ el proceso no converge y por lo tanto jamás tenderá a estabilizarse.\\
 
-Ahora que se entiende la problemática que existe cuando se tienen raíces unitarias en procesos deterministas, es oportuno llevar estos resultados a procesos estocásticos, de manera que si definimos a la constante $a_1=1$, la constante $a_0=(1-L)Z_0$ y agregamos una variable aleatoria que depende del tiempo $e_t$\footnote{ Mejor conocida como ruido blanco} con media cero, varianza constante $\sigma_e^2$ y no correlacionada, tendríamos al siguiente proceso:
+Ahora que se entiende la problemática que existe cuando se tienen raíces unitarias en procesos deterministas, es oportuno llevar estos resultados a procesos estocásticos, de manera que si definimos a la constante $a_1=1$, la constante $a_0=(1-L)Z_0$ y agregamos una variable aleatoria que depende del tiempo\footnote{ Mejor conocida como ruido blanco} $e_t$ con media cero, varianza constante $\sigma_e^2$ y con $e_1,e_2,\cdots, e_t$ independientes para toda $t>0$, tendríamos al siguiente proceso:
 
 \begin{equation}
 Z_t= Z_{t-1} + a_0 + e_t
@@ -151,19 +168,19 @@ Este proceso contiene el valor obtenido en el periodo pasado más un error en ca
 Por lo que podemos observar que no cumple con los supuestos que requiere la estacionariedad de segundo orden, pues la varianza aumenta conforme se avanza en el tiempo causando que el proceso no regrese a su nivel esperado. Por el contrario, si el valor absoluto de la constante $a_1$ es menor que la unidad, entonces el proceso es estacionario y se demuestra calculando nuevamente los momentos de primer y segundo orden, para facilitar la operación reexpresamos al proceso usando la serie geométrica de la siguiente manera:
 
 \begin{equation}\label{eq:AR_MA}
-\tilde{Z}_t=(1-a_1L)^{-1}e_t=e_t+a_1e_{t-1}+a_1^2e_{t-2}+ a_1^3e_{t-3}+...
+\tilde{Z}_t=(1-a_1L)^{-1}e_t=e_t+a_1e_{t-1}+a_1^2e_{t-2}+ a_1^3e_{t-3}+... \quad \text{si $\abs{a}<1$}
 \end{equation} 
 
 Por lo tanto, la media y la varianza del proceso son
 
  \begin{eqnarray}
- E(\tilde{Z}_t) &  =&  E(e_t) + a_1E(e_{t-1})+ a_1^2E(e_{t-2})+...= 0 \nonumber  \\ 
+ E(\tilde{Z}_t) &  =&  E(e_t) + a_1E(e_{t-1})+ a_1^2E(e_{t-2})+...= 0 \quad \text{si $\abs{a_1}<1$} \nonumber  \\ 
          &  &    \\
-         Var(\tilde{Z}_t) & =& \sigma^2_e (1+a_1^2+ a_1^4+ ...)= \frac{\sigma_e^2}{(1-a_1^2)}  \nonumber \\
+         Var(\tilde{Z}_t) & =& \sigma^2_e (1+a_1^2+ a_1^4+ ...)= \frac{\sigma_e^2}{(1-a_1^2)}  \quad \text{si $\abs{a_1}<1$} \nonumber \\
  & &  \nonumber 
 \end{eqnarray}
 
-Que demuestran estacionariedad de segundo orden ya que ninguna depende del tiempo. Por lo anterior, es de nuestro interés hacer pruebas sobre el valor de $a_1$ para determinar si es estadísticamente igual a la unidad, por lo tanto, en la prueba de hipótesis correspondiente, se tendría como hipótesis nula el hecho de que $a_1=1$ que implicaría no estacionariedad en el proceso, mientras que la hipótesis alternativa abarca los posibles valores de $a_1$ que proporcionan un proceso estable:
+Que demuestran estacionariedad de segundo orden ya que ninguna depende del tiempo. Por lo anterior, es de nuestro interés hacer pruebas sobre el valor de $a_1$ para determinar si es estadísticamente igual a la unidad, por lo tanto, en la prueba de hipótesis correspondiente, se tendría como hipótesis nula el hecho de que $a_1=1$ que implicaría no estacionariedad en el proceso, mientras que la hipótesis alternativa abarca los posibles valores de $a_1$ que proporcionan un proceso estable\footnote{Aunque el caso general debería abarcar cualquier valor de $a_1$, aquí se limitará la discusión a los posibles valores de $a_1$ que proporcionan un proceso estable} :
 
    \begin{eqnarray}
     H_0: a_1=1 &  &  H_a: a_1 <1   \\ 
@@ -188,7 +205,7 @@ donde $\rho=(a_1-1)$ de manera que las nuevas hipótesis nula y alternativa son:
    \end{eqnarray} 
 
 
- Así que $\rho=0$ implica que $a_1=1$ tratándose de un proceso no estacionario, mientras que si se rechaza la hipótesis nula tendremos un proceso estable, la parte $\left | \rho \right |>1$ no se considera pues la serie sería explosiva. Esta última prueba es la llamada \textbf{Prueba de Dickey-Fuller} y es complemento formal a los m\'etodos ya mencionados, como la gráfica de los valores de la serie respecto al tiempo, el uso del autocorrelograma y la varianza muestral para determinar estacionariedad, así como el número de diferencias necesarias para convertir la serie en estacionaria.\\
+ Así que $\rho=0$ implica que $a_1=1$ tratándose de un proceso no estacionario, mientras que si se rechaza la hipótesis nula tendremos un proceso estable, la parte $\left | a_1 \right |>1$ no se considera pues la serie sería explosiva. Esta última prueba es la llamada \textbf{Prueba de Dickey-Fuller} y es complemento formal a los m\'etodos ya mencionados, como la gráfica de los valores de la serie respecto al tiempo, el uso del autocorrelograma y la varianza muestral para determinar estacionariedad, así como el número de diferencias necesarias para convertir la serie en estacionaria.\\
  
  Para hacer uso de la prueba, es imprescindible conocer el valor del coeficiente $\rho$ pero como se dijo anteriormente, la prueba es en esencia la misma que para los coeficientes de una regresión, así que se estima este valor por medio de mínimos cuadrados ordinarios. Si $\rho >0$ implica que $a_1>1$ por lo que se puede concluir rápidamente que la serie es no estacionaria, no obstante, si $\rho \leq 0$ se tiene que observar si es estadísticamente diferente de cero, así que se calcula el estadístico de prueba
  
@@ -252,7 +269,7 @@ En donde los tres estadísticos se construyen igual que cualquier prueba $F$:
 
 $$ \phi_i = \frac{[RSS_{restricted}-RSS_{unrestricted}]r}{RSS_{unrestricted}(T-k)}$$
 
-donde $RSS$ son las sumas al cuadrado de los residuales del modelo restringido vs el no restringido, $r$ es el numero de restricciones, $T$ el número de observaciones y $k$ el número de parámetros estimados en el modelo sin restricciones. Por lo tanto, la hipótesis nula es que los datos fueron generados por el modelo con restricciones y la alternativa es que los datos fueron generados por el modelo sin restricciones. Si la restricción no se cumple, la suma de los cuadrados de ambos modelos deberían ser muy similares y por lo tanto $\phi_i$ será pequeña. Así pues, si el valor de $\phi$ es grande querrá decir que se rechaza la hipótesis nula.\\
+donde $RSS$ son las sumas al cuadrado de los residuales del modelo restringido vs el no restringido, $r$ es el numero de restricciones, $T$ el número de observaciones y $k$ el número de parámetros estimados en el modelo sin restricciones. Por lo tanto, la hipótesis nula es que los datos fueron generados por el modelo con restricciones y la alternativa es que los datos fueron generados por el modelo sin restricciones. Si la restricción no se cumple, es decir, se rechaza la hipótesis nula, entonces la suma de los cuadrados de ambos modelos deberían ser muy similares y por lo tanto $\phi_i$ será pequeña. Así pues, si el valor de $\phi$ es grande querrá decir que se rechaza la hipótesis nula.\\
 
 
 Tiempo después, los supuestos de la prueba de Dickey-Fuller se vieron relajados permitiendo que existiera correlación entre los errores, la cual puede surgir cuando el modelo no captura la dinámica completa del proceso, es decir, le faltan elementos para explicar a la variable. Lo anterior se corrige agregando un mayor número de diferencias de primer orden, tantas como sean necesarias para asegurar que la correlación en los residuos desaparezca, estas  se pueden determinar con el gráfico de las autocorrelaciones considerando todas aquellas que sean grandes y descartando de manera formal las que no son necesarias con la significancia de los coeficientes  $\beta_i$, obteniendo así el siguiente proceso general:
